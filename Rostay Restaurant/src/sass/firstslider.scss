@@ -1,0 +1,202 @@
+@mixin flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+body {
+    background-color: #072b31;
+}
+
+section {
+    background-color: #072b31;
+
+    .slider-part {
+        display: flex !important;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+
+        .slider-text {
+            width: 35%;
+            padding-left: 15px;
+            color: white;
+
+            h1 {
+                font-size: 80px;
+                font-weight: 400;
+                text-transform: uppercase;
+                font-family: "Shippori Mincho", serif;
+            }
+
+            p {
+                font-family: "Montserrat", sans-serif;
+                font-size: 18px;
+                font-weight: 500;
+                line-height: 1.6;
+                margin: 25px 0;
+            }
+
+            button {
+                background: none;
+                color: white;
+                padding: 15px 35px;
+                text-transform: uppercase;
+                border-radius: 50px;
+                border: 1px solid white;
+                transition: 0.4s;
+                font-weight: 500;
+                &:hover {
+                    border: 1px solid #f2b612;
+                    background-color: #f2b612;
+                    color: black;
+                }
+            }
+        }
+
+        .slider-images-1 {
+            width: 50%;
+            height: 110vh;
+            background-image: url("https://demo2.themelexus.com/rostay/wp-content/uploads/2025/02/h1-slider1-1.jpg");
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            position: relative;
+            border-top-left-radius: 300px;
+
+            img {
+                position: absolute;
+                left: -20%;
+                top: 150px;
+                border-bottom-left-radius: 200px;
+                border-bottom-right-radius: 200px;
+                animation: animated-part 4s infinite;
+            }
+        }
+        .slider-images-2 {
+            width: 50%;
+            height: 110vh;
+            background-image: url("https://demo2.themelexus.com/rostay/wp-content/uploads/2025/03/h1-slider2-1.jpg");
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            position: relative;
+            border-top-left-radius: 300px;
+
+            img {
+                position: absolute;
+                left: -20%;
+                top: 150px;
+                border-bottom-left-radius: 200px;
+                border-bottom-right-radius: 200px;
+                animation: animated-part 4s infinite;
+            }
+        }
+        .slider-images-3 {
+            width: 50%;
+            height: 110vh;
+            background-image: url("https://demo2.themelexus.com/rostay/wp-content/uploads/2025/03/h1-slider3-1.jpg");
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            position: relative;
+            border-top-left-radius: 300px;
+
+            img {
+                position: absolute;
+                left: -20%;
+                top: 150px;
+                border-bottom-left-radius: 200px;
+                border-bottom-right-radius: 200px;
+                animation: animated-part 4s infinite;
+            }
+        }
+    }
+}
+
+@keyframes animated-part {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(20px);
+    }
+}
+
+@media (max-width:1024px){
+    section {
+        .slider-part {
+            .slider-text {
+                h1 {
+                    font-size: 60px;
+                }
+                p{
+                    font-size: 16px;
+                }
+                button {
+                    font-size: 16px;
+                }
+            }
+            .slider-images-1, .slider-images-2, .slider-images-3 {
+                
+                img {
+                    display: none   ;
+                }
+            }
+        }
+    }
+}
+@media (max-width:640px){
+    section {
+        .slider-part {
+            .slider-text {
+                h1 {
+                    font-size: 45px;
+                }
+                p{
+                    font-size: 14px;
+                }
+                button {
+                    font-size: 13px;
+                    padding: 15px 20px;
+                }
+            }
+            .slider-images-1, .slider-images-2, .slider-images-3 {
+                border-top-left-radius: 250px;
+                img {
+                    display: none;
+                }
+            }
+        }
+    }
+}
+@media (max-width:480px){
+    section {
+        .slider-part {
+            .slider-text {
+                h1 {
+                    font-size: 35px;
+                }
+                p{
+                    font-size: 14px;
+                }
+                button {
+                    font-size: 12px;
+                    padding: 15px;
+                }
+            }
+            .slider-images-1, .slider-images-2, .slider-images-3 {
+                border-top-left-radius: 300px;
+                img {
+                    display: none;
+                }
+            }
+        }
+    }
+}
