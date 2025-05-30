@@ -1,0 +1,23 @@
+.luxury-section {
+    width: 100%;
+
+    .luxury-left-part {
+        width: 50%;
+
+        .luxury-left-text {
+            width: 100%;
+        }
+
+        .luxury-image {
+            width: 50%;
+
+            .luxury-image-slider {
+                width: 100%;
+                img {
+                    width: 100%;
+                }
+            }
+
+        }
+    }
+}
