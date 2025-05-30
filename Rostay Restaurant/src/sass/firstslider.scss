@@ -4,11 +4,7 @@
     align-items: center;
 }
 
-body {
-    background-color: #072b31;
-}
-
-section {
+.slider-section {
     background-color: #072b31;
 
     .slider-part {
@@ -38,6 +34,8 @@ section {
             }
 
             button {
+                @include flex();
+                gap: 7px;
                 background: none;
                 color: white;
                 padding: 15px 35px;
@@ -46,10 +44,11 @@ section {
                 border: 1px solid white;
                 transition: 0.4s;
                 font-weight: 500;
+                font-family: 'Montserrat', sans-serif;
                 &:hover {
                     border: 1px solid #f2b612;
                     background-color: #f2b612;
-                    color: black;
+                    color: #072b31;
                 }
             }
         }
@@ -130,7 +129,7 @@ section {
 }
 
 @media (max-width:1024px){
-    section {
+    .slider-section {
         .slider-part {
             .slider-text {
                 h1 {
@@ -146,14 +145,14 @@ section {
             .slider-images-1, .slider-images-2, .slider-images-3 {
                 
                 img {
-                    display: none   ;
+                    display: none;
                 }
             }
         }
     }
 }
 @media (max-width:640px){
-    section {
+    .slider-section {
         .slider-part {
             .slider-text {
                 h1 {
@@ -177,7 +176,7 @@ section {
     }
 }
 @media (max-width:480px){
-    section {
+    .slider-section {
         .slider-part {
             .slider-text {
                 h1 {

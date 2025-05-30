@@ -94,7 +94,7 @@ header {
     }
 }
 
-@media(max-width:1016px) {
+@media(max-width:1058px) {
     header {
         background-color: #072b31;
         height: 85px;
@@ -179,13 +179,10 @@ header {
 
             .icon-part-list {
                 display: flex;
-                // flex-direction: row;
                 background-color: white;
                 color: #072b31;
                 flex-direction: row;
                 position: fixed;
-                // left: 10px;
-                // top: 75px;
                 bottom: -16px;
                 height: 50px;
                 gap: 11px;
