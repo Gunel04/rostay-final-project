@@ -6,6 +6,7 @@ import "../node_modules/bootstrap/dist/js/bootstrap.bundle.js";
 import "./sass/header.scss";
 import "./sass/firstslider.scss";
 import "./sass/welcometorostay.scss";
+import "./sass/timeofluxury.scss";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
