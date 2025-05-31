@@ -1,23 +1,297 @@
+// .plate-image {
+//     // background-color: #083338;
+//     text-align: center;
+//     // padding-top: -200px;
+// }
+
+
 .luxury-section {
     width: 100%;
+    display: flex;
+    justify-content: space-around;
+    background-color: #072b31;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    padding: 100px 0 200px 0;
 
     .luxury-left-part {
-        width: 50%;
+        width: 45%;
 
         .luxury-left-text {
-            width: 100%;
+            width: 80%;
+            padding-left: 50px;
+
+            h6 {
+                font-size: 14px;
+                color: #f2b612;
+                text-transform: uppercase;
+                font-weight: 600;
+                letter-spacing: 2.5px;
+            }
+
+            h1 {
+                font-size: 55px;
+                font-family: 'Shippori Mincho', serif;
+                text-transform: uppercase;
+                margin: 30px 0;
+            }
+
+            ul {
+                list-style: none;
+                padding-left: 0;
+                line-height: 1.8;
+                margin-bottom: 30px;
+            }
         }
 
         .luxury-image {
-            width: 70%;
+            width: 100%;
 
             .luxury-image-slider {
                 width: 100%;
+
                 img {
+                    padding: 0 7px;
                     width: 100%;
                 }
             }
+        }
+    }
 
+    .luxury-right-part {
+        width: 48%;
+
+        .luxury-right-image {
+            width: 100%;
+
+            img {
+                width: 100%;
+            }
+        }
+
+        .luxury-right-text {
+            display: flex;
+            margin: 40px 0;
+
+            .breakfast,
+            .lunch-dinner {
+                h5 {
+                    font-size: 20px;
+                    text-transform: uppercase;
+                    margin: 20px 0;
+                }
+
+                ul {
+                    list-style: none;
+                    padding-left: 0;
+                    line-height: 1.8;
+                }
+            }
+
+            .breakfast {
+                ul {
+                    margin-right: 40px;
+
+                }
+            }
+        }
+
+        button {
+            background: none;
+            color: white;
+            padding: 15px 35px;
+            text-transform: uppercase;
+            border-radius: 50px;
+            border: 1px solid white;
+            transition: 0.4s;
+            font-weight: 600;
+            font-size: 14px;
+            font-family: 'Montserrat', sans-serif;
+
+            &:hover {
+                border: 1px solid #f2b612;
+                background-color: #f2b612;
+                color: #083338;
+            }
+        }
+    }
+}
+
+@media (max-width:1145px) {
+    .luxury-section {
+        .luxury-left-part {
+            .luxury-left-text {
+                padding-left: 35px;
+
+                h1 {
+                    font-size: 45px;
+                }
+
+                ul {
+                    font-size: 14.5px;
+                }
+            }
+
+        }
+
+        .luxury-right-part {
+
+            .luxury-right-text {
+                margin: 20px 0;
+
+                .breakfast,
+                .lunch-dinner {
+                    font-size: 14.5px;
+                }
+
+                .breakfast {
+                    ul {
+                        margin-right: 15px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width:1024px) {
+    .luxury-section {
+        .luxury-left-part {
+            width: 43%;
+
+            .luxury-left-text {
+                padding-left: 30px;
+
+                h1 {
+                    font-size: 40px;
+                }
+
+                ul {
+                    font-size: 14px;
+                }
+            }
+
+        }
+
+        .luxury-right-part {
+            width: 52%;
+
+            .luxury-right-text {
+                margin: 20px 0;
+
+                .breakfast,
+                .lunch-dinner {
+                    font-size: 14px;
+                }
+
+                .breakfast {
+                    ul {
+                        margin-right: 13px;
+                    }
+                }
+
+            }
+
+            button {
+                font-size: 13px;
+            }
+        }
+    }
+}
+
+@media (max-width:1002px) {
+    .luxury-section {
+        .luxury-left-part {
+            .luxury-left-text {
+                padding-left: 30px;
+
+                h1 {
+                    font-size: 37px;
+                }
+
+                ul {
+                    font-size: 14.5px;
+                }
+            }
+
+        }
+
+        .luxury-right-part {
+
+            .luxury-right-text {
+                margin: 20px 0;
+                flex-direction: column;
+
+                .breakfast,
+                .lunch-dinner {
+                    font-size: 14.5px;
+                }
+
+                .breakfast {
+                    ul {
+                        margin-right: 15px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width:880px) {
+    .luxury-section {
+        flex-direction: column;
+
+        .luxury-left-part {
+            width: 100%;
+
+            .luxury-left-text {
+                width: 95%;
+                text-align: center;
+                padding-left: 0;
+                margin: auto;
+
+                h1 {
+                    font-size: 35px;
+                }
+
+                ul {
+                    font-size: 17px;
+                    text-align: center;
+                }
+            }
+            .luxury-image {
+                width: 97%;
+                margin: auto;
+            }
+
+        }
+
+        .luxury-right-part {
+            width: 100%;
+            .luxury-right-image{
+                width: 96%;
+                margin: 10px auto;
+            }
+
+            .luxury-right-text {
+                margin: 20px 0;
+                text-align: center;
+
+                .breakfast,
+                .lunch-dinner {
+                    font-size: 17px;
+                }
+
+                .breakfast {
+                    ul {
+                        margin-right: 15px;
+                    }
+                }
+            }
+           button {
+            display: block;
+            margin: auto;
+           }
         }
     }
 }
