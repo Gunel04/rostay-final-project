@@ -1,0 +1,199 @@
+.special-menu-section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px 0 100px 0;
+    background-color: #072b31;
+
+    // justify-content: center;
+    h5 {
+        font-size: 14px;
+        color: #f2b612;
+        text-transform: uppercase;
+        font-weight: 600;
+        letter-spacing: 2.5px;
+        margin-bottom: 50px;
+    }
+
+    ul {
+        width: 98%;
+        margin: auto;
+        list-style: none;
+        padding-left: 0;
+
+        li {
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            .img-1 {
+                width: 250px;
+                height: 300px;
+                object-fit: cover;
+                border-top-left-radius: 150px;
+                border-top-right-radius: 150px;
+                opacity: 0;
+                transition: 0.8s;
+                position: absolute;
+                left: 15px;
+                // bottom: 10px;
+                background-color: #072b31;
+
+                // display: none;
+            }
+
+            .img-2 {
+                width: 300px;
+                height: 300px;
+                object-fit: cover;
+                border-radius: 50%;
+                opacity: 0;
+                // display: none;
+                transition: 0.8s;
+                position: absolute;
+                right: 15px;
+                // bottom: 10px;
+                background-color: #072b31;
+
+            }
+
+            p {
+                position: relative;
+                width: 60%;
+                height: 110px;
+                text-transform: uppercase;
+                font-size: 55px;
+                font-family: "Shippori Mincho", sans-serif;
+                display: block;
+                border-top: 1px solid rgba(180, 180, 180, 0.15);
+                border-bottom: 1px solid rgba(180, 180, 180, 0.15);
+                padding: 10px 0;
+                text-align: center;
+                transition: 0.4s;
+                margin: 0 auto;
+
+            }
+
+            &:hover {
+                p {
+                    color: #f2b612;
+                }
+
+                .img-1,
+                .img-2 {
+                    opacity: 1;
+                    transform: translateY(-50px);
+                }
+            }
+        }
+
+
+    }
+
+    button {
+        background: none;
+        color: white;
+        padding: 15px 35px;
+        text-transform: uppercase;
+        border-radius: 50px;
+        border: 1px solid white;
+        transition: 0.4s;
+        font-weight: 600;
+        font-size: 14px;
+        font-family: 'Montserrat', sans-serif;
+        margin: 25px 0;
+
+        &:hover {
+            border: 1px solid #f2b612;
+            background-color: #f2b612;
+            color: #083338;
+        }
+    }
+}
+
+@media (max-width:1024px) {
+    .special-menu-section {
+        ul {
+            li {
+                .img-1 {
+                    width: 250px;
+                    height: 270px;
+                }
+
+                .img-2 {
+                    width: 270px;
+                    height: 270px;
+                }
+
+                p {
+                    font-size: 48px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width:930px) {
+    .special-menu-section {
+        ul {
+            li {
+                .img-1 {
+                    width: 210px;
+                    height: 230px;
+                }
+
+                .img-2 {
+                    display: none;
+                    position: static;
+                }
+
+                p {
+                    width: 70%;
+                    font-size: 43px;
+                    text-align: right;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width:690px) {
+    .special-menu-section {
+        ul {
+            li {
+                .img-1 {
+                    display: none;
+                }
+
+                .img-2 {
+                    display: none;
+                    position: static;
+                }
+
+                p {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: 70%;
+                    font-size: 38px;
+                    text-align: center;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width:500px) {
+    .special-menu-section {
+        ul {
+            li {
+
+                p {
+                    font-size: 32px;
+                }
+            }
+        }
+    }
+}

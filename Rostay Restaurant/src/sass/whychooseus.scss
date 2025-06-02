@@ -1,0 +1,15 @@
+.choose-us-section{
+    width: 98%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    .choose-us-image {
+        width: 45%;
+        img {
+            width: 100%;
+        }
+    }
+    .choose-us-info {
+        width: 50%;
+    }
+}
