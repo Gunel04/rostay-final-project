@@ -1,0 +1,11 @@
+.experience-section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .experience-text {
+        width: 50%;
+        margin: auto;
+        text-align: center;
+    }
+}

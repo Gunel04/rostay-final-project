@@ -5,6 +5,7 @@ import TimeOfLuxury from './home/TimeOfLuxury'
 import SpecialMenu from './home/SpecialMenu'
 import WhyChooseUs from './home/WhyChooseUs'
 import OurCrew from './home/OurCrew'
+import Experience from './home/Experience'
 
 const Home = () => {
   return (
@@ -15,6 +16,7 @@ const Home = () => {
       <SpecialMenu />
       <WhyChooseUs />
       <OurCrew />
+      <Experience />
     </div>
   )
 }

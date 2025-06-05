@@ -10,6 +10,7 @@ import "./sass/timeofluxury.scss";
 import "./sass/specialmenu.scss";
 import "./sass/whychooseus.scss";
 import "./sass/ourcrew.scss";
+import "./sass/experience.scss";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 

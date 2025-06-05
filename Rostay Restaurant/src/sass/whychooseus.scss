@@ -1,3 +1,6 @@
+@import './buttonmixin.scss';
+
+
 .choose-us-section {
     width: 100%;
     display: flex;
@@ -5,6 +8,7 @@
     background-color: #072b31;
     color: white;
     font-family: 'Montserrat', sans-serif;
+    padding: 70px 0;
 
     .choose-us-image {
         width: 50%;
@@ -50,23 +54,7 @@
         }
 
         button {
-            background: none;
-            color: white;
-            padding: 15px 35px;
-            text-transform: uppercase;
-            border-radius: 50px;
-            border: 1px solid white;
-            transition: 0.4s;
-            font-weight: 600;
-            font-size: 14px;
-            font-family: 'Montserrat', sans-serif;
-            margin: 30px 0;
-
-            &:hover {
-                border: 1px solid #f2b612;
-                background-color: #f2b612;
-                color: #083338;
-            }
+            @include button();
         }
     }
 }
