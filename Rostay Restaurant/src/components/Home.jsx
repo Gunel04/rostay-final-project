@@ -4,6 +4,7 @@ import WelcomeToRostay from './home/WelcomeToRostay'
 import TimeOfLuxury from './home/TimeOfLuxury'
 import SpecialMenu from './home/SpecialMenu'
 import WhyChooseUs from './home/WhyChooseUs'
+import OurCrew from './home/OurCrew'
 
 const Home = () => {
   return (
@@ -13,6 +14,7 @@ const Home = () => {
       <TimeOfLuxury />
       <SpecialMenu />
       <WhyChooseUs />
+      <OurCrew />
     </div>
   )
 }

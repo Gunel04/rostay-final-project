@@ -1,6 +1,5 @@
 .choose-us-section {
-    // width: 98%;
-    // margin: auto;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     background-color: #072b31;
@@ -67,6 +66,124 @@
                 border: 1px solid #f2b612;
                 background-color: #f2b612;
                 color: #083338;
+            }
+        }
+    }
+}
+
+@media (max-width:1145px) {
+    .choose-us-section {
+        width: 100%;
+
+        .choose-us-image {
+            width: 50%;
+        }
+
+        .choose-us-info {
+            width: 50%;
+
+            h5 {
+                font-size: 13px;
+            }
+
+            h1 {
+                font-size: 45px;
+            }
+
+            .p-1 {
+                font-size: 17px;
+                font-weight: 500;
+            }
+
+
+        }
+    }
+}
+
+@media (max-width:1024px) {
+    .choose-us-section {
+        width: 100%;
+
+        .choose-us-image {
+            width: 49%;
+        }
+
+        .choose-us-info {
+            width: 50%;
+
+            h5 {
+                font-size: 13px;
+            }
+
+            h1 {
+                font-size: 35px;
+            }
+
+            .p-1 {
+                font-size: 17px;
+                font-weight: 500;
+            }
+
+            .p-2 {
+                font-size: 15.5px;
+            }
+
+            ul {
+                font-size: 15.5px;
+                line-height: 1.8;
+            }
+
+            button {
+                padding: 13px 25px;
+                margin: 15px 0;
+                font-size: 13px;
+            }
+        }
+    }
+}
+
+
+@media (max-width:880px) {
+    .choose-us-section {
+        flex-direction: column;
+        // justify-content: center;
+        align-items: center;
+
+        .choose-us-info {
+            width: 98%;
+            margin: 30px 0;
+            text-align: center;
+
+            h1 {
+                font-size: 30px;
+            }
+        }
+    }
+}
+
+@media (max-width:768px) {
+    .choose-us-section {
+        .choose-us-image {
+            width: 90%;
+            display: flex;
+            justify-content: center;
+
+            img {
+                border-radius: 0px;
+            }
+        }
+    }
+}
+
+@media (max-width:624px) {
+    .choose-us-section {
+        .choose-us-image {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+
+            img {
+                border-radius: 0px;
             }
         }
     }
