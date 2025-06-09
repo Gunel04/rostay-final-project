@@ -8,7 +8,7 @@ const Experience = () => {
                 <h1>Exclusive Rostay Experiences</h1>
             </div>
             <div className="row">
-                <div className="col">
+                <div className="col-md-4 col-lg-4  col-xl-4">
                     <div className="experience-cards">
                         <div className="experience-card-img">
                             <img src="https://demo2.themelexus.com/rostay/wp-content/uploads/2025/03/H3-exclusive-1.jpg" alt="" />
@@ -20,7 +20,7 @@ const Experience = () => {
                         </div>
                     </div>
                 </div>
-                <div className="col">
+                <div className="col-md-4 col-lg-4  col-xl-4">
                     <div className="experience-cards">
                         <div className="experience-card-img">
                             <img className='center-img' src="https://demo2.themelexus.com/rostay/wp-content/uploads/2025/03/H3-exclusive-2.jpg" alt="" />
@@ -32,7 +32,7 @@ const Experience = () => {
                         </div>
                     </div>
                 </div>
-                <div className="col">
+                <div className="col-md-4 col-lg-4  col-xl-4">
                     <div className="experience-cards">
                         <div className="experience-card-img">
                             <img src="https://demo2.themelexus.com/rostay/wp-content/uploads/2025/03/H3-exclusive-3.jpg" alt="" />
