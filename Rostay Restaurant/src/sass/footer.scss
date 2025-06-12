@@ -1,0 +1,136 @@
+@import './buttonmixin.scss';
+
+footer {
+    background-color: #072b31;
+    color: white;
+    padding: 50px 0;
+    font-family: 'Montserrat', sans-serif;
+
+    .first-footer {
+        width: 95%;
+        margin: auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+
+        // img {
+        //     width: 50%;
+        // }
+        .first-footer-right {
+            width: 50%;
+
+            img {
+                width: 350px;
+                object-fit: cover;
+                margin-bottom: 20px;
+            }
+
+            p {
+                margin: 10px 0;
+
+                span {
+                    font-size: 25px;
+                    color: #f2b612;
+                    font-weight: 500;
+                    display: block;
+                }
+            }
+        }
+    }
+
+    .second-footer {
+        width: 85%;
+        margin: 50px auto;
+
+        h4 {
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+
+            li {
+                a {
+                    text-decoration: none;
+                    color: white;
+                    line-height: 2.5;
+                    font-weight: 500;
+                    transition: 0.4s;
+                    font-size: 17px;
+
+                    &:hover {
+                        color: #f2b612;
+                    }
+                }
+            }
+        }
+
+        p {
+            span {
+                color: #f2b612;
+                font-weight: 500;
+            }
+        }
+
+        input {
+            background: none;
+            border: none;
+            border-bottom: 1px solid #f2b612;
+            display: block;
+            margin-bottom: 15px;
+            padding: 10px;
+
+            &::placeholder {
+                color: rgba($color: white, $alpha: 0.6);
+            }
+
+            &:focus-visible {
+                overflow: hidden;
+            }
+        }
+
+        button {
+            @include button();
+        }
+    }
+
+    .third-footer {
+        width: 95%;
+        margin: 30px auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        ul {
+            list-style: none;
+            display: flex;
+            padding-left: 0;
+            gap: 10px;
+
+            li {
+                padding: 10px;
+
+                a {
+                    color: white;
+                    transition: 0.4s;
+
+                    &:hover {
+                        color: #f2b612;
+                    }
+                }
+            }
+        }
+
+        .rights-reserved {
+            p {
+                a {
+                    color: #f2b612;
+                    font-weight: 500;
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+}
