@@ -6,7 +6,7 @@ const Footer = () => {
   return (
     <footer className='container-fluid'>
       <div className="first-footer">
-        <img src="https://demo2.themelexus.com/rostay/wp-content/uploads/2025/02/footer-burger.png" alt="" />
+        <img className='plate' src="https://demo2.themelexus.com/rostay/wp-content/uploads/2025/02/footer-burger.png" alt="" />
         <div className="first-footer-right">
           <img src="https://demo2.themelexus.com/rostay/wp-content/uploads/2025/02/logo.svg" alt="" />
           <p>Delicios Restaurant & Fine dining, 71 Madison Ave, New York, USA</p>
@@ -17,7 +17,7 @@ const Footer = () => {
       <hr />
       <div className="second-footer">
         <div className="row">
-          <div className="col">
+          <div className="col-12 col-sm-12 col-md-12 col-lg-4">
             <h4>Useful links</h4>
             <ul>
               <li><a href="#">Favorite Place</a></li>
@@ -27,7 +27,7 @@ const Footer = () => {
               <li><a href="#">Our Brand</a></li>
             </ul>
           </div>
-          <div className="col">
+          <div className="col-12 col-sm-12 col-md-12 col-lg-4">
             <h4>Favorite Picks</h4>
             <ul>
               <li><a href="#">Coffee Latte</a></li>
@@ -37,7 +37,7 @@ const Footer = () => {
               <li><a href="#">Mocha</a></li>
             </ul>
           </div>
-          <div className="col">
+          <div className="col-12 col-sm-12 col-md-12 col-lg-4">
             <h4>Get News & Offers</h4>
             <p>Subscribe & get <span>10%</span> discount. Get E-mail updates about our latest shop and <span>special offers</span>.</p>
             <input type="text" placeholder='Your Email' />

@@ -1,0 +1,21 @@
+.testimonial-section {
+    background-color: #072b31;
+    color: white;
+
+    .testimonial-slider {
+        .slider-container {
+            gap: 15px;
+            .slide-item {
+                // width: 70%;
+                // margin: 0 10px;
+                background-color: #083338;
+                opacity: 0.2;
+                transition: all 0.3s ease;
+            }
+            .slick-center .slide-item {
+                opacity: 1 !important;
+                transform: scale(1.05);
+            }
+        }
+    }
+}

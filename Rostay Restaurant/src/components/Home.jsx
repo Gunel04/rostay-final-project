@@ -6,6 +6,7 @@ import SpecialMenu from './home/SpecialMenu'
 import WhyChooseUs from './home/WhyChooseUs'
 import OurCrew from './home/OurCrew'
 import Experience from './home/Experience'
+import Testimonials from './home/Testimonials'
 
 const Home = () => {
   return (
@@ -17,6 +18,7 @@ const Home = () => {
       <WhyChooseUs />
       <OurCrew />
       <Experience />
+      <Testimonials />
     </div>
   )
 }
