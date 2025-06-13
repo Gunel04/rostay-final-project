@@ -1,15 +1,17 @@
+import Aos from 'aos'
 import React from 'react'
 
 const Experience = () => {
+    Aos.init();
     return (
         <section className="experience-section container-fluid">
-            <div className="experience-text">
+            <div className="experience-text" data-aos="fade-up" data-aos-duration="1500">
                 <h5>Experience</h5>
                 <h1>Exclusive Rostay Experiences</h1>
             </div>
             <div className="row">
                 <div className="col-md-4 col-lg-4  col-xl-4">
-                    <div className="experience-cards">
+                    <div className="experience-cards" data-aos="zoom-in-up" data-aos-duration="1500">
                         <div className="experience-card-img">
                             <img src="https://demo2.themelexus.com/rostay/wp-content/uploads/2025/03/H3-exclusive-1.jpg" alt="" />
                         </div>
@@ -21,7 +23,7 @@ const Experience = () => {
                     </div>
                 </div>
                 <div className="col-md-4 col-lg-4  col-xl-4">
-                    <div className="experience-cards">
+                    <div className="experience-cards" data-aos="zoom-in-up" data-aos-duration="1500">
                         <div className="experience-card-img">
                             <img className='center-img' src="https://demo2.themelexus.com/rostay/wp-content/uploads/2025/03/H3-exclusive-2.jpg" alt="" />
                         </div>
@@ -33,7 +35,7 @@ const Experience = () => {
                     </div>
                 </div>
                 <div className="col-md-4 col-lg-4  col-xl-4">
-                    <div className="experience-cards">
+                    <div className="experience-cards" data-aos="zoom-in-up" data-aos-duration="1500">
                         <div className="experience-card-img">
                             <img src="https://demo2.themelexus.com/rostay/wp-content/uploads/2025/03/H3-exclusive-3.jpg" alt="" />
                         </div>

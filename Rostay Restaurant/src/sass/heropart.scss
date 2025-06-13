@@ -1,0 +1,52 @@
+main {
+    font-family: 'Montserrat', sans-serif;
+
+    .hero-top-part {
+        position: relative;
+        height: 400px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-image: url('https://demo2.themelexus.com/rostay/wp-content/uploads/2025/02/breadcrumb-about.jpg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        z-index: 1;
+
+        h1 {
+            font-family: 'Shippori Mincho', sans-serif;
+            color: white;
+            text-transform: uppercase;
+            font-size: 65px;
+            margin-bottom: 20px;
+        }
+        h6 {
+            font-size: 14px;
+            color: white;
+            text-transform: uppercase;
+            font-weight: 600;
+            a {
+                color: white;
+                text-decoration: none;
+            }
+            span {
+                color: #f2b612;
+            }
+        }
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.55);
+            z-index: -1;
+        }
+
+
+    }
+
+}

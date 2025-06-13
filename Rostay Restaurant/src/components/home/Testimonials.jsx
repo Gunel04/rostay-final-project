@@ -1,14 +1,16 @@
+import Aos from 'aos';
 import React from 'react'
 import { FaStar } from 'react-icons/fa';
 import Slider from 'react-slick';
 
 const Testimonials = () => {
+    Aos.init();
     var settings = {
         dots: false,
         arrows: false,
         infinite: true,
         speed: 500,
-        autoplay:true,
+        autoplay: true,
         slidesToShow: 3,
         slidesToScroll: 1,
         initialSlide: 0,
@@ -22,7 +24,7 @@ const Testimonials = () => {
                     slidesToShow: 3,
                     slidesToScroll: 1,
                     infinite: true,
-                    dots: true
+                    dots: false
                 }
             },
             {
@@ -31,7 +33,7 @@ const Testimonials = () => {
                     slidesToShow: 1,
                     slidesToScroll: 1,
                     infinite: true,
-                    dots: true
+                    dots: false
                 }
             },
             {
@@ -39,26 +41,29 @@ const Testimonials = () => {
                 settings: {
                     slidesToShow: 1,
                     slidesToScroll: 1,
-                    initialSlide: 2
+                    initialSlide: 2,
+                    dots: false
                 }
             },
             {
                 breakpoint: 480,
                 settings: {
                     slidesToShow: 1,
-                    slidesToScroll: 1
+                    slidesToScroll: 1,
+                    dots: false
+
                 }
             }
         ]
     };
     return (
         <div className="testimonial-section container-fluid">
-            <div className="testimonial-info">
+            <div className="testimonial-info" data-aos="zoom-in-up" data-aos-duration="1500">
                 <h6>Our Happy Clients</h6>
                 <h1>Customers Testimonials</h1>
             </div>
             <div className="testimonial-slider">
-                <div className="slider-container">
+                <div className="slider-container" data-aos="zoom-in" data-aos-duration="1500">
                     <Slider {...settings}>
                         <div className='slide-item'>
                             <FaStar color='#f2b612' />

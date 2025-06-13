@@ -1,8 +1,10 @@
+import Aos from 'aos';
 import React from 'react'
 import { HiOutlineArrowLongRight } from 'react-icons/hi2';
 import Slider from 'react-slick'
 
 const FirstSliderSection = () => {
+    Aos.init();
     var settings = {
         dots: true,
         infinite: true,
@@ -41,9 +43,9 @@ const FirstSliderSection = () => {
     };
     return (
         <>
-            <section className='slider-section'>
+            <section className='slider-section' >
                 <Slider {...settings}>
-                    <div className='slider-part'>
+                    <div className='slider-part' data-aos="zoom-in" data-aos-duration="1500">
                         <div className="slider-text">
                             <h1>The Gourmet Garden</h1>
                             <p>Creative space for food and recipes where you will find healthy culinary inspiration.</p>
@@ -53,7 +55,7 @@ const FirstSliderSection = () => {
                             <img src="https://demo2.themelexus.com/rostay/wp-content/uploads/2025/02/h1-slider1-2.jpg" alt="" />
                         </div>
                     </div>
-                    <div className='slider-part'>
+                    <div className='slider-part' data-aos="zoom-in" data-aos-duration="1500">
                         <div className="slider-text">
                             <h1>The Art of Dining</h1>
                             <p>Inspired flavors, fresh ingredients, and unforgettable experiences.</p>
@@ -63,7 +65,7 @@ const FirstSliderSection = () => {
                             <img src="https://demo2.themelexus.com/rostay/wp-content/uploads/2025/03/h1-slider2-2.jpg" alt="" />
                         </div>
                     </div>
-                    <div className='slider-part'>
+                    <div className='slider-part' data-aos="zoom-in" data-aos-duration="1500">
                         <div className="slider-text">
                             <h1>Savor & Delight</h1>
                             <p>A place to indulge in creativity, taste and togetherness</p>

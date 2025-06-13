@@ -1,11 +1,13 @@
+import Aos from 'aos';
 import React from 'react'
 import { FaFacebookF, FaInstagram, FaLinkedinIn, FaXTwitter } from 'react-icons/fa6';
 import { HiOutlineArrowLongRight } from 'react-icons/hi2';
 
 const Footer = () => {
+  Aos.init();
   return (
     <footer className='container-fluid'>
-      <div className="first-footer">
+      <div className="first-footer" data-aos="fade-up" data-aos-duration="1500">
         <img className='plate' src="https://demo2.themelexus.com/rostay/wp-content/uploads/2025/02/footer-burger.png" alt="" />
         <div className="first-footer-right">
           <img src="https://demo2.themelexus.com/rostay/wp-content/uploads/2025/02/logo.svg" alt="" />
@@ -15,7 +17,7 @@ const Footer = () => {
         </div>
       </div>
       <hr />
-      <div className="second-footer">
+      <div className="second-footer" data-aos="fade-up" data-aos-duration="1500">
         <div className="row">
           <div className="col-12 col-sm-12 col-md-12 col-lg-4">
             <h4>Useful links</h4>
@@ -46,7 +48,7 @@ const Footer = () => {
         </div>
       </div>
       <hr />
-      <div className="third-footer">
+      <div className="third-footer" >
         <ul className="icon-div">
           <li><a href="#"><FaFacebookF /></a></li>
           <li><a href="#"><FaXTwitter /></a></li>

@@ -12,6 +12,7 @@ import "./sass/whychooseus.scss";
 import "./sass/ourcrew.scss";
 import "./sass/experience.scss";
 import "./sass/testimonials.scss";
+import "./sass/heropart.scss";
 import "./sass/footer.scss";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";

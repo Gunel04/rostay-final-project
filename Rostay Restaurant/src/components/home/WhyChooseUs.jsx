@@ -1,14 +1,16 @@
+import Aos from 'aos'
 import React from 'react'
 import { GiCheckMark } from 'react-icons/gi'
 import { HiOutlineArrowLongRight } from 'react-icons/hi2'
 
 const WhyChooseUs = () => {
+    Aos.init();
     return (
         <section className='container-fluid choose-us-section'>
-            <div className="choose-us-image">
+            <div className="choose-us-image" data-aos="fade-right" data-aos-duration="1500">
                 <img src="https://demo2.themelexus.com/rostay/wp-content/uploads/2025/02/h1-banner04.jpg" alt="" />
             </div>
-            <div className="choose-us-info">
+            <div className="choose-us-info" data-aos="fade-up" data-aos-duration="1500">
                 <h5>Why Choose Us</h5>
                 <h1>Enjoying the beautiful things</h1>
                 <p className='p-1'>We are the perfect place to come for a special occasion dinner or a casual meal with friends.</p>

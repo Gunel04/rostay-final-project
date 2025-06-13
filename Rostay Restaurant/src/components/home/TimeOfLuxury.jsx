@@ -1,8 +1,10 @@
+import Aos from 'aos';
 import React from 'react'
 import { HiOutlineArrowLongRight } from 'react-icons/hi2';
 import Slider from 'react-slick';
 
 const TimeOfLuxury = () => {
+    Aos.init();
     var settings = {
         dots: false,
         infinite: true,
@@ -59,7 +61,7 @@ const TimeOfLuxury = () => {
         <>
             {/* <img src="https://demo2.themelexus.com/rostay/wp-content/uploads/2025/02/h1-banner02.png" alt="" /> */}
             <section className='luxury-section container-fluid'>
-                <div className="luxury-left-part">
+                <div className="luxury-left-part" data-aos="zoom-in" data-aos-duration="2000">
                     <div className="luxury-left-text">
                         <h6>Time Of Luxury</h6>
                         <h1>Opening Time Hours</h1>
@@ -70,7 +72,7 @@ const TimeOfLuxury = () => {
                             <li>Holidays: Closed</li>
                         </ul>
                     </div>
-                    <div className="luxury-image">
+                    <div className="luxury-image" data-aos="fade-up" data-aos-duration="2000">
                         <Slider {...settings}>
                             <div className='luxury-image-slider'>
                                 <img src="https://demo2.themelexus.com/rostay/wp-content/uploads/2025/03/gallery-1.jpg" alt="" />
@@ -107,10 +109,10 @@ const TimeOfLuxury = () => {
 
                 </div>
                 <div className="luxury-right-part">
-                    <div className="luxury-right-image">
+                    <div className="luxury-right-image" data-aos="fade-up" data-aos-duration="2000">
                         <img src="https://demo2.themelexus.com/rostay/wp-content/uploads/2025/02/h1-banner03.jpg" alt="" />
                     </div>
-                    <div className="luxury-right-text">
+                    <div className="luxury-right-text" data-aos="zoom-in" data-aos-duration="2000">
                         <div className="breakfast">
                             <h5>Breakfast</h5>
                             <ul>
@@ -130,7 +132,7 @@ const TimeOfLuxury = () => {
                             </ul>
                         </div>
                     </div>
-                    <button>Book a Table <HiOutlineArrowLongRight size={20} /></button>
+                    <button data-aos="fade-up" data-aos-duration="1500">Book a Table <HiOutlineArrowLongRight size={20} /></button>
                 </div>
             </section>
         </>
