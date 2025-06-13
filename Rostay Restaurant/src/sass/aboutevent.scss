@@ -1,0 +1,53 @@
+.about-event-section {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    background-color: #072b31;
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+
+    .about-event-left {
+        width: 46%;
+        text-align: center;
+
+        img {
+            width: 95%;
+            object-fit: contain;
+            border-top-left-radius: 350px;
+            border-top-right-radius: 350px;
+        }
+
+        .about-text-part {
+            width: 83%;
+            margin: 25px auto;
+
+            h1 {
+                font-family: 'Shippori Mincho', sans-serif;
+                text-transform: uppercase;
+                font-size: 35px;
+                margin: 15px 0;
+            }
+
+            button {
+                // width: 150px;
+                background: none;
+                border: none;
+                color: white;
+                background-color: #072b31;
+                font-weight: 600;
+                text-transform: uppercase;
+                font-size: 12px;
+                border-bottom: 1px solid white;
+                letter-spacing: 1.3px;
+                transition: 0.4s;
+                &:hover {
+                    color: #f2b612;
+                    border-bottom: 1px solid #f2b612;
+                }
+                // display: flex;
+                // align-items: center;
+                // justify-content: center;
+            }
+        }
+    }
+}
