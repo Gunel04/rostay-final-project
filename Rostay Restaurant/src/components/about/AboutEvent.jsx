@@ -4,7 +4,7 @@ import { HiOutlineArrowLongRight } from 'react-icons/hi2'
 const AboutEvent = () => {
     return (
         <section className="about-event-section container-fluid">
-            <div className="about-event-left">
+            <div className="about-event-left" data-aos="fade-up" data-aos-duration="2500">
                 <img src="https://demo2.themelexus.com/rostay/wp-content/uploads/2025/03/about-image-box-1.jpg" alt="" />
                 <div className="about-text-part">
                     <h1>Special Event</h1>
@@ -13,7 +13,7 @@ const AboutEvent = () => {
                 </div>
 
             </div>
-            <div className="about-event-left">
+            <div className="about-event-left" data-aos="fade-up" data-aos-duration="2500">
                 <img src="https://demo2.themelexus.com/rostay/wp-content/uploads/2025/03/about-image-box-2.jpg" alt="" />
                 <div className="about-text-part">
                     <h1>Group Booking</h1>
