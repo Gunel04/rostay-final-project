@@ -2,6 +2,7 @@ import Aos from 'aos'
 import React from 'react'
 import { GiCheckMark } from 'react-icons/gi'
 import { HiOutlineArrowLongRight } from 'react-icons/hi2'
+import { Link } from 'react-router-dom'
 
 const WhyChooseUs = () => {
     Aos.init();
@@ -21,7 +22,9 @@ const WhyChooseUs = () => {
                     <li><GiCheckMark color='#f2b612' /> Refund if found dirty food</li>
                     <li><GiCheckMark color='#f2b612' /> Meat & vegetables are always fresh</li>
                 </ul>
-                <button>Get Started <HiOutlineArrowLongRight size={20} /></button>
+                <Link to='/about'>
+                    <button>Get Started <HiOutlineArrowLongRight size={20} /></button>
+                </Link>
             </div>
         </section>
     )

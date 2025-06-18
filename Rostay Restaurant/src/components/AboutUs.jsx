@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import WelcomeSection from './about/WelcomeSection'
 import AboutEvent from './about/AboutEvent'
+import TimeOfLuxury from './home/TimeOfLuxury';
 import Aos from 'aos'
 
 const AboutUs = () => {
@@ -14,6 +15,7 @@ const AboutUs = () => {
           <h6 data-aos="zoom-in" data-aos-duration="2000"><Link to='/'>Home</Link> &gt; <span>About us</span> </h6>
         </div>
         <WelcomeSection />
+        <TimeOfLuxury/>
         <AboutEvent />
       </main>
 

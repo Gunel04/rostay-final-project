@@ -15,6 +15,7 @@ import "./sass/testimonials.scss";
 import "./sass/heropart.scss";
 import "./sass/welcomesection.scss";
 import "./sass/aboutevent.scss";
+import "./sass/ourteam.scss";
 import "./sass/footer.scss";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
