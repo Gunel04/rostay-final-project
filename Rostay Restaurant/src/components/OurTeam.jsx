@@ -1,7 +1,10 @@
-import React from 'react'
+import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
 const OurTeam = () => {
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    });
     return (
         <main>
             <div className="our-team-top-part">
@@ -20,7 +23,7 @@ const OurTeam = () => {
                                 <div className="team-member-image">
                                     <img src="https://demo2.themelexus.com/rostay/wp-content/uploads/2025/02/team-1.jpg" className="card-img-top" alt="..." />
                                 </div>
-                                
+
 
                                 <div className="card-body">
                                     <h3 className='chef-name'>Alfred Mason</h3>
