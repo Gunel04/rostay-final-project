@@ -150,9 +150,20 @@
 @media (max-width:624px) {
     .welcome-to-rostay {
         .welcome-right-image {
-            img {
-                height: 450px;
-            }
+            width: 70%;
+            // img {
+            //     // height: 500px;
+            // }
+        }
+    }
+}
+@media (max-width:520px) {
+    .welcome-to-rostay {
+        .welcome-right-image {
+            width: 80%;
+            // img {
+            //     // height: 500px;
+            // }
         }
     }
 }

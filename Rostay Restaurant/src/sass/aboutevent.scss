@@ -6,7 +6,7 @@
     font-family: 'Montserrat', sans-serif;
     color: white;
 
-    .about-event-left {
+    .about-event {
         width: 46%;
         text-align: center;
 
@@ -40,13 +40,74 @@
                 border-bottom: 1px solid white;
                 letter-spacing: 1.3px;
                 transition: 0.4s;
+
                 &:hover {
                     color: #f2b612;
                     border-bottom: 1px solid #f2b612;
                 }
-                // display: flex;
-                // align-items: center;
-                // justify-content: center;
+
+            }
+        }
+    }
+}
+
+@media (max-width:1024px) {
+    .about-event-section {
+        .about-event {
+            .about-text-part {
+                h1 {
+                    font-size: 32px;
+                }
+
+                p {
+                    font-size: 15px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width:880px) {
+    .about-event-section {
+        .about-event {
+            .about-text-part {
+                h1 {
+                    font-size: 28px;
+                }
+
+                p {
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width:768px) {
+    .about-event-section {
+        flex-direction: column;
+        align-items: center;
+
+        .about-event {
+            width: 95%;
+
+            img {
+                width: 85%;
+            }
+
+            .about-text-part {
+                width: 95%;
+                margin-bottom: 40px;
+            }
+        }
+    }
+}
+
+@media (max-width:425px) {
+    .about-event-section {
+        .about-event {
+            img {
+                width: 100%;
             }
         }
     }

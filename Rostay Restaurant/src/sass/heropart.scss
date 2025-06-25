@@ -61,3 +61,21 @@ main {
         }
     }
 }
+@media (max-width: 520px) {
+    main {
+        .hero-top-part {
+            h1 {
+                font-size: 45px;
+            }
+        }
+    }
+}
+@media (max-width: 400px) {
+    main {
+        .hero-top-part {
+            h1 {
+                font-size: 35px;
+            }
+        }
+    }
+}
