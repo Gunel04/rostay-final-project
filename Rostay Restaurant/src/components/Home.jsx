@@ -13,7 +13,7 @@ const Home = () => {
     <div>
       <FirstSliderSection />
       <WelcomeToRostay />
-      <TimeOfLuxury />
+      {/* <TimeOfLuxury /> */}
       <SpecialMenu />
       <WhyChooseUs />
       <OurCrew />

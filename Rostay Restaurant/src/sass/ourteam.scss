@@ -12,7 +12,6 @@ main {
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
-        background-color: rgb(7, 43, 49);
         z-index: 1;
 
         h1 {
@@ -85,6 +84,7 @@ main {
         .team-members {
             width: 95%;
             margin: auto;
+
             .team-member-cards {
                 width: 85%;
                 margin: auto;
@@ -98,14 +98,139 @@ main {
                     img {
                         width: 100%;
                     }
+
+                    .card-img-top {
+                        border-top-left-radius: 200px;
+                        border-top-right-radius: 200px;
+                    }
+
                 }
+
                 .card-body {
-                    text-align: center;
                     width: 100%;
-                    // margin: auto;
+                    text-align: center;
+                    margin: 25px 0;
+
+                    h4 {
+                        text-transform: uppercase;
+                    }
+
+                    h5 {
+                        font-size: 13px;
+                        color: #f2b612;
+                        text-transform: uppercase;
+                        font-weight: 600;
+                        letter-spacing: 2px;
+                    }
+
+                    p {
+                        color: #bebebe;
+                        padding: 20px 30px;
+                    }
+                }
+
+
+            }
+
+        }
+    }
+}
+
+@media (max-width:1145px) {
+    main {
+        .our-team-top-part {
+            
+        }
+
+        .team-member-container {
+            .team-member-heading {
+                h1 {
+                    font-size: 45px;
+                }
+            }
+
+            .team-members {
+                .team-member-cards {
+                    .team-member-image {
+                        width: 100%;
+                    }
+
+                    .card-body {
+                        p {
+                            padding: 20px 10px;
+                        }
+                    }
                 }
             }
         }
     }
+}
 
+@media (max-width:768px) {
+    main {
+        .our-team-top-part {
+            height: 300px;
+            h1 {
+                font-size: 45px;
+            }
+        }
+
+        .team-member-container {
+            .team-member-heading {
+                h1 {
+
+                }
+            }
+
+            .team-members {
+                .team-member-cards {
+                    .team-member-image {
+                        width: 100%;
+                    }
+
+                    .card-body {
+                        p {
+                            padding: 20px 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width:425px) {
+    main {
+        .our-team-top-part {
+            height: 250px;
+            h1 {
+                font-size: 35px;
+            }
+            h6 {
+                font-size: 13px;
+            }
+        }
+
+        .team-member-container {
+            .team-member-heading {
+                h1 {
+                    font-size: 32px;
+                }
+            }
+
+            .team-members {
+                .team-member-cards {
+                    .team-member-image {
+                        width: 100%;
+                    }
+
+                    .card-body {
+                        p {
+                            padding: 20px 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
