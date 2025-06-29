@@ -30,7 +30,7 @@ const Header = () => {
                 </ul>
                 <ul className={`icon-part-list ${menuOpen ? "active" : ""}`}>
                     <li className="icon-items"><a href="#"><CiSearch /></a></li>
-                    <li className="icon-items"><a href="#"><CiUser /></a></li>
+                    <li className="icon-items"><Link to='/login'><CiUser /> <div className='account'><span>Sign in</span> <span>Account</span></div> </Link></li>
                     <li className="icon-items"><a href="#"><CiHeart /></a></li>
                     <li className="icon-items"><a href="#"><CiShoppingCart /></a></li>
                 </ul>
