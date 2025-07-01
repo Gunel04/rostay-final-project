@@ -26,7 +26,13 @@ const Header = () => {
                     <li className="nav-links"><a href="#">Menu <FaDiamond size={6} style={{ color: "#f2b612" }} /></a></li>
                     <li className="nav-links"><a href="#">Shop <FaDiamond size={6} style={{ color: "#f2b612" }} /></a></li>
                     <li className="nav-links"><a href="#">Blog <FaDiamond size={6} style={{ color: "#f2b612" }} /></a></li>
-                    <li className="nav-links"><a href="#">Contact <FaDiamond size={6} style={{ color: "#f2b612" }} /></a></li>
+                    <li className="nav-links">
+                        <a href="#">Contact <FaDiamond size={6} style={{ color: "#f2b612" }} /></a>
+                        <ul className='dropdown'>
+                            <li className='dropdown-items'><Link to='/contactus'><FaDiamond size={6} style={{ color: "#f2b612", marginRight:"5px"}} /> Contact Us</Link></li>
+                            <li className='dropdown-items'><Link to='/reservation'><FaDiamond size={6} style={{ color: "#f2b612" ,marginRight:"5px"}} /> Reservation</Link></li>
+                        </ul>
+                    </li>
                 </ul>
                 <ul className={`icon-part-list ${menuOpen ? "active" : ""}`}>
                     <li className="icon-items"><a href="#"><CiSearch /></a></li>

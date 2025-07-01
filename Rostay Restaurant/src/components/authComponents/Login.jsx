@@ -18,10 +18,10 @@ const Login = () => {
                     <h1 data-aos="zoom-in" data-aos-duration="2000">My Account</h1>
                     <h6 data-aos="zoom-in" data-aos-duration="2000"><Link to='/'>Home</Link> &gt; <span>My Account</span> </h6>
                 </div>
-                <section className="login-section container-fluid d-flex justify-content-center flex-column align-items-center">
-                    <h1>Login</h1>
+                <section className="login-section container-fluid d-flex justify-content-center flex-column align-items-center" >
+                    <h1 data-aos="fade-up" data-aos-duration="2000">Login</h1>
                     <Col lg={6} md={6} sm={7}>
-                        <form>
+                        <form data-aos="fade-up" data-aos-duration="2000">
                             <div className="mb-3">
                                 <label className="form-label">Email address</label>
                                 <input type="email" className="form-control" placeholder='Enter your email address' />

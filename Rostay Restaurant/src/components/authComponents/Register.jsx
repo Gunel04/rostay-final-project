@@ -22,9 +22,9 @@ const Register = () => {
                 <h6 data-aos="zoom-in" data-aos-duration="2000"><Link to='/'>Home</Link> &gt; <span>My Account</span> </h6>
             </div>
             <section className="login-section container-fluid d-flex justify-content-center flex-column align-items-center">
-                <h1>Register</h1>
+                <h1 data-aos="fade-up" data-aos-duration="2000">Register</h1>
                 <Col lg={6} md={6} sm={7}>
-                    <form>
+                    <form data-aos="fade-up" data-aos-duration="2000">
                         <div className="mb-3">
                             <label className="form-label">Name</label>
                             <input type="text" className="form-control" placeholder='Enter your name' />

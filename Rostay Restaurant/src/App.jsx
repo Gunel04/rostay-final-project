@@ -7,6 +7,8 @@ import AboutUs from './components/AboutUs'
 import OurTeam from './components/OurTeam'
 import Login from './components/authComponents/Login'
 import Register from './components/authComponents/Register'
+import ContactUs from './components/ContactUs'
+import Reservation from './components/Reservation'
 
 const App = () => {
   return (
@@ -19,6 +21,8 @@ const App = () => {
         <Route path='/ourteam' element={<OurTeam />} />
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />
+        <Route path='/contactus' element={<ContactUs />} />
+        <Route path='/reservation' element={<Reservation />} />
 
       </Routes>
       <Footer />
