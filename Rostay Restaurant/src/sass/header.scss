@@ -48,10 +48,9 @@ header {
             margin-top: 15px;
 
             li {
-
                 @include flex-between();
-                // flex-direction: column;
                 position: relative;
+                transition: 0.4s;
 
                 a {
                     @include flex();
@@ -70,6 +69,7 @@ header {
 
                 .dropdown {
                     display: none;
+                    transition: 0.4s;
                 }
 
                 &:hover .dropdown {
@@ -80,7 +80,6 @@ header {
                     top: 100%;
                     background-color: #072b31;
                     padding: 10px 25px;
-                    // margin-top: 10px;
                     box-shadow: 0 0 5px rgba($color: #000000, $alpha: 1.0);
 
                     .dropdown-items {
