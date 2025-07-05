@@ -1,0 +1,211 @@
+@import './buttonmixin.scss';
+
+main {
+    background-color: #072b31;
+    color: white;
+
+    .reservation-top-part {
+        position: relative;
+        height: 400px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-image: url('https://demo2.themelexus.com/rostay/wp-content/uploads/2025/02/breadcrumb-page-1.jpg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-color: rgb(7, 43, 49);
+        z-index: 1;
+
+        h1 {
+            font-family: 'Shippori Mincho', sans-serif;
+            color: white;
+            text-transform: uppercase;
+            font-size: 65px;
+            margin-bottom: 20px;
+        }
+
+        h6 {
+            font-size: 14px;
+            color: white;
+            text-transform: uppercase;
+            font-weight: 600;
+
+            a {
+                color: white;
+                text-decoration: none;
+            }
+
+            span {
+                color: #f2b612;
+            }
+        }
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.55);
+            z-index: -1;
+        }
+    }
+
+    .reservation-section {
+        width: 100%;
+        padding-block: 50px;
+
+        h5 {
+            font-size: 14px;
+            color: #f2b612;
+            text-transform: uppercase;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            letter-spacing: 2.5px;
+        }
+
+        h1 {
+            font-size: 55px;
+            font-family: 'Shippori Mincho', serif;
+            text-transform: uppercase;
+            margin-block: 30px;
+        }
+
+        p {
+            margin-block: 25px;
+
+            span {
+                color: #f2b612;
+                font-weight: 600;
+            }
+        }
+
+        form {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            margin: 50px 0 30px;
+
+            input,
+            select {
+                height: 30px;
+                width: 30%;
+                background: none;
+                border: none;
+                border-bottom: 1.5px solid rgba($color: #fff, $alpha: 0.15);
+                border-radius: 0;
+                transition: 0.4s;
+                color: white;
+
+                &::placeholder {
+                    color: gray;
+                }
+
+                &:hover {
+                    border-bottom: 1.5px solid #f2b612;
+                }
+
+                &:focus {
+                    background: none;
+                    border: none;
+                    border-bottom: 1.5px solid #f2b612;
+                    outline: none !important;
+                    box-shadow: none;
+                    color: white;
+
+                }
+            }
+
+            select {
+                option {
+                    color: black;
+                }
+            }
+        }
+
+        button {
+            @include button();
+        }
+    }
+}
+
+@media(max-width:1024px) {
+    main {
+        .reservation-top-part {
+            height: 350px;
+
+            h1 {
+                font-size: 45px;
+            }
+        }
+        .reservation-section {
+            h1 {
+                font-size: 45px;
+            }
+        }
+    }
+}
+
+@media(max-width:768px) {
+    main {
+        .reservation-top-part {
+            height: 250px;
+
+            h1 {
+                font-size: 40px;
+            }
+        }
+
+        .reservation-section {
+            h1 {
+                font-size: 36px;
+            }
+        }
+    }
+}
+
+@media(max-width:624px) {
+    main {
+
+        .reservation-section {
+            h1 {
+                font-size: 36px;
+            }
+
+            form {
+                flex-direction: column;
+
+                input,
+                select {
+                    width: 100%;
+                    margin-block: 15px;
+                }
+            }
+        }
+
+    }
+}
+
+@media(max-width:425px) {
+    main {
+        .reservation-top-part {
+            h1 {
+                font-size: 30px;
+            }
+        }
+        .reservation-section {
+            h5 {
+                font-size: 13px;
+            }
+            h1 {
+                font-size: 30px;
+            }
+            p {
+                font-size: 14px;
+            }
+        }
+    }
+}

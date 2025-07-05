@@ -17,7 +17,9 @@ const Header = () => {
         <header>
             <div className="header-div container-fluid">
                 <div className="rostay-icon">
-                    <img src="https://demo2.themelexus.com/rostay/wp-content/uploads/2025/02/logo.svg" alt="" />
+                    <Link to='/'>
+                        <img src="https://demo2.themelexus.com/rostay/wp-content/uploads/2025/02/logo.svg" alt="" />
+                    </Link>
                 </div>
                 <div className="hamburger-menu" onClick={toggleMenu}><CiMenuFries /></div>
                 <ul className={`nav-link-list ${menuOpen ? "active" : ""}`}>
@@ -29,8 +31,8 @@ const Header = () => {
                     <li className="nav-links">
                         <a href="#">Contact <FaDiamond size={6} style={{ color: "#f2b612" }} /></a>
                         <ul className='dropdown'>
-                            <li className='dropdown-items'><Link to='/contactus'><FaDiamond size={6} style={{ color: "#f2b612", marginRight:"5px"}} /> Contact Us</Link></li>
-                            <li className='dropdown-items'><Link to='/reservation'><FaDiamond size={6} style={{ color: "#f2b612" ,marginRight:"5px"}} /> Reservation</Link></li>
+                            <li className='dropdown-items'><Link to='/contactus'><FaDiamond size={6} style={{ color: "#f2b612", marginRight: "5px" }} /> Contact Us</Link></li>
+                            <li className='dropdown-items'><Link to='/reservation'><FaDiamond size={6} style={{ color: "#f2b612", marginRight: "5px" }} /> Reservation</Link></li>
                         </ul>
                     </li>
                 </ul>
