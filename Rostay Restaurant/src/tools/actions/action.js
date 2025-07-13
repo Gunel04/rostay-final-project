@@ -1,7 +1,7 @@
-export const addCategory = () => ({
+export const addCategory = ({id, categoryName}) => ({
     type: "Create_category",
     category: {
-        id:1,
-        name:"Desserts"
+        id: crypto.randomUUID(),
+        categoryName
     }
 })

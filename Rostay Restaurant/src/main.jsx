@@ -23,21 +23,29 @@ import "./sass/login.scss";
 import "./sass/contactus.scss";
 import "./sass/reservation.scss";
 import "./sass/footer.scss";
-
 // slick-slider
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 // slick-slider
-import configureStore from './tools/store/configureStore.js';
-import { addCategory } from './tools/actions/action.js';
+import configureStore from './tools/store/configureStore';
+import { addCategory } from './tools/actions/action';
+import { Provider } from 'react-redux';
 
-const store = configureStore();
-store.dispatch(addCategory());
-console.log(store.getState());
+const myStore = configureStore();
+myStore.subscribe(() => {
+  console.log(myStore.getState());
+
+})
+
+myStore.dispatch(addCategory({ categoryName: "Desserts" }));
+myStore.dispatch(addCategory({ categoryName: "Main Dishes" }));
+// console.log(myStore.getState());
 
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <App />
+    <Provider store={myStore}>
+      <App />
+    </Provider>
   </StrictMode>
 )

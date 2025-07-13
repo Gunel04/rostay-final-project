@@ -9,22 +9,37 @@ import Login from './components/authComponents/Login'
 import Register from './components/authComponents/Register'
 import ContactUs from './components/ContactUs'
 import Reservation from './components/Reservation'
+import Shop from './components/Shop'
+import MainLayout from './layout/MainLayout'
+import NoLayout from './layout/NoLayout'
+import CategoryDashboard from './dashboard/category/CategoryDashboard'
+import AddCategory from './dashboard/category/AddCategory'
 
 const App = () => {
   return (
 
     <BrowserRouter>
-      <Header />
+      {/* <Header /> */}
       <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='/about' element={<AboutUs />} />
-        <Route path='/ourteam' element={<OurTeam />} />
-        <Route path='/login' element={<Login />} />
-        <Route path='/register' element={<Register />} />
-        <Route path='/contactus' element={<ContactUs />} />
-        <Route path='/reservation' element={<Reservation />} />
+        <Route element={<MainLayout />}>
+          <Route path='/' element={<Home />} />
+          <Route path='/about' element={<AboutUs />} />
+          <Route path='/ourteam' element={<OurTeam />} />
+          <Route path='/login' element={<Login />} />
+          <Route path='/register' element={<Register />} />
+          <Route path='/contactus' element={<ContactUs />} />
+          <Route path='/reservation' element={<Reservation />} />
+          <Route path='/shop' element={<Shop />} />
+        </Route>
+
+        <Route element={<NoLayout />}>
+          <Route path='/dashboard/category' element={<CategoryDashboard />} />
+          <Route path='/dashboard/category/add' element={<AddCategory/>} />
+
+        </Route>
       </Routes>
-      <Footer />
+
+      {/* <Footer /> */}
     </BrowserRouter>
 
   )
