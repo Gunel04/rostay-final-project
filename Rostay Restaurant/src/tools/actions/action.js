@@ -5,3 +5,14 @@ export const addCategory = ({id, categoryName}) => ({
         categoryName
     }
 })
+
+export const deleteCategory = (id) => ({
+    type: 'Delete_category',
+    id
+})
+
+export const editCategory = ({id, editData}) => ({
+    type: 'Edit_category',
+    id,
+    editData
+})
