@@ -15,6 +15,8 @@ import NoLayout from './layout/NoLayout'
 import CategoryDashboard from './dashboard/category/CategoryDashboard'
 import AddCategory from './dashboard/category/AddCategory'
 import EditCategory from './dashboard/category/EditCategory'
+import ProductDashboard from './dashboard/product/ProductDashboard'
+import AddProduct from './dashboard/product/AddProduct'
 
 const App = () => {
   return (
@@ -35,8 +37,10 @@ const App = () => {
 
         <Route element={<NoLayout />}>
           <Route path='/dashboard/category' element={<CategoryDashboard />} />
-          <Route path='/dashboard/category/add' element={<AddCategory/>} />
-          <Route path='/dashboard/category/edit/:slug' element={<EditCategory/>} />
+          <Route path='/dashboard/category/add' element={<AddCategory />} />
+          <Route path='/dashboard/category/edit/:slug' element={<EditCategory />} />
+          <Route path='/dashboard/products' element={<ProductDashboard />} />
+          <Route path='/dashboard/products/add' element={<AddProduct />} />
 
         </Route>
       </Routes>

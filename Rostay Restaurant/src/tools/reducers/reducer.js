@@ -19,3 +19,13 @@ export const categoryReducer = (state = null, action) => {
             return state;
     }
 }
+
+export const productReducer = (state = null, action)=> {
+    switch (action.type) {
+        case 'Get_product':
+            return action.products;
+        
+        default:
+            return state;
+    }
+}

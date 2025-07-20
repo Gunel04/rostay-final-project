@@ -5,7 +5,6 @@ export const getCategory = (categories) => ({
     categories
 })
 
-
 export const addCategory = async ({ id, categoryName }) => {
     // type: "Create_category",
     // category: {
@@ -25,6 +24,23 @@ export const addCategory = async ({ id, categoryName }) => {
     }
 }
 
+export const getProduct = (products) => ({
+    type: 'Get_product',
+    products
+})
+
+export const addProduct = async ({ image, title, description, price, category }) => {
+    const { error } = await supabase
+        .from('rostay-products')
+        .insert({ image: image, title: title, description: description, price: price, category: category })
+    if (error) {
+        console.log(error);
+    }
+    else {
+        console.log("Product added successfully!");
+        window.location.assign('/dashboard/products')
+    }
+}
 
 export const deleteCategory = async (id) => {
     // type: 'Delete_category',
@@ -59,3 +75,4 @@ export const editCategory = async (id, editData) => {
 
     }
 }
+

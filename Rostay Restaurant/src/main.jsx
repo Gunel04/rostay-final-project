@@ -28,7 +28,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 // slick-slider
 import configureStore from './tools/store/configureStore';
-import { addCategory, getCategory } from './tools/actions/action';
+import { addCategory, getCategory, getProduct } from './tools/actions/action';
 import { Provider } from 'react-redux';
 import supabase from './utils/supabase.js';
 
@@ -36,7 +36,9 @@ const myStore = configureStore();
 
 
 const { data } = await supabase.from('rostay-category').select();
+const {data:products} = await supabase.from('rostay-products').select();
 myStore.dispatch(getCategory(data))
+myStore.dispatch(getProduct(products));
 // const getCategory = async () => {
 //   data.map(item => (
 //     myStore.dispatch(addCategory({ categoryName: item.categoryName }))
