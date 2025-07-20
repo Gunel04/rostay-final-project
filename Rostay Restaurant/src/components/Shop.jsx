@@ -2,7 +2,7 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 
 const Shop = () => {
-    const categories = useSelector(p=>p);
+    const categories = useSelector(p=>p.category);
     
   return (
     <div>{categories.map(item=>(

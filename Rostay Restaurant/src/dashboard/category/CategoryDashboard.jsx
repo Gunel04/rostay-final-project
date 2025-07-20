@@ -7,7 +7,7 @@ import slugify from 'slugify'
 
 const CategoryDashboard = () => {
 
-    const categories = useSelector(p => p);
+    const categories = useSelector(p => p.category);
     const dispatch = useDispatch();
     return (
         <div className='container my-3 d-flex flex-column align-items-center justify-content-center'>

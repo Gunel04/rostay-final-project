@@ -1,23 +1,27 @@
-import React, { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
-import { addCategory, editCategory } from '../../tools/actions/action';
+import { editCategory } from '../../tools/actions/action';
 import { Button, Form } from 'react-bootstrap';
 import slugify from 'slugify';
 
 const EditCategory = () => {
-  const data = useSelector(p => p);
+  const data = useSelector(p => p.category);
+  console.log(data);
+
   const { slug } = useParams();
   const filteredCategory = data.find(item => slugify(item.categoryName, { lower: true }) === slug);
-  console.log(filteredCategory);
-  const [category, setCategory] = useState(filteredCategory.categoryName);
+  // console.log(filteredCategory);
+  const [category, setCategory] = useState('');
+
+  useEffect(() => {
+    if (filteredCategory) {
+      setCategory(filteredCategory.categoryName);
+    }
+  }, [filteredCategory]);
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
-  const editingForm = (fetchData) => {
-    dispatch(editCategory({ id: filteredCategory.id, editData: fetchData }))
-  }
-
 
   const editingCategory = (e) => {
     e.preventDefault();
@@ -28,8 +32,7 @@ const EditCategory = () => {
       })
     }
     else {
-      // dispatch(editCategory({id:filteredCategory.id, categoryName: category }));
-      editingForm({ categoryName: category })
+      dispatch(editCategory(filteredCategory.id, { categoryName: category }));
       navigate('/dashboard/category');
     }
   }
@@ -42,7 +45,7 @@ const EditCategory = () => {
         <Form onSubmit={editingCategory}>
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Category Name</Form.Label>
-            <Form.Control type="text" defaultValue={category} />
+            <Form.Control type="text" value={category} onChange={e => setCategory(e.target.value)} />
           </Form.Group>
           <Button variant="primary" type="submit">
             Edit
