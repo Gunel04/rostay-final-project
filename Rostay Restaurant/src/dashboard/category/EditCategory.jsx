@@ -4,6 +4,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { editCategory } from '../../tools/actions/action';
 import { Button, Form } from 'react-bootstrap';
 import slugify from 'slugify';
+import Swal from 'sweetalert2';
 
 const EditCategory = () => {
   const data = useSelector(p => p.category);
@@ -50,10 +51,8 @@ const EditCategory = () => {
           <Button variant="primary" type="submit">
             Edit
           </Button>
-
         </Form>
       </div>
-
     </div>
   )
 }

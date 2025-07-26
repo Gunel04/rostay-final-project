@@ -17,6 +17,7 @@ import AddCategory from './dashboard/category/AddCategory'
 import EditCategory from './dashboard/category/EditCategory'
 import ProductDashboard from './dashboard/product/ProductDashboard'
 import AddProduct from './dashboard/product/AddProduct'
+import EditProduct from './dashboard/product/EditProduct'
 
 const App = () => {
   return (
@@ -41,7 +42,7 @@ const App = () => {
           <Route path='/dashboard/category/edit/:slug' element={<EditCategory />} />
           <Route path='/dashboard/products' element={<ProductDashboard />} />
           <Route path='/dashboard/products/add' element={<AddProduct />} />
-
+          <Route path='/dashboard/products/edit/:slug' element={<EditProduct />} />
         </Route>
       </Routes>
 

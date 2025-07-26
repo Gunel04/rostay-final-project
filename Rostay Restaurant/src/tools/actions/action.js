@@ -58,6 +58,20 @@ export const deleteCategory = async (id) => {
     }
 }
 
+export const deleteProduct = async (id) => {
+    const response = await supabase
+        .from('rostay-products')
+        .delete()
+        .eq('id', id)
+    if (response) {
+        console.log("Product deleted successfully");
+        window.location.reload();
+    }
+    else {
+        console.log("Product deletion failed");
+    }
+}
+
 export const editCategory = async (id, editData) => {
     // type: 'Edit_category',
     // id,
@@ -76,3 +90,18 @@ export const editCategory = async (id, editData) => {
     }
 }
 
+export const editProduct = async (id, editedProduct) => {
+    const { error } = await supabase
+        .from('rostay-products')
+        .update(editedProduct)
+        .eq('id', id)
+    if (error) {
+        console.log(error);
+
+    }
+    else {
+        console.log("Product edited successfully!");
+        window.location.assign('/dashboard/products')
+
+    }
+}

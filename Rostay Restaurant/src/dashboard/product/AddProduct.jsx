@@ -26,6 +26,18 @@ const AddProduct = () => {
                 title: "Please enter products information comprehensively!"
             })
         }
+        else if (category === "Select Category") {
+            Swal.fire({
+                icon: "warning",
+                title: "Please select category!"
+            })
+        }
+        else if(price <= 0){
+            Swal.fire({
+                icon:"warning",
+                title:"Impossible negative price!"
+            })
+        }
         else {
             dispatch(addProduct({ image, title, description, price, category }));
             navigate('/dashboard/products');
@@ -51,7 +63,7 @@ const AddProduct = () => {
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label>Product Price</Form.Label>
-                        <Form.Control type="text" placeholder="Enter product price..." onChange={e => setPrice(e.target.value)} />
+                        <Form.Control type="number" placeholder="Enter product price..." onChange={e => setPrice(e.target.value)} />
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label>Product Category</Form.Label>
