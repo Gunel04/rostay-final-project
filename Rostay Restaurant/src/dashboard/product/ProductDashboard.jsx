@@ -12,7 +12,7 @@ const ProductDashboard = () => {
     const dispatch = useDispatch();
     return (
         <div className='container my-3 d-flex flex-column align-items-center justify-content-center'>
-            <h1 className='text-center'>Category Dashboard</h1>
+            <h1 className='text-center'>Product Dashboard</h1>
             <div className="col-12">
                 <Table striped bordered hover className='my-4'>
                     <thead>
@@ -37,7 +37,8 @@ const ProductDashboard = () => {
                                 <td>{item.description}</td>
                                 <td>${item.price}</td>
                                 <td>{item.category}</td>
-                                <td><Link to={`/dashboard/products/edit/${slugify(item.title, { lower: true })}`} className='btn btn-warning'>Edit</Link><Button variant='danger' className='ms-3' onClick={() => { dispatch(deleteProduct(item.id)) }}>X</Button></td>
+                                <td><Link to={`/dashboard/products/edit/${slugify(item.title, { lower: true })}`} className='btn btn-warning'>Edit</Link></td>
+                                <td><Button variant='danger' className='ms-3' onClick={() => { dispatch(deleteProduct(item.id)) }}>X</Button></td>
                             </tr>
                         ))}
 
