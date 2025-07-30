@@ -23,6 +23,7 @@ import "./sass/login.scss";
 import "./sass/contactus.scss";
 import "./sass/reservation.scss";
 import "./sass/shop.scss";
+import "./sass/moredetails.scss";
 import "./sass/footer.scss";
 // slick-slider
 import "slick-carousel/slick/slick.css";

@@ -18,6 +18,7 @@ import EditCategory from './dashboard/category/EditCategory'
 import ProductDashboard from './dashboard/product/ProductDashboard'
 import AddProduct from './dashboard/product/AddProduct'
 import EditProduct from './dashboard/product/EditProduct'
+import MoreDetails from './components/MoreDetails'
 
 const App = () => {
   return (
@@ -34,6 +35,7 @@ const App = () => {
           <Route path='/contactus' element={<ContactUs />} />
           <Route path='/reservation' element={<Reservation />} />
           <Route path='/shop' element={<Shop />} />
+          <Route path='/shop/:title' element={<MoreDetails />} />
         </Route>
 
         <Route element={<NoLayout />}>
