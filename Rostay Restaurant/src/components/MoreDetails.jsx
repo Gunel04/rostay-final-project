@@ -1,6 +1,8 @@
 import React from 'react'
+import { GiShoppingCart } from 'react-icons/gi';
 import { HiOutlineArrowLongRight } from 'react-icons/hi2';
 import { IoIosHeartEmpty } from 'react-icons/io';
+import { PiEyeThin } from 'react-icons/pi';
 import { useSelector } from 'react-redux'
 import { Link, useParams } from 'react-router-dom';
 import slugify from 'slugify';
@@ -12,7 +14,6 @@ const MoreDetails = () => {
     console.log(singleProduct.category);
     return (
         <>
-            {/* {singleProduct.map((item, index) => ( */}
             <main>
                 <div className="shop-top-part">
                     <h1 data-aos="zoom-in" data-aos-duration="2000">{singleProduct.title}</h1>
@@ -42,31 +43,48 @@ const MoreDetails = () => {
                         <p className="category">Category: <span>{singleProduct.category}</span></p>
                     </div>
                 </section>
+                <section className="related-products-section container-fluid">
+                    <h1>Related products</h1>
+                    <div className="related-products">
+                        <div className="row">
+                            {products.map((item, index) => {
+                                
+                                if (item.category === singleProduct.category && item.title !== singleProduct.title) {
+                                    return (
+                                        <div className='col-12 col-sm-6 col-md-4 col-lg-3' key={item.id}>
+                                            <div className="card" >
+                                                <div className="product-image-con">
+                                                    <img src={item.image} height={370} className="card-img-top" alt={item.title} />
+                                                    <div className="hover-icons">
+                                                        <a href="#"><GiShoppingCart size={25} /></a>
+                                                        <a href="#"><IoIosHeartEmpty size={25} /></a>
+                                                        <Link to={`/shop/${slugify(item.title, { lower: true })}`}><PiEyeThin size={25} /></Link>
+                                                    </div>
+                                                </div>
+                                                <div className="card-body">
+                                                    <h6 className="card-category">{item.category}</h6>
+                                                    <h5 className="card-title">{item.title}</h5>
+                                                    <p className="card-text">{item.description.slice(0, 50)}...</p>
+                                                    <p className="card-price">${item.price}</p>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    )
+
+                                }
+                            })}
+                            
+                        </div>
+                    </div>
+                </section>
             </main>
-            {/* ))} */}
-            <section>
+            {/* <section>
                 <div className="row">
 
-                    {products.map((item, index) => {
-                        if (item.category === singleProduct.category && item.title !== singleProduct.title) {
-                            return (
-                                <div className='col-12 col-sm-6 col-md-4 col-lg-4' key={item.id}>
-                                    <div className="card">
-                                        <img src={item.image} className="card-img-top" alt="..." />
-                                        <div className="card-body">
-                                            <h5 className="card-title">{item.title}</h5>
-                                            <p className="card-text">{item.description}</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            )
-
-                        }
-
-
-                    })}
+                    
                 </div>
-            </section >
+            </section > */}
         </>
     )
 }
