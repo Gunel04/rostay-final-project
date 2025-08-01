@@ -1,6 +1,58 @@
 @import './buttonmixin.scss';
 
 main {
+    .more-details-top-part {
+        position: relative;
+        height: 400px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-image: url('https://demo2.themelexus.com/rostay/wp-content/uploads/2025/02/breadcrumb-shop.jpg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-color: rgb(7, 43, 49);
+        z-index: 1;
+
+        h1 {
+            font-family: 'Shippori Mincho', sans-serif;
+            color: white;
+            text-transform: uppercase;
+            font-size: 65px;
+            margin-bottom: 20px;
+            text-align: center;
+
+        }
+
+        h6 {
+            font-size: 14px;
+            color: white;
+            text-transform: uppercase;
+            font-weight: 600;
+
+            a {
+                color: white;
+                text-decoration: none;
+            }
+
+            span {
+                color: #f2b612;
+            }
+        }
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.55);
+            z-index: -1;
+        }
+    }
+
     .more-details-section {
         display: flex;
         justify-content: space-between;
@@ -46,7 +98,6 @@ main {
                 display: flex;
                 align-items: center;
 
-                // justify-content: space-between;
                 .quantity-btn {
                     display: flex;
                     align-items: center;
@@ -61,7 +112,6 @@ main {
                         background: none;
                         border: none;
                         color: white;
-                        // font-size: 20px;
                         font-weight: 500;
                         transition: 0.4s;
 
@@ -87,7 +137,6 @@ main {
                     font-weight: 600;
                     font-size: 14px;
                     font-family: 'Montserrat', sans-serif;
-                    // margin-bottom: 30px;
 
                     &:hover {
                         border: 1px solid #f2b612;
@@ -123,7 +172,7 @@ main {
             text-align: center;
             font-family: 'Shippori Mincho', sans-serif;
             text-transform: uppercase;
-            font-size:40px;
+            font-size: 50px;
             margin: 30px 0;
         }
 
@@ -147,7 +196,6 @@ main {
                         border-top-left-radius: 200px;
                         border-top-right-radius: 200px;
                         transition: 0.5s;
-                        // background-color: black;
                     }
 
                     .hover-icons {
@@ -172,9 +220,7 @@ main {
                             transition: 0.5s;
 
                             &:hover {
-
                                 background-color: #f2b612;
-
                             }
                         }
 
@@ -213,9 +259,118 @@ main {
                         font-weight: 500;
                     }
                 }
+            }
+        }
+    }
+}
+
+@media(max-width:1024px) {
+    main {
+        .more-details-top-part {
+            height: 350px;
+
+            h1 {
+                font-size: 55px;
+            }
+        }
+
+        .more-details-section {
+            .left-image-part {
+
+                // width: 50%;
+                img {
+                    height: 350px;
+                    object-fit: cover;
+                }
+            }
+
+            .right-info-part {
+                .product-title {
+                    font-size: 30px;
+                }
+            }
 
 
+        }
+        .related-products-section{
+            h1 {
+                font-size: 35px;
+            }
+        }
+    }
+}
 
+@media(max-width:767px) {
+    main {
+        .more-details-top-part {
+            height: 300px;
+
+            h1 {
+                font-size: 40px;
+            }
+        }
+
+        .more-details-section {
+            flex-direction: column;
+            align-items: center;
+
+            .left-image-part {
+                width: 95%;
+
+                img {
+                    height: initial;
+                }
+            }
+
+            .right-info-part {
+                width: 95%;
+                margin-top: 25px;
+
+                .product-title {
+                    font-size: 30px;
+                }
+            }
+
+
+        }
+    }
+}
+
+@media(max-width:624px) {
+    main {
+        .more-details-top-part {
+            height: 250px;
+
+            h1 {
+                font-size: 35px;
+            }
+        }
+    }
+}
+
+@media(max-width:425px) {
+    main {
+        .more-details-top-part {
+            h1 {
+                font-size: 28px;
+            }
+        }
+        .more-details-section{
+            .right-info-part{
+                text-align: center;
+                .product-title {
+                    font-size: 24px;
+                }
+                .btn-con {
+                    flex-direction: column;
+                    .quantity-btn {
+                        margin: 0 0 20px 0;
+                    }
+                }
+                .add-wishlist {
+                    margin: auto;
+                    display: inline-block;
+                }
             }
         }
     }

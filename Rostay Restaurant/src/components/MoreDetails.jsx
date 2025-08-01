@@ -15,7 +15,7 @@ const MoreDetails = () => {
     return (
         <>
             <main>
-                <div className="shop-top-part">
+                <div className="more-details-top-part">
                     <h1 data-aos="zoom-in" data-aos-duration="2000">{singleProduct.title}</h1>
                     <h6 data-aos="zoom-in" data-aos-duration="2000"><Link to='/'>Home</Link> &gt; <span>Shop</span> </h6>
                 </div>
