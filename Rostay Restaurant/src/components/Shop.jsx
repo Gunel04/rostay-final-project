@@ -17,8 +17,8 @@ const Shop = () => {
           <h1 data-aos="zoom-in" data-aos-duration="2000">Shop</h1>
           <h6 data-aos="zoom-in" data-aos-duration="2000"><Link to='/'>Home</Link> &gt; <span>Shop</span> </h6>
         </div>
-        <section className='shop-section container-fluid d-flex '>
-          <div className="col-3">
+        <section className='shop-section container-fluid d-flex'>
+          {/* <div className="col-3"> */}
             <div className="left-filter-part">
               <div className="category-filter">
                 <h4>Product Categories</h4>
@@ -32,22 +32,22 @@ const Shop = () => {
               <div className="price-filter">
                 <h4>Filter by Price</h4>
                 <input type="range" name="vol" id="vol" min={0} max={100} className='range-input' />
-                <input type="submit" className='submit-input'/>
+                <input type="submit" className='submit-input' />
               </div>
             </div>
-          </div>
-          <div className="col-9">
+          {/* </div>
+          <div className="col-9"> */}
             <div className="right-products-part">
               <div className="row g-4">
                 {products.map((item) => (
-                  <div className='col-12 col-sm-6 col-md-4 col-lg-4' key={item.id}>
+                  <div className='col-12 col-sm-6 col-md-6 col-lg-4' key={item.id}>
                     <div className="card" >
                       <div className="product-image-con">
                         <img src={item.image} height={370} className="card-img-top" alt={item.title} />
                         <div className="hover-icons">
                           <a href="#"><GiShoppingCart size={25} /></a>
                           <a href="#"><IoIosHeartEmpty size={25} /></a>
-                          <Link to={`/shop/${slugify(item.title,{lower:true})}`}><PiEyeThin size={25} /></Link>
+                          <Link to={`/shop/${slugify(item.title, { lower: true })}`}><PiEyeThin size={25} /></Link>
                         </div>
                       </div>
                       <div className="card-body">
@@ -63,7 +63,7 @@ const Shop = () => {
                 ))}
               </div>
             </div>
-          </div>
+          {/* </div> */}
         </section>
       </main>
     </>

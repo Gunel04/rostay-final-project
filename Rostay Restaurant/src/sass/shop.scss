@@ -56,6 +56,8 @@ main {
         padding: 50px 0;
 
         .left-filter-part {
+            width: 20%;
+
             .category-filter {
 
                 // margin: 20px 0;
@@ -117,7 +119,11 @@ main {
         }
 
         .right-products-part {
+            width: 80%;
             padding-left: 30px;
+            // align-items: center;
+            // justify-content: center;
+            // margin: auto;
 
             .card {
                 background: none;
@@ -207,6 +213,121 @@ main {
 
 
 
+            }
+        }
+    }
+}
+
+@media(max-width:1145px) {
+    main {
+        .shop-top-part {
+            height: 360px;
+
+            h1 {
+                font-size: 55px;
+            }
+        }
+
+        .shop-section {
+            .left-filter-part {
+                width: 25%;
+
+                .category-filter>h4 {
+                    font-size: 20px;
+                }
+
+                .price-filter>h4 {
+                    font-size: 20px;
+                }
+            }
+
+            .right-products-part {
+                width: 75%;
+
+                .card {
+                    .product-image-con {
+                        img {
+                            height: 300px;
+                        }
+                    }
+
+                }
+            }
+        }
+    }
+}
+
+@media(max-width:768px) {
+    main {
+        .shop-top-part {
+            height: 270px;
+
+            h1 {
+                font-size: 45px;
+            }
+        }
+
+        .shop-section {
+            flex-direction: column;
+
+            // margin: 50px 0;
+            .left-filter-part {
+                width: 100%;
+
+                .category-filter {
+                    h4 {
+                        font-size: 18px;
+                    }
+
+                    ul {
+                        display: flex;
+                        justify-content: space-around;
+                    }
+                }
+
+                .price-filter>h4 {
+                    font-size: 18px;
+                }
+            }
+
+            .right-products-part {
+                width: 97%;
+                margin: 50px auto;
+                padding-left: 0;
+
+                .card {
+                    .card-body {
+                        h5 {
+                            font-size: 18px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media(max-width: 425px) {
+    main {
+        .shop-section {
+            .left-filter-part {
+                text-align: center;
+
+                .category-filter {
+                    ul {
+                        flex-direction: column;
+                    }
+                }
+            }
+
+            .right-products-part {
+                .card {
+                    .product-image-con {
+                        img {
+                            height: 400px;
+                        }
+                    }
+                }
             }
         }
     }
