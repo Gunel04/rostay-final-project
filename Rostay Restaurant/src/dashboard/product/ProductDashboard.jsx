@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { deleteProduct } from '../../tools/actions/action'
 import slugify from 'slugify'
+import Swal from 'sweetalert2'
 
 const ProductDashboard = () => {
     const products = useSelector(p => p.product);
@@ -11,10 +12,10 @@ const ProductDashboard = () => {
 
     const dispatch = useDispatch();
     return (
-        <div className='container my-3 d-flex flex-column align-items-center justify-content-center'>
+        <div className='container my-1 d-flex flex-column align-items-center justify-content-center'>
             <h1 className='text-center'>Product Dashboard</h1>
             <div className="col-12">
-                <Table striped bordered hover className='my-4'>
+                <Table bordered className='my-4'>
                     <thead>
                         <tr>
                             <th>Id</th>
@@ -23,6 +24,8 @@ const ProductDashboard = () => {
                             <th>Description</th>
                             <th>Price</th>
                             <th>Category</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
 
                         </tr>
                     </thead>
@@ -38,7 +41,26 @@ const ProductDashboard = () => {
                                 <td>${item.price}</td>
                                 <td>{item.category}</td>
                                 <td><Link to={`/dashboard/products/edit/${slugify(item.title, { lower: true })}`} className='btn btn-warning'>Edit</Link></td>
-                                <td><Button variant='danger' className='ms-3' onClick={() => { dispatch(deleteProduct(item.id)) }}>X</Button></td>
+                                <td><Button variant='danger' className='ms-3' onClick={() => {
+                                    Swal.fire({
+                                        title: "Are you sure?",
+                                        text: "You won't be able to revert this!",
+                                        icon: "warning",
+                                        showCancelButton: true,
+                                        confirmButtonColor: "#3085d6",
+                                        cancelButtonColor: "#d33",
+                                        confirmButtonText: "Yes, delete it!"
+                                    }).then((result) => {
+                                        if (result.isConfirmed) {
+                                            dispatch(deleteProduct(item.id))
+                                            Swal.fire({
+                                                title: "Deleted!",
+                                                text: "Your file has been deleted.",
+                                                icon: "success"
+                                            });
+                                        }
+                                    });
+                                }}>X</Button></td>
                             </tr>
                         ))}
 

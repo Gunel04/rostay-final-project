@@ -19,6 +19,8 @@ import ProductDashboard from './dashboard/product/ProductDashboard'
 import AddProduct from './dashboard/product/AddProduct'
 import EditProduct from './dashboard/product/EditProduct'
 import MoreDetails from './components/MoreDetails'
+import Dashboard from './dashboard/Dashboard'
+import DashboardLayout from './layout/DashboardLayout'
 
 const App = () => {
   return (
@@ -39,12 +41,17 @@ const App = () => {
         </Route>
 
         <Route element={<NoLayout />}>
-          <Route path='/dashboard/category' element={<CategoryDashboard />} />
-          <Route path='/dashboard/category/add' element={<AddCategory />} />
-          <Route path='/dashboard/category/edit/:slug' element={<EditCategory />} />
-          <Route path='/dashboard/products' element={<ProductDashboard />} />
-          <Route path='/dashboard/products/add' element={<AddProduct />} />
-          <Route path='/dashboard/products/edit/:slug' element={<EditProduct />} />
+          <Route element={<DashboardLayout />} path='/dashboard'>
+            <Route path='/dashboard' element={<ProductDashboard />} />
+          </Route>
+          <Route element={<Dashboard />} path='/dashboard'>
+            <Route path='/dashboard/products' element={<ProductDashboard />} />
+            <Route path='/dashboard/category' element={<CategoryDashboard />} />
+            <Route path='/dashboard/category/add' element={<AddCategory />} />
+            <Route path='/dashboard/category/edit/:slug' element={<EditCategory />} />
+            <Route path='/dashboard/products/add' element={<AddProduct />} />
+            <Route path='/dashboard/products/edit/:slug' element={<EditProduct />} />
+          </Route>
         </Route>
       </Routes>
 

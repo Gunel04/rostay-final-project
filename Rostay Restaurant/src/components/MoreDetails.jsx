@@ -47,34 +47,42 @@ const MoreDetails = () => {
                     <h1>Related products</h1>
                     <div className="related-products">
                         <div className="row">
-                            {products.map((item, index) => {
+                            {products.filter(item => item.category === singleProduct.category && item.title !== singleProduct.title).length > 0 ? (products.map((item, index) => (
+                                <div className='col-12 col-sm-6 col-md-4 col-lg-3' key={item.id}>
+                                    <div className="card" >
+                                        <div className="product-image-con">
+                                            <img src={item.image} height={370} className="card-img-top" alt={item.title} />
+                                            <div className="hover-icons">
+                                                <a href="#"><GiShoppingCart size={25} /></a>
+                                                <a href="#"><IoIosHeartEmpty size={25} /></a>
+                                                <Link to={`/shop/${slugify(item.title, { lower: true })}`}><PiEyeThin size={25} /></Link>
+                                            </div>
+                                        </div>
+                                        <div className="card-body">
+                                            <h6 className="card-category">{item.category}</h6>
+                                            <h5 className="card-title">{item.title}</h5>
+                                            <p className="card-text">{item.description.slice(0, 50)}...</p>
+                                            <p className="card-price">${item.price}</p>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            ))):<h4 className='text-center'>No related products</h4>}
+                            {/* {products.map((item, index) => {
                                 
                                 if (item.category === singleProduct.category && item.title !== singleProduct.title) {
                                     return (
-                                        <div className='col-12 col-sm-6 col-md-4 col-lg-3' key={item.id}>
-                                            <div className="card" >
-                                                <div className="product-image-con">
-                                                    <img src={item.image} height={370} className="card-img-top" alt={item.title} />
-                                                    <div className="hover-icons">
-                                                        <a href="#"><GiShoppingCart size={25} /></a>
-                                                        <a href="#"><IoIosHeartEmpty size={25} /></a>
-                                                        <Link to={`/shop/${slugify(item.title, { lower: true })}`}><PiEyeThin size={25} /></Link>
-                                                    </div>
-                                                </div>
-                                                <div className="card-body">
-                                                    <h6 className="card-category">{item.category}</h6>
-                                                    <h5 className="card-title">{item.title}</h5>
-                                                    <p className="card-text">{item.description.slice(0, 50)}...</p>
-                                                    <p className="card-price">${item.price}</p>
-                                                </div>
-
-                                            </div>
-                                        </div>
+                                        
                                     )
 
                                 }
+                                else {
+                                    return (
+                                        <h1>No related products</h1>
+                                    )
+                                }
                             })}
-                            
+                             */}
                         </div>
                     </div>
                 </section>

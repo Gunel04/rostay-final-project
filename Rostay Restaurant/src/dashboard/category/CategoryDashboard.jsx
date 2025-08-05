@@ -4,32 +4,54 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { deleteCategory } from '../../tools/actions/action'
 import slugify from 'slugify'
+import Swal from 'sweetalert2'
 
 const CategoryDashboard = () => {
 
     const categories = useSelector(p => p.category);
     const dispatch = useDispatch();
     return (
-        <div className='container my-3 d-flex flex-column align-items-center justify-content-center'>
+        <div className='container d-flex flex-column align-items-center justify-content-center'>
             <h1 className='text-center'>Category Dashboard</h1>
             <div className="col-7">
 
-                <Table striped bordered hover className='my-4'>
-                    <thead>
+                <Table bordered className='my-4'>
+                    <thead style={{ backgroundColor: "#072b31" }}>
                         <tr>
                             <th>#</th>
                             <th>Category Name</th>
                             {/* <th>Edit Category</th>
                         <th>Delete Category</th> */}
-                        <th>#</th>
+                            <th>#</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody style={{ backgroundColor: "#072b31" }}>
                         {categories.map((item, index) => (
                             <tr key={index}>
                                 <td>{index + 1}</td>
                                 <td>{item.categoryName}</td>
-                                <td><Link to={`/dashboard/category/edit/${slugify(item.categoryName, {lower:true})}`} className='btn btn-warning'>Edit</Link><Button variant='danger' className='mx-4' onClick={()=>{dispatch(deleteCategory(item.id))}}>X</Button></td>
+                                <td><Link to={`/dashboard/category/edit/${slugify(item.categoryName, { lower: true })}`} className='btn btn-warning'>Edit</Link><Button variant='danger' className='mx-4' onClick={() => {
+                                    {
+                                        Swal.fire({
+                                            title: "Are you sure?",
+                                            text: "You won't be able to revert this!",
+                                            icon: "warning",
+                                            showCancelButton: true,
+                                            confirmButtonColor: "#3085d6",
+                                            cancelButtonColor: "#d33",
+                                            confirmButtonText: "Yes, delete it!"
+                                        }).then((result) => {
+                                            if (result.isConfirmed) {
+                                                dispatch(deleteCategory(item.id))
+                                                Swal.fire({
+                                                    title: "Deleted!",
+                                                    text: "Your file has been deleted.",
+                                                    icon: "success"
+                                                });
+                                            }
+                                        });
+                                    }
+                                }}>X</Button></td>
                                 {/* <td></td> */}
                             </tr>
                         ))}
