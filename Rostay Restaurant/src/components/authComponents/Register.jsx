@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Col } from 'react-bootstrap'
 import { PiEyeClosedThin, PiEyeThin } from 'react-icons/pi'
-import { Link } from 'react-router-dom'
+import { data, Link } from 'react-router-dom'
 import Swal from 'sweetalert2';
 import supabase from '../../utils/supabase';
 
@@ -18,6 +18,7 @@ const Register = () => {
     const [confirmPassword, setConfirmPassword] = useState("");
     // const a = "Gunel_04!"
     // console.log(a.includes('_' && '?'));
+    // console.log();
 
     const visibility = () => {
         setIsVisible(p => !p);
@@ -89,10 +90,12 @@ const Register = () => {
                     }) : createUser();
             }
 
+            console.log(data);
         }
 
     }
     // console.log(isVisible);
+
     return (
         <main>
             <div className="login-top-part">

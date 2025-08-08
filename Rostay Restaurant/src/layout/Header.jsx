@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { CiHeart, CiMenuFries, CiSearch, CiShoppingCart, CiUser } from 'react-icons/ci'
 import { FaDiamond } from 'react-icons/fa6'
 import { Link, useLocation } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 const Header = () => {
     const [menuOpen, setMenuOpen] = useState(false);
@@ -13,6 +14,28 @@ const Header = () => {
     useEffect(() => {
         window.scrollTo(0, 0);
     }, [pathname])
+
+
+    const user = JSON.parse(localStorage.getItem('user'))
+
+    const logOut = () => {
+        Swal.fire({
+            title: "Are you sure that you want to log out?",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#072b31",
+            cancelButtonColor: "#072b31",
+            confirmButtonText: "Yes, log out!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                localStorage.removeItem('user')
+                Swal.fire({
+                    title: "Logged Out!",
+                    icon: "success"
+                });
+            }
+        });
+    }
     return (
         <header>
             <div className="header-div container-fluid">
@@ -38,7 +61,7 @@ const Header = () => {
                 </ul>
                 <ul className={`icon-part-list ${menuOpen ? "active" : ""}`}>
                     <li className="icon-items"><a href="#"><CiSearch /></a></li>
-                    <li className="icon-items"><Link to='/login'><CiUser /> <div className='account'><span>Sign in</span> <span>Account</span></div> </Link></li>
+                    <li className="icon-items">{user ? <Link><CiUser /> <div className='account'><span>{user.username}</span> <span onClick={logOut}>Log Out</span></div> </Link> : <Link to='/login'><CiUser /> <div className='account'><span>Sign in</span> <span>Account</span></div> </Link>}</li>
                     <li className="icon-items"><a href="#"><CiHeart /></a></li>
                     <li className="icon-items"><a href="#"><CiShoppingCart /></a></li>
                 </ul>
