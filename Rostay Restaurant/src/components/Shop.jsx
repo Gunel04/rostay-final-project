@@ -19,7 +19,7 @@ const Shop = () => {
         </div>
         <section className='shop-section container-fluid d-flex'>
           {/* <div className="col-3"> */}
-            <div className="left-filter-part">
+            <div className="left-filter-part" data-aos="fade-right" data-aos-duration='2000'>
               <div className="category-filter">
                 <h4>Product Categories</h4>
                 <ul>
@@ -37,10 +37,10 @@ const Shop = () => {
             </div>
           {/* </div>
           <div className="col-9"> */}
-            <div className="right-products-part">
+            <div className="right-products-part" >
               <div className="row g-4">
                 {products.map((item) => (
-                  <div className='col-12 col-sm-6 col-md-6 col-lg-4' key={item.id}>
+                  <div className='col-12 col-sm-6 col-md-6 col-lg-4' key={item.id} data-aos="fade-up" data-aos-duration="2000">
                     <div className="card" >
                       <div className="product-image-con">
                         <img src={item.image} height={370} className="card-img-top" alt={item.title} />

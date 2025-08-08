@@ -41,7 +41,7 @@ const ProductDashboard = () => {
                                 <td>${item.price}</td>
                                 <td>{item.category}</td>
                                 <td><Link to={`/dashboard/products/edit/${slugify(item.title, { lower: true })}`} className='btn btn-warning'>Edit</Link></td>
-                                <td><Button variant='danger' className='ms-3' onClick={() => {
+                                <td><Button variant='danger' className='mx-auto' onClick={() => {
                                     Swal.fire({
                                         title: "Are you sure?",
                                         text: "You won't be able to revert this!",
@@ -68,7 +68,7 @@ const ProductDashboard = () => {
                     </tbody>
                 </Table>
                 <Link to='/dashboard/products/add' className='btn btn-warning'>Add Product</Link>
-                <Link to='/shop' className='btn btn-warning'>Shop</Link>
+                {/* <Link to='/shop' className='btn btn-warning'>Shop</Link> */}
             </div>
 
         </div>

@@ -11,7 +11,7 @@ const CategoryDashboard = () => {
     const categories = useSelector(p => p.category);
     const dispatch = useDispatch();
     return (
-        <div className='container d-flex flex-column align-items-center justify-content-center'>
+        <div className='container d-flex flex-column align-items-center justify-content-start' style={{height:"100vh"}}>
             <h1 className='text-center'>Category Dashboard</h1>
             <div className="col-7">
 
@@ -58,7 +58,7 @@ const CategoryDashboard = () => {
                     </tbody>
                 </Table>
                 <Link to='/dashboard/category/add' className='btn btn-warning'>Add Category</Link>
-                <Link to='/shop' className='btn btn-warning'>Shop</Link>
+                {/* <Link to='/shop' className='btn btn-warning'>Shop</Link> */}
             </div>
 
         </div>
