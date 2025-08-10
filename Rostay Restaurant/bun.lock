@@ -16,6 +16,7 @@
         "react-redux": "^9.2.0",
         "react-router-dom": "^7.6.1",
         "react-slick": "^0.30.3",
+        "react-use-cart": "^1.14.0",
         "redux": "^5.0.1",
         "sass": "^1.89.0",
         "slick-carousel": "^1.8.1",
@@ -529,6 +530,8 @@
     "react-slick": ["react-slick@0.30.3", "", { "dependencies": { "classnames": "^2.2.5", "enquire.js": "^2.1.6", "json2mq": "^0.2.0", "lodash.debounce": "^4.0.8", "resize-observer-polyfill": "^1.5.0" }, "peerDependencies": { "react": "^0.14.0 || ^15.0.1 || ^16.0.0 || ^17.0.0 || ^18.0.0 || ^19.0.0", "react-dom": "^0.14.0 || ^15.0.1 || ^16.0.0 || ^17.0.0 || ^18.0.0 || ^19.0.0" } }, "sha512-B4x0L9GhkEWUMApeHxr/Ezp2NncpGc+5174R02j+zFiWuYboaq98vmxwlpafZfMjZic1bjdIqqmwLDcQY0QaFA=="],
 
     "react-transition-group": ["react-transition-group@4.4.5", "", { "dependencies": { "@babel/runtime": "^7.5.5", "dom-helpers": "^5.0.1", "loose-envify": "^1.4.0", "prop-types": "^15.6.2" }, "peerDependencies": { "react": ">=16.6.0", "react-dom": ">=16.6.0" } }, "sha512-pZcd1MCJoiKiBR2NRxeCRg13uCXbydPnmB4EOeRrY7480qNWO8IIgQG6zlDkm6uRMsURXPuKq0GWtiM59a5Q6g=="],
+
+    "react-use-cart": ["react-use-cart@1.14.0", "", { "peerDependencies": { "react": ">=16" } }, "sha512-Qd3booG4wFAB04zrVWyiV/nxB+pv/7l7zNJO7isquE1LKpNuGpOpCcmCVCut5YPDilEMemx33+/103anefcVWA=="],
 
     "readdirp": ["readdirp@4.1.2", "", {}, "sha512-GDhwkLfywWL2s6vEjyhri+eXmfH6j1L7JE27WhqLeYzoh/A3DBaYGEj2H/HFZCn/kMfim73FXxEJTw06WtxQwg=="],
 

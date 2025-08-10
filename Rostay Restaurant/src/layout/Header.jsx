@@ -6,6 +6,7 @@ import Swal from 'sweetalert2';
 
 const Header = () => {
     const [menuOpen, setMenuOpen] = useState(false);
+    const [user, setUser] = useState(JSON.parse(localStorage.getItem('user')) || null);
     const toggleMenu = () => {
         setMenuOpen(!menuOpen);
     }
@@ -16,7 +17,7 @@ const Header = () => {
     }, [pathname])
 
 
-    const user = JSON.parse(localStorage.getItem('user'))
+    // const user = JSON.parse(localStorage.getItem('user'))
 
     const logOut = () => {
         Swal.fire({
@@ -29,6 +30,7 @@ const Header = () => {
         }).then((result) => {
             if (result.isConfirmed) {
                 localStorage.removeItem('user')
+                setUser(null);
                 Swal.fire({
                     title: "Logged Out!",
                     icon: "success"
