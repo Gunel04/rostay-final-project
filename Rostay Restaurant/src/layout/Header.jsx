@@ -65,14 +65,14 @@ const Header = () => {
                     <li className="icon-items"><a href="#"><CiSearch /></a></li>
                     <li className="icon-items">{user ? <Link><CiUser /> <div className='account'><span>{user.username}</span> <span onClick={logOut}>Log Out</span></div> </Link> : <Link to='/login'><CiUser /> <div className='account'><span>Sign in</span> <span>Account</span></div> </Link>}</li>
                     <li className="icon-items"><Link to='/wishlist' className="position-relative">
-                        <CiHeart size={28}/>
+                        <CiHeart />
                         <span className="badge-icon position-absolute top-0 start-100 translate-middle badge rounded-pill">
                             0
                             {/* <span class="visually-hidden">unread messages</span> */}
                         </span>
                     </Link></li>
                     <li className="icon-items"><Link to='cart' className="position-relative">
-                        <CiShoppingCart size={28}/>
+                        <CiShoppingCart />
                         <span className="badge-icon position-absolute top-0 start-100 translate-middle badge rounded-pill">
                             0
                             {/* <span class="visually-hidden">unread messages</span> */}

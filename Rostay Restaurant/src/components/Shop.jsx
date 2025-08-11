@@ -4,11 +4,13 @@ import { IoIosHeartEmpty } from 'react-icons/io';
 import { PiEyeThin } from 'react-icons/pi';
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom';
+import { useCart } from 'react-use-cart';
 import slugify from 'slugify';
 
 const Shop = () => {
   const categories = useSelector(p => p.category);
   const products = useSelector(p => p.product);
+  const { addItem } = useCart();
 
   return (
     <>
@@ -45,7 +47,9 @@ const Shop = () => {
                       <div className="product-image-con">
                         <img src={item.image} height={370} className="card-img-top" alt={item.title} />
                         <div className="hover-icons">
-                          <a href="#"><GiShoppingCart size={25} /></a>
+                          <button onClick={()=>{
+                            
+                          }}><GiShoppingCart size={25} /></button>
                           <a href="#"><IoIosHeartEmpty size={25} /></a>
                           <Link to={`/shop/${slugify(item.title, { lower: true })}`}><PiEyeThin size={25} /></Link>
                         </div>

@@ -25,6 +25,7 @@ import "./sass/reservation.scss";
 import "./sass/shop.scss";
 import "./sass/moredetails.scss";
 import "./sass/dashboard.scss";
+import "./sass/cart.scss";
 import "./sass/footer.scss";
 // slick-slider
 import "slick-carousel/slick/slick.css";
@@ -34,6 +35,7 @@ import configureStore from './tools/store/configureStore';
 import { addCategory, getCategory, getProduct } from './tools/actions/action';
 import { Provider } from 'react-redux';
 import supabase from './utils/supabase.js';
+import { CartProvider } from 'react-use-cart';
 
 const myStore = configureStore();
 
@@ -61,9 +63,9 @@ myStore.dispatch(getProduct(products));
 
 
 createRoot(document.getElementById('root')).render(
-  <StrictMode>
+  <CartProvider>
     <Provider store={myStore}>
       <App />
     </Provider>
-  </StrictMode>
+  </CartProvider>
 )

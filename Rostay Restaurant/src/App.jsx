@@ -21,6 +21,7 @@ import EditProduct from './dashboard/product/EditProduct'
 import MoreDetails from './components/MoreDetails'
 import Dashboard from './dashboard/Dashboard'
 import DashboardLayout from './layout/DashboardLayout'
+import Cart from './components/Cart'
 
 const App = () => {
   return (
@@ -38,6 +39,7 @@ const App = () => {
           <Route path='/reservation' element={<Reservation />} />
           <Route path='/shop' element={<Shop />} />
           <Route path='/shop/:title' element={<MoreDetails />} />
+          <Route path='/cart' element={<Cart />} />
         </Route>
 
         <Route element={<NoLayout />}>
