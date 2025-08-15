@@ -10,7 +10,7 @@ import slugify from 'slugify';
 const Shop = () => {
   const categories = useSelector(p => p.category);
   const products = useSelector(p => p.product);
-  const { addItem } = useCart();
+  // const { addItem } = useCart();
 
   return (
     <>
