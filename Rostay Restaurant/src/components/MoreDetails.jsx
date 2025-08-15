@@ -5,14 +5,20 @@ import { IoIosHeartEmpty } from "react-icons/io";
 import { PiEyeThin } from "react-icons/pi";
 import { useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
+import { useCart } from "react-use-cart";
 import slugify from "slugify";
+import Swal from "sweetalert2";
 
 const MoreDetails = () => {
   const products = useSelector((p) => p.product);
   const { title } = useParams();
+  const { addItem, items, updateItemQuantity } = useCart();
   const singleProduct = products.find(
     (item) => slugify(item.title, { lower: true }) === title
   );
+  const cartProduct = items.find(item => item.id === singleProduct.id);
+  console.log(items);
+
   console.log(singleProduct.category);
   return (
     <>
@@ -37,11 +43,17 @@ const MoreDetails = () => {
             <h4>Quantity:</h4>
             <div className="btn-con">
               <div className="quantity-btn">
-                <button>-</button>
-                <span>1</span>
-                <button>+</button>
+                <button onClick={() => updateItemQuantity(cartProduct.id, (cartProduct.quantity ?? 0) - 1)}>-</button>
+                <span>{cartProduct.quantity}</span>
+                <button onClick={() => updateItemQuantity(cartProduct.id, (cartProduct.quantity ?? 0) + 1)}>+</button>
               </div>
-              <button className="add-to-cart-btn">
+              <button className="add-to-cart-btn" onClick={() => {
+                Swal.fire({
+                  icon: "success",
+                  title: "Product is add to the cart!"
+                });
+                addItem(singleProduct);
+              }} >
                 Add to Cart <HiOutlineArrowLongRight size={20} />
               </button>
             </div>
