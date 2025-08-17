@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { GiShoppingCart } from "react-icons/gi";
 import { HiOutlineArrowLongRight } from "react-icons/hi2";
 import { IoIosHeartEmpty } from "react-icons/io";
@@ -12,7 +12,8 @@ import Swal from "sweetalert2";
 const MoreDetails = () => {
   const products = useSelector((p) => p.product);
   const { title } = useParams();
-  const { addItem, items, updateItemQuantity } = useCart();
+  const { addItem, items, updateItemQuantity, inCart } = useCart();
+  const [counter, setCounter] = useState(1);
   const singleProduct = products.find(
     (item) => slugify(item.title, { lower: true }) === title
   );
@@ -43,16 +44,25 @@ const MoreDetails = () => {
             <h4>Quantity:</h4>
             <div className="btn-con">
               <div className="quantity-btn">
-                <button onClick={() => updateItemQuantity(cartProduct.id, (cartProduct.quantity ?? 0) - 1)}>-</button>
-                <span>{cartProduct.quantity}</span>
-                <button onClick={() => updateItemQuantity(cartProduct.id, (cartProduct.quantity ?? 0) + 1)}>+</button>
+                <button onClick={() => { setCounter(counter => counter - 1) }}>-</button>
+                <span>{counter}</span>
+                <button onClick={() => { setCounter(counter => counter + 1) }}>+</button>
               </div>
               <button className="add-to-cart-btn" onClick={() => {
-                Swal.fire({
-                  icon: "success",
-                  title: "Product is add to the cart!"
-                });
-                addItem(singleProduct);
+                if (!inCart(singleProduct.id)) {
+                  Swal.fire({
+                    icon: "success",
+                    title: "Product is added to the cart!"
+                  });
+                  addItem(singleProduct, counter);
+                }
+                else {
+                  Swal.fire({
+                    icon:"warning",
+                    title:"Already in cart!"
+                  })
+                }
+
               }} >
                 Add to Cart <HiOutlineArrowLongRight size={20} />
               </button>

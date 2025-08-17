@@ -1,0 +1,74 @@
+main {
+    .wishlist-section {
+        .wishlist-table {
+            margin-block: 50px;
+            border-top: 1px solid white;
+
+            thead tr th {
+                background: none;
+                color: white;
+                // text-align: center;
+            }
+
+            tbody {
+                tr {
+                    margin-block: 10px;
+
+                    td {
+                        background: none;
+                        color: white;
+                        vertical-align: middle;
+                        // text-align: center;
+
+                        .add-to-cart-btn {
+                            background: none;
+                            background-color: #f2b612;
+                            color: #072b31;
+                            padding: 12px 25px;
+                            text-transform: uppercase;
+                            border-radius: 50px;
+                            border: 1px solid #f2b612;
+                            transition: 0.4s;
+                            font-weight: 600;
+                            font-size: 12px;
+                            font-family: 'Montserrat', sans-serif;
+
+                            &:hover {
+                                background-color: #fad12d;
+                            }
+                        }
+
+                        .delete-wishlist-btn {
+                            background: none;
+                            border: none;
+                            transition: 0.4s;
+                            color: white;
+                            text-align: center;
+
+                            &:hover {
+                                color: #f2b612;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .clear-wishlist-btn {
+            // height: 46px;
+            border: 1px solid #f2b612;
+            background-color: #f2b612;
+            color: black;
+            text-transform: uppercase;
+            font-weight: 600;
+            border-radius: 20px;
+            transition: 0.4s;
+            padding: 10px 20px;
+            font-size: 14px;
+
+            &:hover {
+                background-color: #fad12d;
+            }
+        }
+    }
+}

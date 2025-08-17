@@ -2,6 +2,7 @@ import React from 'react'
 import { Table } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import { useCart } from 'react-use-cart'
+import slugify from 'slugify'
 import Swal from 'sweetalert2'
 
 const Cart = () => {
@@ -10,7 +11,7 @@ const Cart = () => {
 
     return (
         <main>
-            <div className="cart-top-part">
+            <div className="cart-wishlist-top-part">
                 <h1 data-aos="zoom-in" data-aos-duration="2000">Cart</h1>
                 <h6 data-aos="zoom-in" data-aos-duration="2000"><Link to='/'>Home</Link> &gt; <span>Cart</span> </h6>
             </div>
@@ -33,7 +34,12 @@ const Cart = () => {
                                         <img src={item.image} width={180} height={220} alt="" style={{ objectFit: "cover" }} />
                                     </td>
                                     <td>
-                                        <h4 className="cart-product-title">{item.title}</h4>
+                                        {/* <Link to={`/shop/${slugify(item.title, {lower:true})}`}>
+                                            <h4 className="cart-product-title">{item.title}</h4>
+                                        </Link> */}
+                                        <h4 className='cart-product-title'>
+                                            <Link to={`/shop/${slugify(item.title,{lower:true})}`} style={{color:"white", textDecoration:"none"}}>{item.title}</Link>
+                                        </h4>
                                         <h5 className="cart-product-price">${item.price}</h5>
                                         <p className="cart-product-description">{item.description.slice(0, 80)}...</p>
                                         <div className="counter-con">

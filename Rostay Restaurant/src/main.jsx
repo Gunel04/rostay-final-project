@@ -26,6 +26,7 @@ import "./sass/shop.scss";
 import "./sass/moredetails.scss";
 import "./sass/dashboard.scss";
 import "./sass/cart.scss";
+import "./sass/wishlist.scss";
 import "./sass/footer.scss";
 // slick-slider
 import "slick-carousel/slick/slick.css";
@@ -36,12 +37,13 @@ import { addCategory, getCategory, getProduct } from './tools/actions/action';
 import { Provider } from 'react-redux';
 import supabase from './utils/supabase.js';
 import { CartProvider } from 'react-use-cart';
+import { WishlistProvider } from 'react-use-wishlist';
 
 const myStore = configureStore();
 
 
 const { data } = await supabase.from('rostay-category').select();
-const {data:products} = await supabase.from('rostay-products').select();
+const { data: products } = await supabase.from('rostay-products').select();
 myStore.dispatch(getCategory(data))
 myStore.dispatch(getProduct(products));
 // const getCategory = async () => {
@@ -63,9 +65,11 @@ myStore.dispatch(getProduct(products));
 
 
 createRoot(document.getElementById('root')).render(
-  <CartProvider>
-    <Provider store={myStore}>
-      <App />
-    </Provider>
-  </CartProvider>
+  <WishlistProvider>
+    <CartProvider>
+      <Provider store={myStore}>
+        <App />
+      </Provider>
+    </CartProvider>
+  </WishlistProvider>
 )

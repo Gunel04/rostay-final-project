@@ -3,6 +3,7 @@ import { CiHeart, CiMenuFries, CiSearch, CiShoppingCart, CiUser } from 'react-ic
 import { FaDiamond } from 'react-icons/fa6'
 import { Link, useLocation } from 'react-router-dom';
 import { useCart } from 'react-use-cart';
+import { useWishlist } from 'react-use-wishlist';
 import Swal from 'sweetalert2';
 
 const Header = () => {
@@ -16,7 +17,8 @@ const Header = () => {
     useEffect(() => {
         window.scrollTo(0, 0);
     }, [pathname])
-    const { totalItems } = useCart();
+    const { totalUniqueItems } = useCart();
+    const {totalWishlistItems} = useWishlist();
 
 
     // const user = JSON.parse(localStorage.getItem('user'))
@@ -69,13 +71,13 @@ const Header = () => {
                     <li className="icon-items"><Link to='/wishlist' className="position-relative">
                         <CiHeart />
                         <span className="badge-icon position-absolute top-0 start-100 translate-middle badge rounded-pill">
-                            0
+                            {totalWishlistItems}
                         </span>
                     </Link></li>
                     <li className="icon-items"><Link to='cart' className="position-relative">
                         <CiShoppingCart />
                         <span className="badge-icon position-absolute top-0 start-100 translate-middle badge rounded-pill">
-                            {totalItems}
+                            {totalUniqueItems}
                         </span>
                     </Link></li>
                 </ul>

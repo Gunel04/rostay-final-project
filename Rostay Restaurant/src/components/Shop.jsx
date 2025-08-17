@@ -1,17 +1,19 @@
 import React from 'react'
 import { GiShoppingCart } from 'react-icons/gi';
-import { IoIosHeartEmpty } from 'react-icons/io';
+import { IoIosHeart, IoIosHeartEmpty } from 'react-icons/io';
 import { PiEyeThin } from 'react-icons/pi';
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom';
 import { useCart } from 'react-use-cart';
+import { useWishlist } from 'react-use-wishlist';
 import slugify from 'slugify';
 import Swal from 'sweetalert2';
 
 const Shop = () => {
   const categories = useSelector(p => p.category);
   const products = useSelector(p => p.product);
-  const { addItem } = useCart();
+  const { addItem, inCart } = useCart();
+  const { addWishlistItem, inWishlist, removeWishlistItem } = useWishlist();
 
   return (
     <>
@@ -49,13 +51,33 @@ const Shop = () => {
                       <img src={item.image} height={370} className="card-img-top" alt={item.title} />
                       <div className="hover-icons">
                         <button onClick={() => {
-                          Swal.fire({
-                            icon: "success",
-                            title: "Product is added to cart!"
-                          });
-                          addItem(item)
+                          if (!inCart(item.id)) {
+                            Swal.fire({
+                              icon: "success",
+                              title: "Product is added to cart!"
+                            });
+                            addItem(item)
+                          }
+                          else {
+                            Swal.fire({
+                              icon: "warning",
+                              title: "Already in cart!"
+                            })
+                          }
                         }}><GiShoppingCart size={25} /></button>
-                        <a href="#"><IoIosHeartEmpty size={25} /></a>
+                        <button onClick={() => {
+                          console.log(inWishlist(item.id));
+                          if (!inWishlist(item.id)) {
+                            // Swal.fire({
+                            //   icon: "success",
+                            //   title: "Product is added to the wishlist!"
+                            // });
+                            addWishlistItem(item);
+                          }
+                          else {
+                            removeWishlistItem(item.id);
+                          }
+                        }}>{inWishlist(item.id) ? <IoIosHeart size={25} /> : <IoIosHeartEmpty size={25} />}</button>
                         <Link to={`/shop/${slugify(item.title, { lower: true })}`}><PiEyeThin size={25} /></Link>
                       </div>
                     </div>
