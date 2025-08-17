@@ -34,9 +34,6 @@ const Cart = () => {
                                         <img src={item.image} width={180} height={220} alt="" style={{ objectFit: "cover" }} />
                                     </td>
                                     <td>
-                                        {/* <Link to={`/shop/${slugify(item.title, {lower:true})}`}>
-                                            <h4 className="cart-product-title">{item.title}</h4>
-                                        </Link> */}
                                         <h4 className='cart-product-title'>
                                             <Link to={`/shop/${slugify(item.title,{lower:true})}`} style={{color:"white", textDecoration:"none"}}>{item.title}</Link>
                                         </h4>
@@ -70,8 +67,6 @@ const Cart = () => {
                                     <td className='table-total-price'>${item.quantity * item.price}</td>
                                 </tr>
                             ))}
-
-
                         </tbody>
                     </Table>
                     <button className='clear-all-btn' onClick={() => {

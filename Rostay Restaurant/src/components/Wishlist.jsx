@@ -17,18 +17,9 @@ const Wishlist = () => {
             </div>
             {isWishlistEmpty ? <div className='empty-cart'><h1>Your wishlist is currently empty!</h1><Link to='/shop'><button>Back to Shop</button></Link></div> : <div className="wishlist-section container-fluid">
                 <Table className='wishlist-table'>
-                    {/* <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Image</th>
-                            <th>Info</th>
-                            <th>Add to cart</th>
-                            <th>Delete</th>
-                        </tr>
-                    </thead> */}
                     <tbody>
                         {items.map((item, index) => (
-                            <tr>
+                            <tr key={index}>
                                 <td>{index + 1}</td>
                                 <td>
                                     <img src={item.image} width={100} alt="" />

@@ -135,31 +135,10 @@ const MoreDetails = () => {
               ) : (
                 <h4 className="text-center">No related products</h4>
               )}
-              {/* {products.map((item, index) => {
-                                
-                                if (item.category === singleProduct.category && item.title !== singleProduct.title) {
-                                    return (
-                                        
-                                    )
-
-                                }
-                                else {
-                                    return (
-                                        <h1>No related products</h1>
-                                    )
-                                }
-                            })}
-                             */}
             </div>
           </div>
         </section>
       </main>
-      {/* <section>
-                <div className="row">
-
-                    
-                </div>
-            </section > */}
     </>
   );
 };

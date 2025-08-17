@@ -23,7 +23,6 @@ const Shop = () => {
           <h6 data-aos="zoom-in" data-aos-duration="2000"><Link to='/'>Home</Link> &gt; <span>Shop</span> </h6>
         </div>
         <section className='shop-section container-fluid d-flex'>
-          {/* <div className="col-3"> */}
           <div className="left-filter-part" data-aos="fade-right" data-aos-duration='2000'>
             <div className="category-filter">
               <h4>Product Categories</h4>
@@ -40,8 +39,6 @@ const Shop = () => {
               <input type="submit" className='submit-input' />
             </div>
           </div>
-          {/* </div>
-          <div className="col-9"> */}
           <div className="right-products-part" >
             <div className="row g-4">
               {products.map((item) => (
@@ -68,10 +65,6 @@ const Shop = () => {
                         <button onClick={() => {
                           console.log(inWishlist(item.id));
                           if (!inWishlist(item.id)) {
-                            // Swal.fire({
-                            //   icon: "success",
-                            //   title: "Product is added to the wishlist!"
-                            // });
                             addWishlistItem(item);
                           }
                           else {
@@ -94,7 +87,7 @@ const Shop = () => {
               ))}
             </div>
           </div>
-          {/* </div> */}
+          
         </section>
       </main>
     </>
