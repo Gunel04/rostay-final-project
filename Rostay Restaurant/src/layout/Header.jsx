@@ -18,9 +18,10 @@ const Header = () => {
         window.scrollTo(0, 0);
     }, [pathname])
     const { totalUniqueItems } = useCart();
-    const {totalWishlistItems} = useWishlist();
+    const { totalWishlistItems } = useWishlist();
 
-
+    const { emptyCart } = useCart();
+    const { emptyWishlist } = useWishlist();
     // const user = JSON.parse(localStorage.getItem('user'))
 
     const logOut = () => {
@@ -35,6 +36,8 @@ const Header = () => {
             if (result.isConfirmed) {
                 localStorage.removeItem('user')
                 setUser(null);
+                emptyCart();
+                emptyWishlist();
                 Swal.fire({
                     title: "Logged Out!",
                     icon: "success"

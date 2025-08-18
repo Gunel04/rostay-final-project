@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { GiShoppingCart } from "react-icons/gi";
 import { HiOutlineArrowLongRight } from "react-icons/hi2";
-import { IoIosHeartEmpty } from "react-icons/io";
+import { IoIosHeart, IoIosHeartEmpty } from "react-icons/io";
 import { PiEyeThin } from "react-icons/pi";
 import { useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
 import { useCart } from "react-use-cart";
+import { useWishlist } from "react-use-wishlist";
 import slugify from "slugify";
 import Swal from "sweetalert2";
 
@@ -13,10 +14,13 @@ const MoreDetails = () => {
   const products = useSelector((p) => p.product);
   const { title } = useParams();
   const { addItem, items, updateItemQuantity, inCart } = useCart();
+  const {inWishlist, addWishlistItem, removeWishlistItem} = useWishlist();
   const [counter, setCounter] = useState(1);
   const singleProduct = products.find(
     (item) => slugify(item.title, { lower: true }) === title
   );
+  const [user, setUser] = useState(JSON.parse(localStorage.getItem('user')) || null);
+
   const cartProduct = items.find(item => item.id === singleProduct.id);
   console.log(items);
 
@@ -49,28 +53,52 @@ const MoreDetails = () => {
                 <button onClick={() => { setCounter(counter => counter + 1) }}>+</button>
               </div>
               <button className="add-to-cart-btn" onClick={() => {
-                if (!inCart(singleProduct.id)) {
-                  Swal.fire({
-                    icon: "success",
-                    title: "Product is added to the cart!"
-                  });
-                  addItem(singleProduct, counter);
+                if (user) {
+                  if (!inCart(singleProduct.id)) {
+                    Swal.fire({
+                      icon: "success",
+                      title: "Product is added to the cart!"
+                    });
+                    addItem(singleProduct, counter);
+                  }
+                  else {
+                    Swal.fire({
+                      icon: "warning",
+                      title: "Already in cart!"
+                    })
+                  }
                 }
                 else {
                   Swal.fire({
-                    icon:"warning",
-                    title:"Already in cart!"
+                    icon: "warning",
+                    title: "Please sign in to your account!"
                   })
                 }
+
 
               }} >
                 Add to Cart <HiOutlineArrowLongRight size={20} />
               </button>
             </div>
 
-            <a href="#" className="add-wishlist">
-              <IoIosHeartEmpty size={20} /> Add to Wishlist
-            </a>
+            <button className="add-wishlist" onClick={() => {
+              if (user) {
+                if (!inWishlist(singleProduct.id)) {
+                  addWishlistItem(singleProduct);
+                }
+                else {
+                  removeWishlistItem(singleProduct.id);
+                }
+              }
+              else {
+                Swal.fire({
+                  icon: "warning",
+                  title: "Please sign in to your account!"
+                })
+              }
+            }}>
+              {inWishlist(singleProduct.id) ? <IoIosHeart size={20} /> : <IoIosHeartEmpty size={20} />} Add to Wishlist
+            </button>
             <hr />
             <p className="category">
               Category: <span>{singleProduct.category}</span>

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { GiShoppingCart } from 'react-icons/gi';
 import { IoIosHeart, IoIosHeartEmpty } from 'react-icons/io';
 import { PiEyeThin } from 'react-icons/pi';
@@ -10,10 +10,22 @@ import slugify from 'slugify';
 import Swal from 'sweetalert2';
 
 const Shop = () => {
+  const [user, setUser] = useState(JSON.parse(localStorage.getItem('user')) || null);
+
+  const [filteredData, setFilteredData] = useState([]);
+  const [active, setActive] = useState("");
+
   const categories = useSelector(p => p.category);
   const products = useSelector(p => p.product);
-  const { addItem, inCart } = useCart();
+
+  const { addItem, inCart, emptyCart } = useCart();
   const { addWishlistItem, inWishlist, removeWishlistItem } = useWishlist();
+
+  const filterProducts = (category) => {
+    const filteringProcess = products.filter(p => p.category === category);
+    setFilteredData(filteringProcess);
+    setActive(category);
+  }
 
   return (
     <>
@@ -28,8 +40,9 @@ const Shop = () => {
               <h4>Product Categories</h4>
               <ul>
                 {categories.map((item, index) => (
-                  <li key={index}>{item.categoryName}</li>
+                  <li key={index} className={`${active===item.categoryName?"active-category":""}`} style={{cursor:"pointer"}} onClick={() => { filterProducts(item.categoryName) }}>{item.categoryName}</li>
                 ))}
+                <li style={{color:"#f2b612", cursor:"pointer"}} onClick={()=>{filterProducts()}}>All Products</li>
               </ul>
             </div>
             <hr />
@@ -41,35 +54,114 @@ const Shop = () => {
           </div>
           <div className="right-products-part" >
             <div className="row g-4">
-              {products.map((item) => (
+              {filteredData.length === 0 ? products.map((item) => (
                 <div className='col-12 col-sm-6 col-md-6 col-lg-4' key={item.id} data-aos="fade-up" data-aos-duration="2000">
                   <div className="card" >
                     <div className="product-image-con">
                       <img src={item.image} height={370} className="card-img-top" alt={item.title} />
                       <div className="hover-icons">
                         <button onClick={() => {
-                          if (!inCart(item.id)) {
+                          if (user) {
+                            if (!inCart(item.id)) {
+                              Swal.fire({
+                                icon: "success",
+                                title: "Product is added to cart!"
+                              });
+                              addItem(item)
+                            }
+                            else {
+                              Swal.fire({
+                                icon: "warning",
+                                title: "Already in cart!"
+                              })
+                            }
+                          }
+                          else {
+                            emptyCart();
                             Swal.fire({
-                              icon: "success",
-                              title: "Product is added to cart!"
-                            });
-                            addItem(item)
+                              icon: "warning",
+                              title: "Please sign in to your account!"
+                            })
+                          }
+
+                        }}><GiShoppingCart size={25} /></button>
+                        <button onClick={() => {
+                          if (user) {
+                            if (!inWishlist(item.id)) {
+                              addWishlistItem(item);
+                            }
+                            else {
+                              removeWishlistItem(item.id);
+                            }
                           }
                           else {
                             Swal.fire({
                               icon: "warning",
-                              title: "Already in cart!"
+                              title: "Please sign in to your account!"
                             })
                           }
-                        }}><GiShoppingCart size={25} /></button>
+
+                        }}>{inWishlist(item.id) ? <IoIosHeart size={25} /> : <IoIosHeartEmpty size={25} />}</button>
+                        <Link to={`/shop/${slugify(item.title, { lower: true })}`}><PiEyeThin size={25} /></Link>
+                      </div>
+                    </div>
+                    <div className="card-body">
+                      <h6 className="card-category">{item.category}</h6>
+                      <h5 className="card-title">{item.title}</h5>
+                      <p className="card-text">{item.description.slice(0, 50)}...</p>
+                      <p className="card-price">${item.price}</p>
+                    </div>
+
+                  </div>
+
+                </div>
+              )) : filteredData.map((item) => (
+                <div className='col-12 col-sm-6 col-md-6 col-lg-4' key={item.id} data-aos="fade-up" data-aos-duration="2000">
+                  <div className="card" >
+                    <div className="product-image-con">
+                      <img src={item.image} height={370} className="card-img-top" alt={item.title} />
+                      <div className="hover-icons">
                         <button onClick={() => {
-                          console.log(inWishlist(item.id));
-                          if (!inWishlist(item.id)) {
-                            addWishlistItem(item);
+                          if (user) {
+                            if (!inCart(item.id)) {
+                              Swal.fire({
+                                icon: "success",
+                                title: "Product is added to cart!"
+                              });
+                              addItem(item)
+                            }
+                            else {
+                              Swal.fire({
+                                icon: "warning",
+                                title: "Already in cart!"
+                              })
+                            }
                           }
                           else {
-                            removeWishlistItem(item.id);
+                            emptyCart();
+                            Swal.fire({
+                              icon: "warning",
+                              title: "Please sign in to your account!"
+                            })
                           }
+
+                        }}><GiShoppingCart size={25} /></button>
+                        <button onClick={() => {
+                          if (user) {
+                            if (!inWishlist(item.id)) {
+                              addWishlistItem(item);
+                            }
+                            else {
+                              removeWishlistItem(item.id);
+                            }
+                          }
+                          else {
+                            Swal.fire({
+                              icon: "warning",
+                              title: "Please sign in to your account!"
+                            })
+                          }
+
                         }}>{inWishlist(item.id) ? <IoIosHeart size={25} /> : <IoIosHeartEmpty size={25} />}</button>
                         <Link to={`/shop/${slugify(item.title, { lower: true })}`}><PiEyeThin size={25} /></Link>
                       </div>
@@ -87,7 +179,7 @@ const Shop = () => {
               ))}
             </div>
           </div>
-          
+
         </section>
       </main>
     </>
