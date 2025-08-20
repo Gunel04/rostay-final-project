@@ -40,9 +40,9 @@ const Shop = () => {
               <h4>Product Categories</h4>
               <ul>
                 {categories.map((item, index) => (
-                  <li key={index} className={`${active===item.categoryName?"active-category":""}`} style={{cursor:"pointer"}} onClick={() => { filterProducts(item.categoryName) }}>{item.categoryName}</li>
+                  <li key={index} className={`${active === item.categoryName ? "active-category" : ""}`} style={{ cursor: "pointer" }} onClick={() => { filterProducts(item.categoryName) }}>{item.categoryName}</li>
                 ))}
-                <li style={{color:"#f2b612", cursor:"pointer"}} onClick={()=>{filterProducts()}}>All Products</li>
+                <li style={{ color: "#f2b612", cursor: "pointer" }} onClick={() => { filterProducts() }}>All Products</li>
               </ul>
             </div>
             <hr />
@@ -53,7 +53,15 @@ const Shop = () => {
             </div>
           </div>
           <div className="right-products-part" >
+            <select name="" id="" className='sorting-selection'>
+              <option value="sort-by">Sort By</option>
+              <option value="name-asc">Name: A to Z</option>
+              <option value="name-desc">Name: Z to A</option>
+              <option value="price-asc">Price: Low to High</option>
+              <option value="price-desc">Price: High to Low</option>
+            </select>
             <div className="row g-4">
+
               {filteredData.length === 0 ? products.map((item) => (
                 <div className='col-12 col-sm-6 col-md-6 col-lg-4' key={item.id} data-aos="fade-up" data-aos-duration="2000">
                   <div className="card" >
