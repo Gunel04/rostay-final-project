@@ -68,7 +68,6 @@ const ProductDashboard = () => {
                     </tbody>
                 </Table>
                 <Link to='/dashboard/products/add' className='btn btn-warning'>Add Product</Link>
-                {/* <Link to='/shop' className='btn btn-warning'>Shop</Link> */}
             </div>
 
         </div>

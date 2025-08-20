@@ -32,7 +32,7 @@ const AddCategory = () => {
                         <Form.Label>Category Name</Form.Label>
                         <Form.Control type="text" placeholder="Enter category..." onChange={e => setCategory(e.target.value)} />
                     </Form.Group>
-                    <Button variant="primary" type="submit">
+                    <Button variant="outline-warning" type="submit">
                         Add
                     </Button>
 

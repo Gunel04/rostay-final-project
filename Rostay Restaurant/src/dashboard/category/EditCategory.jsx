@@ -12,7 +12,6 @@ const EditCategory = () => {
 
   const { slug } = useParams();
   const filteredCategory = data.find(item => slugify(item.categoryName, { lower: true }) === slug);
-  // console.log(filteredCategory);
   const [category, setCategory] = useState('');
 
   useEffect(() => {

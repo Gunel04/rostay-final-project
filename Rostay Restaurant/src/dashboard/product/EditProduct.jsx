@@ -9,7 +9,6 @@ import { editProduct } from '../../tools/actions/action';
 const EditProduct = () => {
   const categories = useSelector(p => p.category);
   const products = useSelector(p => p.product);
-  // console.log(products);
 
   const { slug } = useParams();
 
@@ -91,7 +90,7 @@ const EditProduct = () => {
             </Form.Select>
           </Form.Group>
 
-          <Button variant="outline-primary" type="submit">
+          <Button variant="outline-warning" type="submit">
             Edit Product
           </Button>
         </Form>

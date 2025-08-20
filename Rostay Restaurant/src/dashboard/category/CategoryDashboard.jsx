@@ -20,8 +20,6 @@ const CategoryDashboard = () => {
                         <tr>
                             <th>#</th>
                             <th>Category Name</th>
-                            {/* <th>Edit Category</th>
-                        <th>Delete Category</th> */}
                             <th>#</th>
                         </tr>
                     </thead>
@@ -52,13 +50,11 @@ const CategoryDashboard = () => {
                                         });
                                     }
                                 }}>X</Button></td>
-                                {/* <td></td> */}
                             </tr>
                         ))}
                     </tbody>
                 </Table>
                 <Link to='/dashboard/category/add' className='btn btn-warning'>Add Category</Link>
-                {/* <Link to='/shop' className='btn btn-warning'>Shop</Link> */}
             </div>
 
         </div>

@@ -98,6 +98,14 @@ header {
             margin-right: 4px;
 
             li {
+                .search-icon {
+                    background: none;
+                    border: none;
+                    @include flex();
+                }
+                .search-modal {
+                    width: 100%;
+                }
                 a {
                     color: white;
                     text-decoration: none;
@@ -261,6 +269,9 @@ header {
                 padding: 0 10px;
 
                 li {
+                    .search-icon {
+                        color: #072b31;
+                    }
                     a {
                         color: #072b31;
 

@@ -1,14 +1,26 @@
 import React, { useEffect, useState } from 'react'
+import { Button, Form, InputGroup, ListGroup, Modal } from 'react-bootstrap';
 import { CiHeart, CiMenuFries, CiSearch, CiShoppingCart, CiUser } from 'react-icons/ci'
 import { FaDiamond } from 'react-icons/fa6'
+import { useSelector } from 'react-redux';
 import { Link, useLocation } from 'react-router-dom';
 import { useCart } from 'react-use-cart';
 import { useWishlist } from 'react-use-wishlist';
+import slugify from 'slugify';
 import Swal from 'sweetalert2';
 
 const Header = () => {
+    const products = useSelector(p => p.product);
+    console.log(products);
+    const [searchKey, setSearchKey] = useState("");
+
     const [menuOpen, setMenuOpen] = useState(false);
     const [user, setUser] = useState(JSON.parse(localStorage.getItem('user')) || null);
+
+    const [show, setShow] = useState(false);
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+
     const toggleMenu = () => {
         setMenuOpen(!menuOpen);
     }
@@ -69,7 +81,35 @@ const Header = () => {
                     </li>
                 </ul>
                 <ul className={`icon-part-list ${menuOpen ? "active" : ""}`}>
-                    <li className="icon-items"><a href="#"><CiSearch /></a></li>
+                    <li className="icon-items">
+                        <Button onClick={handleShow} className='search-icon'>
+                            <CiSearch size={25} />
+                        </Button>
+
+                        <Modal show={show} onHide={handleClose} className='search-modal'>
+                            <Modal.Header closeButton>
+                                <Modal.Title>Search Product</Modal.Title>
+                            </Modal.Header>
+                            <Modal.Body>
+                                <InputGroup className="mb-3">
+                                    <Form.Control
+                                        placeholder="Search products..."
+                                        aria-label="Recipient's username"
+                                        aria-describedby="basic-addon2"
+                                        onChange={e => setSearchKey(e.target.value)}
+                                    />
+                                </InputGroup>
+                                <ListGroup>
+                                    {!searchKey ? "" : products.filter(p => p.title.toLocaleLowerCase().includes(searchKey)).map((item, index) => (
+                                        <span key={index} onClick={handleClose}><Link to={`/shop/${slugify(item.title, {lower:true})}`} style={{textDecoration:"none"}} >
+                                            <ListGroup.Item > <img src={item.image} alt={item.title} width={60} /> {item.title}</ListGroup.Item>
+                                        </Link></span>
+                                    ))}
+
+                                </ListGroup>
+                            </Modal.Body>
+                        </Modal>
+                    </li>
                     <li className="icon-items">{user ? <Link><CiUser /> <div className='account'><span>{user.username}</span> <span onClick={logOut}>Log Out</span></div> </Link> : <Link to='/login'><CiUser /> <div className='account'><span>Sign in</span> <span>Account</span></div> </Link>}</li>
                     <li className="icon-items"><Link to='/wishlist' className="position-relative">
                         <CiHeart />

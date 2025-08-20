@@ -68,16 +68,14 @@ const AddProduct = () => {
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label>Product Category</Form.Label>
                         <Form.Select className='mb-3' aria-label="Default select example" onChange={e => setCategory(e.target.value)}>
-                            {/* <Form.Label>Product Category</Form.Label> */}
                             <option value="Select Category">Select Category</option>
-
                             {categories.map((item, index) => (
                                 <option key={index} value={item.categoryName}>{item.categoryName}</option>
                             ))}
                         </Form.Select>
                     </Form.Group>
 
-                    <Button variant="outline-primary" type="submit">
+                    <Button variant="outline-warning" type="submit">
                         Add Product
                     </Button>
                 </Form>
