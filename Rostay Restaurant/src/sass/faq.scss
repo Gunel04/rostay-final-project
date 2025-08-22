@@ -24,7 +24,7 @@ main {
     .faq-questions-part {
         width: 100%;
         display: flex;
-        align-items: start;
+        // align-items: start;
         gap: 20px;
 
         .left-questions-part {
@@ -70,8 +70,55 @@ main {
             img {
                 width: 100%;
                 object-fit: cover;
-                border-bottom-left-radius: 50%;
-                border-bottom-right-radius: 50%;
+                border-bottom-left-radius: 300px;
+                border-bottom-right-radius: 300px;
+            }
+        }
+    }
+}
+
+@media(max-width:1145px) {
+    main {
+        .faq-section-headings{
+            h1 {
+                font-size: 45px;
+            }
+        }
+    }
+}
+
+@media(max-width:992px) {
+    main {
+        .faq-section-headings{
+            h1 {
+                font-size: 35px;
+            }
+        }
+        .faq-questions-part{
+            .left-questions-part {
+                width: 55%;
+            }
+            .right-image-part {
+                width: 45%;
+            }
+        }
+    }
+}
+
+@media(max-width:880px) {
+    main {
+        .faq-section-headings{
+            h1 {
+                font-size: 30px;
+            }
+        }
+        .faq-questions-part{
+            .left-questions-part {
+                width: 100%;
+            }
+            .right-image-part {
+                // width: 45%;
+                display: none;
             }
         }
     }

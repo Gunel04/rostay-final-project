@@ -28,6 +28,7 @@ import "./sass/dashboard.scss";
 import "./sass/cart.scss";
 import "./sass/wishlist.scss";
 import "./sass/faq.scss";
+import "./sass/gallery.scss";
 import "./sass/footer.scss";
 // slick-slider
 import "slick-carousel/slick/slick.css";
