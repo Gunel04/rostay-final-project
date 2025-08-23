@@ -9,6 +9,7 @@ import Experience from './home/Experience'
 import Testimonials from './home/Testimonials'
 import Faq from './home/Faq'
 import Gallery from './home/Gallery'
+import Recommendations from './home/Recommendations'
 
 const Home = () => {
   return (
@@ -18,6 +19,7 @@ const Home = () => {
       {/* <TimeOfLuxury /> */}
       <SpecialMenu />
       <WhyChooseUs />
+      <Recommendations />
       <OurCrew />
       <Experience />
       <Testimonials />
