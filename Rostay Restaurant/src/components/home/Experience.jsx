@@ -7,17 +7,22 @@ const Experience = () => {
         {
             headingOne: "Ambience",
             headingTwo: "Unique Atmosphere",
-            text: "Rostay Restaurant offers the perfect combination of sublime food, seamless service and an atmosphere of casual elegance"
+            text: "Rostay Restaurant offers the perfect combination of sublime food, seamless service and an atmosphere of casual elegance",
+            image:"https://demo2.themelexus.com/rostay/wp-content/uploads/2025/03/H3-exclusive-1.jpg"
         },
         {
             headingOne: "Food & Wines",
             headingTwo: "Selected Quality",
-            text: "We offer a carefully prepared selection of culinary delights in favor of exquisite freshness and the highest standards."
+            text: "We offer a carefully prepared selection of culinary delights in favor of exquisite freshness and the highest standards.",
+            image:"https://demo2.themelexus.com/rostay/wp-content/uploads/2025/03/H3-exclusive-2.jpg"
+
         },
         {
             headingOne: "The Cooking",
             headingTwo: "The Chef Secrets",
-            text: "Rostay Restaurant offers the perfect combination of sublime food, seamless service and an atmosphere of casual elegance"
+            text: "Rostay Restaurant offers the perfect combination of sublime food, seamless service and an atmosphere of casual elegance",
+            image:"https://demo2.themelexus.com/rostay/wp-content/uploads/2025/03/H3-exclusive-3.jpg"
+
         },
     ]
     return (
@@ -31,7 +36,7 @@ const Experience = () => {
                     <div className="col-md-4 col-lg-4 col-xl-4" key={index}>
                         <div className="experience-cards" data-aos="zoom-in-up" data-aos-duration="1500">
                             <div className="experience-card-img">
-                                <img src="https://demo2.themelexus.com/rostay/wp-content/uploads/2025/03/H3-exclusive-1.jpg" alt="" />
+                                <img src={item.image} alt="" />
                             </div>
                             <div className="experience-card-info">
                                 <h1>{item.headingOne}</h1>

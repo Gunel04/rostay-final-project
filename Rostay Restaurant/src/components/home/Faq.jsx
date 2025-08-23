@@ -35,11 +35,11 @@ const Faq = () => {
     return (
         <>
             <main className="faq-section container-fluid">
-                <div className="faq-section-headings">
+                <div className="faq-section-headings" data-aos='fade-up' data-aos-duration='2000'>
                     <h6>Need Help</h6>
                     <h1>Frequently Asked Questions</h1>
                 </div>
-                <div className="faq-questions-part">
+                <div className="faq-questions-part" data-aos='fade-up' data-aos-duration='2000'>
                     <div className="left-questions-part">
                         <div className="accordion faq-accordion" id="accordionExample">
                             {faqs.map((item, index) => {

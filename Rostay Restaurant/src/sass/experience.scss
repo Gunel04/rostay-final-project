@@ -107,20 +107,8 @@
 
 @media(max-width:992px) {
     .experience-section {
-        .experience-text {
-            h1 {
-                font-size: 45px;
-            }
-        }
 
         .experience-cards {
-            width: 85%;
-
-            .experience-card-img {
-                width: 100%;
-
-            }
-
             .experience-card-info {
                 h1 {
                     font-size: 50px;
@@ -136,29 +124,18 @@
 
 @media(max-width:856px) {
     .experience-section {
-        .experience-text {
-            h1 {
-                font-size: 45px;
-            }
-        }
-
         .experience-cards {
             width: 93%;
 
             .experience-card-img {
                 width: 100%;
-
             }
-
             .experience-card-info {
                 h1 {
                     font-size: 43px;
                     margin-top: -25px;
                 }
 
-                h3 {
-                    font-size: 18px;
-                }
             }
         }
     }
@@ -219,7 +196,7 @@
         .experience-text {
             padding: 70px 0 25px;
             h1 {
-                font-size: 25px;
+                font-size: 30px;
             }
         }
 

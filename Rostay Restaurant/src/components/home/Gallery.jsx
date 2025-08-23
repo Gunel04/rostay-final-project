@@ -3,9 +3,9 @@ import React from 'react'
 const Gallery = () => {
     return (
         <>
-            <div className="home-gallery-section container-fluid">
-                <h1>Gallery</h1>
-                <div className="home-gallery-photos-con">
+            <div className="home-gallery-section container-fluid" >
+                <h1 data-aos='zoom-in-up' data-aos-duration='2000'>Gallery</h1>
+                <div className="home-gallery-photos-con" data-aos='zoom-in-up' data-aos-duration='2000'>
                     <div className="home-gallery-photo-1">
                         <img src="https://demo2.themelexus.com/rostay/wp-content/uploads/2025/03/h1-gallery6.jpg" alt="" />
                     </div>

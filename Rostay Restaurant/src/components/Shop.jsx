@@ -56,8 +56,8 @@ const Shop = () => {
   console.log(currentProducts);
 
   const pageNumbers = [];
-  
-  for(let i=1; i<=Math.ceil(products.length / productsPerPage); i++) {
+
+  for (let i = 1; i <= Math.ceil(products.length / productsPerPage); i++) {
     pageNumbers.push(i);
   }
 
@@ -74,7 +74,7 @@ const Shop = () => {
               <h4>Product Categories</h4>
               <ul>
                 {categories.map((item, index) => (
-                  <li key={index} className={`${active === item.categoryName ? "active-category" : ""}`} style={{ cursor: "pointer" }} onClick={() => { filterProducts(item.categoryName) }}>{item.categoryName} ({products.filter(p=>p.category === item.categoryName).length})</li>
+                  <li key={index} className={`${active === item.categoryName ? "active-category" : ""}`} style={{ cursor: "pointer" }} onClick={() => { filterProducts(item.categoryName) }}>{item.categoryName} ({products.filter(p => p.category === item.categoryName).length})</li>
                 ))}
                 <li style={{ color: "#f2b612", cursor: "pointer" }} onClick={() => { filterProducts() }}>All Products</li>
               </ul>
@@ -221,8 +221,8 @@ const Shop = () => {
               ))}
             </div>
             <div className="pagination-btn-con" data-aos="fade-up" data-aos-duration="2000">
-              {pageNumbers.map((item,index)=>(
-                <button className={`pagination-button m-2 ${item===currentPage?"active":""}`} key={index} onClick={()=>{setCurrentPage(item)}}>{item}</button>
+              {pageNumbers.map((item, index) => (
+                <button className={`pagination-button m-2 ${item === currentPage ? "active" : ""}`} key={index} onClick={() => { setCurrentPage(item) }}>{item}</button>
               ))}
             </div>
           </div>
