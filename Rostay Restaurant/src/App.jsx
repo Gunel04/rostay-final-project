@@ -23,6 +23,9 @@ import Dashboard from './dashboard/Dashboard'
 import DashboardLayout from './layout/DashboardLayout'
 import Cart from './components/Cart'
 import Wishlist from './components/Wishlist'
+import BlogDashboard from './dashboard/blog/BlogDashboard'
+import AddBlog from './dashboard/blog/AddBlog'
+import EditBlog from './dashboard/blog/EditBlog'
 
 const App = () => {
   return (
@@ -51,10 +54,15 @@ const App = () => {
           <Route element={<Dashboard />} path='/dashboard'>
             <Route path='/dashboard/products' element={<ProductDashboard />} />
             <Route path='/dashboard/category' element={<CategoryDashboard />} />
+            <Route path='/dashboard/blog' element={<BlogDashboard />} />
             <Route path='/dashboard/category/add' element={<AddCategory />} />
             <Route path='/dashboard/category/edit/:slug' element={<EditCategory />} />
             <Route path='/dashboard/products/add' element={<AddProduct />} />
             <Route path='/dashboard/products/edit/:slug' element={<EditProduct />} />
+            <Route path='/dashboard/blog/add' element={<AddBlog />} />
+            <Route path='/dashboard/blog/edit/:slug' element={<EditBlog />} />
+
+
           </Route>
         </Route>
       </Routes>

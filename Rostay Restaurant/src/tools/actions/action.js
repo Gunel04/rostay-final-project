@@ -6,11 +6,6 @@ export const getCategory = (categories) => ({
 })
 
 export const addCategory = async ({ id, categoryName }) => {
-    // type: "Create_category",
-    // category: {
-    //     id: crypto.randomUUID(),
-    //     categoryName
-    // }
     const { error } = await supabase
         .from('rostay-category')
         .insert({ categoryName: categoryName })
@@ -42,9 +37,32 @@ export const addProduct = async ({ image, title, description, price, category })
     }
 }
 
+
+export const getBlog = (blogs) => ({
+    type: 'Get_blog',
+    blogs
+})
+
+export const addBlog = async ({ image, titleEn, titleAz, descriptionEn, descriptionAz, dateEn, dateAz }) => {
+    const { error } = await supabase
+        .from('rostay-blog')
+        .insert({ image: image, titleEn: titleEn, titleAz: titleAz, descriptionEn: descriptionEn, descriptionAz: descriptionAz, dateEn: dateEn, dateAz: dateAz })
+    if (error) {
+        console.log(error);
+
+    }
+    else {
+        console.log("Blog added successfully!");
+        window.location.assign('/dashboard/blog');
+    }
+}
+
+
+
+
+
 export const deleteCategory = async (id) => {
-    // type: 'Delete_category',
-    // id
+
     const response = await supabase
         .from('rostay-category')
         .delete()
@@ -72,10 +90,22 @@ export const deleteProduct = async (id) => {
     }
 }
 
+export const deleteBlog = async (id) => {
+    const response = await supabase
+        .from('rostay-blog')
+        .delete()
+        .eq('id', id)
+    if (response) {
+        console.log('Blog deleted successfully!');
+        window.location.reload();
+    }
+    else {
+        console.log('Blog deletion failed');
+
+    }
+}
+
 export const editCategory = async (id, editData) => {
-    // type: 'Edit_category',
-    // id,
-    // editData
     const { error } = await supabase
         .from('rostay-category')
         .update(editData)
@@ -103,5 +133,19 @@ export const editProduct = async (id, editedProduct) => {
         console.log("Product edited successfully!");
         window.location.assign('/dashboard/products')
 
+    }
+}
+
+export const editBlog = async (id, editedBlog) => {
+    const { error } = await supabase
+        .from('rostay-blog')
+        .update(editedBlog)
+        .eq('id', id)
+    if (error) {
+        console.log(error);
+
+    }
+    else {
+        console.log("Blog edited successfully");
     }
 }
