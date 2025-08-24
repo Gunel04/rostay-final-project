@@ -61,7 +61,7 @@ const EditProduct = () => {
   }
   return (
     <div className='container d-flex align-items-center justify-content-center flex-column my-4'>
-      <h1>Edit Category</h1>
+      <h1>Edit Product</h1>
       <div className='col-6 my-4'>
         <Form onSubmit={editingProduct}>
           <Form.Group className="mb-3" controlId="formBasicEmail">

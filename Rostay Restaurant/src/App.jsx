@@ -26,6 +26,7 @@ import Wishlist from './components/Wishlist'
 import BlogDashboard from './dashboard/blog/BlogDashboard'
 import AddBlog from './dashboard/blog/AddBlog'
 import EditBlog from './dashboard/blog/EditBlog'
+import Blog from './components/Blog'
 
 const App = () => {
   return (
@@ -43,6 +44,7 @@ const App = () => {
           <Route path='/reservation' element={<Reservation />} />
           <Route path='/shop' element={<Shop />} />
           <Route path='/shop/:title' element={<MoreDetails />} />
+          <Route path='/blog' element={<Blog />} />
           <Route path='/cart' element={<Cart />} />
           <Route path='/wishlist' element={<Wishlist />} />
         </Route>

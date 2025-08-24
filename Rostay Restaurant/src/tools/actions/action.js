@@ -147,5 +147,6 @@ export const editBlog = async (id, editedBlog) => {
     }
     else {
         console.log("Blog edited successfully");
+        window.location.assign('/dashboard/blog')
     }
 }

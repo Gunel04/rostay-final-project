@@ -14,9 +14,11 @@ const DashboardLayout = () => {
                         <Link to='/dashboard/category' style={{ textDecoration: "none" }}>
                             <li>Category</li>
                         </Link>
+                        <Link to='/dashboard/blog' style={{ textDecoration: "none" }}>
+                            <li>Blog</li>
+                        </Link>
                     </ul>
                 </aside>
-                {/* <ProductDashboard /> */}
                 <Outlet />
             </div>
         </>

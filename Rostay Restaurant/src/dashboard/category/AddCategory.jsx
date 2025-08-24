@@ -24,7 +24,7 @@ const AddCategory = () => {
         }
     }
     return (
-        <div className='container d-flex align-items-center justify-content-center flex-column my-4'>
+        <div className='container d-flex align-items-center flex-column my-1'>
             <h1>Add Category</h1>
             <div className='col-5 my-4'>
                 <Form onSubmit={addingCategory}>
@@ -33,7 +33,7 @@ const AddCategory = () => {
                         <Form.Control type="text" placeholder="Enter category..." onChange={e => setCategory(e.target.value)} />
                     </Form.Group>
                     <Button variant="outline-warning" type="submit">
-                        Add
+                        Add Category
                     </Button>
 
                 </Form>

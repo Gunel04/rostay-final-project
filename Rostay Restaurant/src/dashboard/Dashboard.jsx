@@ -19,7 +19,6 @@ const Dashboard = () => {
                         </Link>
                     </ul>
                 </aside>
-                {/* <ProductDashboard /> */}
                 <Outlet />
             </div>
         </>

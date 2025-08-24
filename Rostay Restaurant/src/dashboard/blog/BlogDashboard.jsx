@@ -33,10 +33,10 @@ const BlogDashboard = () => {
                             <tr key={index}>
                                 <td>{index + 1}</td>
                                 <td>
-                                    <img src={item.image} alt={item.title} width={110} height={80} style={{ objectFit: "cover" }} />
+                                    <img src={item.image} alt={item.titleEn} width={110} height={80} style={{ objectFit: "cover" }} />
                                 </td>
                                 <td>{item.titleEn}</td>
-                                <td>{item.descriptionEn}</td>
+                                <td>{item.descriptionEn.slice(0,500)}...</td>
                                 <td>{item.dateEn}</td>
                                 <td><Link to={`/dashboard/blog/edit/${slugify(item.titleEn, { lower: true })}`} className='btn btn-warning'>Edit</Link></td>
                                 <td><Button variant='danger' className='mx-auto' onClick={() => {

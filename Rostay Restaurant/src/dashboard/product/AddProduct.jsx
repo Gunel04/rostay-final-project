@@ -45,7 +45,7 @@ const AddProduct = () => {
     }
 
     return (
-        <div className='container d-flex flex-column align-items-center justify-content-center my-2'>
+        <div className='container d-flex flex-column align-items-center my-2'>
             <h1>Add Product</h1>
             <div className="col-6 my-4">
                 <Form onSubmit={addingProduct}>

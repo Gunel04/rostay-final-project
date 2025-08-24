@@ -1,0 +1,103 @@
+main {
+    .blog-top-part {
+        position: relative;
+        height: 400px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-image: url('https://demo2.themelexus.com/rostay/wp-content/uploads/2025/02/breadcrumb-blog.jpg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-color: rgb(7, 43, 49);
+        z-index: 1;
+
+        h1 {
+            font-family: 'Shippori Mincho', sans-serif;
+            color: white;
+            text-transform: uppercase;
+            font-size: 65px;
+            margin-bottom: 20px;
+        }
+
+        h6 {
+            font-size: 14px;
+            color: white;
+            text-transform: uppercase;
+            font-weight: 600;
+
+            a {
+                color: white;
+                text-decoration: none;
+            }
+
+            span {
+                color: #f2b612;
+            }
+        }
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.55);
+            z-index: -1;
+        }
+    }
+
+    .blog-section {
+        padding-block: 50px;
+
+        .card {
+            background: none;
+            color: white;
+            border: none;
+            text-align: center;
+            width: 90%;
+            margin: auto;
+            margin-bottom: 25px;
+            img {
+                border-radius: 0;
+            }
+            .card-body {
+                gap: 50px;
+                .blog-date {
+                    text-transform: uppercase;
+                    color: #bebebe;
+                    font-weight: 600;
+                    font-size: 13px;
+                }
+                .blog-title {
+                    text-transform: uppercase;
+                    color: white;
+                    transition: 0.4s;
+                    &:hover {
+                        color: #f2b612;
+                    }
+                }
+                .blog-text {
+                    color: #bebebe;
+                }
+                button {
+                    background: none;
+                    border: none;
+                    color: white;
+                    text-transform: uppercase;
+                    font-weight: 600;
+                    border-bottom: 1px solid #fff;
+                    font-size: 13px;
+                    transition: 0.4s;
+                    &:hover {
+                        color: #f2b612;
+                        border-bottom: 1px solid #f2b612;
+                    }
+                }
+            }
+        }
+    }
+
+}

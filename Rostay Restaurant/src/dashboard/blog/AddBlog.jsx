@@ -71,7 +71,7 @@ const AddBlog = () => {
                         <Form.Control type="text" placeholder="Enter blog date..." onChange={e => setDateAz(e.target.value)} />
                     </Form.Group>
 
-                    <Button variant="warning" type="submit">
+                    <Button variant="outline-warning" type="submit">
                         Add Blog
                     </Button>
                 </Form>
