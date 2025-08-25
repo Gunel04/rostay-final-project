@@ -27,6 +27,7 @@ import BlogDashboard from './dashboard/blog/BlogDashboard'
 import AddBlog from './dashboard/blog/AddBlog'
 import EditBlog from './dashboard/blog/EditBlog'
 import Blog from './components/Blog'
+import BlogDetails from './components/BlogDetails'
 
 const App = () => {
   return (
@@ -45,6 +46,7 @@ const App = () => {
           <Route path='/shop' element={<Shop />} />
           <Route path='/shop/:title' element={<MoreDetails />} />
           <Route path='/blog' element={<Blog />} />
+          <Route path='/blog/:slug' element={<BlogDetails />} />
           <Route path='/cart' element={<Cart />} />
           <Route path='/wishlist' element={<Wishlist />} />
         </Route>

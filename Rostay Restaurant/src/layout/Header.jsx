@@ -69,7 +69,7 @@ const Header = () => {
                 <ul className={`nav-link-list ${menuOpen ? "active" : ""}`}>
                     <li className="nav-links"><Link to='/'>Home <FaDiamond size={6} style={{ color: "#f2b612" }} /></Link></li>
                     <li className="nav-links"><Link to='/about'>About us <FaDiamond size={6} style={{ color: "#f2b612" }} /></Link></li>
-                    <li className="nav-links"><a href="#">Menu <FaDiamond size={6} style={{ color: "#f2b612" }} /></a></li>
+                    {/* <li className="nav-links"><a href="#">Menu <FaDiamond size={6} style={{ color: "#f2b612" }} /></a></li> */}
                     <li className="nav-links"><Link to='/shop'>Shop <FaDiamond size={6} style={{ color: "#f2b612" }} /></Link></li>
                     <li className="nav-links"><Link to='/blog'>Blog <FaDiamond size={6} style={{ color: "#f2b612" }} /></Link></li>
                     <li className="nav-links">
