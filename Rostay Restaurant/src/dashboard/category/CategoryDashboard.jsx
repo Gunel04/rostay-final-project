@@ -9,6 +9,8 @@ import Swal from 'sweetalert2'
 const CategoryDashboard = () => {
 
     const categories = useSelector(p => p.category);
+    console.log(categories);
+    
     const dispatch = useDispatch();
     return (
         <div className='container d-flex flex-column align-items-center justify-content-start' style={{height:"100vh"}}>
@@ -27,8 +29,8 @@ const CategoryDashboard = () => {
                         {categories.map((item, index) => (
                             <tr key={index}>
                                 <td>{index + 1}</td>
-                                <td>{item.categoryName}</td>
-                                <td><Link to={`/dashboard/category/edit/${slugify(item.categoryName, { lower: true })}`} className='btn btn-warning'>Edit</Link><Button variant='danger' className='mx-4' onClick={() => {
+                                <td>{item.categoryNameEn}</td>
+                                <td><Link to={`/dashboard/category/edit/${slugify(item.categoryNameEn, { lower: true })}`} className='btn btn-warning'>Edit</Link><Button variant='danger' className='mx-4' onClick={() => {
                                     {
                                         Swal.fire({
                                             title: "Are you sure?",

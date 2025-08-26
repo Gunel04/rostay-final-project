@@ -12,22 +12,28 @@ const EditProduct = () => {
 
   const { slug } = useParams();
 
-  const filteredProduct = products.find(item => slugify(item.title, { lower: true }) === slug);
+  const filteredProduct = products.find(item => slugify(item.titleEn, { lower: true }) === slug);
   console.log(filteredProduct);
 
   const [image, setImage] = useState("");
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
+  const [titleEn, setTitleEn] = useState("");
+  const [titleAz, setTitleAz] = useState("");
+  const [descriptionEn, setDescriptionEn] = useState("");
+  const [descriptionAz, setDescriptionAz] = useState("");
   const [price, setPrice] = useState("");
-  const [category, setCategory] = useState("");
+  const [categoryEn, setCategoryEn] = useState("");
+  const [categoryAz, setCategoryAz] = useState("");
 
   useEffect(() => {
     if (filteredProduct) {
       setImage(filteredProduct.image);
-      setTitle(filteredProduct.title);
-      setDescription(filteredProduct.description);
+      setTitleEn(filteredProduct.titleEn);
+      setTitleAz(filteredProduct.titleAz);
+      setDescriptionEn(filteredProduct.descriptionEn);
+      setDescriptionAz(filteredProduct.descriptionAz);
       setPrice(filteredProduct.price);
-      setCategory(filteredProduct.category);
+      setCategoryEn(filteredProduct.categoryEn);
+      setCategoryAz(filteredProduct.categoryAz);
     }
   }, [filteredProduct]);
 
@@ -36,13 +42,13 @@ const EditProduct = () => {
 
   const editingProduct = (e) => {
     e.preventDefault();
-    if (!image || !title || !description || !price || !category) {
+    if (!image || !titleEn || !titleAz || !descriptionEn || !descriptionAz || !price || !categoryEn || !categoryAz) {
       Swal.fire({
         icon: "warning",
         title: "Please enter information about product!"
       })
     }
-    else if (category === "Select Category") {
+    else if (categoryEn === "Select Category" || categoryAz === "Select Category") {
       Swal.fire({
         icon: "warning",
         title: "Please enter category name!"
@@ -55,7 +61,7 @@ const EditProduct = () => {
       })
     }
     else {
-      dispatch(editProduct(filteredProduct.id, { image, title, description, price, category }));
+      dispatch(editProduct(filteredProduct.id, { image, titleEn, titleAz, descriptionEn, descriptionAz, price, categoryEn, categoryAz }));
       navigate('/dashboard/products')
     }
   }
@@ -69,23 +75,40 @@ const EditProduct = () => {
             <Form.Control type="text" value={image} placeholder="Enter product image..." onChange={e => setImage(e.target.value)} />
           </Form.Group>
           <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Label>Product Name</Form.Label>
-            <Form.Control type="text" value={title} placeholder="Enter product name..." onChange={e => setTitle(e.target.value)} />
+            <Form.Label>Product Name (en)</Form.Label>
+            <Form.Control type="text" value={titleEn} placeholder="Enter product name..." onChange={e => setTitleEn(e.target.value)} />
           </Form.Group>
           <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Label>Product Description</Form.Label>
-            <Form.Control type="text" value={description} placeholder="Enter product description..." onChange={e => setDescription(e.target.value)} />
+            <Form.Label>Product Name (az)</Form.Label>
+            <Form.Control type="text" value={titleAz} placeholder="Enter product name..." onChange={e => setTitleAz(e.target.value)} />
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Label>Product Description (en)</Form.Label>
+            <Form.Control type="text" value={descriptionEn} placeholder="Enter product description..." onChange={e => setDescriptionEn(e.target.value)} />
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Label>Product Description (az)</Form.Label>
+            <Form.Control type="text" value={descriptionAz} placeholder="Enter product description..." onChange={e => setDescriptionAz(e.target.value)} />
           </Form.Group>
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Product Price</Form.Label>
             <Form.Control type="number" value={price} placeholder="Enter product price..." onChange={e => setPrice(e.target.value)} />
           </Form.Group>
           <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Label>Product Category</Form.Label>
-            <Form.Select className='mb-3' aria-label="Default select example" value={category} onChange={e => setCategory(e.target.value)}>
+            <Form.Label>Product Category (en)</Form.Label>
+            <Form.Select className='mb-3' aria-label="Default select example" value={categoryEn} onChange={e => setCategoryEn(e.target.value)}>
               <option value="Select Category">Select Category</option>
               {categories.map((item, index) => (
-                <option key={index} value={item.categoryName}>{item.categoryName}</option>
+                <option key={index} value={item.categoryNameEn}>{item.categoryNameEn}</option>
+              ))}
+            </Form.Select>
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Label>Product Category (az)</Form.Label>
+            <Form.Select className='mb-3' aria-label="Default select example" value={categoryAz} onChange={e => setCategoryAz(e.target.value)}>
+              <option value="Select Category">Select Category</option>
+              {categories.map((item, index) => (
+                <option key={index} value={item.categoryNameEn}>{item.categoryNameAz}</option>
               ))}
             </Form.Select>
           </Form.Group>

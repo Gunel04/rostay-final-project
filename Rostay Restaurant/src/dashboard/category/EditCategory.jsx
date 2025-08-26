@@ -7,16 +7,18 @@ import slugify from 'slugify';
 import Swal from 'sweetalert2';
 
 const EditCategory = () => {
-  const data = useSelector(p => p.category);
-  console.log(data);
+  const categories = useSelector(p => p.category);
+  // console.log(data);
 
   const { slug } = useParams();
-  const filteredCategory = data.find(item => slugify(item.categoryName, { lower: true }) === slug);
-  const [category, setCategory] = useState('');
+  const filteredCategory = categories.find(item => slugify(item.categoryNameEn, { lower: true }) === slug);
+  const [categoryEn, setCategoryEn] = useState('');
+  const [categoryAz, setCategoryAz] = useState('');
 
   useEffect(() => {
     if (filteredCategory) {
-      setCategory(filteredCategory.categoryName);
+      setCategoryEn(filteredCategory.categoryNameEn);
+      setCategoryAz(filteredCategory.categoryNameAz);
     }
   }, [filteredCategory]);
 
@@ -25,14 +27,14 @@ const EditCategory = () => {
 
   const editingCategory = (e) => {
     e.preventDefault();
-    if (!category) {
+    if (!categoryEn || !categoryAz) {
       Swal.fire({
         icon: "warning",
         title: "Please add category name"
       })
     }
     else {
-      dispatch(editCategory(filteredCategory.id, { categoryName: category }));
+      dispatch(editCategory(filteredCategory.id, { categoryNameEn: categoryEn, categoryNameAz:categoryAz }));
       navigate('/dashboard/category');
     }
   }
@@ -44,8 +46,12 @@ const EditCategory = () => {
       <div className='col-5 my-4'>
         <Form onSubmit={editingCategory}>
           <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Label>Category Name</Form.Label>
-            <Form.Control type="text" value={category} onChange={e => setCategory(e.target.value)} />
+            <Form.Label>Category Name (en)</Form.Label>
+            <Form.Control type="text" value={categoryEn} onChange={e => setCategoryEn(e.target.value)} />
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Label>Category Name (az)</Form.Label>
+            <Form.Control type="text" value={categoryAz} onChange={e => setCategoryAz(e.target.value)} />
           </Form.Group>
           <Button variant="primary" type="submit">
             Edit

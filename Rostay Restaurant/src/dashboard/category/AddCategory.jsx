@@ -7,19 +7,20 @@ import { addCategory } from '../../tools/actions/action';
 import { Link, useNavigate } from 'react-router-dom';
 
 const AddCategory = () => {
-    const [category, setCategory] = useState("");
+    const [categoryEn, setCategoryEn] = useState("");
+    const [categoryAz, setCategoryAz] = useState("");
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const addingCategory = (e) => {
         e.preventDefault();
-        if (!category) {
+        if (!categoryEn || !categoryAz) {
             Swal.fire({
                 icon: "warning",
                 title: "Please add category name"
             })
         }
         else {
-            dispatch(addCategory({ categoryName: category }));
+            dispatch(addCategory({ categoryNameEn: categoryEn, categoryNameAz:categoryAz }));
             navigate('/dashboard/category');
         }
     }
@@ -29,8 +30,12 @@ const AddCategory = () => {
             <div className='col-5 my-4'>
                 <Form onSubmit={addingCategory}>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
-                        <Form.Label>Category Name</Form.Label>
-                        <Form.Control type="text" placeholder="Enter category..." onChange={e => setCategory(e.target.value)} />
+                        <Form.Label>Category Name (en)</Form.Label>
+                        <Form.Control type="text" placeholder="Enter category..." onChange={e => setCategoryEn(e.target.value)} />
+                    </Form.Group>
+                    <Form.Group className="mb-3" controlId="formBasicEmail">
+                        <Form.Label>Category Name (az)</Form.Label>
+                        <Form.Control type="text" placeholder="Enter category..." onChange={e => setCategoryAz(e.target.value)} />
                     </Form.Group>
                     <Button variant="outline-warning" type="submit">
                         Add Category

@@ -5,10 +5,10 @@ export const getCategory = (categories) => ({
     categories
 })
 
-export const addCategory = async ({ id, categoryName }) => {
+export const addCategory = async ({ categoryNameEn, categoryNameAz }) => {
     const { error } = await supabase
         .from('rostay-category')
-        .insert({ categoryName: categoryName })
+        .insert({ categoryNameEn: categoryNameEn, categoryNameAz: categoryNameAz })
 
     if (error) {
         console.log(error);
@@ -24,10 +24,10 @@ export const getProduct = (products) => ({
     products
 })
 
-export const addProduct = async ({ image, title, description, price, category }) => {
+export const addProduct = async ({ image, titleEn, titleAz, descriptionEn, descriptionAz, price, categoryEn, categoryAz }) => {
     const { error } = await supabase
         .from('rostay-products')
-        .insert({ image: image, title: title, description: description, price: price, category: category })
+        .insert({ image: image, titleEn: titleEn, titleAz: titleAz, descriptionEn: descriptionEn, descriptionAz: descriptionAz, price: price, categoryEn: categoryEn, categoryAz: categoryAz })
     if (error) {
         console.log(error);
     }

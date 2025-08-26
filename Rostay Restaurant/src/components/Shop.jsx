@@ -73,7 +73,7 @@ const Shop = () => {
               <h4>Product Categories</h4>
               <ul>
                 {categories.map((item, index) => (
-                  <li key={index} className={`${active === item.categoryName ? "active-category" : ""}`} style={{ cursor: "pointer" }} onClick={() => { filterProducts(item.categoryName) }}>{item.categoryName} ({products.filter(p => p.category === item.categoryName).length})</li>
+                  <li key={index} className={`${active === item.categoryNameEn ? "active-category" : ""}`} style={{ cursor: "pointer" }} onClick={() => { filterProducts(item.categoryNameEn) }}>{item.categoryNameEn} ({products.filter(p => p.category === item.categoryNameEn).length})</li>
                 ))}
                 <li style={{ color: "#f2b612", cursor: "pointer" }} onClick={() => { filterProducts() }}>All Products</li>
               </ul>

@@ -26,7 +26,6 @@ const ProductDashboard = () => {
                             <th>Category</th>
                             <th>Edit</th>
                             <th>Delete</th>
-
                         </tr>
                     </thead>
                     <tbody>
@@ -34,13 +33,13 @@ const ProductDashboard = () => {
                             <tr key={index}>
                                 <td>{index + 1}</td>
                                 <td>
-                                    <img src={item.image} alt={item.title} width={110} height={80} style={{ objectFit: "cover" }} />
+                                    <img src={item.image} alt={item.titleEn} width={110} height={80} style={{ objectFit: "cover" }} />
                                 </td>
-                                <td>{item.title}</td>
-                                <td>{item.description}</td>
+                                <td>{item.titleEn}</td>
+                                <td>{item.descriptionEn}</td>
                                 <td>${item.price}</td>
-                                <td>{item.category}</td>
-                                <td><Link to={`/dashboard/products/edit/${slugify(item.title, { lower: true })}`} className='btn btn-warning'>Edit</Link></td>
+                                <td>{item.categoryEn}</td>
+                                <td><Link to={`/dashboard/products/edit/${slugify(item.titleEn, { lower: true })}`} className='btn btn-warning'>Edit</Link></td>
                                 <td><Button variant='danger' className='mx-auto' onClick={() => {
                                     Swal.fire({
                                         title: "Are you sure?",
