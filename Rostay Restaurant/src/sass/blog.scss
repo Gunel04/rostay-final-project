@@ -60,28 +60,35 @@ main {
             width: 90%;
             margin: auto;
             margin-bottom: 25px;
+
             img {
                 border-radius: 0;
             }
+
             .card-body {
                 gap: 50px;
+
                 .blog-date {
                     text-transform: uppercase;
                     color: #bebebe;
                     font-weight: 600;
                     font-size: 13px;
                 }
+
                 .blog-title {
                     text-transform: uppercase;
                     color: white;
                     transition: 0.4s;
+
                     &:hover {
                         color: #f2b612;
                     }
                 }
+
                 .blog-text {
                     color: #bebebe;
                 }
+
                 button {
                     background: none;
                     border: none;
@@ -91,11 +98,35 @@ main {
                     border-bottom: 1px solid #fff;
                     font-size: 13px;
                     transition: 0.4s;
+
                     &:hover {
                         color: #f2b612;
                         border-bottom: 1px solid #f2b612;
                     }
                 }
+            }
+        }
+
+        .blog-pagination-con {
+            width: 95%;
+            margin: auto;
+
+            button {
+                background: none;
+                border: none;
+                font-size: 20px;
+                color: white;
+                // background-color: #f2b612;
+                padding: 5px 15px;
+                border-radius: 20px;
+                transition: 0.4s;
+                &:hover {
+                    background-color: #f2b612;
+                }
+            }
+
+            .active {
+                background-color: #f2b612;
             }
         }
     }
@@ -106,6 +137,7 @@ main {
     main {
         .blog-top-part {
             height: 360px;
+
             h1 {
                 font-size: 55px;
             }
@@ -117,6 +149,7 @@ main {
     main {
         .blog-top-part {
             height: 270px;
+
             h1 {
                 font-size: 45px;
             }
@@ -128,9 +161,11 @@ main {
     main {
         .blog-top-part {
             height: 240px;
+
             h1 {
                 font-size: 40px;
             }
+
             h6 {
                 font-size: 12px;
             }

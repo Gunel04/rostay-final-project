@@ -19,7 +19,8 @@ const Shop = () => {
   const [products, setProducts] = useState(useSelector(p => p.product));
 
   const [currentPage, setCurrentPage] = useState(1);
-  const [productsPerPage, setProductsPerPage] = useState(6);
+  // const [productsPerPage, setProductsPerPage] = useState(6);
+  const productsPerPage = 6;
 
   const { addItem, inCart, emptyCart } = useCart();
   const { addWishlistItem, inWishlist, removeWishlistItem } = useWishlist();

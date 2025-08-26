@@ -15,13 +15,13 @@ const BlogDetails = () => {
                 <h6 data-aos="zoom-in" data-aos-duration="2000"><Link to='/'>Home</Link> &gt; <span>Blog</span> </h6>
             </div>
             <div className="container-fluid blog-details-section">
-                <div className="left-blog-details">
+                <div className="left-blog-details" data-aos='fade-right' data-aos-duration='2000'>
                     <p className="blog-date">{singleBlog.dateEn}</p>
                     <h1 className='blog-title'>{singleBlog.titleEn}</h1>
                     <img src={singleBlog.image} alt="" />
                     <p className="blog-description">{singleBlog.descriptionEn}</p>
                 </div>
-                <div className="right-decor-part">
+                <div className="right-decor-part" data-aos='fade-up' data-aos-duration='2000'>
                     <img src="https://demo2.themelexus.com/rostay/wp-content/uploads/2025/02/demo-content-06.jpg" alt="" />
                     <div className="decor-part-text">
                         <h3>About Our Restaurant</h3>
