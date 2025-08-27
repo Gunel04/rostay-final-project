@@ -25,7 +25,7 @@ const Wishlist = () => {
                                     <img src={item.image} width={100} alt="" />
                                 </td>
                                 <td>
-                                    <h6>{item.title}</h6>
+                                    <h6>{item.titleEn}</h6>
                                     <p>${item.price}</p>
                                 </td>
                                 <td>

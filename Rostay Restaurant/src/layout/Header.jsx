@@ -1,3 +1,4 @@
+import { Select } from 'antd';
 import React, { useEffect, useState } from 'react'
 import { Button, Form, InputGroup, ListGroup, Modal } from 'react-bootstrap';
 import { CiHeart, CiMenuFries, CiSearch, CiShoppingCart, CiUser } from 'react-icons/ci'
@@ -100,9 +101,9 @@ const Header = () => {
                                     />
                                 </InputGroup>
                                 <ListGroup>
-                                    {!searchKey ? "" : products.filter(p => p.title.toLocaleLowerCase().includes(searchKey)).map((item, index) => (
-                                        <span key={index} onClick={handleClose}><Link to={`/shop/${slugify(item.title, {lower:true})}`} style={{textDecoration:"none"}} >
-                                            <ListGroup.Item > <img src={item.image} alt={item.title} width={60} /> {item.title}</ListGroup.Item>
+                                    {!searchKey ? "" : products.filter(p => p.titleEn.toLocaleLowerCase().includes(searchKey)).map((item, index) => (
+                                        <span key={index} onClick={handleClose}><Link to={`/shop/${slugify(item.titleEn, { lower: true })}`} style={{ textDecoration: "none" }} >
+                                            <ListGroup.Item > <img src={item.image} alt={item.titleEn} width={60} /> {item.titleEn}</ListGroup.Item>
                                         </Link></span>
                                     ))}
 
@@ -123,6 +124,17 @@ const Header = () => {
                             {totalUniqueItems}
                         </span>
                     </Link></li>
+                    <li>
+                        <Select
+                            defaultValue="EN"
+                            style={{ width: 60 }}
+
+                            options={[
+                                { value: 'en', label: 'EN' },
+                                { value: 'az', label: 'AZ' },
+                            ]}
+                        />
+                    </li>
                 </ul>
             </div>
         </header>

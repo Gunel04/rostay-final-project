@@ -13,7 +13,7 @@ const SpecialMenu = () => {
                 {categories.map((item, index) => (
                     <li key={index}>
                         <img className='img-1' src="https://demo2.themelexus.com/rostay/wp-content/uploads/2025/03/gallery-10.jpg" alt="" />
-                        <p>{item.categoryName}</p>
+                        <p>{item.categoryNameEn}</p>
                         <img className='img-2' src="https://demo2.themelexus.com/rostay/wp-content/uploads/2025/03/h1-gallery1.jpg" alt="" />
                     </li>
                 ))}

@@ -35,10 +35,10 @@ const Cart = () => {
                                     </td>
                                     <td>
                                         <h4 className='cart-product-title'>
-                                            <Link to={`/shop/${slugify(item.title,{lower:true})}`} style={{color:"white", textDecoration:"none"}}>{item.title}</Link>
+                                            <Link to={`/shop/${slugify(item.titleEn,{lower:true})}`} style={{color:"white", textDecoration:"none"}}>{item.titleEn}</Link>
                                         </h4>
                                         <h5 className="cart-product-price">${item.price}</h5>
-                                        <p className="cart-product-description">{item.description.slice(0, 80)}...</p>
+                                        <p className="cart-product-description">{item.descriptionEn.slice(0, 80)}...</p>
                                         <div className="counter-con">
                                             <button onClick={() => updateItemQuantity(item.id, (item.quantity ?? 0) - 1)}>-</button>
                                             <span className='mx-4'>{item.quantity}</span>

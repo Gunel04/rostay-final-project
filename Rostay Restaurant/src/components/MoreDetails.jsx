@@ -14,23 +14,23 @@ const MoreDetails = () => {
   const products = useSelector((p) => p.product);
   const { title } = useParams();
   const { addItem, items, updateItemQuantity, inCart } = useCart();
-  const {inWishlist, addWishlistItem, removeWishlistItem} = useWishlist();
+  const { inWishlist, addWishlistItem, removeWishlistItem } = useWishlist();
   const [counter, setCounter] = useState(1);
   const singleProduct = products.find(
-    (item) => slugify(item.title, { lower: true }) === title
+    (item) => slugify(item.titleEn, { lower: true }) === title
   );
   const [user, setUser] = useState(JSON.parse(localStorage.getItem('user')) || null);
 
   const cartProduct = items.find(item => item.id === singleProduct.id);
   console.log(items);
 
-  console.log(singleProduct.category);
+  console.log(singleProduct.categoryEn);
   return (
     <>
       <main>
         <div className="more-details-top-part">
           <h1 data-aos="zoom-in" data-aos-duration="2000">
-            {singleProduct.title}
+            {singleProduct.titleEn}
           </h1>
           <h6 data-aos="zoom-in" data-aos-duration="2000">
             <Link to="/">Home</Link> &gt; <span>Shop</span>
@@ -41,10 +41,10 @@ const MoreDetails = () => {
             <img src={singleProduct.image} alt="" />
           </div>
           <div className="right-info-part">
-            <h1 className="product-title">{singleProduct.title}</h1>
+            <h1 className="product-title">{singleProduct.titleEn}</h1>
             <p className="price">${singleProduct.price}</p>
             <hr />
-            <p className="description">{singleProduct.description}</p>
+            <p className="description">{singleProduct.descriptionEn}</p>
             <h4>Quantity:</h4>
             <div className="btn-con">
               <div className="quantity-btn">
@@ -101,7 +101,7 @@ const MoreDetails = () => {
             </button>
             <hr />
             <p className="category">
-              Category: <span>{singleProduct.category}</span>
+              Category: <span>{singleProduct.categoryEn}</span>
             </p>
           </div>
         </section>
@@ -111,19 +111,19 @@ const MoreDetails = () => {
             <div className="row">
               {products.filter(
                 (item) =>
-                  item.category === singleProduct.category &&
-                  item.title !== singleProduct.title
+                  item.categoryEn === singleProduct.categoryEn &&
+                  item.titleEn !== singleProduct.titleEn
               ).length > 0 ? (
                 products
                   .filter(
                     (item) =>
-                      item.category === singleProduct.category &&
-                      item.title !== singleProduct.title
+                      item.categoryEn === singleProduct.categoryEn &&
+                      item.titleEn !== singleProduct.titleEn
                   )
                   .map((item, index) => (
                     <div
                       className="col-12 col-sm-6 col-md-4 col-lg-3"
-                      key={item.id}
+                      key={index}
                     >
                       <div className="card">
                         <div className="product-image-con">
@@ -131,17 +131,53 @@ const MoreDetails = () => {
                             src={item.image}
                             height={370}
                             className="card-img-top"
-                            alt={item.title}
+                            alt={item.titleEn}
                           />
                           <div className="hover-icons">
-                            <a href="#">
-                              <GiShoppingCart size={25} />
-                            </a>
-                            <a href="#">
-                              <IoIosHeartEmpty size={25} />
-                            </a>
+                            <button onClick={() => {
+                              if (user) {
+                                if (!inCart(item.id)) {
+                                  Swal.fire({
+                                    icon: "success",
+                                    title: "Product is added to cart!"
+                                  });
+                                  addItem(item)
+                                }
+                                else {
+                                  Swal.fire({
+                                    icon: "warning",
+                                    title: "Already in cart!"
+                                  })
+                                }
+                              }
+                              else {
+                                emptyCart();
+                                Swal.fire({
+                                  icon: "warning",
+                                  title: "Please sign in to your account!"
+                                })
+                              }
+
+                            }}><GiShoppingCart size={25} /></button>
+                            <button onClick={() => {
+                              if (user) {
+                                if (!inWishlist(item.id)) {
+                                  addWishlistItem(item);
+                                }
+                                else {
+                                  removeWishlistItem(item.id);
+                                }
+                              }
+                              else {
+                                Swal.fire({
+                                  icon: "warning",
+                                  title: "Please sign in to your account!"
+                                })
+                              }
+
+                            }}>{inWishlist(item.id) ? <IoIosHeart size={25} /> : <IoIosHeartEmpty size={25} />}</button>
                             <Link
-                              to={`/shop/${slugify(item.title, {
+                              to={`/shop/${slugify(item.titleEn, {
                                 lower: true,
                               })}`}
                             >
@@ -150,10 +186,10 @@ const MoreDetails = () => {
                           </div>
                         </div>
                         <div className="card-body">
-                          <h6 className="card-category">{item.category}</h6>
-                          <h5 className="card-title">{item.title}</h5>
+                          <h6 className="card-category">{item.categoryEn}</h6>
+                          <h5 className="card-title">{item.titleEn}</h5>
                           <p className="card-text">
-                            {item.description.slice(0, 50)}...
+                            {item.descriptionEn.slice(0, 50)}...
                           </p>
                           <p className="card-price">${item.price}</p>
                         </div>

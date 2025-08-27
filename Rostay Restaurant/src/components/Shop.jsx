@@ -26,7 +26,7 @@ const Shop = () => {
   const { addWishlistItem, inWishlist, removeWishlistItem } = useWishlist();
 
   const filterProducts = (category) => {
-    const filteringProcess = products.filter(p => p.category === category);
+    const filteringProcess = products.filter(p => p.categoryEn === category);
     setFilteredData(filteringProcess);
     setActive(category);
   }
@@ -40,10 +40,10 @@ const Shop = () => {
       sortedProducts.sort((a, b) => b.price - a.price);
     }
     else if (sortingType === 'name-asc') {
-      sortedProducts.sort((a, b) => a.title.localeCompare(b.title));
+      sortedProducts.sort((a, b) => a.titleEn.localeCompare(b.titleEn));
     }
     else if (sortingType === 'name-desc') {
-      sortedProducts.sort((a, b) => b.title.localeCompare(a.title));
+      sortedProducts.sort((a, b) => b.titleEn.localeCompare(a.titleEn));
     }
     setProducts(sortedProducts);
 
@@ -73,7 +73,7 @@ const Shop = () => {
               <h4>Product Categories</h4>
               <ul>
                 {categories.map((item, index) => (
-                  <li key={index} className={`${active === item.categoryNameEn ? "active-category" : ""}`} style={{ cursor: "pointer" }} onClick={() => { filterProducts(item.categoryNameEn) }}>{item.categoryNameEn} ({products.filter(p => p.category === item.categoryNameEn).length})</li>
+                  <li key={index} className={`${active === item.categoryNameEn ? "active-category" : ""}`} style={{ cursor: "pointer" }} onClick={() => { filterProducts(item.categoryNameEn) }}>{item.categoryNameEn} ({products.filter(p => p.categoryEn === item.categoryNameEn).length})</li>
                 ))}
                 <li style={{ color: "#f2b612", cursor: "pointer" }} onClick={() => { filterProducts() }}>All Products</li>
               </ul>
@@ -99,7 +99,7 @@ const Shop = () => {
                 <div className='col-12 col-sm-6 col-md-6 col-lg-4' key={item.id} data-aos="fade-up" data-aos-duration="2000">
                   <div className="card" >
                     <div className="product-image-con">
-                      <img src={item.image} height={370} className="card-img-top" alt={item.title} />
+                      <img src={item.image} height={370} className="card-img-top" alt={item.titleEn} />
                       <div className="hover-icons">
                         <button onClick={() => {
                           if (user) {
@@ -143,13 +143,13 @@ const Shop = () => {
                           }
 
                         }}>{inWishlist(item.id) ? <IoIosHeart size={25} /> : <IoIosHeartEmpty size={25} />}</button>
-                        <Link to={`/shop/${slugify(item.title, { lower: true })}`}><PiEyeThin size={25} /></Link>
+                        <Link to={`/shop/${slugify(item.titleEn, { lower: true })}`}><PiEyeThin size={25} /></Link>
                       </div>
                     </div>
                     <div className="card-body">
-                      <h6 className="card-category">{item.category}</h6>
-                      <h5 className="card-title">{item.title}</h5>
-                      <p className="card-text">{item.description.slice(0, 50)}...</p>
+                      <h6 className="card-category">{item.categoryEn}</h6>
+                      <h5 className="card-title">{item.titleEn}</h5>
+                      <p className="card-text">{item.descriptionEn.slice(0, 50)}...</p>
                       <p className="card-price">${item.price}</p>
                     </div>
 
@@ -160,7 +160,7 @@ const Shop = () => {
                 <div className='col-12 col-sm-6 col-md-6 col-lg-4' key={item.id} data-aos="fade-up" data-aos-duration="2000">
                   <div className="card" >
                     <div className="product-image-con">
-                      <img src={item.image} height={370} className="card-img-top" alt={item.title} />
+                      <img src={item.image} height={370} className="card-img-top" alt={item.titleEn} />
                       <div className="hover-icons">
                         <button onClick={() => {
                           if (user) {
@@ -204,13 +204,13 @@ const Shop = () => {
                           }
 
                         }}>{inWishlist(item.id) ? <IoIosHeart size={25} /> : <IoIosHeartEmpty size={25} />}</button>
-                        <Link to={`/shop/${slugify(item.title, { lower: true })}`}><PiEyeThin size={25} /></Link>
+                        <Link to={`/shop/${slugify(item.titleEn, { lower: true })}`}><PiEyeThin size={25} /></Link>
                       </div>
                     </div>
                     <div className="card-body">
-                      <h6 className="card-category">{item.category}</h6>
-                      <h5 className="card-title">{item.title}</h5>
-                      <p className="card-text">{item.description.slice(0, 50)}...</p>
+                      <h6 className="card-category">{item.categoryEn}</h6>
+                      <h5 className="card-title">{item.titleEn}</h5>
+                      <p className="card-text">{item.descriptionEn.slice(0, 50)}...</p>
                       <p className="card-price">${item.price}</p>
                     </div>
 
