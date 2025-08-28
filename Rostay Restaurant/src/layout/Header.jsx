@@ -1,5 +1,5 @@
 import { Select } from 'antd';
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Button, Form, InputGroup, ListGroup, Modal } from 'react-bootstrap';
 import { CiHeart, CiMenuFries, CiSearch, CiShoppingCart, CiUser } from 'react-icons/ci'
 import { FaDiamond } from 'react-icons/fa6'
@@ -9,8 +9,13 @@ import { useCart } from 'react-use-cart';
 import { useWishlist } from 'react-use-wishlist';
 import slugify from 'slugify';
 import Swal from 'sweetalert2';
+import { LanguageContext } from '../context/LanguageContext';
+import StaticLanguage from '../utils/StaticLanguage';
 
 const Header = () => {
+    const [language, setLanguage] = useContext(LanguageContext);
+    console.log(language);
+
     const products = useSelector(p => p.product);
     console.log(products);
     const [searchKey, setSearchKey] = useState("");
@@ -27,9 +32,12 @@ const Header = () => {
     }
 
     const pathname = useLocation();
+    console.log(pathname);
+
     useEffect(() => {
         window.scrollTo(0, 0);
     }, [pathname])
+
     const { totalUniqueItems } = useCart();
     const { totalWishlistItems } = useWishlist();
 
@@ -68,16 +76,40 @@ const Header = () => {
                 </div>
                 <div className="hamburger-menu" onClick={toggleMenu}><CiMenuFries /></div>
                 <ul className={`nav-link-list ${menuOpen ? "active" : ""}`}>
-                    <li className="nav-links"><Link to='/'>Home <FaDiamond size={6} style={{ color: "#f2b612" }} /></Link></li>
-                    <li className="nav-links"><Link to='/about'>About us <FaDiamond size={6} style={{ color: "#f2b612" }} /></Link></li>
-                    {/* <li className="nav-links"><a href="#">Menu <FaDiamond size={6} style={{ color: "#f2b612" }} /></a></li> */}
-                    <li className="nav-links"><Link to='/shop'>Shop <FaDiamond size={6} style={{ color: "#f2b612" }} /></Link></li>
-                    <li className="nav-links"><Link to='/blog'>Blog <FaDiamond size={6} style={{ color: "#f2b612" }} /></Link></li>
                     <li className="nav-links">
-                        <a href="#">Contact <FaDiamond size={6} style={{ color: "#f2b612" }} /></a>
+                        <Link to='/'>
+                            <StaticLanguage az="Ana səhİfə" en="Home" /><FaDiamond size={6} style={{ color: "#f2b612" }} />
+                        </Link>
+                    </li>
+                    <li className="nav-links">
+                        <Link to='/about'>
+                            <StaticLanguage en="About Us" az="Haqqımızda" /> <FaDiamond size={6} style={{ color: "#f2b612" }} />
+                        </Link>
+                    </li>
+                    <li className="nav-links">
+                        <Link to='/shop'>
+                            <StaticLanguage en="Shop" az="Mağaza" /> <FaDiamond size={6} style={{ color: "#f2b612" }} />
+                        </Link>
+                    </li>
+                    <li className="nav-links">
+                        <Link to='/blog'>
+                            <StaticLanguage en="Blog" az="Bloq" /> <FaDiamond size={6} style={{ color: "#f2b612" }} />
+                        </Link>
+                    </li>
+                    <li className="nav-links">
+                        <Link>
+                            <StaticLanguage en="Contact" az="Əlaqə" /> <FaDiamond size={6} style={{ color: "#f2b612" }} />
+                        </Link>
                         <ul className='dropdown'>
-                            <li className='dropdown-items'><Link to='/contactus'><FaDiamond size={6} style={{ color: "#f2b612", marginRight: "5px" }} /> Contact Us</Link></li>
-                            <li className='dropdown-items'><Link to='/reservation'><FaDiamond size={6} style={{ color: "#f2b612", marginRight: "5px" }} /> Reservation</Link></li>
+                            <li className='dropdown-items'>
+                                <Link to='/contactus'>
+                                    <FaDiamond size={6} style={{ color: "#f2b612", marginRight: "5px" }} /> <StaticLanguage en="Contact Us" az="Bİzİmlə Əlaqə" />
+                                </Link>
+                            </li>
+                            <li className='dropdown-items'>
+                                <Link to='/reservation'>
+                                    <FaDiamond size={6} style={{ color: "#f2b612", marginRight: "5px" }} /> <StaticLanguage en="Reservation" az="Rezervasİya" /></Link>
+                            </li>
                         </ul>
                     </li>
                 </ul>
@@ -89,13 +121,14 @@ const Header = () => {
 
                         <Modal show={show} onHide={handleClose} className='search-modal'>
                             <Modal.Header closeButton>
-                                <Modal.Title>Search Product</Modal.Title>
+                                <Modal.Title>
+                                    <StaticLanguage en="Search Product" az="Məhsul Axtarışı" />
+                                </Modal.Title>
                             </Modal.Header>
                             <Modal.Body>
                                 <InputGroup className="mb-3">
                                     <Form.Control
                                         placeholder="Search products..."
-                                        aria-label="Recipient's username"
                                         aria-describedby="basic-addon2"
                                         onChange={e => setSearchKey(e.target.value)}
                                     />
@@ -111,7 +144,9 @@ const Header = () => {
                             </Modal.Body>
                         </Modal>
                     </li>
-                    <li className="icon-items">{user ? <Link><CiUser /> <div className='account'><span>{user.username}</span> <span onClick={logOut}>Log Out</span></div> </Link> : <Link to='/login'><CiUser /> <div className='account'><span>Sign in</span> <span>Account</span></div> </Link>}</li>
+                    <li className="icon-items">
+                        {user ? <Link><CiUser /> <div className='account'><span>{user.username}</span> <span onClick={logOut}><StaticLanguage az="Çıxış" en="Log Out" /></span></div> </Link> : <Link to='/login'><CiUser /> <div className='account'><span><StaticLanguage az="Daxil ol" en="Sign in" /></span> <span><StaticLanguage az="Hesabım" en="Account" /></span></div> </Link>}
+                    </li>
                     <li className="icon-items"><Link to='/wishlist' className="position-relative">
                         <CiHeart />
                         <span className="badge-icon position-absolute top-0 start-100 translate-middle badge rounded-pill">
@@ -126,13 +161,16 @@ const Header = () => {
                     </Link></li>
                     <li>
                         <Select
-                            defaultValue="EN"
+                            defaultValue={language}
                             style={{ width: 60 }}
-
                             options={[
                                 { value: 'en', label: 'EN' },
                                 { value: 'az', label: 'AZ' },
                             ]}
+                            onChange={() => {
+                                language === "AZ" ? setLanguage("EN") : setLanguage("AZ");
+                                language === "AZ" ? localStorage.setItem('language', "EN") : localStorage.setItem('language', "AZ");
+                            }}
                         />
                     </li>
                 </ul>

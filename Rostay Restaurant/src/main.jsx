@@ -43,13 +43,14 @@ import { Provider } from 'react-redux';
 import supabase from './utils/supabase.js';
 import { CartProvider } from 'react-use-cart';
 import { WishlistProvider } from 'react-use-wishlist';
+import { LanguageProvider } from './context/LanguageContext.jsx';
 
 const myStore = configureStore();
 
 
 const { data } = await supabase.from('rostay-category').select();
 const { data: products } = await supabase.from('rostay-products').select();
-const {data: blogs} = await supabase.from('rostay-blog').select();
+const { data: blogs } = await supabase.from('rostay-blog').select();
 myStore.dispatch(getCategory(data))
 myStore.dispatch(getProduct(products));
 myStore.dispatch(getBlog(blogs));
@@ -72,11 +73,13 @@ myStore.dispatch(getBlog(blogs));
 
 
 createRoot(document.getElementById('root')).render(
-  <WishlistProvider>
-    <CartProvider>
-      <Provider store={myStore}>
-        <App />
-      </Provider>
-    </CartProvider>
-  </WishlistProvider>
+  <LanguageProvider>
+    <WishlistProvider>
+      <CartProvider>
+        <Provider store={myStore}>
+          <App />
+        </Provider>
+      </CartProvider>
+    </WishlistProvider>
+  </LanguageProvider>
 )
