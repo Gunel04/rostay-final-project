@@ -2,6 +2,7 @@ import Aos from 'aos';
 import React from 'react'
 import { FaFacebookF, FaInstagram, FaLinkedinIn, FaXTwitter } from 'react-icons/fa6';
 import { HiOutlineArrowLongRight } from 'react-icons/hi2';
+import StaticLanguage from '../utils/StaticLanguage';
 
 const Footer = () => {
   Aos.init();
@@ -11,8 +12,8 @@ const Footer = () => {
         <img className='plate' src="https://demo2.themelexus.com/rostay/wp-content/uploads/2025/02/footer-burger.png" alt="" />
         <div className="first-footer-right">
           <img src="https://demo2.themelexus.com/rostay/wp-content/uploads/2025/02/logo.svg" alt="" />
-          <p>Delicios Restaurant & Fine dining, 71 Madison Ave, New York, USA</p>
-          <p>Need help? Call us <span>+4800 567 8900</span></p>
+          <p><StaticLanguage en="Delicios Restaurant & Fine dining, 71 Madison Ave, New York, USA" az="Delicios Restoranı – Zərif Yeməklər, 71 Madison Ave, New York, ABŞ" /></p>
+          <p> <StaticLanguage en="Need help? Call us:" az="Köməyə ehtiyacınız var? Zəng edin:" /><span>+4800 567 8900</span></p>
           <p>support@example.com</p>
         </div>
       </div>
@@ -20,30 +21,79 @@ const Footer = () => {
       <div className="second-footer" data-aos="fade-up" data-aos-duration="1500">
         <div className="row">
           <div className="col-12 col-sm-12 col-md-12 col-lg-4">
-            <h4>Useful links</h4>
+            <h4>
+              <StaticLanguage en="Useful links" az="Faydalı linklər" />
+            </h4>
             <ul>
-              <li><a href="#">Favorite Place</a></li>
-              <li><a href="#">Our History</a></li>
-              <li><a href="#">Contact Us</a></li>
-              <li><a href="#">Places To Get Lost</a></li>
-              <li><a href="#">Our Brand</a></li>
+              <li>
+                <a href="#">
+                  <StaticLanguage en="Favorite Places" az="Sevimli Məkanlar" />
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <StaticLanguage en="Our History" az="Tariximiz" />
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <StaticLanguage en="Contact Us" az="Bizimlə Əlaqə" />
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <StaticLanguage en="Places To Get Lost" az="Kəşf Ediləcək Yerlər" />
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <StaticLanguage en="Our Brand" az="Brendimiz" />
+                </a>
+              </li>
             </ul>
           </div>
           <div className="col-12 col-sm-12 col-md-12 col-lg-4">
-            <h4>Favorite Picks</h4>
+            <h4>
+              <StaticLanguage en="Favorite Picks" az="Sevimli Seçimlər" />
+            </h4>
             <ul>
-              <li><a href="#">Coffee Latte</a></li>
-              <li><a href="#">Esspresso</a></li>
-              <li><a href="#">Coffee Americano</a></li>
-              <li><a href="#">Ice Coffee</a></li>
-              <li><a href="#">Mocha</a></li>
+              <li>
+                <a href="#">
+                  <StaticLanguage en="Coffee Latte" az="Kofe Latte" />
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <StaticLanguage en="Esspresso" az="Espresso" />
+                  
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <StaticLanguage en="Coffee Americano" az="Kofe Americano" />
+                  
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <StaticLanguage en="Ice Coffee" az="Soyuq Kofe"/>
+                </a>
+              </li>
+              <li>
+                <a href="#">Mocha</a>
+              </li>
             </ul>
           </div>
           <div className="col-12 col-sm-12 col-md-12 col-lg-4">
-            <h4>Get News & Offers</h4>
-            <p>Subscribe & get <span>10%</span> discount. Get E-mail updates about our latest shop and <span>special offers</span>.</p>
+            <h4>
+              <StaticLanguage en="Get News & Offers" az="Xəbərlər & Təkliflər" />
+            </h4>
+            <p><StaticLanguage en="Subscribe & get" az="Abunə olun və" /> <span>10%</span> <StaticLanguage en="discount. Get E-mail updates about our latest shop and " az="endirim qazanın. Ən son məhsullarımız və " /><span><StaticLanguage en="speacial offers" az="xüsusi təkliflər " />
+            </span><StaticLanguage en="" az="haqqında e-poçt yenilikləri alın"/>.
+              <StaticLanguage />
+            </p>
             <input type="text" placeholder='Your Email' />
-            <button>Subscribe <HiOutlineArrowLongRight size={20} /></button>
+            <button><StaticLanguage en="Subscribe" az="Abunə ol"/> <HiOutlineArrowLongRight size={20} /></button>
           </div>
         </div>
       </div>
@@ -56,7 +106,7 @@ const Footer = () => {
           <li><a href="#"><FaInstagram /></a></li>
         </ul>
         <div className="rights-reserved">
-          <p>© Copyright {new Date().getFullYear()} <a href="#">Rostay</a>. All rights reserved.</p>
+          <p>© Copyright {new Date().getFullYear()} <a href="#">Rostay</a>. <StaticLanguage en="All rights reserved." az= "Bütün hüquqlar qorunur."/></p>
         </div>
       </div>
     </footer>
