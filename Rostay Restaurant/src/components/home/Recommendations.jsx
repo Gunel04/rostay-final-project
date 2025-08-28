@@ -67,8 +67,12 @@ const Recommendations = () => {
   return (
     <section className="recommendations-section container-fluid">
       <div className="recommendations-heading" data-aos='fade-up' data-aos-duration='2000'>
-        <h5>Recommendations</h5>
-        <h1>Best Speacialties</h1>
+        <h5>
+          <StaticLanguage en="Recommendations" az="Tövsiyələr"/>
+        </h5>
+        <h1>
+          <StaticLanguage en="Best Speacialties" az="Seçilmiş təamlar"/>
+        </h1>
       </div>
       <div className="recommend-products">
         <StaticLanguage
