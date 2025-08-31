@@ -3,19 +3,29 @@ import { CiClock1 } from 'react-icons/ci'
 import { FaRegAddressBook } from 'react-icons/fa6'
 import { MdSmartphone } from 'react-icons/md'
 import { Link } from 'react-router-dom'
+import StaticLanguage from '../utils/StaticLanguage'
 
 const ContactUs = () => {
     return (
         <main>
             <div className="contact-top-part">
-                <h1 data-aos="zoom-in" data-aos-duration="2000">Contact Us</h1>
-                <h6 data-aos="zoom-in" data-aos-duration="2000"><Link to='/'>Home</Link> &gt; <span>Contact Us</span> </h6>
+                <h1 data-aos="zoom-in" data-aos-duration="2000">
+                    <StaticLanguage en="Contact Us" az="Bizimlə Əlaqə" />
+                </h1>
+                <h6 data-aos="zoom-in" data-aos-duration="2000">
+                    <Link to='/'>
+                        <StaticLanguage en="Home" az="Ana səhifə" />
+                    </Link> &gt; <span><StaticLanguage en="Contact Us" az="Bizimlə Əlaqə" /></span>
+                </h6>
             </div>
             <section className="contact-us-section container-fluid">
-                {/* <div className="col-5"> */}
                 <div className="contact-left-part">
-                    <h1>Get In Touch With Us</h1>
-                    <p>Get in touch to discuss your employee wellbeing needs today. Please give us a call, drop us an email or fill out the contact form and we’ll get back to you.</p>
+                    <h1>
+                        <StaticLanguage en="Get In Touch With Us" az="Bizimlə Əlaqə Saxlayın" />
+                    </h1>
+                    <p>
+                        <StaticLanguage en="Get in touch to discuss your employee wellbeing needs today. Please give us a call, drop us an email or fill out the contact form and we’ll get back to you." az="Təklif və suallarınız üçün bizimlə əlaqə saxlayın. Zəng edin, e-mail göndərin və ya əlaqə formasını doldurun – sizə ən qısa zamanda cavab verəcəyik." />
+                    </p>
                     <div className="contact-icon-container">
                         <div className="contact-icons"><FaRegAddressBook size={45} /></div>
                         <div className="contact-icon-info">
@@ -45,17 +55,11 @@ const ContactUs = () => {
                     </div>
                 </div>
 
-                {/* </div>
-                <div className="col-6"> */}
                 <div className="contact-map">
                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1976.4823504563785!2d49.841933915026864!3d40.37776221198146!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40307d6343917fff%3A0xae9045d8425faf97!2sMatrix%20academy!5e0!3m2!1saz!2saz!4v1751398777594!5m2!1saz!2saz" style={{ border: 0 }} allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade" />
-
                 </div>
-
-
-                {/* </div> */}
             </section>
-            
+
         </main>
     )
 }
