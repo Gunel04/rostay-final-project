@@ -3,6 +3,8 @@ import { Col } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import Swal from 'sweetalert2';
 import emailjs from '@emailjs/browser';
+import StaticLanguage from '../utils/StaticLanguage';
+import { HiOutlineArrowLongRight } from 'react-icons/hi2';
 
 const Reservation = () => {
   const personRef = useRef();
@@ -50,26 +52,55 @@ const Reservation = () => {
     <>
       <main>
         <div className="reservation-top-part">
-          <h1 data-aos="zoom-in" data-aos-duration="2000">Reservation</h1>
-          <h6 data-aos="zoom-in" data-aos-duration="2000"><Link to='/'>Home</Link> &gt; <span>Reservation</span> </h6>
+          <h1 data-aos="zoom-in" data-aos-duration="2000">
+            <StaticLanguage en="Reservation" az="Rezervasİya" />
+          </h1>
+          <h6 data-aos="zoom-in" data-aos-duration="2000">
+            <Link to='/'><StaticLanguage en="Home" az="Ana səhİfə" /></Link> &gt; <span><StaticLanguage en="Reservation" az="Rezervasİya" /></span>
+          </h6>
         </div>
         <section className='reservation-section container-fluid d-flex justify-content-center align-items-center text-center'>
           <Col lg={8} md={7} sm={7}>
-            <h5>Online Reservation</h5>
-            <h1>Book a table</h1>
-            <p>Booking request <span>+84 (800) 1433 555</span> or fill out the order form</p>
+            <h5>
+              <StaticLanguage en="Online Reservation" az="Onlayn Rezervasİya" />
+            </h5>
+            <h1>
+              <StaticLanguage en="Book a table" az="Masa Sİfarİşİ" />
+
+            </h1>
+            <p><StaticLanguage en="Booking request" az="Rezervasiya üçün zəng edin: " /><span>+84 (800) 1433 555</span><StaticLanguage en="or fill out the order form" az=" və ya sifariş formasını doldurun" /> </p>
             <form ref={formRef}>
               <select name="person" id="" ref={personRef}>
-                <option value="1 Person">1 Person</option>
-                <option value="2 Person">2 Person</option>
-                <option value="3 Person">3 Person</option>
-                <option value="4 Person">4 Person</option>
-                <option value="5 Person">5 Person</option>
-                <option value="6 Person">6 Person</option>
-                <option value="7 Person">7 Person</option>
-                <option value="8 Person">8 Person</option>
-                <option value="9 Person">9 Person</option>
-                <option value="10 Person">10 Person</option>
+                <option value="1 Person">
+                  <StaticLanguage en="1 Person" az="1 Nəfər" />
+                </option>
+                <option value="2 Person">
+                  <StaticLanguage en="2 Person" az="2 Nəfər" />
+                </option>
+                <option value="3 Person">
+                  <StaticLanguage en="3 Person" az="3 Nəfər" />
+                </option>
+                <option value="4 Person">
+                  <StaticLanguage en="4 Person" az="4 Nəfər" />
+                </option>
+                <option value="5 Person">
+                  <StaticLanguage en="5 Person" az="5 Nəfər" />
+                </option>
+                <option value="6 Person">
+                  <StaticLanguage en="6 Person" az="6 Nəfər" />
+                </option>
+                <option value="7 Person">
+                  <StaticLanguage en="7 Person" az="7 Nəfər" />
+                </option>
+                <option value="8 Person">
+                  <StaticLanguage en="8 Person" az="8 Nəfər" />
+                </option>
+                <option value="9 Person">
+                  <StaticLanguage en="9 Person" az="9 Nəfər" />
+                </option>
+                <option value="10 Person">
+                  <StaticLanguage en="10 Person" az="10 Nəfər" />
+                </option>
               </select>
               <input type="date" name="date" id="" format="dd-mm-yyyy" ref={dateRef} />
               <select name="time" id="" ref={timeRef}>
@@ -84,7 +115,7 @@ const Reservation = () => {
                 <option value="20:00">20:00</option>
               </select>
             </form>
-            <button type='button' onClick={() => { reservationSubmit() }}>Book a Table</button>
+            <button type='button' onClick={() => { reservationSubmit() }}><StaticLanguage en="Book a Table" az="Masa Sİfarİş Et" /> <HiOutlineArrowLongRight size={20} /></button>
           </Col>
         </section>
       </main>

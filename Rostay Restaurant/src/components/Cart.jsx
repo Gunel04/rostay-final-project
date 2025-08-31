@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import { useCart } from 'react-use-cart'
 import slugify from 'slugify'
 import Swal from 'sweetalert2'
+import StaticLanguage from '../utils/StaticLanguage'
 
 const Cart = () => {
     const { items, updateItemQuantity, removeItem, isEmpty, cartTotal, emptyCart } = useCart();
@@ -15,91 +16,219 @@ const Cart = () => {
                 <h1 data-aos="zoom-in" data-aos-duration="2000">Cart</h1>
                 <h6 data-aos="zoom-in" data-aos-duration="2000"><Link to='/'>Home</Link> &gt; <span>Cart</span> </h6>
             </div>
-            {isEmpty ? <div className='empty-cart'><h1>Your cart is currently empty!</h1><Link to='/shop'><button>Back to Shop</button></Link></div> : <div className="container-fluid cart-section-part">
-                <div className="left-cart-table">
-                    <Table className='cart-table'>
-                        <thead>
-                            <tr>
-                                <th >#</th>
-                                <th>Product</th>
-                                <th></th>
-                                <th>Total</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {items.map((item, index) => (
-                                <tr key={index}>
-                                    <td>{index + 1}</td>
-                                    <td>
-                                        <img src={item.image} width={180} height={220} alt="" style={{ objectFit: "cover" }} />
-                                    </td>
-                                    <td>
-                                        <h4 className='cart-product-title'>
-                                            <Link to={`/shop/${slugify(item.titleEn,{lower:true})}`} style={{color:"white", textDecoration:"none"}}>{item.titleEn}</Link>
-                                        </h4>
-                                        <h5 className="cart-product-price">${item.price}</h5>
-                                        <p className="cart-product-description">{item.descriptionEn.slice(0, 80)}...</p>
-                                        <div className="counter-con">
-                                            <button onClick={() => updateItemQuantity(item.id, (item.quantity ?? 0) - 1)}>-</button>
-                                            <span className='mx-4'>{item.quantity}</span>
-                                            <button onClick={() => updateItemQuantity(item.id, (item.quantity ?? 0) + 1)}>+</button>
-                                        </div>
-                                        <button className='remove-btn mt-2' onClick={() => {
-                                            Swal.fire({
-                                                title: "Are you sure you want to delete the product?",
-                                                icon: "warning",
-                                                showCancelButton: true,
-                                                confirmButtonColor: "#072b31",
-                                                cancelButtonColor: "#072b31",
-                                                confirmButtonText: "Yes, delete it!"
-                                            }).then((result) => {
-                                                if (result.isConfirmed) {
-                                                    removeItem(item.id);
-                                                    Swal.fire({
-                                                        title: "Successfully deleted!",
-                                                        text: "Your product has been deleted.",
-                                                        icon: "success"
-                                                    });
-                                                }
-                                            });
-                                        }}>Remove Item</button>
-                                    </td>
-                                    <td className='table-total-price'>${item.quantity * item.price}</td>
-                                </tr>
-                            ))}
-                        </tbody>
-                    </Table>
-                    <button className='clear-all-btn' onClick={() => {
-                        Swal.fire({
-                            title: "Are you sure you want to delete the product?",
-                            icon: "warning",
-                            showCancelButton: true,
-                            confirmButtonColor: "#072b31",
-                            cancelButtonColor: "#072b31",
-                            confirmButtonText: "Yes, delete it!"
-                        }).then((result) => {
-                            if (result.isConfirmed) {
-                                emptyCart();
-                                Swal.fire({
-                                    title: "Successfully deleted!",
-                                    text: "Your product has been deleted.",
-                                    icon: "success"
-                                });
+            {isEmpty ?
+                <div className='empty-cart'>
+                    <h1>Your cart is currently empty!</h1>
+                    <Link to='/shop'>
+                        <button>Back to Shop</button>
+                    </Link>
+                </div> :
+                <div className="container-fluid cart-section-part">
+                    <div className="left-cart-table">
+                        <StaticLanguage
+                            en={
+                                <Table className='cart-table'>
+                                    <thead>
+                                        <tr>
+                                            <th >#</th>
+                                            <th>Product</th>
+                                            <th></th>
+                                            <th>Total</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {items.map((item, index) => (
+                                            <tr key={index}>
+                                                <td>{index + 1}</td>
+                                                <td>
+                                                    <img src={item.image} width={180} height={220} alt="" style={{ objectFit: "cover" }} />
+                                                </td>
+                                                <td>
+                                                    <h4 className='cart-product-title'>
+                                                        <Link to={`/shop/${slugify(item.titleEn, { lower: true })}`} style={{ color: "white", textDecoration: "none" }}>{item.titleEn}</Link>
+                                                    </h4>
+                                                    <h5 className="cart-product-price">${item.price}</h5>
+                                                    <p className="cart-product-description">{item.descriptionEn.slice(0, 80)}...</p>
+                                                    <div className="counter-con">
+                                                        <button onClick={() => updateItemQuantity(item.id, (item.quantity ?? 0) - 1)}>-</button>
+                                                        <span className='mx-4'>{item.quantity}</span>
+                                                        <button onClick={() => updateItemQuantity(item.id, (item.quantity ?? 0) + 1)}>+</button>
+                                                    </div>
+                                                    <button className='remove-btn mt-2' onClick={() => {
+                                                        Swal.fire({
+                                                            title: "Are you sure you want to delete the product?",
+                                                            icon: "warning",
+                                                            showCancelButton: true,
+                                                            confirmButtonColor: "#072b31",
+                                                            cancelButtonColor: "#072b31",
+                                                            confirmButtonText: "Yes, delete it!"
+                                                        }).then((result) => {
+                                                            if (result.isConfirmed) {
+                                                                removeItem(item.id);
+                                                                Swal.fire({
+                                                                    title: "Successfully deleted!",
+                                                                    text: "Your product has been deleted.",
+                                                                    icon: "success"
+                                                                });
+                                                            }
+                                                        });
+                                                    }}>Remove Item</button>
+                                                </td>
+                                                <td className='table-total-price'>${item.quantity * item.price}</td>
+                                            </tr>
+                                        ))}
+                                    </tbody>
+                                </Table>
                             }
-                        });
-                    }}>Clear Cart</button>
-                </div>
-                <div className="right-cart-totals">
-                    <h3>Cart Totals</h3> <hr />
-                    <p className='add-coupon'>Add a coupon</p>
-                    <form action="">
-                        <input type="text" placeholder='Enter code' />
-                        <button>Apply</button>
-                    </form>
-                    <p className='total'>Total: <span>${cartTotal}</span></p>
-                    <button className='checkout-btn'>Proceed to checkout</button>
-                </div>
-            </div>}
+
+                            az={
+                                <Table className='cart-table'>
+                                    <thead>
+                                        <tr>
+                                            <th >#</th>
+                                            <th>Məhsul</th>
+                                            <th></th>
+                                            <th>Ümumi</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {items.map((item, index) => (
+                                            <tr key={index}>
+                                                <td>{index + 1}</td>
+                                                <td>
+                                                    <img src={item.image} width={180} height={220} alt="" style={{ objectFit: "cover" }} />
+                                                </td>
+                                                <td>
+                                                    <h4 className='cart-product-title'>
+                                                        <Link to={`/shop/${slugify(item.titleEn, { lower: true })}`} style={{ color: "white", textDecoration: "none" }}>{item.titleAz}</Link>
+                                                    </h4>
+                                                    <h5 className="cart-product-price">${item.price}</h5>
+                                                    <p className="cart-product-description">{item.descriptionAz.slice(0, 80)}...</p>
+                                                    <div className="counter-con">
+                                                        <button onClick={() => updateItemQuantity(item.id, (item.quantity ?? 0) - 1)}>-</button>
+                                                        <span className='mx-4'>{item.quantity}</span>
+                                                        <button onClick={() => updateItemQuantity(item.id, (item.quantity ?? 0) + 1)}>+</button>
+                                                    </div>
+                                                    <button className='remove-btn mt-2' onClick={() => {
+                                                        Swal.fire({
+                                                            title: "Are you sure you want to delete the product?",
+                                                            icon: "warning",
+                                                            showCancelButton: true,
+                                                            confirmButtonColor: "#072b31",
+                                                            cancelButtonColor: "#072b31",
+                                                            confirmButtonText: "Yes, delete it!"
+                                                        }).then((result) => {
+                                                            if (result.isConfirmed) {
+                                                                removeItem(item.id);
+                                                                Swal.fire({
+                                                                    title: "Successfully deleted!",
+                                                                    text: "Your product has been deleted.",
+                                                                    icon: "success"
+                                                                });
+                                                            }
+                                                        });
+                                                    }}>Məhsulu sil</button>
+                                                </td>
+                                                <td className='table-total-price'>${item.quantity * item.price}</td>
+                                            </tr>
+                                        ))}
+                                    </tbody>
+                                </Table>
+                            }
+
+                        />
+                        {/* <Table className='cart-table'>
+                            <thead>
+                                <tr>
+                                    <th >#</th>
+                                    <th>Product</th>
+                                    <th></th>
+                                    <th>Total</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {items.map((item, index) => (
+                                    <tr key={index}>
+                                        <td>{index + 1}</td>
+                                        <td>
+                                            <img src={item.image} width={180} height={220} alt="" style={{ objectFit: "cover" }} />
+                                        </td>
+                                        <td>
+                                            <h4 className='cart-product-title'>
+                                                <Link to={`/shop/${slugify(item.titleEn, { lower: true })}`} style={{ color: "white", textDecoration: "none" }}>{item.titleEn}</Link>
+                                            </h4>
+                                            <h5 className="cart-product-price">${item.price}</h5>
+                                            <p className="cart-product-description">{item.descriptionEn.slice(0, 80)}...</p>
+                                            <div className="counter-con">
+                                                <button onClick={() => updateItemQuantity(item.id, (item.quantity ?? 0) - 1)}>-</button>
+                                                <span className='mx-4'>{item.quantity}</span>
+                                                <button onClick={() => updateItemQuantity(item.id, (item.quantity ?? 0) + 1)}>+</button>
+                                            </div>
+                                            <button className='remove-btn mt-2' onClick={() => {
+                                                Swal.fire({
+                                                    title: "Are you sure you want to delete the product?",
+                                                    icon: "warning",
+                                                    showCancelButton: true,
+                                                    confirmButtonColor: "#072b31",
+                                                    cancelButtonColor: "#072b31",
+                                                    confirmButtonText: "Yes, delete it!"
+                                                }).then((result) => {
+                                                    if (result.isConfirmed) {
+                                                        removeItem(item.id);
+                                                        Swal.fire({
+                                                            title: "Successfully deleted!",
+                                                            text: "Your product has been deleted.",
+                                                            icon: "success"
+                                                        });
+                                                    }
+                                                });
+                                            }}>Remove Item</button>
+                                        </td>
+                                        <td className='table-total-price'>${item.quantity * item.price}</td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </Table> */}
+                        <button className='clear-all-btn' onClick={() => {
+                            Swal.fire({
+                                title: "Are you sure you want to delete the product?",
+                                icon: "warning",
+                                showCancelButton: true,
+                                confirmButtonColor: "#072b31",
+                                cancelButtonColor: "#072b31",
+                                confirmButtonText: "Yes, delete it!"
+                            }).then((result) => {
+                                if (result.isConfirmed) {
+                                    emptyCart();
+                                    Swal.fire({
+                                        title: "Successfully deleted!",
+                                        text: "Your product has been deleted.",
+                                        icon: "success"
+                                    });
+                                }
+                            });
+                        }}><StaticLanguage en="Clear Cart" az="Səbətİ Təmİzlə" /></button>
+                    </div>
+                    <div className="right-cart-totals">
+                        <h3>
+                            <StaticLanguage en="Cart Totals" az="Ümumi Məbləğ" />
+                        </h3>
+                        <hr />
+                        <p className='add-coupon'>
+                            <StaticLanguage en="Add a coupon" az="Kupon əlavə et" />
+                        </p>
+                        <form action="">
+                            <input type="text" placeholder='Enter code' />
+                            <button>
+                                <StaticLanguage en="Apply" az="Tətbİq et" />
+                            </button>
+                        </form>
+                        <p className='total'><StaticLanguage en="Total: " az="Ümumİ: " /> <span>${cartTotal}</span></p>
+                        <button className='checkout-btn'>
+                            <StaticLanguage en="Proceed to checkout" az="Ödənİşə keç" />
+                        </button>
+                    </div>
+                </div>}
 
         </main>
     )

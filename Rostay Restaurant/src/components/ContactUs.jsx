@@ -21,7 +21,7 @@ const ContactUs = () => {
             <section className="contact-us-section container-fluid">
                 <div className="contact-left-part">
                     <h1>
-                        <StaticLanguage en="Get In Touch With Us" az="Bizimlə Əlaqə Saxlayın" />
+                        <StaticLanguage en="Get In Touch With Us" az="Bİzİmlə Əlaqə Saxlayın" />
                     </h1>
                     <p>
                         <StaticLanguage en="Get in touch to discuss your employee wellbeing needs today. Please give us a call, drop us an email or fill out the contact form and we’ll get back to you." az="Təklif və suallarınız üçün bizimlə əlaqə saxlayın. Zəng edin, e-mail göndərin və ya əlaqə formasını doldurun – sizə ən qısa zamanda cavab verəcəyik." />
@@ -29,28 +29,50 @@ const ContactUs = () => {
                     <div className="contact-icon-container">
                         <div className="contact-icons"><FaRegAddressBook size={45} /></div>
                         <div className="contact-icon-info">
-                            <h3>Address</h3>
-                            <p>Head Office: 785 15h Street,</p>
-                            <p>Office 478 Berlin, De 81566</p>
-                            <p>Check Location</p>
+                            <h3>
+                                <StaticLanguage en="Address" az="Ünvan"/>
+                            </h3>
+                            <p>
+                                <StaticLanguage en="Head Office: 785 15h Street," az="Baş ofis: 785 15-ci küçə,"/>
+                            </p>
+                            <p>
+                                <StaticLanguage en="Office 478 Baku, De 81566" az="Ofis 478, Bakı, DE 81566"/>
+                            </p>
+                            <p>
+                                <StaticLanguage en="Check Location" az="Yerləşməni yoxla"/>
+                            </p>
                         </div>
                     </div>
                     <div className="contact-icon-container">
                         <div className="contact-icons"><MdSmartphone size={45} /></div>
                         <div className="contact-icon-info">
-                            <h3>Get in touch</h3>
-                            <p>Mobile: 084 3456 19 89</p>
-                            <p>Hotline: 1900 26886</p>
+                            <h3>
+                                <StaticLanguage en="Get in touch" az="Əlaqə vasİtələrİ"/>
+                            </h3>
+                            <p>
+                                <StaticLanguage en="Mobile: 084 3456 19 89" az="Mobil: 084 3456 19 89"/>
+                            </p>
+                            <p>
+                                <StaticLanguage en="Hotline: 1900 26886" az="Qaynar xətt: 1900 26886"/>
+                            </p>
                             <p>E-mail: hello@hNICE.com</p>
                         </div>
                     </div>
                     <div className="contact-icon-container">
                         <div className="contact-icons"><CiClock1 size={45} /></div>
                         <div className="contact-icon-info">
-                            <h3>Hour of operation</h3>
-                            <p>Monday-Friday: 8am-5pm</p>
-                            <p>Saturday: 9am-Midday</p>
-                            <p>Sunday: Closed</p>
+                            <h3>
+                                <StaticLanguage en="Hour of operation" az="İş saatları"/>
+                            </h3>
+                            <p>
+                                <StaticLanguage en="Monday-Friday: 8:00 AM - 5:00 PM" az="Bazar ertəsi – Cümə: 08:00 – 17:00"/>
+                            </p>
+                            <p>
+                                <StaticLanguage en="Saturday: 9am-Midday" az="Şənbə: 09:00 – 12:00"/>
+                            </p>
+                            <p>
+                                <StaticLanguage en="Sunday: Closed" az="Bazar: Bağlıdır"/>
+                            </p>
                         </div>
                     </div>
                 </div>
