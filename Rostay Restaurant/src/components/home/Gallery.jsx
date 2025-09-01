@@ -1,4 +1,3 @@
-import React from 'react'
 import StaticLanguage from '../../utils/StaticLanguage'
 
 const Gallery = () => {
@@ -37,7 +36,6 @@ const Gallery = () => {
                     <div className="home-gallery-photo-8">
                         <img src="https://demo2.themelexus.com/rostay/wp-content/uploads/2025/03/h1-gallery3.jpg" alt="" />
                     </div>
-
                 </div>
             </div>
         </>

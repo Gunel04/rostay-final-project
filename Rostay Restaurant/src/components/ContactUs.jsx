@@ -1,4 +1,3 @@
-import React from 'react'
 import { CiClock1 } from 'react-icons/ci'
 import { FaRegAddressBook } from 'react-icons/fa6'
 import { MdSmartphone } from 'react-icons/md'

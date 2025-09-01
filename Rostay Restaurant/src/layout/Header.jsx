@@ -153,14 +153,16 @@ const Header = () => {
                             {totalWishlistItems}
                         </span>
                     </Link></li>
-                    <li className="icon-items"><Link to='cart' className="position-relative">
-                        <CiShoppingCart />
-                        <span className="badge-icon position-absolute top-0 start-100 translate-middle badge rounded-pill">
-                            {totalUniqueItems}
-                        </span>
-                    </Link></li>
+                    <li className="icon-items">
+                        <Link to='cart' className="position-relative">
+                            <CiShoppingCart />
+                            <span className="badge-icon position-absolute top-0 start-100 translate-middle badge rounded-pill">
+                                {totalUniqueItems}
+                            </span>
+                        </Link>
+                    </li>
                     <li>
-                        <Select
+                        {/* <Select
                             defaultValue={language}
                             style={{ width: 60 }}
                             options={[
@@ -171,7 +173,14 @@ const Header = () => {
                                 language === "AZ" ? setLanguage("EN") : setLanguage("AZ");
                                 language === "AZ" ? localStorage.setItem('language', "EN") : localStorage.setItem('language', "AZ");
                             }}
-                        />
+                        /> */}
+                        <select value={language} onChange={() => {
+                            language === "AZ" ? setLanguage("EN") : setLanguage("AZ");
+                            language === "AZ" ? localStorage.setItem('language', "EN") : localStorage.setItem('language', "AZ");
+                        }}>
+                            <option value="AZ">AZ</option>
+                            <option value="EN">EN</option>
+                        </select>
                     </li>
                 </ul>
             </div>

@@ -1,7 +1,5 @@
-import React from 'react'
 import FirstSliderSection from './home/FirstSliderSection'
 import WelcomeToRostay from './home/WelcomeToRostay'
-import TimeOfLuxury from './home/TimeOfLuxury'
 import SpecialMenu from './home/SpecialMenu'
 import WhyChooseUs from './home/WhyChooseUs'
 import OurCrew from './home/OurCrew'
@@ -16,7 +14,6 @@ const Home = () => {
     <div>
       <FirstSliderSection />
       <WelcomeToRostay />
-      {/* <TimeOfLuxury /> */}
       <SpecialMenu />
       <WhyChooseUs />
       <Recommendations />

@@ -1,4 +1,3 @@
-import React from 'react'
 import { Table } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import { useCart } from 'react-use-cart'
@@ -13,14 +12,18 @@ const Cart = () => {
     return (
         <main>
             <div className="cart-wishlist-top-part">
-                <h1 data-aos="zoom-in" data-aos-duration="2000">Cart</h1>
-                <h6 data-aos="zoom-in" data-aos-duration="2000"><Link to='/'>Home</Link> &gt; <span>Cart</span> </h6>
+                <h1 data-aos="zoom-in" data-aos-duration="2000"><StaticLanguage en="Cart" az="Səbət"/></h1>
+                <h6 data-aos="zoom-in" data-aos-duration="2000"><Link to='/'><StaticLanguage en="Home" az="Ana səhİfə"/></Link> &gt; <span><StaticLanguage en="Cart" az="Səbət"/></span> </h6>
             </div>
             {isEmpty ?
                 <div className='empty-cart'>
-                    <h1>Your cart is currently empty!</h1>
+                    <h1>
+                        <StaticLanguage en="Your cart is currently empty!" az="Səbətiniz hal-hazırda boşdur!"/>
+                    </h1>
                     <Link to='/shop'>
-                        <button>Back to Shop</button>
+                        <button>
+                            <StaticLanguage en="Back to Shop" az="Mağazaya qayıt"/>
+                        </button>
                     </Link>
                 </div> :
                 <div className="container-fluid cart-section-part">
@@ -137,58 +140,7 @@ const Cart = () => {
                             }
 
                         />
-                        {/* <Table className='cart-table'>
-                            <thead>
-                                <tr>
-                                    <th >#</th>
-                                    <th>Product</th>
-                                    <th></th>
-                                    <th>Total</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {items.map((item, index) => (
-                                    <tr key={index}>
-                                        <td>{index + 1}</td>
-                                        <td>
-                                            <img src={item.image} width={180} height={220} alt="" style={{ objectFit: "cover" }} />
-                                        </td>
-                                        <td>
-                                            <h4 className='cart-product-title'>
-                                                <Link to={`/shop/${slugify(item.titleEn, { lower: true })}`} style={{ color: "white", textDecoration: "none" }}>{item.titleEn}</Link>
-                                            </h4>
-                                            <h5 className="cart-product-price">${item.price}</h5>
-                                            <p className="cart-product-description">{item.descriptionEn.slice(0, 80)}...</p>
-                                            <div className="counter-con">
-                                                <button onClick={() => updateItemQuantity(item.id, (item.quantity ?? 0) - 1)}>-</button>
-                                                <span className='mx-4'>{item.quantity}</span>
-                                                <button onClick={() => updateItemQuantity(item.id, (item.quantity ?? 0) + 1)}>+</button>
-                                            </div>
-                                            <button className='remove-btn mt-2' onClick={() => {
-                                                Swal.fire({
-                                                    title: "Are you sure you want to delete the product?",
-                                                    icon: "warning",
-                                                    showCancelButton: true,
-                                                    confirmButtonColor: "#072b31",
-                                                    cancelButtonColor: "#072b31",
-                                                    confirmButtonText: "Yes, delete it!"
-                                                }).then((result) => {
-                                                    if (result.isConfirmed) {
-                                                        removeItem(item.id);
-                                                        Swal.fire({
-                                                            title: "Successfully deleted!",
-                                                            text: "Your product has been deleted.",
-                                                            icon: "success"
-                                                        });
-                                                    }
-                                                });
-                                            }}>Remove Item</button>
-                                        </td>
-                                        <td className='table-total-price'>${item.quantity * item.price}</td>
-                                    </tr>
-                                ))}
-                            </tbody>
-                        </Table> */}
+                        
                         <button className='clear-all-btn' onClick={() => {
                             Swal.fire({
                                 title: "Are you sure you want to delete the product?",

@@ -1,4 +1,3 @@
-import React from 'react'
 import StaticLanguage from '../../utils/StaticLanguage';
 
 const Faq = () => {
@@ -110,10 +109,7 @@ const Faq = () => {
                                     )
                                 })}
                             </div>}
-
-
                         />
-
                     </div>
 
                     <div className="right-image-part">

@@ -107,7 +107,6 @@ const MoreDetails = () => {
               </div>
             </section>
 
-
             <section className="related-products-section container-fluid" data-aos="fade-up" data-aos-duration="2000">
               <h1>Related products</h1>
               <div className="related-products">
@@ -195,15 +194,12 @@ const MoreDetails = () => {
                           </div>
                         </div>
                       ))
-                  ) : (
-                    <h4 className="text-center">No related products</h4>
-                  )}
+                  ) : (<h4 className="text-center">No related products</h4>)}
                 </div>
               </div>
             </section>
           </main>
         }
-
 
         az={
           <main>
@@ -373,9 +369,7 @@ const MoreDetails = () => {
                           </div>
                         </div>
                       ))
-                  ) : (
-                    <h4 className="text-center">Əlaqəli məhsul yoxdur</h4>
-                  )}
+                  ) : (<h4 className="text-center">Əlaqəli məhsul yoxdur</h4>)}
                 </div>
               </div>
             </section>

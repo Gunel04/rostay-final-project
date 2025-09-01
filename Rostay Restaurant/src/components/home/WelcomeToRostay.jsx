@@ -1,5 +1,4 @@
 import Aos from 'aos';
-import React from 'react'
 import { HiOutlineArrowLongRight } from 'react-icons/hi2';
 import StaticLanguage from '../../utils/StaticLanguage';
 

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { GiShoppingCart } from 'react-icons/gi';
 import { IoIosHeart, IoIosHeartEmpty } from 'react-icons/io';
 import { PiEyeThin } from 'react-icons/pi';
@@ -206,10 +206,9 @@ const Recommendations = () => {
             </Slider>
           }
         />
-
       </div>
     </section>
   )
 }
 
-export default Recommendations
+export default Recommendations;

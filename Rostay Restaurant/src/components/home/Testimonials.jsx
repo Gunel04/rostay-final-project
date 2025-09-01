@@ -1,5 +1,4 @@
 import Aos from 'aos';
-import React from 'react'
 import { FaStar } from 'react-icons/fa';
 import Slider from 'react-slick';
 import StaticLanguage from '../../utils/StaticLanguage';
@@ -128,26 +127,10 @@ const Testimonials = () => {
                                 </div>
                             ))}
                         </Slider>}
-
                     />
-                    {/* <Slider {...settings}>
-                        {testimonials.map((item, index) => (
-                            <div className='slide-item' key={index}>
-                                <FaStar color='#f2b612' />
-                                <FaStar color='#f2b612' />
-                                <FaStar color='#f2b612' />
-                                <FaStar color='#f2b612' />
-                                <FaStar color='#f2b612' />
-                                <p>{item.testimonialText}</p>
-                                <h5>{item.testimonialName}</h5>
-                                <h6>{item.major}</h6>
-                            </div>
-                        ))}
-                    </Slider> */}
                 </div>
             </div>
         </div>
-
     )
 }
 

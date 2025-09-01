@@ -90,14 +90,11 @@ const Login = () => {
                                 <div className="password-input">
                                     <input type={isVisible ? "text" : "password"} className="form-control" placeholder='Enter your password' onChange={e => setPassword(e.target.value)} />
                                     <a type='submit' className='eye-button' onClick={visibility}>{isVisible ? <PiEyeThin size={22} /> : <PiEyeClosedThin size={22} />}</a>
-
                                 </div>
                             </div>
-
                             <button type="submit">Log In</button>
                             <p>Don't have an account yet? Please <Link to='/register'>Sign up</Link></p>
                         </form>
-
                     </Col>
                 </section>
             </main>

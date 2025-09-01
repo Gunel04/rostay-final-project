@@ -1,5 +1,4 @@
 import Aos from 'aos'
-import React from 'react'
 import StaticLanguage from '../../utils/StaticLanguage';
 
 const Experience = () => {
@@ -79,22 +78,6 @@ const Experience = () => {
                     ))}
                 </div>}
             />
-            {/* <div className="row">
-                {experience.map((item, index) => (
-                    <div className="col-md-4 col-lg-4 col-xl-4" key={index}>
-                        <div className="experience-cards" data-aos="zoom-in-up" data-aos-duration="1500">
-                            <div className="experience-card-img">
-                                <img src={item.image} alt="" />
-                            </div>
-                            <div className="experience-card-info">
-                                <h1>{item.headingOne}</h1>
-                                <h3>{item.headingTwo}</h3>
-                                <p>{item.text}</p>
-                            </div>
-                        </div>
-                    </div>
-                ))}
-            </div> */}
         </section>
     )
 }

@@ -132,6 +132,18 @@ header {
                         color: #f2b612;
                     }
                 }
+                select {
+                    background: none;
+                    color: white;
+                    border: none;
+                    option {
+                        // color: black;
+                        background-color: #072b31;
+                    }
+                    &:focus {
+                        outline: none !important;
+                    }
+                }
             }
         }
 

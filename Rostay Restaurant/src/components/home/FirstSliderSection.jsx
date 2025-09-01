@@ -87,7 +87,6 @@ const FirstSliderSection = () => {
                             <img src="https://demo2.themelexus.com/rostay/wp-content/uploads/2025/03/h1-slider3-3.jpg" alt="" />
                         </div>
                     </div>
-
                 </Slider>
             </section>
         </>

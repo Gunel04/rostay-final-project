@@ -1,6 +1,4 @@
 import Aos from 'aos';
-import React from 'react'
-import { HiOutlineArrowLongRight } from 'react-icons/hi2';
 import Slider from 'react-slick';
 import StaticLanguage from '../../utils/StaticLanguage';
 
@@ -153,11 +151,9 @@ const TimeOfLuxury = () => {
                             </ul>
                         </div>
                     </div>
-                    {/* <button data-aos="fade-up" data-aos-duration="1500">Book a Table <HiOutlineArrowLongRight size={20} /></button> */}
                 </div>
             </section>
         </>
-
     )
 }
 
