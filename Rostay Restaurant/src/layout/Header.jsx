@@ -45,7 +45,7 @@ const Header = () => {
     const { emptyWishlist } = useWishlist();
     // const user = JSON.parse(localStorage.getItem('user'))
 
-    const logOut = () => {
+    const logOutEn = () => {
         Swal.fire({
             title: "Are you sure that you want to log out?",
             icon: "warning",
@@ -61,6 +61,28 @@ const Header = () => {
                 emptyWishlist();
                 Swal.fire({
                     title: "Logged Out!",
+                    icon: "success"
+                });
+            }
+        });
+    }
+    const logOutAz = () => {
+        Swal.fire({
+            title: "Hesabdan çıxmaq istədiyinizə əminsiniz?",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#072b31",
+            cancelButtonColor: "#072b31",
+            confirmButtonText: "Bəli, çıxış et!",
+            cancelButtonText: "İmtina et!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                localStorage.removeItem('user')
+                setUser(null);
+                emptyCart();
+                emptyWishlist();
+                Swal.fire({
+                    title: "Çıxış edildi!",
                     icon: "success"
                 });
             }
@@ -119,33 +141,70 @@ const Header = () => {
                             <CiSearch size={25} />
                         </Button>
 
-                        <Modal show={show} onHide={handleClose} className='search-modal'>
-                            <Modal.Header closeButton>
-                                <Modal.Title>
-                                    <StaticLanguage en="Search Product" az="Məhsul Axtarışı" />
-                                </Modal.Title>
-                            </Modal.Header>
-                            <Modal.Body>
-                                <InputGroup className="mb-3">
-                                    <Form.Control
-                                        placeholder="Search products..."
-                                        aria-describedby="basic-addon2"
-                                        onChange={e => setSearchKey(e.target.value)}
-                                    />
-                                </InputGroup>
-                                <ListGroup>
-                                    {!searchKey ? "" : products.filter(p => p.titleEn.toLocaleLowerCase().includes(searchKey)).map((item, index) => (
-                                        <span key={index} onClick={handleClose}><Link to={`/shop/${slugify(item.titleEn, { lower: true })}`} style={{ textDecoration: "none" }} >
-                                            <ListGroup.Item > <img src={item.image} alt={item.titleEn} width={60} /> {item.titleEn}</ListGroup.Item>
-                                        </Link></span>
-                                    ))}
+                        <StaticLanguage
+                            en={
+                                <Modal show={show} onHide={handleClose} className='search-modal'>
+                                    <Modal.Header closeButton>
+                                        <Modal.Title>
+                                            <StaticLanguage en="Search Product" az="Məhsul Axtarışı" />
+                                        </Modal.Title>
+                                    </Modal.Header>
+                                    <Modal.Body>
+                                        <InputGroup className="mb-3">
+                                            <Form.Control
+                                                placeholder="Search products..."
+                                                aria-describedby="basic-addon2"
+                                                onChange={e => setSearchKey(e.target.value)}
+                                            />
+                                        </InputGroup>
+                                        <ListGroup>
+                                            {!searchKey ? "" : products.filter(p => p.titleEn.toLocaleLowerCase().includes(searchKey)).map((item, index) => (
+                                                <span key={index} onClick={handleClose}><Link to={`/shop/${slugify(item.titleEn, { lower: true })}`} style={{ textDecoration: "none" }} >
+                                                    <ListGroup.Item > <img src={item.image} alt={item.titleEn} width={60} /> {item.titleEn}</ListGroup.Item>
+                                                </Link></span>
+                                            ))}
 
-                                </ListGroup>
-                            </Modal.Body>
-                        </Modal>
+                                        </ListGroup>
+                                    </Modal.Body>
+                                </Modal>
+                            }
+                            az={
+                                <Modal show={show} onHide={handleClose} className='search-modal'>
+                                    <Modal.Header closeButton>
+                                        <Modal.Title>
+                                            Məhsul Axtarışı
+                                        </Modal.Title>
+                                    </Modal.Header>
+                                    <Modal.Body>
+                                        <InputGroup className="mb-3">
+                                            <Form.Control
+                                                placeholder="Məhsul Axtar..."
+                                                aria-describedby="basic-addon2"
+                                                onChange={e => setSearchKey(e.target.value)}
+                                            />
+                                        </InputGroup>
+                                        <ListGroup>
+                                            {!searchKey ? "" : products.filter(p => p.titleAz.toLocaleLowerCase().includes(searchKey)).map((item, index) => (
+                                                <span key={index} onClick={handleClose}><Link to={`/shop/${slugify(item.titleEn, { lower: true })}`} style={{ textDecoration: "none" }} >
+                                                    <ListGroup.Item > <img src={item.image} alt={item.titleAz} width={60} /> {item.titleAz}</ListGroup.Item>
+                                                </Link></span>
+                                            ))}
+
+                                        </ListGroup>
+                                    </Modal.Body>
+                                </Modal>
+                            }
+                        />
+
                     </li>
                     <li className="icon-items">
-                        {user ? <Link><CiUser /> <div className='account'><span>{user.username}</span> <span onClick={logOut}><StaticLanguage az="Çıxış" en="Log Out" /></span></div> </Link> : <Link to='/login'><CiUser /> <div className='account'><span><StaticLanguage az="Daxil ol" en="Sign in" /></span> <span><StaticLanguage az="Hesabım" en="Account" /></span></div> </Link>}
+                        <StaticLanguage
+                            en={user ? <Link><CiUser /> <div className='account'><span>{user.username}</span> <span onClick={logOutEn}><StaticLanguage az="Çıxış" en="Log Out" /></span></div> </Link> : <Link to='/login'><CiUser /> <div className='account'><span><StaticLanguage az="Daxil ol" en="Sign in" /></span> <span><StaticLanguage az="Hesabım" en="Account" /></span></div> </Link>}
+
+                            az={user ? <Link><CiUser /> <div className='account'><span>{user.username}</span> <span onClick={logOutAz}><StaticLanguage az="Çıxış" en="Log Out" /></span></div> </Link> : <Link to='/login'><CiUser /> <div className='account'><span><StaticLanguage az="Daxil ol" en="Sign in" /></span> <span><StaticLanguage az="Hesabım" en="Account" /></span></div> </Link>}
+
+                        />
+                        {/* {user ? <Link><CiUser /> <div className='account'><span>{user.username}</span> <span onClick={logOut}><StaticLanguage az="Çıxış" en="Log Out" /></span></div> </Link> : <Link to='/login'><CiUser /> <div className='account'><span><StaticLanguage az="Daxil ol" en="Sign in" /></span> <span><StaticLanguage az="Hesabım" en="Account" /></span></div> </Link>} */}
                     </li>
                     <li className="icon-items"><Link to='/wishlist' className="position-relative">
                         <CiHeart />
@@ -162,18 +221,7 @@ const Header = () => {
                         </Link>
                     </li>
                     <li>
-                        {/* <Select
-                            defaultValue={language}
-                            style={{ width: 60 }}
-                            options={[
-                                { value: 'en', label: 'EN' },
-                                { value: 'az', label: 'AZ' },
-                            ]}
-                            onChange={() => {
-                                language === "AZ" ? setLanguage("EN") : setLanguage("AZ");
-                                language === "AZ" ? localStorage.setItem('language', "EN") : localStorage.setItem('language', "AZ");
-                            }}
-                        /> */}
+
                         <select value={language} onChange={() => {
                             language === "AZ" ? setLanguage("EN") : setLanguage("AZ");
                             language === "AZ" ? localStorage.setItem('language', "EN") : localStorage.setItem('language', "AZ");

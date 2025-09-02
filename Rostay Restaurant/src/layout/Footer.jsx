@@ -92,7 +92,8 @@ const Footer = () => {
             </span><StaticLanguage en="" az="haqqında e-poçt yenilikləri alın"/>.
               <StaticLanguage />
             </p>
-            <input type="text" placeholder='Your Email' />
+            <StaticLanguage en={<input type="text" placeholder='Your Email' />} az={<input type="text" placeholder='Email Ünvanın' />}/>
+            
             <button><StaticLanguage en="Subscribe" az="Abunə ol"/> <HiOutlineArrowLongRight size={20} /></button>
           </div>
         </div>

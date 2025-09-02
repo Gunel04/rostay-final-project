@@ -154,14 +154,14 @@ const Recommendations = () => {
                             if (!inCart(item.id)) {
                               Swal.fire({
                                 icon: "success",
-                                title: "Product is added to cart!"
+                                title: "Məhsul səbətə əlavə edildi!"
                               });
                               addItem(item)
                             }
                             else {
                               Swal.fire({
                                 icon: "warning",
-                                title: "Already in cart!"
+                                title: "Məhsul artıq səbətdədir!"
                               })
                             }
                           }
@@ -169,7 +169,7 @@ const Recommendations = () => {
                             emptyCart();
                             Swal.fire({
                               icon: "warning",
-                              title: "Please sign in to your account!"
+                              title: "Zəhmət olmasa hesabınıza daxil olun!"
                             })
                           }
 
@@ -186,12 +186,12 @@ const Recommendations = () => {
                           else {
                             Swal.fire({
                               icon: "warning",
-                              title: "Please sign in to your account!"
+                              title: "Zəhmət olmasa hesabınıza daxil olun!"
                             })
                           }
 
                         }}>{inWishlist(item.id) ? <IoIosHeart size={25} /> : <IoIosHeartEmpty size={25} />}</button>
-                        <Link to={`/shop/${slugify(item.titleAz, { lower: true })}`}><PiEyeThin size={25} /></Link>
+                        <Link to={`/shop/${slugify(item.titleEn, { lower: true })}`}><PiEyeThin size={25} /></Link>
                       </div>
                     </div>
                     <div className="card-body">
