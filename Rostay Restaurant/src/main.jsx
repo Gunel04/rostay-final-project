@@ -33,6 +33,7 @@ import "./sass/recommendations.scss";
 import "./sass/blog.scss";
 import "./sass/blogdetails.scss";
 import "./sass/footer.scss";
+import "./sass/mode.scss";
 // slick-slider
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";

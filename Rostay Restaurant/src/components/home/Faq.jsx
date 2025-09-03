@@ -48,7 +48,7 @@ const Faq = () => {
     ]
     return (
         <>
-            <main className="faq-section container-fluid">
+            {/* <main className="faq-section container-fluid"> */}
                 <div className="faq-section-headings" data-aos='fade-up' data-aos-duration='2000'>
                     <h6>
                         <StaticLanguage en="Need Help" az="Kömək Lazımdır?" />
@@ -73,9 +73,11 @@ const Faq = () => {
                                                 </button>
                                             </h2>
                                             <div id={collapseId}
-                                                className={`accordion-collapse collapse ${index === 0 ? "show" : ""}`}
+                                                className={`accordion-collapse collapse ${index === 0 ? "show" : ""} faq-answer`}
                                                 aria-labelledby={headingId}
-                                                data-bs-parent="#accordionExample">
+                                                data-bs-parent="#accordionExample"
+                                                
+                                                >
                                                 <div className="accordion-body">
                                                     {item.answerEn}
                                                 </div>
@@ -116,7 +118,7 @@ const Faq = () => {
                         <img src="https://demo2.themelexus.com/rostay/wp-content/uploads/2025/02/image-faq.jpg" alt="" />
                     </div>
                 </div>
-            </main>
+            {/* </main> */}
         </>
     )
 }

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Header from './layout/Header'
 import Home from './components/Home'
@@ -30,50 +30,60 @@ import Blog from './components/Blog'
 import BlogDetails from './components/BlogDetails'
 
 const App = () => {
+  // console.log(props.mode);
+  const [mode, setMode] = useState(localStorage.getItem('mode'));
+  const toggleTheme = () => {
+    setMode((curr) => (curr === "light" ? "dark" : "light"));
+    if (mode === "light") {
+      localStorage.setItem('mode', 'dark');
+    }
+    else {
+      localStorage.setItem('mode', 'light');
+    }
+  }
   return (
 
-    <BrowserRouter>
-      {/* <Header /> */}
-      <Routes>
-        <Route element={<MainLayout />}>
-          <Route path='/' element={<Home />} />
-          <Route path='/about' element={<AboutUs />} />
-          <Route path='/ourteam' element={<OurTeam />} />
-          <Route path='/login' element={<Login />} />
-          <Route path='/register' element={<Register />} />
-          <Route path='/contactus' element={<ContactUs />} />
-          <Route path='/reservation' element={<Reservation />} />
-          <Route path='/shop' element={<Shop />} />
-          <Route path='/shop/:title' element={<MoreDetails />} />
-          <Route path='/blog' element={<Blog />} />
-          <Route path='/blog/:slug' element={<BlogDetails />} />
-          <Route path='/cart' element={<Cart />} />
-          <Route path='/wishlist' element={<Wishlist />} />
-        </Route>
-
-        <Route element={<NoLayout />}>
-          <Route element={<DashboardLayout />} path='/dashboard'>
-            <Route path='/dashboard' element={<ProductDashboard />} />
+    <div id={mode}>
+      <BrowserRouter>
+        {/* <Header /> */}
+        <Routes>
+          <Route element={<MainLayout modeFunction={toggleTheme} mode={mode}/>}>
+            <Route path='/' element={<Home />} />
+            <Route path='/about' element={<AboutUs />} />
+            <Route path='/ourteam' element={<OurTeam />} />
+            <Route path='/login' element={<Login />} />
+            <Route path='/register' element={<Register />} />
+            <Route path='/contactus' element={<ContactUs />} />
+            <Route path='/reservation' element={<Reservation />} />
+            <Route path='/shop' element={<Shop />} />
+            <Route path='/shop/:title' element={<MoreDetails />} />
+            <Route path='/blog' element={<Blog />} />
+            <Route path='/blog/:slug' element={<BlogDetails />} />
+            <Route path='/cart' element={<Cart />} />
+            <Route path='/wishlist' element={<Wishlist />} />
           </Route>
-          <Route element={<Dashboard />} path='/dashboard'>
-            <Route path='/dashboard/products' element={<ProductDashboard />} />
-            <Route path='/dashboard/category' element={<CategoryDashboard />} />
-            <Route path='/dashboard/blog' element={<BlogDashboard />} />
-            <Route path='/dashboard/category/add' element={<AddCategory />} />
-            <Route path='/dashboard/category/edit/:slug' element={<EditCategory />} />
-            <Route path='/dashboard/products/add' element={<AddProduct />} />
-            <Route path='/dashboard/products/edit/:slug' element={<EditProduct />} />
-            <Route path='/dashboard/blog/add' element={<AddBlog />} />
-            <Route path='/dashboard/blog/edit/:slug' element={<EditBlog />} />
 
-
+          <Route element={<NoLayout />}>
+            <Route element={<DashboardLayout />} path='/dashboard'>
+              <Route path='/dashboard' element={<ProductDashboard />} />
+            </Route>
+            <Route element={<Dashboard />} path='/dashboard'>
+              <Route path='/dashboard/products' element={<ProductDashboard />} />
+              <Route path='/dashboard/category' element={<CategoryDashboard />} />
+              <Route path='/dashboard/blog' element={<BlogDashboard />} />
+              <Route path='/dashboard/category/add' element={<AddCategory />} />
+              <Route path='/dashboard/category/edit/:slug' element={<EditCategory />} />
+              <Route path='/dashboard/products/add' element={<AddProduct />} />
+              <Route path='/dashboard/products/edit/:slug' element={<EditProduct />} />
+              <Route path='/dashboard/blog/add' element={<AddBlog />} />
+              <Route path='/dashboard/blog/edit/:slug' element={<EditBlog />} />
+            </Route>
           </Route>
-        </Route>
-      </Routes>
+        </Routes>
 
-      {/* <Footer /> */}
-    </BrowserRouter>
-
+        {/* <Footer /> */}
+      </BrowserRouter>
+    </div>
   )
 }
 

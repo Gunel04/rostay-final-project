@@ -90,7 +90,7 @@ const Testimonials = () => {
         <div className="testimonial-section container-fluid">
             <div className="testimonial-info" data-aos="zoom-in-up" data-aos-duration="1500">
                 <h6>
-                    <StaticLanguage en="ur Happy Clients" az="Xoşbəxt Müştərilərimiz" />
+                    <StaticLanguage en="Our Happy Clients" az="Xoşbəxt Müştərilərimiz" />
                 </h6>
                 <h1>
                     <StaticLanguage en="Customers Testimonials" az="Müştəri Rəyləri" />

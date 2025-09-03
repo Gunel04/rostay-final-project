@@ -1,0 +1,85 @@
+#light {
+    background-color: #e0ffff;
+    color: #072b31;
+
+    header {
+        background-color: #e0ffff;
+    }
+
+    .dropdown {
+        background-color: #e0ffff;
+    }
+
+    .welcome-section,
+    .our-crew-section {
+        background-color: #dbffff;
+    }
+
+    .slide-item {
+        background-color: #dbffff;
+    }
+    .faq-answer {
+        color: #072b31;
+    }
+
+    // button {
+    //     color: #f2b612;
+    //     border: 1px solid #f2b612;
+
+    //     &:hover {
+    //         color: white;
+    //     }
+    // }
+
+    a {
+        color: #072b31;
+    }
+
+    select {
+        color: #072b31;
+
+        option {
+            background-color: #f4fafa;
+        }
+    }
+
+    .mode-btn {
+        color: #072b31;
+        border: none;
+
+        &:hover {
+            color: initial;
+        }
+
+    }
+
+    .p-2 {
+        color: black;
+    }
+
+    // button{
+    //     color: #f2b612;
+    // }
+}
+
+#dark {
+    background-color: #072b31;
+    color: white;
+
+    .welcome-section,
+    .our-crew-section {
+        background-color: #083338;
+    }
+
+    a {
+        color: white;
+    }
+
+    .mode-btn {
+        color: white;
+    }
+
+    .card {
+        color: white;
+    }
+}

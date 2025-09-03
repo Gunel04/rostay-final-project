@@ -11,10 +11,15 @@ import slugify from 'slugify';
 import Swal from 'sweetalert2';
 import { LanguageContext } from '../context/LanguageContext';
 import StaticLanguage from '../utils/StaticLanguage';
+import { IoMoon } from 'react-icons/io5';
+import { IoMdSunny } from 'react-icons/io';
 
-const Header = () => {
+const Header = (props) => {
+console.log(props);
+
     const [language, setLanguage] = useContext(LanguageContext);
     console.log(language);
+    // const [theme, setTheme] = useState(localStorage.getItem('mode'));
 
     const products = useSelector(p => p.product);
     console.log(products);
@@ -229,6 +234,11 @@ const Header = () => {
                             <option value="AZ">AZ</option>
                             <option value="EN">EN</option>
                         </select>
+                    </li>
+                    <li>
+                        <button className='mode-btn' onClick={props.modeFunction}>
+                            {props.mode==="light"?<IoMdSunny size={20} />:<IoMoon size={20} />}
+                        </button>
                     </li>
                 </ul>
             </div>
