@@ -74,7 +74,7 @@ const Shop = () => {
 
   return (
     <>
-      <main>
+      {/* <main> */}
         <div className="shop-top-part">
           <h1 data-aos="zoom-in" data-aos-duration="2000"><StaticLanguage en="Shop" az="Mağaza" /></h1>
           <h6 data-aos="zoom-in" data-aos-duration="2000"><Link to='/'><StaticLanguage en="Home" az="Ana səhİfə" /></Link> &gt; <span><StaticLanguage en="Shop" az="Mağaza" /></span> </h6>
@@ -150,7 +150,7 @@ const Shop = () => {
             </div>
           </div>
         </section>
-      </main>
+      {/* </main> */}
     </>
   )
 }

@@ -1,4 +1,4 @@
-main {
+// main {
     .shop-top-part {
         position: relative;
         height: 400px;
@@ -12,6 +12,7 @@ main {
         background-size: cover;
         background-color: rgb(7, 43, 49);
         z-index: 1;
+        font-family: 'Montserrat', sans-serif;
 
         h1 {
             font-family: 'Shippori Mincho', sans-serif;
@@ -52,6 +53,7 @@ main {
     .shop-section {
         width: 97%;
         padding: 50px 0;
+        font-family: 'Montserrat',sans-serif;
 
         .left-filter-part {
             width: 20%;
@@ -229,13 +231,13 @@ main {
         }
     }
 
-}
+// }
 
 
 
 
 @media(max-width:1145px) {
-    main {
+    // main {
         .shop-top-part {
             height: 360px;
 
@@ -270,11 +272,11 @@ main {
                 }
             }
         }
-    }
+    // }
 }
 
 @media(max-width:768px) {
-    main {
+    // main {
         .shop-top-part {
             height: 270px;
 
@@ -323,10 +325,10 @@ main {
                 }
             }
         }
-    }
+    // }
 }
 @media(max-width:624px) {
-    main {
+    // main {
         .shop-section {
             .left-filter-part {
                 text-align: center;
@@ -342,10 +344,10 @@ main {
                 }
             }
         }
-    }
+    // }
 }
 @media(max-width: 425px) {
-    main {
+    // main {
         .shop-top-part{
             height: 240px;
             h1 {
@@ -371,5 +373,5 @@ main {
                 }
             }
         }
-    }
+    // }
 }

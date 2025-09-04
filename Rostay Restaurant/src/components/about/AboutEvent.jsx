@@ -32,7 +32,7 @@ const AboutEvent = () => {
                         <div className="about-text-part">
                             <h1>{item.headingEn}</h1>
                             <p>{item.textEn}</p>
-                            <button>{item.buttonEn} <HiOutlineArrowLongRight size={20} /></button>
+                            <button className='discover-now-btn'>{item.buttonEn} <HiOutlineArrowLongRight size={20} /></button>
                         </div>
                     </div>
                 ))}
@@ -43,7 +43,7 @@ const AboutEvent = () => {
                         <div className="about-text-part">
                             <h1>{item.headingAz}</h1>
                             <p>{item.textAz}</p>
-                            <button>{item.buttonAz} <HiOutlineArrowLongRight size={20} /></button>
+                            <button className='discover-now-btn'>{item.buttonAz} <HiOutlineArrowLongRight size={20} /></button>
                         </div>
                     </div>
                 ))}

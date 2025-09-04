@@ -22,11 +22,12 @@ const OurCrew = () => {
                     <StaticLanguage en="Chef dieter delicioz" az="Şef Dieter Delicioz" />
                 </h1>
                 <p data-aos="zoom-in-left" data-aos-duration="1500">
-                    <StaticLanguage en="Everyday Chef Delicioz sets himself the challenge to start from scratch – his tools: ingenuity, curiosity, enthusiasm, unparalleled talent and the highest craftsmanship." az=" Hər gün Şef Delicioz sıfırdan başlamağı özünə məqsəd qoyur – onun alətləri isə yaradıcılıq, maraq, həvəs, bənzərsiz istedad və ən yüksək ustalıqdır."/>
+                    <StaticLanguage en="Everyday Chef Delicioz sets himself the challenge to start from scratch – his tools: ingenuity, curiosity, enthusiasm, unparalleled talent and the highest craftsmanship." az=" Hər gün Şef Delicioz sıfırdan başlamağı özünə məqsəd qoyur – onun alətləri isə yaradıcılıq, maraq, həvəs, bənzərsiz istedad və ən yüksək ustalıqdır." />
                 </p>
                 <Link to='/ourteam'>
-                    <button data-aos="zoom-in-left" data-aos-duration="1500">
-                        <StaticLanguage en="Our Team" az="Komandamız"/> <HiOutlineArrowLongRight size={20} /></button>
+                    <button className='our-team-btn'  data-aos="zoom-in-left" data-aos-duration="1500">
+                        <StaticLanguage en="Our Team" az="Komandamız" /> <HiOutlineArrowLongRight size={20} />
+                    </button>
                 </Link>
             </div>
             <div className="our-crew-right" data-aos="zoom-in-left" data-aos-duration="1500">

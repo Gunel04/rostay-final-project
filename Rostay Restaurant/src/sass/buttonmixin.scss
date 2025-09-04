@@ -1,3 +1,4 @@
+// #dark {
 @mixin button {
     background: none;
     color: white;
@@ -19,3 +20,63 @@
 
 
 }
+
+// }
+
+// #light {
+//     @mixin button {
+//         background: none;
+//         color: #f2b612;
+//         padding: 15px 35px;
+//         text-transform: uppercase;
+//         border-radius: 50px;
+//         border: 1px solid #f2b612;
+//         transition: 0.4s;
+//         font-weight: 600;
+//         font-size: 14px;
+//         font-family: 'Montserrat', sans-serif;
+//         margin: 30px 0;
+
+//         &:hover {
+//             border: 1px solid #f2b612;
+//             background-color: #f2b612;
+//             color: #083338;
+//         }
+
+
+//     }
+// }
+
+// @mixin button($mode: dark) {
+//     background: none;
+//     padding: 15px 35px;
+//     text-transform: uppercase;
+//     border-radius: 50px;
+//     transition: 0.4s;
+//     font-weight: 600;
+//     font-size: 14px;
+//     font-family: 'Montserrat', sans-serif;
+//     margin: 30px 0;
+
+//     @if $mode ==dark {
+//         color: white;
+//         border: 1px solid white;
+
+//         &:hover {
+//             border: 1px solid #f2b612;
+//             background-color: #f2b612;
+//             color: #083338;
+//         }
+//     }
+
+//     @else if $mode ==light {
+//         color: #083338;
+//         border: 1px solid #083338;
+
+//         &:hover {
+//             border: 1px solid #f2b612;
+//             background-color: #f2b612;
+//             color: white;
+//         }
+//     }
+// }

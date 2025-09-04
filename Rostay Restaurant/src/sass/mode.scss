@@ -1,6 +1,15 @@
+@import './buttonmixin.scss';
+
 #light {
     background-color: #e0ffff;
     color: #072b31;
+
+    .hero-top-part,
+    .shop-top-part {
+        &::before {
+            background-color: rgba(0,0,0,0);
+        }
+    }
 
     header {
         background-color: #e0ffff;
@@ -18,18 +27,49 @@
     .slide-item {
         background-color: #dbffff;
     }
+
     .faq-answer {
         color: #072b31;
     }
 
-    // button {
-    //     color: #f2b612;
-    //     border: 1px solid #f2b612;
+    .slider-btn,
+    .welcome-btn,
+    .menu-btn,
+    .get-started-btn,
+    .our-team-btn,
+    .footer-subscribe-btn,
+    .make-reservation-btn {
+        color: #072b31;
+        border: 1px solid #072b31;
 
-    //     &:hover {
-    //         color: white;
-    //     }
-    // }
+        &:hover {
+            color: white;
+            border: 1px solid #f2b612;
+        }
+    }
+
+    .search-icon,
+    .hamburger-menu {
+        color: #072b31;
+    }
+
+    .discover-now-btn {
+        color: #072b31;
+        border-bottom: 1px solid #072b31;
+        background: none;
+
+    }
+
+    .accordion-button,
+    .accordion-body,
+    .grid-heading-one {
+        color: #072b31;
+    }
+
+    .experience-card-text {
+        color: black;
+    }
+
 
     a {
         color: #072b31;

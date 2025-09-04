@@ -55,7 +55,7 @@ const Experience = () => {
                                 <div className="experience-card-info">
                                     <h1>{item.headingOneEn}</h1>
                                     <h3>{item.headingTwoEn}</h3>
-                                    <p>{item.textEn}</p>
+                                    <p className='experience-card-text'>{item.textEn}</p>
                                 </div>
                             </div>
                         </div>
@@ -71,7 +71,7 @@ const Experience = () => {
                                 <div className="experience-card-info">
                                     <h1>{item.headingOneAz}</h1>
                                     <h3>{item.headingTwoAz}</h3>
-                                    <p>{item.textAz}</p>
+                                    <p className='experience-card-text'>{item.textAz}</p>
                                 </div>
                             </div>
                         </div>

@@ -9,7 +9,7 @@ const AboutUs = () => {
   Aos.init();
   return (
     <>
-      <main>
+      {/* <main> */}
         <div className="hero-top-part">
           <h1 data-aos="zoom-in" data-aos-duration="2000">
             <StaticLanguage az="Haqqımızda" en="About Us" />
@@ -25,7 +25,7 @@ const AboutUs = () => {
         <WelcomeSection />
         <TimeOfLuxury />
         <AboutEvent />
-      </main>
+      {/* </main> */}
     </>
   )
 }

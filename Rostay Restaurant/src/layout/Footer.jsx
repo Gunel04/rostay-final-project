@@ -94,7 +94,7 @@ const Footer = () => {
             </p>
             <StaticLanguage en={<input type="text" placeholder='Your Email' />} az={<input type="text" placeholder='Email Ünvanın' />}/>
             
-            <button><StaticLanguage en="Subscribe" az="Abunə ol"/> <HiOutlineArrowLongRight size={20} /></button>
+            <button className='footer-subscribe-btn'><StaticLanguage en="Subscribe" az="Abunə ol"/> <HiOutlineArrowLongRight size={20} /></button>
           </div>
         </div>
       </div>

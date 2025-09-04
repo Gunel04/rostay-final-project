@@ -147,6 +147,12 @@ footer {
 
         .second-footer {
             text-align: center;
+            input {
+                width: 100%;
+                &::placeholder{
+                    text-align: center;
+                }
+            }
         }
     }
 }

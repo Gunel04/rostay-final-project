@@ -48,76 +48,76 @@ const Faq = () => {
     ]
     return (
         <>
-            {/* <main className="faq-section container-fluid"> */}
-                <div className="faq-section-headings" data-aos='fade-up' data-aos-duration='2000'>
-                    <h6>
-                        <StaticLanguage en="Need Help" az="Kömək Lazımdır?" />
-                    </h6>
-                    <h1>
-                        <StaticLanguage en="Frequently Asked Questions" az="Tez-tez verilən suallar" />
-                    </h1>
-                </div>
-                <div className="faq-questions-part" data-aos='fade-up' data-aos-duration='2000'>
-                    <div className="left-questions-part">
-                        <StaticLanguage
-                            en={<div className="accordion faq-accordion" id="accordionExample">
-                                {faqs.map((item, index) => {
-                                    const headingId = `heading${index}`;
-                                    const collapseId = `collapse${index}`;
-                                    return (
-                                        <div className="accordion-item faq-accordion-item" key={index}>
-                                            <h2 className="accordion-header faq-accordion-header" id={headingId}>
-                                                <button className={`accordion-button ${index !== 0 ? "collapsed" : ""}`} type="button" data-bs-toggle="collapse" data-bs-target={`#${collapseId}`} aria-expanded={index === 0 ? "true" : "false"}
-                                                    aria-controls={collapseId}>
-                                                    {item.questionEn}
-                                                </button>
-                                            </h2>
-                                            <div id={collapseId}
-                                                className={`accordion-collapse collapse ${index === 0 ? "show" : ""} faq-answer`}
-                                                aria-labelledby={headingId}
-                                                data-bs-parent="#accordionExample"
-                                                
-                                                >
-                                                <div className="accordion-body">
-                                                    {item.answerEn}
-                                                </div>
+            {/* <main className="faq-section container-flu/id"> */}
+            <div className="faq-section-headings" data-aos='fade-up' data-aos-duration='2000'>
+                <h6>
+                    <StaticLanguage en="Need Help" az="Kömək Lazımdır?" />
+                </h6>
+                <h1>
+                    <StaticLanguage en="Frequently Asked Questions" az="Tez-tez verilən suallar" />
+                </h1>
+            </div>
+            <div className="faq-questions-part container-fluid" data-aos='fade-up' data-aos-duration='2000'>
+                <div className="left-questions-part">
+                    <StaticLanguage
+                        en={<div className="accordion faq-accordion" id="accordionExample">
+                            {faqs.map((item, index) => {
+                                const headingId = `heading${index}`;
+                                const collapseId = `collapse${index}`;
+                                return (
+                                    <div className="accordion-item faq-accordion-item" key={index}>
+                                        <h2 className="accordion-header faq-accordion-header" id={headingId}>
+                                            <button className={`accordion-button ${index !== 0 ? "collapsed" : ""}`} type="button" data-bs-toggle="collapse" data-bs-target={`#${collapseId}`} aria-expanded={index === 0 ? "true" : "false"}
+                                                aria-controls={collapseId}>
+                                                {item.questionEn}
+                                            </button>
+                                        </h2>
+                                        <div id={collapseId}
+                                            className={`accordion-collapse collapse ${index === 0 ? "show" : ""} faq-answer`}
+                                            aria-labelledby={headingId}
+                                            data-bs-parent="#accordionExample"
+
+                                        >
+                                            <div className="accordion-body">
+                                                {item.answerEn}
                                             </div>
                                         </div>
-                                    )
-                                })}
-                            </div>}
+                                    </div>
+                                )
+                            })}
+                        </div>}
 
-                            az={<div className="accordion faq-accordion" id="accordionExample">
-                                {faqs.map((item, index) => {
-                                    const headingId = `heading${index}`;
-                                    const collapseId = `collapse${index}`;
-                                    return (
-                                        <div className="accordion-item faq-accordion-item" key={index}>
-                                            <h2 className="accordion-header faq-accordion-header" id={headingId}>
-                                                <button className={`accordion-button ${index !== 0 ? "collapsed" : ""}`} type="button" data-bs-toggle="collapse" data-bs-target={`#${collapseId}`} aria-expanded={index === 0 ? "true" : "false"}
-                                                    aria-controls={collapseId}>
-                                                    {item.questionAz}
-                                                </button>
-                                            </h2>
-                                            <div id={collapseId}
-                                                className={`accordion-collapse collapse ${index === 0 ? "show" : ""}`}
-                                                aria-labelledby={headingId}
-                                                data-bs-parent="#accordionExample">
-                                                <div className="accordion-body">
-                                                    {item.answerAz}
-                                                </div>
+                        az={<div className="accordion faq-accordion" id="accordionExample">
+                            {faqs.map((item, index) => {
+                                const headingId = `heading${index}`;
+                                const collapseId = `collapse${index}`;
+                                return (
+                                    <div className="accordion-item faq-accordion-item" key={index}>
+                                        <h2 className="accordion-header faq-accordion-header" id={headingId}>
+                                            <button className={`accordion-button ${index !== 0 ? "collapsed" : ""}`} type="button" data-bs-toggle="collapse" data-bs-target={`#${collapseId}`} aria-expanded={index === 0 ? "true" : "false"}
+                                                aria-controls={collapseId}>
+                                                {item.questionAz}
+                                            </button>
+                                        </h2>
+                                        <div id={collapseId}
+                                            className={`accordion-collapse collapse ${index === 0 ? "show" : ""}`}
+                                            aria-labelledby={headingId}
+                                            data-bs-parent="#accordionExample">
+                                            <div className="accordion-body">
+                                                {item.answerAz}
                                             </div>
                                         </div>
-                                    )
-                                })}
-                            </div>}
-                        />
-                    </div>
-
-                    <div className="right-image-part">
-                        <img src="https://demo2.themelexus.com/rostay/wp-content/uploads/2025/02/image-faq.jpg" alt="" />
-                    </div>
+                                    </div>
+                                )
+                            })}
+                        </div>}
+                    />
                 </div>
+
+                <div className="right-image-part">
+                    <img src="https://demo2.themelexus.com/rostay/wp-content/uploads/2025/02/image-faq.jpg" alt="" />
+                </div>
+            </div>
             {/* </main> */}
         </>
     )

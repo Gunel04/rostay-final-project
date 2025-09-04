@@ -20,9 +20,10 @@ const WelcomeToRostay = () => {
           <StaticLanguage en="Welcome to our sophisticated restaurant in the heart of Baku. Enjoy stunning views of the beautiful city’s historic architecture with a glass of fine coffee and delicate salami prepared by the world’s best chef" az="Bakının mərkəzində yerləşən zərif restoranımıza xoş gəlmisiniz. 
           Tarixi memarlığın füsunkar mənzərəsini seyr edərək incə salami və dünyanın ən yaxşı aşpazının hazırladığı seçilmiş kofenin dadını çıxarın."/>
         </p>
-        <button>
+        <button className='welcome-btn'>
           <StaticLanguage en="Make a reservation" az="Rezervasiya et" />
-          <HiOutlineArrowLongRight size={20} /></button>
+          <HiOutlineArrowLongRight size={20} />
+        </button>
       </div>
     </section>
   )

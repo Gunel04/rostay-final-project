@@ -1,7 +1,7 @@
-main {
-    font-family: 'Montserrat', sans-serif;
-
+// main {
+    
     .hero-top-part {
+        font-family: 'Montserrat', sans-serif;
         position: relative;
         height: 400px;
         display: flex;
@@ -48,32 +48,35 @@ main {
         }
     }
 
-}
+// }
 
 @media (max-width: 768px) {
-    main {
+    // main {
         .hero-top-part {
+            height: 350px;
             h1 {
                 font-size: 55px;
             }
         }
-    }
+    // }
 }
 @media (max-width: 520px) {
-    main {
+    // main {
         .hero-top-part {
+            height: 300px;
             h1 {
                 font-size: 45px;
             }
         }
-    }
+    // }
 }
 @media (max-width: 400px) {
-    main {
+    // main {
         .hero-top-part {
+            height: 270px;
             h1 {
                 font-size: 35px;
             }
         }
-    }
+    // }
 }

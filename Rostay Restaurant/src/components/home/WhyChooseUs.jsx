@@ -41,8 +41,9 @@ const WhyChooseUs = () => {
                     </li>
                 </ul>
                 <Link to='/about'>
-                    <button>
-                        <StaticLanguage en="Get Started" az="Ətraflı bax" /> <HiOutlineArrowLongRight size={20} /></button>
+                    <button className='get-started-btn'>
+                        <StaticLanguage en="Get Started" az="Ətraflı bax" /> <HiOutlineArrowLongRight size={20} />
+                    </button>
                 </Link>
             </div>
         </section>

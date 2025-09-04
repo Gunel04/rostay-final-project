@@ -19,9 +19,10 @@ const WelcomeSection = () => {
                 <p>
                     <StaticLanguage en="Welcome to our sophisticated restaurant in the heart of Baku Enjoy stunning views of the beautiful city's historic architecture with a glass of fine wine and delicate salami prepared by the world's best chef" az="Bakının mərkəzində yerləşən zərif restoranımıza xoş gəlmisiniz. Tarixi memarlığın möhtəşəm mənzərəsini seyr edərək incə salamilər və dünyanın ən yaxşı aşpazlarının hazırladığı zərif yeməkləri dadın, seçilmiş şərabların ləzzətindən zövq alın." />
                 </p>
-                <button>
+                <button className='make-reservation-btn'>
                     <StaticLanguage en="Make a Reservation " az="Rezervasiya Et " />
-                    <HiOutlineArrowLongRight size={20} /></button>
+                    <HiOutlineArrowLongRight size={20} />
+                </button>
             </div>
             <div className="welcome-right-image" data-aos="fade-down" data-aos-duration="2000">
                 <img src="https://demo2.themelexus.com/rostay/wp-content/uploads/2025/03/about-image-1.jpg" alt="" />
