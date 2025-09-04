@@ -210,7 +210,7 @@ const Register = () => {
                                         <a type='submit' className='eye-button' onClick={confirmVisibility}>{confirmVisible ? <PiEyeThin size={22} /> : <PiEyeClosedThin size={22} />}</a>
                                     </div>
                                 </div>
-                                <button type="submit">Register</button>
+                                <button className='login-btn' type="submit">Register</button>
                             </form>
 
                         </Col>
@@ -264,7 +264,7 @@ const Register = () => {
                                         <a type='submit' className='eye-button' onClick={confirmVisibility}>{confirmVisible ? <PiEyeThin size={22} /> : <PiEyeClosedThin size={22} />}</a>
                                     </div>
                                 </div>
-                                <button type="submit">Qeydiyyatdan Keç</button>
+                                <button className='login-btn' type="submit">Qeydiyyatdan Keç</button>
                             </form>
                         </Col>
                     </section>

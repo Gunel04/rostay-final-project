@@ -6,7 +6,7 @@ import StaticLanguage from '../utils/StaticLanguage'
 
 const ContactUs = () => {
     return (
-        <main>
+        <>
             <div className="contact-top-part">
                 <h1 data-aos="zoom-in" data-aos-duration="2000">
                     <StaticLanguage en="Contact Us" az="Bizimlə Əlaqə" />
@@ -81,8 +81,8 @@ const ContactUs = () => {
                 </div>
             </section>
 
-        </main>
+        </>
     )
-}
+} 
 
 export default ContactUs

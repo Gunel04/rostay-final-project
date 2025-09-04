@@ -21,7 +21,7 @@ const Cart = () => {
                         <StaticLanguage en="Your cart is currently empty!" az="Səbətiniz hal-hazırda boşdur!"/>
                     </h1>
                     <Link to='/shop'>
-                        <button>
+                        <button className='back-to-shop-btn'>
                             <StaticLanguage en="Back to Shop" az="Mağazaya qayıt"/>
                         </button>
                     </Link>
@@ -48,7 +48,7 @@ const Cart = () => {
                                                 </td>
                                                 <td>
                                                     <h4 className='cart-product-title'>
-                                                        <Link to={`/shop/${slugify(item.titleEn, { lower: true })}`} style={{ color: "white", textDecoration: "none" }}>{item.titleEn}</Link>
+                                                        <Link to={`/shop/${slugify(item.titleEn, { lower: true })}`} style={{  textDecoration: "none" }}>{item.titleEn}</Link>
                                                     </h4>
                                                     <h5 className="cart-product-price">${item.price}</h5>
                                                     <p className="cart-product-description">{item.descriptionEn.slice(0, 80)}...</p>
@@ -103,7 +103,7 @@ const Cart = () => {
                                                 </td>
                                                 <td>
                                                     <h4 className='cart-product-title'>
-                                                        <Link to={`/shop/${slugify(item.titleEn, { lower: true })}`} style={{ color: "white", textDecoration: "none" }}>{item.titleAz}</Link>
+                                                        <Link to={`/shop/${slugify(item.titleEn, { lower: true })}`} style={{  textDecoration: "none" }}>{item.titleAz}</Link>
                                                     </h4>
                                                     <h5 className="cart-product-price">${item.price}</h5>
                                                     <p className="cart-product-description">{item.descriptionAz.slice(0, 80)}...</p>

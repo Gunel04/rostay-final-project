@@ -133,7 +133,7 @@ const Login = () => {
                                             <a type='submit' className='eye-button' onClick={visibility}>{isVisible ? <PiEyeThin size={22} /> : <PiEyeClosedThin size={22} />}</a>
                                         </div>
                                     </div>
-                                    <button type="submit">Log In</button>
+                                    <button className='login-btn' type="submit">Log In</button>
                                     <p>Don't have an account yet? Please <Link to='/register'>Sign up</Link></p>
                                 </form>
                             </Col>
@@ -162,7 +162,7 @@ const Login = () => {
                                             <a type='submit' className='eye-button' onClick={visibility}>{isVisible ? <PiEyeThin size={22} /> : <PiEyeClosedThin size={22} />}</a>
                                         </div>
                                     </div>
-                                    <button type="submit">Daxil ol</button>
+                                    <button className='login-btn' type="submit">Daxil ol</button>
                                     <p>Hesabınız yoxdur? Zəhmət olmasa <Link to='/register'>Qeydiyyatdan keçin</Link></p>
                                 </form>
                             </Col>

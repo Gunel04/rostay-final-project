@@ -104,7 +104,7 @@ console.log(props);
                 <div className="hamburger-menu" onClick={toggleMenu}><CiMenuFries /></div>
                 <ul className={`nav-link-list ${menuOpen ? "active" : ""}`}>
                     <li className="nav-links">
-                        <Link to='/'>
+                        <Link to='/'> 
                             <StaticLanguage az="Ana səhİfə" en="Home" /><FaDiamond size={6} style={{ color: "#f2b612" }} />
                         </Link>
                     </li>

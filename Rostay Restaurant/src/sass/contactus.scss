@@ -1,4 +1,4 @@
-main {
+// main {
     .contact-top-part {
         position: relative;
         height: 400px;
@@ -10,13 +10,14 @@ main {
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
-        background-color: rgb(7, 43, 49);
+        // background-color: rgb(7, 43, 49);
+        font-family: 'Montserrat', sans-serif;
         z-index: 1;
 
         h1 {
             font-family: 'Shippori Mincho', sans-serif;
             color: white;
-            text-transform: uppercase;
+            text-transform: uppercase; 
             font-size: 65px;
             margin-bottom: 20px;
         }
@@ -51,11 +52,12 @@ main {
     }
 
     .contact-us-section {
-        background-color: #072b31;
-        color: white;
+        // background-color: #072b31;
+        // color: white;
         padding: 50px;
         display: flex;
         justify-content: space-between;
+        font-family: 'Montserrat', sans-serif;
 
         .contact-left-part {
             width: 40%;
@@ -98,11 +100,11 @@ main {
             }
         }
     }
-}
+// }
 
 
 @media (max-width:1145px) {
-    main {
+    // main {
         .contact-top-part {
             h1 {
                 font-size: 55px;
@@ -123,11 +125,11 @@ main {
                 width: 60%;
             }
         }
-    }
+    // }
 }
 
 @media (max-width:1024px) {
-    main {
+    // main {
         .contact-top-part {
             height: 300px;
 
@@ -145,11 +147,11 @@ main {
 
             }
         }
-    }
+    // }
 }
 
 @media (max-width:880px) {
-    main {
+    // main {
         .contact-top-part {
             height: 250px;
 
@@ -198,11 +200,11 @@ main {
                 }
             }
         }
-    }
+    // }
 }
 
 @media (max-width:624px) {
-    main {
+    // main {
         .contact-us-section {
             .contact-left-part {
                 width: 100%;
@@ -236,5 +238,5 @@ main {
                 }
             }
         }
-    }
+    // }
 }

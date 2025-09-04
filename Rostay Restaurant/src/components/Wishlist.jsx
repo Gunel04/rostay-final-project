@@ -26,7 +26,7 @@ const Wishlist = () => {
                         <StaticLanguage en="Your wishlist is currently empty!" az="Sİzİn bəyənİlənlər sİyahınız hal-hazırda boşdur!" />
                     </h1>
                     <Link to='/shop'>
-                        <button>
+                        <button className='back-to-shop-btn'>
                             <StaticLanguage en="Back to Shop" az="Mağazaya qayıt" />
                         </button>
                     </Link>

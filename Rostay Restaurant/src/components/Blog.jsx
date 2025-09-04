@@ -21,7 +21,7 @@ const Blog = () => {
     }
 
     return (
-        <main>
+        <>
             <div className="blog-top-part">
                 <h1 data-aos="zoom-in" data-aos-duration="2000">
                     <StaticLanguage en="Blog" az="Bloq"/>
@@ -41,7 +41,7 @@ const Blog = () => {
                                             <h5 className="blog-title">{item.titleEn}</h5>
                                         </Link>
                                         <p className="blog-text">{item.descriptionEn.slice(0, 100)}...</p>
-                                        <Link to={`/blog/${slugify(item.titleEn, { lower: true })}`} ><button>Read More</button></Link>
+                                        <Link to={`/blog/${slugify(item.titleEn, { lower: true })}`} ><button className='blog-read-more-btn'>Read More</button></Link>
                                     </div>
                                 </div>
                             </div>
@@ -89,7 +89,7 @@ const Blog = () => {
                     </div>
                 </div>
             </div>
-        </main>
+        </>
     )
 }
 

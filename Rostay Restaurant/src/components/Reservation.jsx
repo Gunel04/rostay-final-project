@@ -68,7 +68,7 @@ const Reservation = () => {
               <StaticLanguage en="Book a table" az="Masa Sİfarİşİ" />
 
             </h1>
-            <p><StaticLanguage en="Booking request" az="Rezervasiya üçün zəng edin: " /><span>+84 (800) 1433 555</span><StaticLanguage en="or fill out the order form" az=" və ya sifariş formasını doldurun" /> </p>
+            <p><StaticLanguage en="Booking request" az="Rezervasiya üçün zəng edin: " /><span>+84 (800) 1433 555</span><StaticLanguage en=" or fill out the order form" az=" və ya sifariş formasını doldurun" /> </p>
             <form ref={formRef}>
               <select name="person" id="" ref={personRef}>
                 <option value="1 Person">
@@ -102,7 +102,7 @@ const Reservation = () => {
                   <StaticLanguage en="10 Person" az="10 Nəfər" />
                 </option>
               </select>
-              <input type="date" name="date" id="" format="dd-mm-yyyy" ref={dateRef} />
+              <input className='date-input' type="date" name="date" id="" format="dd-mm-yyyy" ref={dateRef} />
               <select name="time" id="" ref={timeRef}>
                 <option value="12:00">12:00</option>
                 <option value="13:00">13:00</option>
@@ -115,7 +115,7 @@ const Reservation = () => {
                 <option value="20:00">20:00</option>
               </select>
             </form>
-            <button type='button' onClick={() => { reservationSubmit() }}><StaticLanguage en="Book a Table" az="Masa Sİfarİş Et" /> <HiOutlineArrowLongRight size={20} /></button>
+            <button className='book-table-btn' type='button' onClick={() => { reservationSubmit() }}><StaticLanguage en="Book a Table" az="Masa Sİfarİş Et" /> <HiOutlineArrowLongRight size={20} /></button>
           </Col>
         </section>
       </main>

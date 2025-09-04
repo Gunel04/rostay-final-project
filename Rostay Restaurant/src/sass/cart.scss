@@ -77,7 +77,8 @@ main {
             width: 63%;
 
             .cart-table thead th {
-                background-color: #072b31;
+                // background-color: #072b31;
+                background: none;
                 color: white;
                 font-family: 'Shippori Mincho', sans-serif;
                 font-weight: 400;
@@ -89,7 +90,8 @@ main {
 
                 tr {
                     td {
-                        background-color: #072b31;
+                        // background-color: #072b31;
+                        background: none;
                         color: white;
 
                         h4 {

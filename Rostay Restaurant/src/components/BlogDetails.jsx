@@ -12,7 +12,7 @@ const BlogDetails = () => {
 
         <StaticLanguage
             en={
-                <main>
+                <>
                     <div className="blog-details-top-part">
                         <h1 data-aos="zoom-in" data-aos-duration="2000" >{singleBlog.titleEn}</h1>
                         <h6 data-aos="zoom-in" data-aos-duration="2000"><Link to='/'>Home</Link> &gt; <span>Blog</span> </h6>
@@ -29,16 +29,16 @@ const BlogDetails = () => {
                             <img src="https://demo2.themelexus.com/rostay/wp-content/uploads/2025/02/demo-content-06.jpg" alt={singleBlog.titleEn} />
                             <div className="decor-part-text">
                                 <h3>About Our Restaurant</h3>
-                                <p>By day, Rostay provides a hub to meet friends and colleagues with a well-crafted wine list, discreet yet professional service and sophisticated menus all delivered in a relaxed setting.</p>
+                                <p className='blog-detail-right-text'>By day, Rostay provides a hub to meet friends and colleagues with a well-crafted wine list, discreet yet professional service and sophisticated menus all delivered in a relaxed setting.</p>
                                 <Link to='/reservation'><button>Book a Table <HiOutlineArrowLongRight size={20} /></button></Link>
                             </div>
                         </div>
                     </div>
-                </main>
-            }
+                </>
+            } 
 
             az={
-                <main>
+                <>
                     <div className="blog-details-top-part">
                         <h1 data-aos="zoom-in" data-aos-duration="2000" >{singleBlog.titleAz}</h1>
                         <h6 data-aos="zoom-in" data-aos-duration="2000"><Link to='/'>Ana səhİfə</Link> &gt; <span>Bloq</span> </h6>
@@ -60,7 +60,7 @@ const BlogDetails = () => {
                             </div>
                         </div>
                     </div>
-                </main>
+                </>
             }
         />
     )

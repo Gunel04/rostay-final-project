@@ -30,7 +30,7 @@ const MoreDetails = () => {
     <>
       <StaticLanguage
         en={
-          <main>
+          <>
             <div className="more-details-top-part">
               <h1 data-aos="zoom-in" data-aos-duration="2000">
                 {singleProduct.titleEn}
@@ -198,11 +198,11 @@ const MoreDetails = () => {
                 </div>
               </div>
             </section>
-          </main>
+          </>
         }
 
         az={
-          <main>
+          <>
             <div className="more-details-top-part">
               <h1 data-aos="zoom-in" data-aos-duration="2000">
                 {singleProduct.titleAz}
@@ -373,7 +373,7 @@ const MoreDetails = () => {
                 </div>
               </div>
             </section>
-          </main>
+          </>
         }
       />
     </>

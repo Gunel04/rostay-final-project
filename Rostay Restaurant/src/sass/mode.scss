@@ -5,15 +5,28 @@
     color: #072b31;
 
     .hero-top-part,
-    .shop-top-part {
+    .shop-top-part,
+    .blog-top-part,
+    .more-details-top-part,
+    .blog-details-top-part,
+    .contact-top-part,
+    .reservation-top-part,
+    .login-top-part,
+    .cart-wishlist-top-part,
+    .our-team-top-part {
         &::before {
-            background-color: rgba(0,0,0,0);
+            background-color: rgba(0, 0, 0, 0);
         }
     }
 
     header {
         background-color: #e0ffff;
+
+        .nav-link-list {
+            background-color: #e0ffff;
+        }
     }
+
 
     .dropdown {
         background-color: #e0ffff;
@@ -32,13 +45,26 @@
         color: #072b31;
     }
 
+    .card {
+        color: #072b31;
+    }
+
+    .contact-icon-info {
+        p {
+            color: black;
+        }
+    }
+
     .slider-btn,
     .welcome-btn,
     .menu-btn,
     .get-started-btn,
     .our-team-btn,
     .footer-subscribe-btn,
-    .make-reservation-btn {
+    .make-reservation-btn,
+    .book-table-btn,
+    .login-btn,
+    .back-to-shop-btn {
         color: #072b31;
         border: 1px solid #072b31;
 
@@ -46,6 +72,62 @@
             color: white;
             border: 1px solid #f2b612;
         }
+    }
+
+    .date-input {
+        color: #072b31;
+    }
+
+    .blog-read-more-btn {
+        color: #072b31;
+        border-bottom: 1px solid #072b31;
+
+        &:hover {
+            color: #f2b612;
+            border-bottom: 1px solid #f2b612;
+        }
+    }
+
+    .login-section {
+        input {
+            &:focus {
+                color: #072b31;
+            }
+        }
+    }
+
+    .quantity-btn {
+        border: 1px solid #072b31;
+
+        button {
+            color: #072b31;
+
+            &:hover {
+                color: #f2b612;
+            }
+        }
+    }
+
+    .add-to-cart-btn {
+        &:hover {
+            background-color: #e0ffff;
+        }
+    }
+
+    .add-wishlist {
+        color: #072b31;
+    }
+
+    .category {
+        color: black;
+
+        span {
+            color: #072b31;
+        }
+    }
+
+    .sorting-selection {
+        background-color: #bfffff;
     }
 
     .search-icon,
@@ -62,11 +144,15 @@
 
     .accordion-button,
     .accordion-body,
-    .grid-heading-one {
+    .grid-heading-one,
+    .blog-description,
+    .blog-detail-right-text {
         color: #072b31;
     }
 
-    .experience-card-text {
+    .experience-card-text,
+    .blog-date,
+    .blog-text {
         color: black;
     }
 
@@ -97,9 +183,70 @@
         color: black;
     }
 
-    // button{
-    //     color: #f2b612;
-    // }
+    .wishlist-table {
+        border-top: 1px solid rgb(227, 227, 227);
+
+        thead tr th {
+            color: #072b31;
+        }
+
+        tbody tr td {
+            color: #072b31;
+
+            .delete-wishlist-btn {
+                color: #072b31;
+            }
+        }
+    }
+
+    .cart-table {
+        border-top: 1px solid rgb(227, 227, 227);
+
+        thead tr th {
+            color: #072b31;
+        }
+
+        tbody tr {
+            td {
+                color: #072b31;
+
+                h4 {
+                    color: #072b31;
+                }
+
+                .counter-con {
+                    border: 1px solid gray;
+
+                    button {
+                        color: #072b31;
+
+                        &:hover {
+                            color: #f2b612;
+                        }
+                    }
+                }
+
+                .remove-btn {
+                    color: #072b31;
+
+                    &:hover {
+                        color: #f2b612;
+                    }
+                }
+
+
+            }
+
+            .table-total-price {
+                color: #f2b612;
+            }
+        }
+    }
+    .team-member-cards {
+        .card-text {
+            color: black;
+        }
+    }
 }
 
 #dark {
@@ -122,4 +269,20 @@
     .card {
         color: white;
     }
+}
+
+@media (max-width:941px) {
+    #dark {
+        .icon-part-list {
+            li {
+                a {
+                    color: #072b31;
+                }
+            }
+        }
+        .mode-btn {
+            color: #072b31; 
+        }
+    }
+
 }
