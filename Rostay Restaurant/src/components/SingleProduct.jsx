@@ -18,7 +18,7 @@ const SingleProduct = ({ item }) => {
         <>
             <StaticLanguage
                 en={
-                    <div className='col-12 col-sm-6 col-md-6 col-lg-4' key={item.id} data-aos="fade-up" data-aos-duration="2000">
+                    // <div className='col-12 col-sm-6 col-md-6 col-lg-4' key={item.id} data-aos="fade-up" data-aos-duration="2000">
                         <div className="card" >
                             <div className="product-image-con">
                                 <img src={item.image} height={370} className="card-img-top" alt={item.titleEn} />
@@ -65,7 +65,7 @@ const SingleProduct = ({ item }) => {
                                         }
 
                                     }}>{inWishlist(item.id) ? <IoIosHeart size={25} /> : <IoIosHeartEmpty size={25} />}</button>
-                                    <Link to={`/shop/${slugify(item.titleEn, { lower: true })}`}><PiEyeThin size={25} /></Link>
+                                    <Link className='eye-btn' to={`/shop/${slugify(item.titleEn, { lower: true })}`}><PiEyeThin size={25} /></Link>
                                 </div>
                             </div>
                             <div className="card-body">
@@ -75,11 +75,11 @@ const SingleProduct = ({ item }) => {
                                 <p className="card-price">${item.price}</p>
                             </div>
                         </div>
-                    </div>
+                    // </div>
                 }
 
                 az={
-                    <div className='col-12 col-sm-6 col-md-6 col-lg-4' key={item.id} data-aos="fade-up" data-aos-duration="2000">
+                    // <div className='col-12 col-sm-6 col-md-6 col-lg-4' key={item.id} data-aos="fade-up" data-aos-duration="2000">
                         <div className="card" >
                             <div className="product-image-con">
                                 <img src={item.image} height={370} className="card-img-top" alt={item.titleAz} />
@@ -126,7 +126,7 @@ const SingleProduct = ({ item }) => {
                                         }
 
                                     }}>{inWishlist(item.id) ? <IoIosHeart size={25} /> : <IoIosHeartEmpty size={25} />}</button>
-                                    <Link to={`/shop/${slugify(item.titleEn, { lower: true })}`}><PiEyeThin size={25} /></Link>
+                                    <Link className='eye-btn' to={`/shop/${slugify(item.titleEn, { lower: true })}`}><PiEyeThin size={25} /></Link>
                                 </div>
                             </div>
                             <div className="card-body">
@@ -136,7 +136,7 @@ const SingleProduct = ({ item }) => {
                                 <p className="card-price">${item.price}</p>
                             </div>
                         </div>
-                    </div>
+                    // </div>
                 }
             />
         </>

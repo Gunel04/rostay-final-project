@@ -12,7 +12,7 @@
     .contact-top-part,
     .reservation-top-part,
     .login-top-part,
-    .cart-wishlist-top-part,
+    .cart-wishlist-checkout-top-part,
     .our-team-top-part {
         &::before {
             background-color: rgba(0, 0, 0, 0);
@@ -183,7 +183,7 @@
         color: black;
     }
 
-    .wishlist-table {
+    .wishlist-table,.checkout-table {
         border-top: 1px solid rgb(227, 227, 227);
 
         thead tr th {
@@ -269,6 +269,10 @@
     .card {
         color: white;
     }
+    .eye-btn {
+        color: black;
+    }
+    
 }
 
 @media (max-width:941px) {

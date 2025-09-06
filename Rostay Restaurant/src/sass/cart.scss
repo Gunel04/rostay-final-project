@@ -1,7 +1,7 @@
 @import './buttonmixin.scss';
 
 main {
-    .cart-wishlist-top-part {
+    .cart-wishlist-checkout-top-part {
         position: relative;
         height: 400px;
         display: flex;
@@ -245,7 +245,7 @@ main {
 
 @media(max-width:1024px) {
     main {
-        .cart-wishlist-top-part {
+        .cart-wishlist-checkout-top-part {
             height: 350px;
 
             h1 {
@@ -272,7 +272,7 @@ main {
 
 @media(max-width:768px) {
     main {
-        .cart-wishlist-top-part {
+        .cart-wishlist-checkout-top-part {
             height: 300px;
 
             h1 {
@@ -284,7 +284,7 @@ main {
 
 @media(max-width:550px) {
     main {
-        .cart-wishlist-top-part {
+        .cart-wishlist-checkout-top-part {
             height: 250px;
 
             h1 {

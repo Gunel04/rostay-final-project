@@ -28,6 +28,8 @@ import AddBlog from './dashboard/blog/AddBlog'
 import EditBlog from './dashboard/blog/EditBlog'
 import Blog from './components/Blog'
 import BlogDetails from './components/BlogDetails'
+import AuthLayout from './layout/AuthLayout'
+import Checkout from './components/Checkout'
 
 const App = () => {
   // console.log(props.mode);
@@ -47,7 +49,7 @@ const App = () => {
       <BrowserRouter>
         {/* <Header /> */}
         <Routes>
-          <Route element={<MainLayout modeFunction={toggleTheme} mode={mode}/>}>
+          <Route element={<MainLayout modeFunction={toggleTheme} mode={mode} />}>
             <Route path='/' element={<Home />} />
             <Route path='/about' element={<AboutUs />} />
             <Route path='/ourteam' element={<OurTeam />} />
@@ -61,24 +63,27 @@ const App = () => {
             <Route path='/blog/:slug' element={<BlogDetails />} />
             <Route path='/cart' element={<Cart />} />
             <Route path='/wishlist' element={<Wishlist />} />
+            <Route path='/checkout' element={<Checkout />} />
           </Route>
 
           <Route element={<NoLayout />}>
-            <Route element={<DashboardLayout />} path='/dashboard'>
-              <Route path='/dashboard' element={<ProductDashboard />} />
+            {/* <Route element={<AuthLayout />} path='/dashboard'> */}
+              <Route element={<DashboardLayout />} path='/dashboard'>
+                <Route path='/dashboard' element={<ProductDashboard />} />
+              </Route>
+              <Route element={<Dashboard />} path='/dashboard'>
+                <Route path='/dashboard/products' element={<ProductDashboard />} />
+                <Route path='/dashboard/category' element={<CategoryDashboard />} />
+                <Route path='/dashboard/blog' element={<BlogDashboard />} />
+                <Route path='/dashboard/category/add' element={<AddCategory />} />
+                <Route path='/dashboard/category/edit/:slug' element={<EditCategory />} />
+                <Route path='/dashboard/products/add' element={<AddProduct />} />
+                <Route path='/dashboard/products/edit/:slug' element={<EditProduct />} />
+                <Route path='/dashboard/blog/add' element={<AddBlog />} />
+                <Route path='/dashboard/blog/edit/:slug' element={<EditBlog />} />
+              </Route>
             </Route>
-            <Route element={<Dashboard />} path='/dashboard'>
-              <Route path='/dashboard/products' element={<ProductDashboard />} />
-              <Route path='/dashboard/category' element={<CategoryDashboard />} />
-              <Route path='/dashboard/blog' element={<BlogDashboard />} />
-              <Route path='/dashboard/category/add' element={<AddCategory />} />
-              <Route path='/dashboard/category/edit/:slug' element={<EditCategory />} />
-              <Route path='/dashboard/products/add' element={<AddProduct />} />
-              <Route path='/dashboard/products/edit/:slug' element={<EditProduct />} />
-              <Route path='/dashboard/blog/add' element={<AddBlog />} />
-              <Route path='/dashboard/blog/edit/:slug' element={<EditBlog />} />
-            </Route>
-          </Route>
+          {/* </Route> */}
         </Routes>
 
         {/* <Footer /> */}

@@ -1,0 +1,105 @@
+main {
+    .checkout-section {
+        margin-block: 50px;
+        display: flex;
+        justify-content: space-between;
+
+        .left-form-part {
+            width: 60%;
+
+            .contact-information,
+            .billing-address,
+            .card-information {
+                h4 {
+                    font-family: 'Shippori Mincho', sans-serif;
+                    text-transform: uppercase;
+                    font-size: 20px;
+                }
+
+                .name-field {
+                    width: 100%;
+                    display: flex;
+                    gap: 15px;
+                    margin: 10px 0;
+
+                    .form-input {
+                        padding: 10px;
+                        transition: 0.4s;
+
+                        &:hover {
+                            border: 1px solid #f2b612;
+                        }
+
+                        &:focus {
+                            outline: none;
+                            box-shadow: none;
+                            border-color: #f2b612;
+                        }
+                    }
+
+                }
+
+                .email-phone-field {
+                    margin: 10px 0;
+
+                    .form-input {
+                        padding: 10px;
+                        margin: 10px 0;
+                        transition: 0.4s;
+
+                        &:hover {
+                            border: 1px solid #f2b612;
+                        }
+
+                        &:focus {
+                            outline: none;
+                            box-shadow: none;
+                            border-color: #f2b612;
+                        }
+                    }
+                }
+            }
+
+            .place-order {
+                width: 100%;
+                height: 56px;
+                border: 1px solid #f2b612;
+                background-color: #f2b612;
+                color: black;
+                text-transform: uppercase;
+                font-weight: 500;
+                border-radius: 24px;
+                transition: 0.4s;
+                font-size: 13px;
+                margin-block: 30px;
+
+                &:hover {
+                    background-color: #fad12d;
+                }
+            }
+        }
+
+        .right-order-summary-part {
+            width: 35%;
+
+            .checkout-table {
+                tbody tr {
+                    td {
+                        background: none;
+                        color: white;
+
+                        .subtotal-price {
+                            color: #f2b612;
+                        }
+                    }
+                }
+            }
+
+            .total {
+                font-size: 20px;
+                display: flex;
+                justify-content: space-between;
+            }
+        }
+    }
+}

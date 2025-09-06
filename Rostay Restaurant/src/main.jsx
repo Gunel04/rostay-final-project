@@ -32,6 +32,7 @@ import "./sass/gallery.scss";
 import "./sass/recommendations.scss";
 import "./sass/blog.scss";
 import "./sass/blogdetails.scss";
+import "./sass/checkout.scss";
 import "./sass/footer.scss";
 import "./sass/mode.scss";
 // slick-slider
@@ -45,6 +46,7 @@ import supabase from './utils/supabase.js';
 import { CartProvider } from 'react-use-cart';
 import { WishlistProvider } from 'react-use-wishlist';
 import { LanguageProvider } from './context/LanguageContext.jsx';
+import { CartTotalProvider } from './context/CartTotalContext.jsx';
 
 const myStore = configureStore();
 
@@ -77,9 +79,11 @@ createRoot(document.getElementById('root')).render(
   <LanguageProvider>
     <WishlistProvider>
       <CartProvider>
-        <Provider store={myStore}>
-          <App />
-        </Provider>
+        <CartTotalProvider>
+          <Provider store={myStore}>
+            <App />
+          </Provider>
+        </CartTotalProvider>
       </CartProvider>
     </WishlistProvider>
   </LanguageProvider>

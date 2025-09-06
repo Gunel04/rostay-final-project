@@ -4,25 +4,42 @@ import { useCart } from 'react-use-cart'
 import slugify from 'slugify'
 import Swal from 'sweetalert2'
 import StaticLanguage from '../utils/StaticLanguage'
+import { useContext, useRef, useState } from 'react'
+import { CartTotalContext } from '../context/CartTotalContext'
 
 const Cart = () => {
     const { items, updateItemQuantity, removeItem, isEmpty, cartTotal, emptyCart } = useCart();
     console.log(items);
+    const [total, setTotal] = useContext(CartTotalContext);
+    const [couponAlert, setCouponAlert] = useState("");
+    const couponRef = useRef();
+
+    const applyCoupon = (e) => {
+        e.preventDefault();
+        if (couponRef.current.value === "rostay20") {
+            setTotal(cartTotal * 0.8);
+            setCouponAlert("");
+        }
+        else {
+            // setTotal(cartTotal);
+            setCouponAlert("This code doesn't appear!");
+        }
+    }
 
     return (
         <main>
-            <div className="cart-wishlist-top-part">
-                <h1 data-aos="zoom-in" data-aos-duration="2000"><StaticLanguage en="Cart" az="Səbət"/></h1>
-                <h6 data-aos="zoom-in" data-aos-duration="2000"><Link to='/'><StaticLanguage en="Home" az="Ana səhİfə"/></Link> &gt; <span><StaticLanguage en="Cart" az="Səbət"/></span> </h6>
+            <div className="cart-wishlist-checkout-top-part">
+                <h1 data-aos="zoom-in" data-aos-duration="2000"><StaticLanguage en="Cart" az="Səbət" /></h1>
+                <h6 data-aos="zoom-in" data-aos-duration="2000"><Link to='/'><StaticLanguage en="Home" az="Ana səhİfə" /></Link> &gt; <span><StaticLanguage en="Cart" az="Səbət" /></span> </h6>
             </div>
             {isEmpty ?
                 <div className='empty-cart'>
                     <h1>
-                        <StaticLanguage en="Your cart is currently empty!" az="Səbətiniz hal-hazırda boşdur!"/>
+                        <StaticLanguage en="Your cart is currently empty!" az="Səbətiniz hal-hazırda boşdur!" />
                     </h1>
                     <Link to='/shop'>
                         <button className='back-to-shop-btn'>
-                            <StaticLanguage en="Back to Shop" az="Mağazaya qayıt"/>
+                            <StaticLanguage en="Back to Shop" az="Mağazaya qayıt" />
                         </button>
                     </Link>
                 </div> :
@@ -48,7 +65,7 @@ const Cart = () => {
                                                 </td>
                                                 <td>
                                                     <h4 className='cart-product-title'>
-                                                        <Link to={`/shop/${slugify(item.titleEn, { lower: true })}`} style={{  textDecoration: "none" }}>{item.titleEn}</Link>
+                                                        <Link to={`/shop/${slugify(item.titleEn, { lower: true })}`} style={{ textDecoration: "none" }}>{item.titleEn}</Link>
                                                     </h4>
                                                     <h5 className="cart-product-price">${item.price}</h5>
                                                     <p className="cart-product-description">{item.descriptionEn.slice(0, 80)}...</p>
@@ -103,7 +120,7 @@ const Cart = () => {
                                                 </td>
                                                 <td>
                                                     <h4 className='cart-product-title'>
-                                                        <Link to={`/shop/${slugify(item.titleEn, { lower: true })}`} style={{  textDecoration: "none" }}>{item.titleAz}</Link>
+                                                        <Link to={`/shop/${slugify(item.titleEn, { lower: true })}`} style={{ textDecoration: "none" }}>{item.titleAz}</Link>
                                                     </h4>
                                                     <h5 className="cart-product-price">${item.price}</h5>
                                                     <p className="cart-product-description">{item.descriptionAz.slice(0, 80)}...</p>
@@ -140,7 +157,7 @@ const Cart = () => {
                             }
 
                         />
-                        
+
                         <button className='clear-all-btn' onClick={() => {
                             Swal.fire({
                                 title: "Are you sure you want to delete the product?",
@@ -170,15 +187,19 @@ const Cart = () => {
                             <StaticLanguage en="Add a coupon" az="Kupon əlavə et" />
                         </p>
                         <form action="">
-                            <input type="text" placeholder='Enter code' />
-                            <button>
+                            <StaticLanguage en={<input type="text" placeholder='Enter code' ref={couponRef} />} az={<input type="text" placeholder='Kodu daxil edin' ref={couponRef} />} />
+
+                            <button onClick={applyCoupon}>
                                 <StaticLanguage en="Apply" az="Tətbİq et" />
                             </button>
                         </form>
-                        <p className='total'><StaticLanguage en="Total: " az="Ümumİ: " /> <span>${cartTotal}</span></p>
-                        <button className='checkout-btn'>
-                            <StaticLanguage en="Proceed to checkout" az="Ödənİşə keç" />
-                        </button>
+                        {couponAlert}
+                        <p className='total'><StaticLanguage en="Total: " az="Ümumi: " /> <span>${total.toFixed(1)}</span></p>
+                        <Link to='/checkout'>
+                            <button className='checkout-btn' >
+                                <StaticLanguage en="Proceed to checkout" az="Ödənİşə keç" />
+                            </button>
+                        </Link>
                     </div>
                 </div>}
 

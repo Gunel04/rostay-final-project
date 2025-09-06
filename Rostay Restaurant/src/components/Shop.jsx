@@ -75,81 +75,85 @@ const Shop = () => {
   return (
     <>
       {/* <main> */}
-        <div className="shop-top-part">
-          <h1 data-aos="zoom-in" data-aos-duration="2000"><StaticLanguage en="Shop" az="Mağaza" /></h1>
-          <h6 data-aos="zoom-in" data-aos-duration="2000"><Link to='/'><StaticLanguage en="Home" az="Ana səhİfə" /></Link> &gt; <span><StaticLanguage en="Shop" az="Mağaza" /></span> </h6>
-        </div>
-        <section className='shop-section container-fluid d-flex'>
-          <div className="left-filter-part" data-aos="fade-right" data-aos-duration='2000'>
-            <div className="category-filter">
-              <h4>
-                <StaticLanguage en="Product Categories" az="Məhsul kateqoriyaları"/>
-              </h4>
-              <StaticLanguage
-                en={
-                  <ul>
-                    {categories.map((item, index) => (
-                      <li key={index} className={`${active === item.categoryNameEn ? "active-category" : ""}`} style={{ cursor: "pointer" }} onClick={() => { filterProductsEn(item.categoryNameEn) }}>{item.categoryNameEn} ({products.filter(p => p.categoryEn === item.categoryNameEn).length})</li>
-                    ))}
-                    <li style={{ color: "#f2b612", cursor: "pointer" }} onClick={() => { filterProductsEn() }}>All Products</li>
-                  </ul>
-                }
-                az={
-                  <ul>
-                    {categories.map((item, index) => (
-                      <li key={index} className={`${active === item.categoryNameAz ? "active-category" : ""}`} style={{ cursor: "pointer" }} onClick={() => { filterProductsAz(item.categoryNameAz) }}>{item.categoryNameAz} ({products.filter(p => p.categoryAz === item.categoryNameAz).length})</li>
-                    ))}
-                    <li style={{ color: "#f2b612", cursor: "pointer" }} onClick={() => { filterProductsAz() }}>Bütün məhsullar</li>
-                  </ul>
-                }
-              />
-            </div>
-            <hr />
-            <div className="price-filter">
-              <h4>
-                <StaticLanguage en="Filter by Price" az="Qiymətə görə çeşidlə"/>
-              </h4>
-              <input type="range" name="vol" id="vol" min={0} max={100} className='range-input' />
-              <input type="submit" className='submit-input' />
-            </div>
-          </div>
-          <div className="right-products-part" >
+      <div className="shop-top-part">
+        <h1 data-aos="zoom-in" data-aos-duration="2000"><StaticLanguage en="Shop" az="Mağaza" /></h1>
+        <h6 data-aos="zoom-in" data-aos-duration="2000"><Link to='/'><StaticLanguage en="Home" az="Ana səhİfə" /></Link> &gt; <span><StaticLanguage en="Shop" az="Mağaza" /></span> </h6>
+      </div>
+      <section className='shop-section container-fluid d-flex'>
+        <div className="left-filter-part" data-aos="fade-right" data-aos-duration='2000'>
+          <div className="category-filter">
+            <h4>
+              <StaticLanguage en="Product Categories" az="Məhsul kateqoriyaları" />
+            </h4>
             <StaticLanguage
               en={
-                <select name="" id="" className='sorting-selection' onChange={e => sortProductsEn(e.target.value)}>
-                  <option value="sort-by">Sort By</option>
-                  <option value="name-asc">Name: A to Z</option>
-                  <option value="name-desc">Name: Z to A</option>
-                  <option value="price-asc">Price: Low to High</option>
-                  <option value="price-desc">Price: High to Low</option>
-                </select>
+                <ul>
+                  {categories.map((item, index) => (
+                    <li key={index} className={`${active === item.categoryNameEn ? "active-category" : ""}`} style={{ cursor: "pointer" }} onClick={() => { filterProductsEn(item.categoryNameEn) }}>{item.categoryNameEn} ({products.filter(p => p.categoryEn === item.categoryNameEn).length})</li>
+                  ))}
+                  <li style={{ color: "#f2b612", cursor: "pointer" }} onClick={() => { filterProductsEn() }}>All Products</li>
+                </ul>
               }
               az={
-                <select name="" id="" className='sorting-selection' onChange={e => sortProductsAz(e.target.value)}>
-                  <option value="sort-by">Sırala</option>
-                  <option value="name-asc">Ad: A-dan Z-yə</option>
-                  <option value="name-desc">Ad: Z-dən A-ya</option>
-                  <option value="price-asc">Qiymət: Aşağıdan Yuxarıya</option>
-                  <option value="price-desc">Qiymət: Yuxarıdan Aşağıya</option>
-                </select>
+                <ul>
+                  {categories.map((item, index) => (
+                    <li key={index} className={`${active === item.categoryNameAz ? "active-category" : ""}`} style={{ cursor: "pointer" }} onClick={() => { filterProductsAz(item.categoryNameAz) }}>{item.categoryNameAz} ({products.filter(p => p.categoryAz === item.categoryNameAz).length})</li>
+                  ))}
+                  <li style={{ color: "#f2b612", cursor: "pointer" }} onClick={() => { filterProductsAz() }}>Bütün məhsullar</li>
+                </ul>
               }
-
             />
-            <div className="row g-4">
-
-              {filteredData.length === 0 ? currentProducts.map((item, index) => (
-                <SingleProduct key={index} item={item} />
-              )) : filteredData.map((item, index) => (
-                <SingleProduct key={index} item={item} />
-              ))}
-            </div>
-            <div className="pagination-btn-con" data-aos="fade-up" data-aos-duration="2000">
-              {pageNumbers.map((item, index) => (
-                <button className={`pagination-button m-2 ${item === currentPage ? "active" : ""}`} key={index} onClick={() => { setCurrentPage(item) }}>{item}</button>
-              ))}
-            </div>
           </div>
-        </section>
+          <hr />
+          <div className="price-filter">
+            <h4>
+              <StaticLanguage en="Filter by Price" az="Qiymətə görə çeşidlə" />
+            </h4>
+            <input type="range" name="vol" id="vol" min={0} max={100} className='range-input' />
+            <input type="submit" className='submit-input' />
+          </div>
+        </div>
+        <div className="right-products-part" >
+          <StaticLanguage
+            en={
+              <select name="" id="" className='sorting-selection' onChange={e => sortProductsEn(e.target.value)}>
+                <option value="sort-by">Sort By</option>
+                <option value="name-asc">Name: A to Z</option>
+                <option value="name-desc">Name: Z to A</option>
+                <option value="price-asc">Price: Low to High</option>
+                <option value="price-desc">Price: High to Low</option>
+              </select>
+            }
+            az={
+              <select name="" id="" className='sorting-selection' onChange={e => sortProductsAz(e.target.value)}>
+                <option value="sort-by">Sırala</option>
+                <option value="name-asc">Ad: A-dan Z-yə</option>
+                <option value="name-desc">Ad: Z-dən A-ya</option>
+                <option value="price-asc">Qiymət: Aşağıdan Yuxarıya</option>
+                <option value="price-desc">Qiymət: Yuxarıdan Aşağıya</option>
+              </select>
+            }
+
+          />
+          <div className="row g-4">
+
+            {filteredData.length === 0 ? currentProducts.map((item, index) => (
+              <div className='col-12 col-sm-6 col-md-6 col-lg-4' key={item.id} data-aos="fade-up" data-aos-duration="2000">
+                <SingleProduct key={index} item={item} />
+              </div>
+            )) : filteredData.map((item, index) => (
+              <div className='col-12 col-sm-6 col-md-6 col-lg-4' key={item.id} data-aos="fade-up" data-aos-duration="2000">
+                <SingleProduct key={index} item={item} />
+              </div>
+            ))}
+          </div>
+          <div className="pagination-btn-con" data-aos="fade-up" data-aos-duration="2000">
+            {pageNumbers.map((item, index) => (
+              <button className={`pagination-button m-2 ${item === currentPage ? "active" : ""}`} key={index} onClick={() => { setCurrentPage(item) }}>{item}</button>
+            ))}
+          </div>
+        </div>
+      </section>
       {/* </main> */}
     </>
   )

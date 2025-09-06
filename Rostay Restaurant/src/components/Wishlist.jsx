@@ -12,7 +12,7 @@ const Wishlist = () => {
     const { addItem, inCart } = useCart();
     return (
         <main>
-            <div className="cart-wishlist-top-part">
+            <div className="cart-wishlist-checkout-top-part">
                 <h1 data-aos="zoom-in" data-aos-duration="2000">
                     <StaticLanguage en="Wishlist" az="Bəyənİlənlər" />
                 </h1>
