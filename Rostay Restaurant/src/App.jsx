@@ -30,6 +30,7 @@ import Blog from './components/Blog'
 import BlogDetails from './components/BlogDetails'
 import AuthLayout from './layout/AuthLayout'
 import Checkout from './components/Checkout'
+import SuccessfulCheckout from './components/SuccessfulCheckout'
 
 const App = () => {
   // console.log(props.mode);
@@ -64,6 +65,7 @@ const App = () => {
             <Route path='/cart' element={<Cart />} />
             <Route path='/wishlist' element={<Wishlist />} />
             <Route path='/checkout' element={<Checkout />} />
+            <Route path='/payment' element={<SuccessfulCheckout />} />
           </Route>
 
           <Route element={<NoLayout />}>

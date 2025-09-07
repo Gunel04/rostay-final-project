@@ -1,25 +1,11 @@
-import { useState } from 'react'
-import { GiShoppingCart } from 'react-icons/gi';
-import { IoIosHeart, IoIosHeartEmpty } from 'react-icons/io';
-import { PiEyeThin } from 'react-icons/pi';
 import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
 import Slider from 'react-slick';
-import { useCart } from 'react-use-cart';
-import { useWishlist } from 'react-use-wishlist';
-import slugify from 'slugify';
-import Swal from 'sweetalert2';
 import StaticLanguage from '../../utils/StaticLanguage';
 import SingleProduct from '../SingleProduct';
 
 const Recommendations = () => {
-  const [user, setUser] = useState(JSON.parse(localStorage.getItem('user')) || null);
-
   const products = useSelector(p => p.product);
-
-  const { addItem, inCart, emptyCart } = useCart();
-  const { addWishlistItem, inWishlist, removeWishlistItem } = useWishlist();
-
+  
   var settings = {
     dots: false,
     infinite: true,
@@ -76,7 +62,6 @@ const Recommendations = () => {
         </h1>
       </div>
       <div className="recommend-products">
-        
             <Slider {...settings}>
               {products.slice(0, 6).map((item, index) => (
                 <div className='col-12 col-sm-6 col-md-6 col-lg-4' key={index} data-aos="fade-up" data-aos-duration="2000">

@@ -33,7 +33,7 @@ const Cart = () => {
                 <h6 data-aos="zoom-in" data-aos-duration="2000"><Link to='/'><StaticLanguage en="Home" az="Ana səhİfə" /></Link> &gt; <span><StaticLanguage en="Cart" az="Səbət" /></span> </h6>
             </div>
             {isEmpty ?
-                <div className='empty-cart'>
+                <div className='empty-cart' data-aos="fade-up" data-aos-duration='2000'>
                     <h1>
                         <StaticLanguage en="Your cart is currently empty!" az="Səbətiniz hal-hazırda boşdur!" />
                     </h1>
@@ -44,7 +44,7 @@ const Cart = () => {
                     </Link>
                 </div> :
                 <div className="container-fluid cart-section-part">
-                    <div className="left-cart-table">
+                    <div className="left-cart-table" data-aos="fade-right" data-aos-duration="2000">
                         <StaticLanguage
                             en={
                                 <Table className='cart-table'>
@@ -131,18 +131,19 @@ const Cart = () => {
                                                     </div>
                                                     <button className='remove-btn mt-2' onClick={() => {
                                                         Swal.fire({
-                                                            title: "Are you sure you want to delete the product?",
+                                                            title: "Məhsulu silmək istədiyinizə əminsiniz?",
                                                             icon: "warning",
                                                             showCancelButton: true,
                                                             confirmButtonColor: "#072b31",
                                                             cancelButtonColor: "#072b31",
-                                                            confirmButtonText: "Yes, delete it!"
+                                                            confirmButtonText: "Bəli, silinsin!",
+                                                            cancelButtonText: "İmtina!"
                                                         }).then((result) => {
                                                             if (result.isConfirmed) {
                                                                 removeItem(item.id);
                                                                 Swal.fire({
-                                                                    title: "Successfully deleted!",
-                                                                    text: "Your product has been deleted.",
+                                                                    title: "Uğurla silindi!",
+                                                                    text: "Məhsulunuz silindi.",
                                                                     icon: "success"
                                                                 });
                                                             }
@@ -160,25 +161,26 @@ const Cart = () => {
 
                         <button className='clear-all-btn' onClick={() => {
                             Swal.fire({
-                                title: "Are you sure you want to delete the product?",
+                                title: "Məhsulu silmək istədiyinizə əminsiniz?",
                                 icon: "warning",
                                 showCancelButton: true,
                                 confirmButtonColor: "#072b31",
                                 cancelButtonColor: "#072b31",
-                                confirmButtonText: "Yes, delete it!"
+                                confirmButtonText: "Bəli, silinsin!",
+                                cancelButtonText: "İmtina!"
                             }).then((result) => {
                                 if (result.isConfirmed) {
                                     emptyCart();
                                     Swal.fire({
-                                        title: "Successfully deleted!",
-                                        text: "Your product has been deleted.",
+                                        title: "Uğurla silindi!",
+                                        text: "Məhsulunuz silindi.",
                                         icon: "success"
                                     });
                                 }
                             });
                         }}><StaticLanguage en="Clear Cart" az="Səbətİ Təmİzlə" /></button>
                     </div>
-                    <div className="right-cart-totals">
+                    <div className="right-cart-totals" data-aos="fade-up" data-aos-duration="2000">
                         <h3>
                             <StaticLanguage en="Cart Totals" az="Ümumi Məbləğ" />
                         </h3>

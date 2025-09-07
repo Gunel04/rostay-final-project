@@ -33,6 +33,8 @@ import "./sass/recommendations.scss";
 import "./sass/blog.scss";
 import "./sass/blogdetails.scss";
 import "./sass/checkout.scss";
+import "./sass/singleproduct.scss";
+import "./sass/successfulcheckout.scss";
 import "./sass/footer.scss";
 import "./sass/mode.scss";
 // slick-slider
