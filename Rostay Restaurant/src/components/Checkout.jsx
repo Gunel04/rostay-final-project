@@ -186,49 +186,7 @@ const Checkout = () => {
                         }
 
                     />
-                    {/* <Form onSubmit={checkoutHandle}>
-                        <div className="contact-information">
-                            <h4>Contact Information</h4>
-                            <Form.Group className="name-field" controlId="formBasicEmail">
-                                <Form.Control className='form-input' type="text" placeholder="First name" ref={firstNameRef} />
-                                <Form.Control className='form-input' type="text" placeholder="Last name" ref={lastNameRef} />
-                            </Form.Group>
-                            <Form.Group className="email-phone-field" controlId="formBasicEmail">
-                                <Form.Control className='form-input' type="email" placeholder="Email address" ref={emailRef} />
-                                <Form.Control className='form-input' type="tel" placeholder="Phone" ref={phoneRef} />
-                            </Form.Group>
-                        </div>
-                        <div className="billing-address mt-5">
-                            <h4>Billing Address</h4>
-                            <Form.Group className="name-field" controlId="formBasicEmail">
-                                <Form.Control className='form-input' type="text" placeholder="Country" ref={countryRef} />
-                                <Form.Control className='form-input' type="text" placeholder="City" ref={cityRef} />
-                            </Form.Group>
-                            <Form.Group className="email-phone-field" controlId="formBasicEmail">
-                                <Form.Control className='form-input' type="text" placeholder="Address" ref={addressRef} />
-                                <Form.Control className='form-input' type="text" placeholder="ZIP code" ref={zipCodeRef} />
-                            </Form.Group>
-                        </div>
-                        <div className="card-information mt-5">
-                            <h4>Card Information</h4>
-
-                            <Form.Group className="email-phone-field" controlId="formBasicEmail">
-                                <Form.Control className='form-input' type="text" placeholder="Card number" ref={cardNumberRef} />
-
-                            </Form.Group>
-                            <Form.Group className="name-field" controlId="formBasicEmail">
-                                <Form.Control className='form-input' type="text" placeholder="Expiration Date" ref={expDateRef} />
-                                <Form.Control className='form-input' type="text" placeholder="CVV" ref={cvvRef} />
-                            </Form.Group>
-                        </div>
-
-                        <Form.Group className="my-4" controlId="formBasicCheckbox">
-                            <Form.Check type="checkbox" label="I agree with the Terms and Privacy Policy" onChange={e => { setCheck(e.target.checked) }} />
-                        </Form.Group>
-                        <Button className='place-order' type="submit">
-                            Place Order
-                        </Button>
-                    </Form> */}
+                    
                 </div>
                 <div className="right-order-summary-part" data-aos="fade-up" data-aos-duration="2000">
                     <h5>
@@ -281,27 +239,6 @@ const Checkout = () => {
                                 </tbody>
                             }
                         />
-
-                        {/* <tbody>
-                            {items.map((item, index) => (
-                                <tr key={index}>
-                                    <td>
-                                        <img src={item.image} width={50} alt="" />
-                                    </td>
-                                    <td>
-                                        <h5 className='cart-product-title'>
-                                            <Link to={`/shop/${slugify(item.titleEn, { lower: true })}`} style={{ textDecoration: "none" }}>{item.titleEn}</Link>
-                                        </h5>
-                                        <h6 className="cart-product-price">${item.price}</h6>
-                                        <p className="cart-product-description">{item.descriptionEn.slice(0, 80)}...</p>
-                                    </td>
-                                    <td>
-                                        <h5 className='subtotal-price'>${item.price * item.quantity}</h5>
-                                    </td>
-                                </tr>
-                            ))}
-
-                        </tbody> */}
                     </Table>
                     <p className='total'><StaticLanguage en="Total amount: " az="Ümumi məbləğ: " /> <span>${cartTotal.toFixed(1)}</span></p>
                     <p className='total'><StaticLanguage en="Discount: " az="Endirim: " /> <span>${cartTotal === total ? 0 : (cartTotal * 0.2).toFixed(1)}</span></p>

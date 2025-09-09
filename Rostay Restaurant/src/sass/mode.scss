@@ -28,8 +28,11 @@
     }
 
 
-    .dropdown {
+    .dropdown , .user-dropdown{
         background-color: #e0ffff;
+        li {
+            color: #072b31;
+        }
     }
 
     .welcome-section,
@@ -275,7 +278,7 @@
     
 }
 
-@media (max-width:941px) {
+@media (max-width:950px) {
     #dark {
         .icon-part-list {
             li {

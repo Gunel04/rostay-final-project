@@ -63,6 +63,7 @@ const SuccessfulCheckout = () => {
         <h1>
           <StaticLanguage en="Congratulations!!! Your order has been placed successfully!!!" az="Təbriklər!!! Sifarişiniz uğurla tamamlandı!!!"/>
         </h1>
+        {/* <img src="https://i.pinimg.com/originals/4a/10/e3/4a10e39ee8325a06daf00881ac321b2f.gif" alt="" /> */}
       </div>
       <div className="recommended-products-part container-fluid">
         <h1>

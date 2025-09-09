@@ -29,6 +29,8 @@ body {
 }
 
 header {
+    // width: 98%;
+    // margin: auto;
     background-color: #072b31;
     height: 85px;
     font-family: "Montserrat", sans-serif;
@@ -40,6 +42,16 @@ header {
 
     .header-div {
         @include flex-between();
+        width: 100%;
+
+        .rostay-icon {
+            width: 14%;
+            margin-left: 10px;
+
+            img {
+                width: 100%;
+            }
+        }
 
         .nav-link-list {
             @include flex-between();
@@ -51,13 +63,13 @@ header {
                 @include flex-between();
                 position: relative;
                 transition: 0.4s;
- 
+
                 a {
                     @include flex();
                     gap: 7px;
                     color: white;
                     text-decoration: none;
-                    font-size: 17px;
+                    font-size: 15px;
                     font-weight: 500;
                     text-transform: uppercase;
                     transition: 0.4s;
@@ -96,17 +108,24 @@ header {
             list-style: none;
             gap: 22px;
             margin-top: 5px;
-            margin-right: 4px;
+            margin-right: 10px;
 
             li {
+                .icon {
+                    font-size: 23px;
+                }
+
                 .search-icon {
                     background: none;
                     border: none;
+                    padding: 0;
                     @include flex();
                 }
+
                 .search-modal {
                     width: 100%;
                 }
+
                 a {
                     color: white;
                     text-decoration: none;
@@ -114,6 +133,9 @@ header {
                     transition: 0.4s;
                     display: flex;
                     align-items: center;
+                    position: relative;
+
+
 
                     .account {
                         font-size: 12px;
@@ -121,8 +143,18 @@ header {
                         display: flex;
                         flex-direction: column;
                         margin-left: 5px;
+                        position: relative;
+
 
                     }
+
+                    .user-dropdown {
+                        list-style-type: none;
+                        padding-left: 0;
+                        display: none;
+
+                    }
+
                     .badge-icon {
                         font-size: 10px;
                         background-color: #f2b612;
@@ -131,22 +163,29 @@ header {
                     &:hover {
                         color: #f2b612;
                     }
+
+
                 }
+
                 select {
                     background: none;
                     color: white;
                     border: none;
+
                     option {
                         // color: black;
                         background-color: #072b31;
                     }
+
                     &:focus {
                         outline: none !important;
                     }
                 }
+
                 .mode-btn {
                     background: none;
                     border: none;
+                    padding: 0;
                 }
             }
         }
@@ -158,19 +197,19 @@ header {
     }
 }
 
-@media(max-width:1113px) {
+@media(max-width:1131px) {
     header {
         background-color: #072b31;
         height: 85px;
         @include flex();
 
-        .rostay-icon {
-            width: 150px;
+        // .rostay-icon {
+        //     width: 150px;
 
-            img {
-                width: 100%;
-            }
-        }
+        //     img {
+        //         width: 100%;
+        //     }
+        // }
 
         .header-div {
             @include flex-between();
@@ -190,7 +229,7 @@ header {
                         gap: 7px;
                         color: white;
                         text-decoration: none;
-                        font-size: 16px;
+                        font-size: 14px;
                         font-weight: 500;
                         text-transform: uppercase
                     }
@@ -208,7 +247,11 @@ header {
                     a {
                         color: white;
                         text-decoration: none;
-                        font-size: 22px;
+                        // font-size: 22px;
+                    }
+
+                    .icon {
+                        font-size: 21px;
                     }
                 }
             }
@@ -221,22 +264,43 @@ header {
     }
 }
 
-@media(max-width:1069px) {
+@media(max-width:1091px) {
     header {
         .header-div {
-            .nav-link-list {
-                li {
-                    a {
-                        font-size: 14px;
-                    }
-                }
-            }
+            // .nav-link-list {
+            //     li {
+            //         a {
+            //             font-size: 14px;
+            //         }
+            //     }
+            // }
+            
 
             .icon-part-list {
                 li {
                     a {
                         .account {
                             display: none;
+                        }
+
+                        &:hover {
+                            color: #f2b612;
+
+                            .user-dropdown {
+                                display: block;
+                                width: 100px;
+                                color: white;
+                                position: absolute;
+                                left: 0;
+                                top: 100%;
+                                background-color: #072b31;
+                                padding: 10px 25px;
+                                box-shadow: 0 0 5px rgba($color: #000000, $alpha: 1.0);
+
+                                li {
+                                    font-size: 12px;
+                                }
+                            }
                         }
                     }
                 }
@@ -245,13 +309,16 @@ header {
     }
 }
 
-@media (max-width:941px) {
+@media (max-width:950px) {
     header {
         .header-div {
             .hamburger-menu {
                 display: block;
                 font-size: 25px;
                 transition: 0.4s;
+            }
+            .rostay-icon {
+                width: 20%;
             }
 
             .nav-link-list {
@@ -273,32 +340,48 @@ header {
             }
 
             .icon-part-list {
+                // width: 100%;
+                width: 100%;
                 display: flex;
                 background-color: white;
                 color: #072b31;
                 flex-direction: row;
+                justify-content: space-between;
                 position: fixed;
-                bottom: -16px;
+                bottom: 0;
                 height: 50px;
+                margin-bottom: 0;
                 gap: 11px;
-                width: 98%;
                 transition: 0.4s;
-                padding: 0 10px;
+                padding: 0 15px;
 
                 li {
+                    .icon {
+                        font-size: 22px;
+                    }
                     .search-icon {
                         color: #072b31;
                     }
+
                     a {
                         color: #072b31;
+                        &:hover {
+                            .user-dropdown {
+                                top: -57px;
+                            }
+                        }
 
                     }
+
                     select {
                         color: black;
+                        font-size: 15px;
+
                         option {
                             background-color: white;
                         }
                     }
+
                     // .mode-btn {
                     //     background: none;
                     //     border: none;
@@ -316,4 +399,21 @@ header {
         }
     }
 
+}
+
+@media(max-width:450px) {
+    header {
+        .header-div {
+            .rostay-icon {
+                width: 30%;
+            }
+            .icon-part-list {
+                li {
+                    .icon {
+                        font-size: 19px;
+                    }
+                }
+            }
+        }
+    }
 }

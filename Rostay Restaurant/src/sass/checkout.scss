@@ -103,3 +103,72 @@ main {
         }
     }
 }
+
+@media (max-width:880px) {
+    main {
+        .checkout-section {
+            .right-order-summary-part {
+                .total {
+                    font-size: 18px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width:768px) {
+    main {
+        .checkout-section {
+            flex-direction: column-reverse;
+
+            .left-form-part {
+                margin-top: 70px;
+                width: 100%;
+            }
+
+            .right-order-summary-part {
+                width: 100%;
+
+                .total {
+                    font-size: 18px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width:425px) {
+    main {
+        .checkout-section {
+            flex-direction: column-reverse;
+
+            .left-form-part {
+                margin-top: 70px;
+                width: 100%;
+            }
+
+            .right-order-summary-part {
+                width: 100%;
+
+                .checkout-table {
+                    tr {
+                        td {
+                            h5, .subtotal-price {
+                                font-size: 18px;
+                            }
+
+                            p {
+                                font-size: 14px;
+                            }
+
+                        }
+                    }
+                }
+
+                .total {
+                    font-size: 17px;
+                }
+            }
+        }
+    }
+}

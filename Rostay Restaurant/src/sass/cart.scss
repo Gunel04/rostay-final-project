@@ -320,3 +320,14 @@ main {
         }
     }
 }
+
+@media(max-width:425px) {
+    main {
+        .cart-wishlist-checkout-top-part {
+            // height: 230px;
+            h1 {
+                font-size: 36px;
+            }
+        }
+    }
+}

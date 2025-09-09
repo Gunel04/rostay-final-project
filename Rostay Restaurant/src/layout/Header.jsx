@@ -15,7 +15,7 @@ import { IoMoon } from 'react-icons/io5';
 import { IoMdSunny } from 'react-icons/io';
 
 const Header = (props) => {
-console.log(props);
+    console.log(props);
 
     const [language, setLanguage] = useContext(LanguageContext);
     console.log(language);
@@ -95,7 +95,7 @@ console.log(props);
     }
     return (
         <header>
-            <div className="header-div container-fluid">
+            <div className="header-div ">
                 <div className="rostay-icon">
                     <Link to='/'>
                         <img src="https://demo2.themelexus.com/rostay/wp-content/uploads/2025/02/logo.svg" alt="" />
@@ -104,7 +104,7 @@ console.log(props);
                 <div className="hamburger-menu" onClick={toggleMenu}><CiMenuFries /></div>
                 <ul className={`nav-link-list ${menuOpen ? "active" : ""}`}>
                     <li className="nav-links">
-                        <Link to='/'> 
+                        <Link to='/'>
                             <StaticLanguage az="Ana səhİfə" en="Home" /><FaDiamond size={6} style={{ color: "#f2b612" }} />
                         </Link>
                     </li>
@@ -143,7 +143,7 @@ console.log(props);
                 <ul className={`icon-part-list ${menuOpen ? "active" : ""}`}>
                     <li className="icon-items">
                         <Button onClick={handleShow} className='search-icon'>
-                            <CiSearch size={25} />
+                            <CiSearch className='icon' />
                         </Button>
 
                         <StaticLanguage
@@ -204,22 +204,44 @@ console.log(props);
                     </li>
                     <li className="icon-items">
                         <StaticLanguage
-                            en={user ? <Link><CiUser /> <div className='account'><span>{user.username}</span> <span onClick={logOutEn}><StaticLanguage az="Çıxış" en="Log Out" /></span></div> </Link> : <Link to='/login'><CiUser /> <div className='account'><span><StaticLanguage az="Daxil ol" en="Sign in" /></span> <span><StaticLanguage az="Hesabım" en="Account" /></span></div> </Link>}
+                            en={user ?
 
-                            az={user ? <Link><CiUser /> <div className='account'><span>{user.username}</span> <span onClick={logOutAz}><StaticLanguage az="Çıxış" en="Log Out" /></span></div> </Link> : <Link to='/login'><CiUser /> <div className='account'><span><StaticLanguage az="Daxil ol" en="Sign in" /></span> <span><StaticLanguage az="Hesabım" en="Account" /></span></div> </Link>}
+                                <Link><CiUser className='icon' /> <div className='account'><span>{user.username}</span> <span onClick={logOutEn}>Log Out</span></div> <ul className="user-dropdown">
+                                    <li>{user.username}</li>
+                                    <li onClick={logOutEn}>Log Out</li>
+                                </ul> </Link>
+
+                                : <div>
+                                    <Link to='/login'><CiUser className='icon' /> <div className='account'><span>Sign in</span> <span>Account</span></div> <ul className="user-dropdown">
+                                        <li>Sign In</li>
+                                        <li>Account</li>
+                                    </ul> </Link>
+                                </div>
+
+                            }
+
+                            az={user ?
+                                <Link><CiUser className='icon' /> <div className='account'><span>{user.username}</span> <span onClick={logOutAz}>Çıxış</span></div> <ul className="user-dropdown">
+                                    <li>{user.username}</li>
+                                    <li onClick={logOutAz}>Çıxış</li>
+                                </ul></Link> :
+                                <Link to='/login'><CiUser className='icon' /> <div className='account'><span>Daxil ol</span> <span>Hesabım</span></div> <ul className="user-dropdown">
+                                    <li>Daxil ol</li>
+                                    <li>Hesabım</li>
+                                </ul>  </Link>}
 
                         />
                         {/* {user ? <Link><CiUser /> <div className='account'><span>{user.username}</span> <span onClick={logOut}><StaticLanguage az="Çıxış" en="Log Out" /></span></div> </Link> : <Link to='/login'><CiUser /> <div className='account'><span><StaticLanguage az="Daxil ol" en="Sign in" /></span> <span><StaticLanguage az="Hesabım" en="Account" /></span></div> </Link>} */}
                     </li>
                     <li className="icon-items"><Link to='/wishlist' className="position-relative">
-                        <CiHeart />
+                        <CiHeart className='icon' />
                         <span className="badge-icon position-absolute top-0 start-100 translate-middle badge rounded-pill">
                             {totalWishlistItems}
                         </span>
                     </Link></li>
                     <li className="icon-items">
                         <Link to='cart' className="position-relative">
-                            <CiShoppingCart />
+                            <CiShoppingCart className='icon' />
                             <span className="badge-icon position-absolute top-0 start-100 translate-middle badge rounded-pill">
                                 {totalUniqueItems}
                             </span>
@@ -237,7 +259,7 @@ console.log(props);
                     </li>
                     <li>
                         <button className='mode-btn' onClick={props.modeFunction}>
-                            {props.mode==="light"?<IoMdSunny size={20} />:<IoMoon size={20} />}
+                            {props.mode === "light" ? <IoMdSunny className='icon' /> : <IoMoon className='icon' />}
                         </button>
                     </li>
                 </ul>
