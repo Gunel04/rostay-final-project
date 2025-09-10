@@ -62,7 +62,7 @@ const Login = () => {
                 title: "Login is completed successfully!"
             })
 
-            localStorage.setItem('user', JSON.stringify({ id: user.id, email: user.email, password: user.password, username: user.username }))
+            localStorage.setItem('user', JSON.stringify({ id: user.id, email: user.email, password: user.password, username: user.username, role: user.role }))
 
             setTimeout(() => {
                 window.location.assign('/');
@@ -100,7 +100,7 @@ const Login = () => {
                 title: "Uğurla daxil oldunuz!"
             })
 
-            localStorage.setItem('user', JSON.stringify({ id: user.id, email: user.email, password: user.password, username: user.username }))
+            localStorage.setItem('user', JSON.stringify({ id: user.id, email: user.email, password: user.password, username: user.username, role: user.role  }))
 
             setTimeout(() => {
                 window.location.assign('/');

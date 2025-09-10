@@ -48,7 +48,6 @@ const App = () => {
 
     <div id={mode}>
       <BrowserRouter>
-        {/* <Header /> */}
         <Routes>
           <Route element={<MainLayout modeFunction={toggleTheme} mode={mode} />}>
             <Route path='/' element={<Home />} />
@@ -69,7 +68,8 @@ const App = () => {
           </Route>
 
           <Route element={<NoLayout />}>
-            {/* <Route element={<AuthLayout />} path='/dashboard'> */}
+            <Route element={<AuthLayout />}>
+
               <Route element={<DashboardLayout />} path='/dashboard'>
                 <Route path='/dashboard' element={<ProductDashboard />} />
               </Route>
@@ -85,10 +85,9 @@ const App = () => {
                 <Route path='/dashboard/blog/edit/:slug' element={<EditBlog />} />
               </Route>
             </Route>
-          {/* </Route> */}
+          </Route>
         </Routes>
 
-        {/* <Footer /> */}
       </BrowserRouter>
     </div>
   )
