@@ -67,13 +67,13 @@ const App = () => {
             <Route path='/payment' element={<SuccessfulCheckout />} />
           </Route>
 
-          <Route element={<NoLayout />}>
+          <Route element={<NoLayout  />}>
             <Route element={<AuthLayout />}>
 
-              <Route element={<DashboardLayout />} path='/dashboard'>
+              <Route element={<DashboardLayout modeFunction={toggleTheme} mode={mode} />} path='/dashboard'>
                 <Route path='/dashboard' element={<ProductDashboard />} />
               </Route>
-              <Route element={<Dashboard />} path='/dashboard'>
+              <Route element={<Dashboard modeFunction={toggleTheme} mode={mode} />} path='/dashboard'>
                 <Route path='/dashboard/products' element={<ProductDashboard />} />
                 <Route path='/dashboard/category' element={<CategoryDashboard />} />
                 <Route path='/dashboard/blog' element={<BlogDashboard />} />

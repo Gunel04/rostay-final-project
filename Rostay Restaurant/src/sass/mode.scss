@@ -28,8 +28,10 @@
     }
 
 
-    .dropdown , .user-dropdown{
+    .dropdown,
+    .user-dropdown {
         background-color: #e0ffff;
+
         li {
             color: #072b31;
         }
@@ -186,7 +188,8 @@
         color: black;
     }
 
-    .wishlist-table,.checkout-table {
+    .wishlist-table,
+    .checkout-table {
         border-top: 1px solid rgb(227, 227, 227);
 
         thead tr th {
@@ -245,9 +248,16 @@
             }
         }
     }
+
     .team-member-cards {
         .card-text {
             color: black;
+        }
+    }
+
+    .dashboard-list {
+        li {
+            color: #072b31;
         }
     }
 }
@@ -272,10 +282,11 @@
     .card {
         color: white;
     }
+
     .eye-btn {
         color: black;
     }
-    
+
 }
 
 @media (max-width:950px) {
@@ -287,8 +298,9 @@
                 }
             }
         }
+
         .mode-btn {
-            color: #072b31; 
+            color: #072b31;
         }
     }
 
