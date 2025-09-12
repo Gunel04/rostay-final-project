@@ -34,7 +34,7 @@ const Cart = () => {
             </div>
             {isEmpty ?
                 <div className='empty-cart' data-aos="fade-up" data-aos-duration='2000'>
-                    <h1>
+                    <h1 className='text-center'>
                         <StaticLanguage en="Your cart is currently empty!" az="Səbətiniz hal-hazırda boşdur!" />
                     </h1>
                     <Link to='/shop'>

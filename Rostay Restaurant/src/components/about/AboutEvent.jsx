@@ -28,7 +28,7 @@ const AboutEvent = () => {
         <section className="about-event-section container-fluid">
             <StaticLanguage
                 en={data.map((item, index) => (
-                    <div className="about-event" data-aos="fade-up" data-aos-duration="2500">
+                    <div key={index} className="about-event" data-aos="fade-up" data-aos-duration="2500">
                         <img src={item.image} alt="" />
                         <div className="about-text-part">
                             <h1>{item.headingEn}</h1>
@@ -41,7 +41,7 @@ const AboutEvent = () => {
                 ))}
 
                 az={data.map((item, index) => (
-                    <div className="about-event" data-aos="fade-up" data-aos-duration="2500">
+                    <div key={index} className="about-event" data-aos="fade-up" data-aos-duration="2500">
                         <img src={item.image} alt="" />
                         <div className="about-text-part">
                             <h1>{item.headingAz}</h1>

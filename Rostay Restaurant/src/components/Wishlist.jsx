@@ -22,7 +22,7 @@ const Wishlist = () => {
             </div>
             {isWishlistEmpty ?
                 <div className='empty-cart'>
-                    <h1>
+                    <h1 className='text-center'>
                         <StaticLanguage en="Your wishlist is currently empty!" az="Sİzİn bəyənİlənlər sİyahınız hal-hazırda boşdur!" />
                     </h1>
                     <Link to='/shop'>

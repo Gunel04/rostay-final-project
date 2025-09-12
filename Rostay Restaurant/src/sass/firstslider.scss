@@ -1,4 +1,5 @@
 @import './buttonmixin.scss';
+
 @mixin flex {
     display: flex;
     justify-content: space-between;
@@ -6,13 +7,20 @@
 }
 
 .slider-section {
+
+    // overflow: hidden;
     // background-color: #072b31;
+    .slick-slider {
+        max-width: 100% !important;
+        box-sizing: border-box;
+    }
 
     .slider-part {
         display: flex !important;
         justify-content: space-between;
         align-items: center;
         width: 100%;
+        height: 750px;
 
         .slider-text {
             width: 35%;
@@ -49,16 +57,21 @@
             background-attachment: fixed;
             position: relative;
             border-top-left-radius: 300px;
+            overflow: hidden;
 
             img {
                 position: absolute;
+                max-width: none;
                 left: -20%;
+                right: auto;
+                height: auto;
                 top: 150px;
                 border-bottom-left-radius: 200px;
                 border-bottom-right-radius: 200px;
                 animation: animated-part 4s infinite;
             }
         }
+
         .slider-images-2 {
             width: 50%;
             height: 110vh;
@@ -69,16 +82,21 @@
             background-attachment: fixed;
             position: relative;
             border-top-left-radius: 300px;
+            overflow: hidden;
 
             img {
                 position: absolute;
+                max-width: none;
                 left: -20%;
+                right: auto;
+                height: auto;
                 top: 150px;
                 border-bottom-left-radius: 200px;
                 border-bottom-right-radius: 200px;
                 animation: animated-part 4s infinite;
             }
         }
+
         .slider-images-3 {
             width: 50%;
             height: 110vh;
@@ -89,16 +107,28 @@
             background-attachment: fixed;
             position: relative;
             border-top-left-radius: 300px;
+            overflow: hidden;
 
             img {
                 position: absolute;
+                max-width: none;
                 left: -20%;
+                right: auto;
+                height: auto;
                 top: 150px;
                 border-bottom-left-radius: 200px;
                 border-bottom-right-radius: 200px;
                 animation: animated-part 4s infinite;
             }
         }
+    }
+
+    .slick-list {
+        overflow: hidden !important;
+    }
+
+    .slick-track {
+        display: flex !important;
     }
 }
 
@@ -114,22 +144,27 @@
     }
 }
 
-@media (max-width:1024px){
+@media (max-width:1024px) {
     .slider-section {
         .slider-part {
             .slider-text {
                 h1 {
                     font-size: 60px;
                 }
-                p{
+
+                p {
                     font-size: 16px;
                 }
+
                 button {
                     font-size: 16px;
                 }
             }
-            .slider-images-1, .slider-images-2, .slider-images-3 {
-                
+
+            .slider-images-1,
+            .slider-images-2,
+            .slider-images-3 {
+
                 img {
                     display: none;
                 }
@@ -137,23 +172,30 @@
         }
     }
 }
-@media (max-width:640px){
+
+@media (max-width:640px) {
     .slider-section {
         .slider-part {
             .slider-text {
                 h1 {
                     font-size: 45px;
                 }
-                p{
+
+                p {
                     font-size: 14px;
                 }
+
                 button {
                     font-size: 13px;
                     padding: 15px 20px;
                 }
             }
-            .slider-images-1, .slider-images-2, .slider-images-3 {
+
+            .slider-images-1,
+            .slider-images-2,
+            .slider-images-3 {
                 border-top-left-radius: 250px;
+
                 img {
                     display: none;
                 }
@@ -161,27 +203,46 @@
         }
     }
 }
-@media (max-width:480px){
+
+@media (max-width:480px) {
     .slider-section {
-        .slider-part {
-            .slider-text {
-                h1 {
-                    font-size: 35px;
+        .slick-slide {
+            width: 100%;
+
+            .slider-part {
+                height: 450px;
+
+                // margin-top: 50px;
+                .slider-text {
+                    width: 45%;
+
+                    h1 {
+                        font-size: 35px;
+                    }
+
+                    p {
+                        font-size: 14px;
+                    }
+
+                    button {
+                        font-size: 12px;
+                        padding: 15px 0;
+                    }
                 }
-                p{
-                    font-size: 14px;
-                }
-                button {
-                    font-size: 12px;
-                    padding: 15px;
-                }
-            }
-            .slider-images-1, .slider-images-2, .slider-images-3 {
-                border-top-left-radius: 300px;
-                img {
-                    display: none;
+
+                .slider-images-1,
+                .slider-images-2,
+                .slider-images-3 {
+                    width: 50%;
+                    // border-top-left-radius: 250px;
+                    height: 100%;
+
+                    img {
+                        display: none;
+                    }
                 }
             }
         }
+
     }
 }
