@@ -1,4 +1,4 @@
-import { Link, Outlet } from 'react-router-dom'
+import { Link, Outlet, useOutletContext } from 'react-router-dom'
 import ProductDashboard from './product/ProductDashboard'
 import { IoMdSunny } from 'react-icons/io';
 import { IoMoon } from 'react-icons/io5';
@@ -8,6 +8,10 @@ import StaticLanguage from '../utils/StaticLanguage';
 
 const Dashboard = (props) => {
     const [language, setLanguage] = useContext(LanguageContext);
+    // const logoutDashboard = () => {
+    //     localStorage.removeItem('admin');
+    // }
+    const { logoutDashboard } = useOutletContext();
     return (
         <>
             <div className='container-fluid py-3 dashboard-section'>
@@ -26,6 +30,7 @@ const Dashboard = (props) => {
                         <button className='mode-btn' onClick={props.modeFunction}>
                             {props.mode === "light" ? <IoMdSunny className='icon' /> : <IoMoon className='icon' />}
                         </button>
+                        <button onClick={logoutDashboard}>Log Out</button>
                     </div>
                 </div>
 
@@ -33,17 +38,17 @@ const Dashboard = (props) => {
                     <ul className='dashboard-list'>
                         <Link to='/dashboard/products' style={{ textDecoration: "none" }}>
                             <li>
-                                <StaticLanguage en="Products" az="Məhsullar"/>
+                                <StaticLanguage en="Products" az="Məhsullar" />
                             </li>
                         </Link>
                         <Link to='/dashboard/category' style={{ textDecoration: "none" }}>
                             <li>
-                                <StaticLanguage en="Categories" az="Kateqorİyalar"/>
+                                <StaticLanguage en="Categories" az="Kateqorİyalar" />
                             </li>
                         </Link>
                         <Link to='/dashboard/blog' style={{ textDecoration: "none" }}>
                             <li>
-                                <StaticLanguage en="Blogs" az="Bloqlar"/>
+                                <StaticLanguage en="Blogs" az="Bloqlar" />
                             </li>
                         </Link>
                     </ul>

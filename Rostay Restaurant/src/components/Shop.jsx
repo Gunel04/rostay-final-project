@@ -116,7 +116,7 @@ const Shop = () => {
         <div className="right-products-part" >
           <StaticLanguage
             en={
-              <select name="" id="" className='sorting-selection' onChange={e => sortProductsEn(e.target.value)}>
+              <select name="" id="" className='sorting-selection' data-aos="fade-up" data-aos-duration="2000" onChange={e => sortProductsEn(e.target.value)}>
                 <option value="sort-by">Sort By</option>
                 <option value="name-asc">Name: A to Z</option>
                 <option value="name-desc">Name: Z to A</option>
@@ -125,7 +125,7 @@ const Shop = () => {
               </select>
             }
             az={
-              <select name="" id="" className='sorting-selection' onChange={e => sortProductsAz(e.target.value)}>
+              <select name="" id="" className='sorting-selection' data-aos="fade-up" data-aos-duration="2000"  onChange={e => sortProductsAz(e.target.value)}>
                 <option value="sort-by">Sırala</option>
                 <option value="name-asc">Ad: A-dan Z-yə</option>
                 <option value="name-desc">Ad: Z-dən A-ya</option>
@@ -137,11 +137,11 @@ const Shop = () => {
           />
           <div className="row g-4">
 
-            {filteredData.length === 0 ? currentProducts.map((item, index) => (
+            {filteredData.length > 0 ? filteredData.map((item, index) => (
               <div className='col-12 col-sm-6 col-md-6 col-lg-4' key={item.id} data-aos="fade-up" data-aos-duration="2000">
                 <SingleProduct key={index} item={item} />
               </div>
-            )) : filteredData.map((item, index) => (
+            )) : currentProducts.map((item, index) => (
               <div className='col-12 col-sm-6 col-md-6 col-lg-4' key={item.id} data-aos="fade-up" data-aos-duration="2000">
                 <SingleProduct key={index} item={item} />
               </div>

@@ -95,8 +95,17 @@
 
     .login-section {
         input {
+            border-bottom: 1.5px solid rgba($color: gray, $alpha: 0.15);
+            color: #072b31;
+
+            &:hover {
+                border-bottom: 1.5px solid #f2b612;
+            }
+
             &:focus {
                 color: #072b31;
+                border-bottom: 1.5px solid #f2b612;
+
             }
         }
     }

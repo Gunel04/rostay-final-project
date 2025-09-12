@@ -4,7 +4,7 @@ import Swal from 'sweetalert2';
 import supabase from '../../utils/supabase';
 import { Outlet } from 'react-router-dom';
 
-const DashboardLogin = ({isLogin}) => {
+const DashboardLogin = ({ isLogin }) => {
   const emailRef = useRef();
   const passwordRef = useRef();
 
@@ -33,11 +33,15 @@ const DashboardLogin = ({isLogin}) => {
         })
         return;
       }
-      if(user.role === "admin"){
+      if (user.role === "admin") {
+        localStorage.setItem('admin', JSON.stringify(user));
         isLogin();
       }
-      else{
-        alert("You are not admin!")
+      else {
+        Swal.fire({
+          icon: "warning",
+          title: "You are not admin!"
+        })
       }
       // return <Outlet/>;
       // localStorage.setItem("user", JSON.stringify(user));
