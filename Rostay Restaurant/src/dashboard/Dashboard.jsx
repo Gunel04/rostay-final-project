@@ -30,7 +30,7 @@ const Dashboard = (props) => {
                         <button className='mode-btn' onClick={props.modeFunction}>
                             {props.mode === "light" ? <IoMdSunny className='icon' /> : <IoMoon className='icon' />}
                         </button>
-                        <button onClick={logoutDashboard}>Log Out</button>
+                        <button className='dashboard-logout-btn' onClick={logoutDashboard}>Log Out</button>
                     </div>
                 </div>
 

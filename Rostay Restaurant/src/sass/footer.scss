@@ -82,13 +82,24 @@ footer {
             display: block;
             margin-bottom: 15px;
             padding: 10px;
+            color: white;
 
             &::placeholder {
                 color: rgba($color: white, $alpha: 0.6);
             }
 
-            &:focus-visible {
-                overflow: hidden;
+            &:hover {
+                border-bottom: 1.5px solid #f2b612;
+            }
+
+            &:focus {
+                background: none;
+                border: none;
+                border-bottom: 1.5px solid #f2b612;
+                outline: none !important;
+                box-shadow: none;
+                color: white;
+
             }
         }
 
@@ -147,9 +158,11 @@ footer {
 
         .second-footer {
             text-align: center;
+
             input {
                 width: 100%;
-                &::placeholder{
+
+                &::placeholder {
                     text-align: center;
                 }
             }
@@ -161,25 +174,30 @@ footer {
     footer {
         .first-footer {
             text-align: center;
+
             .plate {
                 display: none;
             }
 
-            
+
         }
 
         .second-footer {
             text-align: center;
-            h4{
+
+            h4 {
                 margin-top: 35px;
             }
+
             input {
                 width: 100%;
-                &::placeholder{
+
+                &::placeholder {
                     text-align: center;
                 }
             }
         }
+
         .third-footer {
             flex-direction: column;
             margin: 10px 0;
@@ -191,9 +209,11 @@ footer {
     footer {
         .first-footer {
             text-align: center;
+
             .plate {
                 display: none;
             }
+
             .first-footer-right {
                 img {
                     width: 250px;
@@ -201,21 +221,25 @@ footer {
                 }
             }
 
-            
+
         }
 
         .second-footer {
             text-align: center;
-            h4{
+
+            h4 {
                 margin-top: 35px;
             }
+
             input {
                 width: 100%;
-                &::placeholder{
+
+                &::placeholder {
                     text-align: center;
                 }
             }
         }
+
         .third-footer {
             flex-direction: column;
             margin: 10px 0;
@@ -227,36 +251,45 @@ footer {
     footer {
         .first-footer {
             text-align: center;
+
             .plate {
                 display: none;
             }
+
             .first-footer-right {
                 width: 100%;
+
                 img {
                     width: 200px;
                     // margin: auto;
                 }
             }
 
-            
+
         }
 
         .second-footer {
             text-align: center;
-            h4{
+
+            h4 {
                 margin-top: 35px;
             }
+
             input {
                 width: 100%;
-                &::placeholder{
+
+                &::placeholder {
                     text-align: center;
                 }
             }
         }
+
         .third-footer {
             flex-direction: column;
             margin: 10px 0;
+
             .rights-reserved {
+
                 // width: 100%;
                 p {
                     font-size: 12.5px;

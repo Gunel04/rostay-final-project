@@ -7,7 +7,13 @@ import StaticLanguage from '../utils/StaticLanguage';
 const Shop = () => {
 
   const [filteredData, setFilteredData] = useState([]);
+  const [isFilterActive, setIsFilterActive] = useState(false);
+  const [isPriceFilter, setIsPriceFilter] = useState(false);
+
   const [active, setActive] = useState("");
+  const [min, setMin] = useState("");
+  const [max, setMax] = useState("");
+  // console.log(min,max);
 
   const categories = useSelector(p => p.category);
   const [products, setProducts] = useState(useSelector(p => p.product));
@@ -16,19 +22,34 @@ const Shop = () => {
   const productsPerPage = 6;
 
   const filterProductsEn = (category) => {
-    const filteringProcess = products.filter(p => p.categoryEn === category);
+    const filteringProcess = isPriceFilter ? filteredData.filter(p => p.categoryEn === category) : products.filter(p => p.categoryEn === category);
     setFilteredData(filteringProcess);
     setActive(category);
+    setIsFilterActive(true);
+  }
+
+  const filterPrice = (e) => {
+    e.preventDefault();
+    const minValue = min ? parseFloat(min) : 0;
+    const maxValue = max ? parseFloat(max) : Infinity;
+    const filteringPrice = filteredData.length === 0 ? products.filter(p => p.price >= minValue && p.price <= maxValue) : filteredData.filter(p => p.price >= minValue && p.price <= maxValue);
+    setFilteredData(filteringPrice);
+    setIsFilterActive(true);
+    setIsPriceFilter(true);
+
+
   }
 
   const filterProductsAz = (category) => {
-    const filteringProcess = products.filter(p => p.categoryAz === category);
+    const filteringProcess = isPriceFilter ? filteredData.filter(p => p.categoryAz === category) : products.filter(p => p.categoryAz === category);
     setFilteredData(filteringProcess);
     setActive(category);
+    setIsFilterActive(true);
   }
 
   const sortProductsEn = (sortingType) => {
-    const sortedProducts = [...products];
+    const sortedProducts = filteredData.length === 0 ? [...products] : [...filteredData];
+
     if (sortingType === 'price-asc') {
       sortedProducts.sort((a, b) => a.price - b.price);
     }
@@ -41,11 +62,17 @@ const Shop = () => {
     else if (sortingType === 'name-desc') {
       sortedProducts.sort((a, b) => b.titleEn.localeCompare(a.titleEn));
     }
-    setProducts(sortedProducts);
+    if (filteredData.length === 0) {
+
+      setProducts(sortedProducts);
+    }
+    else {
+      setFilteredData(sortedProducts);
+    }
   }
 
   const sortProductsAz = (sortingType) => {
-    const sortedProducts = [...products];
+    const sortedProducts = filteredData.length === 0 ? [...products] : [...filteredData];
     if (sortingType === 'price-asc') {
       sortedProducts.sort((a, b) => a.price - b.price);
     }
@@ -58,8 +85,16 @@ const Shop = () => {
     else if (sortingType === 'name-desc') {
       sortedProducts.sort((a, b) => b.titleAz.localeCompare(a.titleAz));
     }
-    setProducts(sortedProducts);
+    if (filteredData.length === 0) {
+
+      setProducts(sortedProducts);
+    }
+    else {
+      setFilteredData(sortedProducts);
+    }
+    console.log("Sorted:", sortedProducts);
   }
+  console.log(filteredData);
 
 
   const indexOfLastProduct = currentPage * productsPerPage;
@@ -91,7 +126,10 @@ const Shop = () => {
                   {categories.map((item, index) => (
                     <li key={index} className={`${active === item.categoryNameEn ? "active-category" : ""}`} style={{ cursor: "pointer" }} onClick={() => { filterProductsEn(item.categoryNameEn) }}>{item.categoryNameEn} ({products.filter(p => p.categoryEn === item.categoryNameEn).length})</li>
                   ))}
-                  <li style={{ color: "#f2b612", cursor: "pointer" }} onClick={() => { filterProductsEn() }}>All Products</li>
+                  <li style={{ color: "#f2b612", cursor: "pointer" }} onClick={() => {
+                    filterProductsEn()
+                    setIsFilterActive(false)
+                  }}>All Products</li>
                 </ul>
               }
               az={
@@ -99,7 +137,10 @@ const Shop = () => {
                   {categories.map((item, index) => (
                     <li key={index} className={`${active === item.categoryNameAz ? "active-category" : ""}`} style={{ cursor: "pointer" }} onClick={() => { filterProductsAz(item.categoryNameAz) }}>{item.categoryNameAz} ({products.filter(p => p.categoryAz === item.categoryNameAz).length})</li>
                   ))}
-                  <li style={{ color: "#f2b612", cursor: "pointer" }} onClick={() => { filterProductsAz() }}>Bütün məhsullar</li>
+                  <li style={{ color: "#f2b612", cursor: "pointer" }} onClick={() => {
+                    filterProductsAz()
+                    setIsFilterActive(false)
+                  }}>Bütün məhsullar</li>
                 </ul>
               }
             />
@@ -109,8 +150,22 @@ const Shop = () => {
             <h4>
               <StaticLanguage en="Filter by Price" az="Qiymətə görə çeşidlə" />
             </h4>
-            <input type="range" name="vol" id="vol" min={0} max={100} className='range-input' />
-            <input type="submit" className='submit-input' />
+            <form onSubmit={filterPrice}>
+              <div className="price-filter-form">
+                <div className="min-price">
+                  <label htmlFor="">Min: </label>
+                  <input type="number" name="" id="" onChange={e => { setMin(e.target.value) }} />
+                </div>
+                <div className="max-price">
+                  <label htmlFor="">Max: </label>
+                  <input type="number" name="" id="" onChange={e => { setMax(e.target.value) }} />
+                </div>
+              </div>
+
+
+              <button type='submit' className='my-3'>Filter</button>
+            </form>
+
           </div>
         </div>
         <div className="right-products-part" >
@@ -125,7 +180,7 @@ const Shop = () => {
               </select>
             }
             az={
-              <select name="" id="" className='sorting-selection' data-aos="fade-up" data-aos-duration="2000"  onChange={e => sortProductsAz(e.target.value)}>
+              <select name="" id="" className='sorting-selection' data-aos="fade-up" data-aos-duration="2000" onChange={e => sortProductsAz(e.target.value)}>
                 <option value="sort-by">Sırala</option>
                 <option value="name-asc">Ad: A-dan Z-yə</option>
                 <option value="name-desc">Ad: Z-dən A-ya</option>
@@ -137,7 +192,23 @@ const Shop = () => {
           />
           <div className="row g-4">
 
-            {filteredData.length > 0 ? filteredData.map((item, index) => (
+            {isFilterActive ? (
+              filteredData.length > 0 ? filteredData.map((item, index) => (
+                <div className='col-12 col-sm-6 col-md-6 col-lg-4' key={item.id} data-aos="fade-up" data-aos-duration="2000">
+                  <SingleProduct key={index} item={item} />
+                </div>
+              )) : <h1 className='text-center my-5' style={{ fontFamily: "Shippori Mincho, sans-serif", textTransform: "uppercase" }}>
+                <StaticLanguage en="No Products Found!" az="Məhsul tapılmadı!" />
+              </h1>
+
+            ) : (
+              currentProducts.map((item, index) => (
+                <div className='col-12 col-sm-6 col-md-6 col-lg-4' key={item.id} data-aos="fade-up" data-aos-duration="2000">
+                  <SingleProduct key={index} item={item} />
+                </div>
+              ))
+            )}
+            {/* {filteredData.length > 0 ? filteredData.map((item, index) => (
               <div className='col-12 col-sm-6 col-md-6 col-lg-4' key={item.id} data-aos="fade-up" data-aos-duration="2000">
                 <SingleProduct key={index} item={item} />
               </div>
@@ -145,13 +216,30 @@ const Shop = () => {
               <div className='col-12 col-sm-6 col-md-6 col-lg-4' key={item.id} data-aos="fade-up" data-aos-duration="2000">
                 <SingleProduct key={index} item={item} />
               </div>
-            ))}
+            ))
+            } */}
+
           </div>
-          <div className="pagination-btn-con" data-aos="fade-up" data-aos-duration="2000">
+          {isFilterActive ? (
+            filteredData.length === 0 || currentProducts.length === 0 ?
+              <div></div>
+              : <div className="pagination-btn-con" data-aos="fade-up" data-aos-duration="2000">
+                {pageNumbers.map((item, index) => (
+                  <button className={`pagination-button m-2 ${item === currentPage ? "active" : ""}`} key={index} onClick={() => { setCurrentPage(item) }}>{item}</button>
+                ))}
+              </div>
+          ) :
+            <div className="pagination-btn-con" data-aos="fade-up" data-aos-duration="2000">
+              {pageNumbers.map((item, index) => (
+                <button className={`pagination-button m-2 ${item === currentPage ? "active" : ""}`} key={index} onClick={() => { setCurrentPage(item) }}>{item}</button>
+              ))}
+            </div>
+          }
+          {/* <div className="pagination-btn-con" data-aos="fade-up" data-aos-duration="2000">
             {pageNumbers.map((item, index) => (
               <button className={`pagination-button m-2 ${item === currentPage ? "active" : ""}`} key={index} onClick={() => { setCurrentPage(item) }}>{item}</button>
             ))}
-          </div>
+          </div> */}
         </div>
       </section>
       {/* </main> */}

@@ -103,37 +103,51 @@ const Header = (props) => {
                 </div>
                 <div className="hamburger-menu" onClick={toggleMenu}><CiMenuFries /></div>
                 <ul className={`nav-link-list ${menuOpen ? "active" : ""}`}>
-                    <li className="nav-links">
+                    <li className="nav-links" onClick={() => {
+                        if (menuOpen) setMenuOpen(false);
+                    }}>
                         <Link to='/'>
                             <StaticLanguage az="Ana səhİfə" en="Home" /><FaDiamond size={6} style={{ color: "#f2b612" }} />
                         </Link>
                     </li>
-                    <li className="nav-links">
+                    <li className="nav-links" onClick={() => {
+                        if (menuOpen) setMenuOpen(false);
+                    }}>
                         <Link to='/about'>
                             <StaticLanguage en="About Us" az="Haqqımızda" /> <FaDiamond size={6} style={{ color: "#f2b612" }} />
                         </Link>
                     </li>
-                    <li className="nav-links">
+                    <li className="nav-links" onClick={() => {
+                        if (menuOpen) setMenuOpen(false);
+                    }}>
                         <Link to='/shop'>
                             <StaticLanguage en="Shop" az="Mağaza" /> <FaDiamond size={6} style={{ color: "#f2b612" }} />
                         </Link>
                     </li>
-                    <li className="nav-links">
+                    <li className="nav-links" onClick={() => {
+                        if (menuOpen) setMenuOpen(false);
+                    }}>
                         <Link to='/blog'>
                             <StaticLanguage en="Blog" az="Bloq" /> <FaDiamond size={6} style={{ color: "#f2b612" }} />
                         </Link>
                     </li>
-                    <li className="nav-links">
+                    <li className="nav-links" onClick={() => {
+                        if (menuOpen) setMenuOpen(false);
+                    }}>
                         <Link>
                             <StaticLanguage en="Contact" az="Əlaqə" /> <FaDiamond size={6} style={{ color: "#f2b612" }} />
                         </Link>
                         <ul className='dropdown'>
-                            <li className='dropdown-items'>
+                            <li className='dropdown-items' onClick={() => {
+                                if (menuOpen) setMenuOpen(false);
+                            }}>
                                 <Link to='/contactus'>
                                     <FaDiamond size={6} style={{ color: "#f2b612", marginRight: "5px" }} /> <StaticLanguage en="Contact Us" az="Bİzİmlə Əlaqə" />
                                 </Link>
                             </li>
-                            <li className='dropdown-items'>
+                            <li className='dropdown-items' onClick={() => {
+                                if (menuOpen) setMenuOpen(false);
+                            }}>
                                 <Link to='/reservation'>
                                     <FaDiamond size={6} style={{ color: "#f2b612", marginRight: "5px" }} /> <StaticLanguage en="Reservation" az="Rezervasİya" /></Link>
                             </li>

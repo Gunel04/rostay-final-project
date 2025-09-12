@@ -42,6 +42,11 @@
                 border: none;
                 padding: 0;
             }
+            .dashboard-logout-btn {
+                background: none;
+                border: none;
+                color: white;
+            }
         }
 
     }
@@ -67,20 +72,20 @@
         }
     }
 
-    .bootom-dashboard-part {
-        ul {
-            margin-block: 35px;
-            width: 100%;
-            list-style: none;
-            padding-left: 10px;
+    // .bootom-dashboard-part {
+    //     ul {
+    //         margin-block: 35px;
+    //         width: 100%;
+    //         list-style: none;
+    //         padding-left: 10px;
 
-            li {
-                text-transform: uppercase;
-                font-size: 20px;
-                line-height: 2;
-                color: white;
-            }
-        }
+    //         li {
+    //             text-transform: uppercase;
+    //             font-size: 20px;
+    //             line-height: 2;
+    //             color: white;
+    //         }
+    //     }
 
-    }
+    // }
 }

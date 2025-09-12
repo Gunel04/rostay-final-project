@@ -1,6 +1,7 @@
 import Aos from 'aos'
 import { HiOutlineArrowLongRight } from 'react-icons/hi2'
 import StaticLanguage from '../../utils/StaticLanguage';
+import { Link } from 'react-router-dom';
 
 const SpecialMenu = () => {
     Aos.init();
@@ -46,9 +47,11 @@ const SpecialMenu = () => {
                     <img className='img-2' src="https://demo2.themelexus.com/rostay/wp-content/uploads/2025/03/gallery-3.jpg" alt="" />
                 </li>
             </ul>
-            <button data-aos="zoom-in" data-aos-duration="2000" className='menu-btn'>
-                <StaticLanguage en="View All Menu" az="Bütün menyuya bax" /> <HiOutlineArrowLongRight size={20} />
-            </button>
+            <Link to='/shop'>
+                <button data-aos="zoom-in" data-aos-duration="2000" className='menu-btn'>
+                    <StaticLanguage en="View All Menu" az="Bütün menyuya bax" /> <HiOutlineArrowLongRight size={20} />
+                </button>
+            </Link>
         </section>
     )
 }

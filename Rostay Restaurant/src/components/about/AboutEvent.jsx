@@ -1,5 +1,6 @@
 import { HiOutlineArrowLongRight } from 'react-icons/hi2'
 import StaticLanguage from '../../utils/StaticLanguage'
+import { Link } from 'react-router-dom'
 
 const AboutEvent = () => {
     const data = [
@@ -22,7 +23,7 @@ const AboutEvent = () => {
             buttonAz: "Kəşf Et"
         }
     ]
-    
+
     return (
         <section className="about-event-section container-fluid">
             <StaticLanguage
@@ -32,7 +33,9 @@ const AboutEvent = () => {
                         <div className="about-text-part">
                             <h1>{item.headingEn}</h1>
                             <p>{item.textEn}</p>
-                            <button className='discover-now-btn'>{item.buttonEn} <HiOutlineArrowLongRight size={20} /></button>
+                            <Link to='/contactus'>
+                                <button className='discover-now-btn'>{item.buttonEn} <HiOutlineArrowLongRight size={20} /></button>
+                            </Link>
                         </div>
                     </div>
                 ))}
@@ -43,7 +46,9 @@ const AboutEvent = () => {
                         <div className="about-text-part">
                             <h1>{item.headingAz}</h1>
                             <p>{item.textAz}</p>
-                            <button className='discover-now-btn'>{item.buttonAz} <HiOutlineArrowLongRight size={20} /></button>
+                            <Link to="/contactus">
+                                <button className='discover-now-btn'>{item.buttonAz} <HiOutlineArrowLongRight size={20} /></button>
+                            </Link>
                         </div>
                     </div>
                 ))}

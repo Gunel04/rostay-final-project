@@ -79,6 +79,10 @@
         }
     }
 
+    .dashboard-logout-btn {
+        color: #072b31;
+    }
+
     .date-input {
         color: #072b31;
     }
@@ -93,7 +97,10 @@
         }
     }
 
-    .login-section {
+    .login-section,
+    .min-price,
+    .max-price,
+    .second-footer {
         input {
             border-bottom: 1.5px solid rgba($color: gray, $alpha: 0.15);
             color: #072b31;
