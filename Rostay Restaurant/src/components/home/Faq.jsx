@@ -48,7 +48,7 @@ const Faq = () => {
     ]
     return (
         <>
-            {/* <main className="faq-section container-flu/id"> */}
+           
             <div className="faq-section-headings" data-aos='fade-up' data-aos-duration='2000'>
                 <h6>
                     <StaticLanguage en="Need Help" az="Kömək Lazımdır?" />
@@ -118,7 +118,6 @@ const Faq = () => {
                     <img src="https://demo2.themelexus.com/rostay/wp-content/uploads/2025/02/image-faq.jpg" alt="" />
                 </div>
             </div>
-            {/* </main> */}
         </>
     )
 }

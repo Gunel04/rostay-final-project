@@ -14,23 +14,9 @@ const Login = () => {
     const [password, setPassword] = useState("");
 
 
-    // useEffect(()=>{
-
-
-    //     const passwordd = "mySecret123";
-    //     const hashedPassword = await bcrypt.hash(passwordd, 10);
-    //     console.log("Hash:", hashedPassword);
-
-    //     // Şifrəni yoxlamaq (login zamanı)
-    //     const isMatch = await bcrypt.compare(passwordd, hashedPassword);
-    //     console.log("Doğrudur?", isMatch);
-    // },[])
-
-
     const visibility = (p) => {
         setIsVisible(p => !p);
     }
-    // console.log(isVisible);
 
     const handleLoginFormEn = async (e) => {
         e.preventDefault();

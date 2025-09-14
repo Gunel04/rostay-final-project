@@ -3,9 +3,7 @@ import { Link } from 'react-router-dom'
 import StaticLanguage from '../utils/StaticLanguage'
 
 const OurTeam = () => {
-    // useEffect(() => {
-    //     window.scrollTo(0, 0)
-    // });
+    
     const team = [
         {
             image: "https://demo2.themelexus.com/rostay/wp-content/uploads/2025/02/team-1.jpg",

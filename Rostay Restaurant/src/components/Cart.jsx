@@ -14,15 +14,24 @@ const Cart = () => {
     const [couponAlert, setCouponAlert] = useState("");
     const couponRef = useRef();
 
-    const applyCoupon = (e) => {
+    const applyCouponEn = (e) => {
         e.preventDefault();
         if (couponRef.current.value === "rostay20") {
             setTotal(cartTotal * 0.8);
             setCouponAlert("");
         }
         else {
-            // setTotal(cartTotal);
             setCouponAlert("This code doesn't appear!");
+        }
+    }
+    const applyCouponAz = (e) => {
+        e.preventDefault();
+        if (couponRef.current.value === "rostay20") {
+            setTotal(cartTotal * 0.8);
+            setCouponAlert("");
+        }
+        else {
+            setCouponAlert("Bu kod mövcud deyil!");
         }
     }
 
@@ -191,9 +200,18 @@ const Cart = () => {
                         <form action="">
                             <StaticLanguage en={<input type="text" placeholder='Enter code' ref={couponRef} />} az={<input type="text" placeholder='Kodu daxil edin' ref={couponRef} />} />
 
-                            <button onClick={applyCoupon}>
-                                <StaticLanguage en="Apply" az="Tətbİq et" />
-                            </button>
+                            <StaticLanguage
+                                en={
+                                    <button onClick={applyCouponEn}>
+                                        <StaticLanguage en="Apply" az="Tətbİq et" />
+                                    </button>
+                                }
+                                az={
+                                    <button onClick={applyCouponAz}>
+                                        <StaticLanguage en="Apply" az="Tətbİq et" />
+                                    </button>
+                                }
+                            />
                         </form>
                         {couponAlert}
                         <p className='total'><StaticLanguage en="Total: " az="Ümumi: " /> <span>${total.toFixed(1)}</span></p>

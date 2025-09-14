@@ -19,7 +19,7 @@ const MainLayout = (props) => {
         <>
             <Header modeFunction={props.modeFunction} mode={props.mode} />
             <Outlet />
-            <Footer />
+            <Footer mode={props.mode}/>
         </>
     )
 }

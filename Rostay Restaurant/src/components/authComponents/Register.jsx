@@ -17,10 +17,7 @@ const Register = () => {
     const [phone, setPhone] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
-    // const a = "Gunel_04!"
-    // console.log(a.includes('_' && '?'));
-    // console.log();
-
+   
     const visibility = () => {
         setIsVisible(p => !p);
     }
@@ -75,11 +72,9 @@ const Register = () => {
                     }, 1500);
                 }
             }
-            // createUser();
             const { data } = await supabase
                 .from('rostay-users')
                 .select();
-            // data.length === 0 ? createUser() : 
             if (data.length === 0) {
                 createUser();
             }
@@ -142,11 +137,9 @@ const Register = () => {
                     }, 1500);
                 }
             }
-            // createUser();
             const { data } = await supabase
                 .from('rostay-users')
                 .select();
-            // data.length === 0 ? createUser() : 
             if (data.length === 0) {
                 createUser();
             }
@@ -162,7 +155,6 @@ const Register = () => {
         }
 
     }
-    // console.log(isVisible);
 
     return (
         <StaticLanguage
@@ -273,55 +265,7 @@ const Register = () => {
             }
 
         />
-        // <main>
-        //     <div className="login-top-part">
-        //         <h1 data-aos="zoom-in" data-aos-duration="2000">My Account</h1>
-        //         <h6 data-aos="zoom-in" data-aos-duration="2000"><Link to='/'>Home</Link> &gt; <span>My Account</span> </h6>
-        //     </div>
-        //     <section className="login-section container-fluid d-flex justify-content-center flex-column align-items-center">
-        //         <h1 data-aos="fade-up" data-aos-duration="2000">Register</h1>
-        //         <Col lg={6} md={6} sm={7}>
-        //             <form data-aos="fade-up" data-aos-duration="2000" onSubmit={handleRegisterForm}>
-        //                 <div className="mb-3">
-        //                     <label className="form-label">Name</label>
-        //                     <input type="text" className="form-control" placeholder='Enter your name' onChange={e => setName(e.target.value)} />
-        //                 </div>
-        //                 <div className="mb-3">
-        //                     <label className="form-label">Surname</label>
-        //                     <input type="text" className="form-control" placeholder='Enter your surname' onChange={e => setSurname(e.target.value)} />
-        //                 </div>
-        //                 <div className="mb-3">
-        //                     <label className="form-label">Username</label>
-        //                     <input type="text" className="form-control" placeholder='Enter your username' onChange={e => setUsername(e.target.value)} />
-        //                 </div>
-        //                 <div className="mb-3">
-        //                     <label className="form-label">Email address</label>
-        //                     <input type="email" className="form-control" placeholder='Enter your email address' onChange={e => setEmail(e.target.value)} />
-        //                 </div>
-        //                 <div className="mb-3">
-        //                     <label className="form-label">Phone number</label>
-        //                     <input type="text" className="form-control" placeholder='Enter your phone number' onChange={e => setPhone(e.target.value)} />
-        //                 </div>
-        //                 <div className="mt-4">
-        //                     <label className="form-label">Password</label>
-        //                     <div className="password-input">
-        //                         <input type={isVisible ? "text" : "password"} className="form-control" placeholder='Enter your password' onChange={e => setPassword(e.target.value)} />
-        //                         <a type='submit' className='eye-button' onClick={visibility}>{isVisible ? <PiEyeThin size={22} /> : <PiEyeClosedThin size={22} />}</a>
-        //                     </div>
-        //                 </div>
-        //                 <div className="mt-4">
-        //                     <label className="form-label">Confirm Password</label>
-        //                     <div className="password-input">
-        //                         <input type={confirmVisible ? "text" : "password"} className="form-control" placeholder='Confirm your password' onChange={e => setConfirmPassword(e.target.value)} />
-        //                         <a type='submit' className='eye-button' onClick={confirmVisibility}>{confirmVisible ? <PiEyeThin size={22} /> : <PiEyeClosedThin size={22} />}</a>
-        //                     </div>
-        //                 </div>
-        //                 <button type="submit">Register</button>
-        //             </form>
-
-        //         </Col>
-        //     </section>
-        // </main>
+       
     )
 }
 

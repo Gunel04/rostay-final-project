@@ -15,7 +15,7 @@ import { IoMoon } from 'react-icons/io5';
 import { IoMdSunny } from 'react-icons/io';
 
 const Header = (props) => {
-    console.log(props);
+    console.log(props.mode);
 
     const [language, setLanguage] = useContext(LanguageContext);
     console.log(language);
@@ -98,7 +98,8 @@ const Header = (props) => {
             <div className="header-div ">
                 <div className="rostay-icon">
                     <Link to='/'>
-                        <img src="https://demo2.themelexus.com/rostay/wp-content/uploads/2025/02/logo.svg" alt="" />
+                    {props.mode === "light" ? <img src="src/assets/lightmodelogo.png" alt="" /> : <img src="https://demo2.themelexus.com/rostay/wp-content/uploads/2025/02/logo.svg" alt="" />}
+                        
                     </Link>
                 </div>
                 <div className="hamburger-menu" onClick={toggleMenu}><CiMenuFries /></div>

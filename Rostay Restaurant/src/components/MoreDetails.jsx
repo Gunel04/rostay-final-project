@@ -1,8 +1,6 @@
-import { useState } from "react";
-import { GiShoppingCart } from "react-icons/gi";
+import { useEffect, useState } from "react";
 import { HiOutlineArrowLongRight } from "react-icons/hi2";
 import { IoIosHeart, IoIosHeartEmpty } from "react-icons/io";
-import { PiEyeThin } from "react-icons/pi";
 import { useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
 import { useCart } from "react-use-cart";
@@ -13,20 +11,58 @@ import StaticLanguage from "../utils/StaticLanguage";
 import SingleProduct from "./SingleProduct";
 
 const MoreDetails = () => {
+  const [user, setUser] = useState(JSON.parse(localStorage.getItem('user')) || null);
+
   const products = useSelector((p) => p.product);
   const { title } = useParams();
-  const { addItem, items, updateItemQuantity, inCart } = useCart();
+  const { addItem, items, inCart } = useCart();
   const { inWishlist, addWishlistItem, removeWishlistItem } = useWishlist();
   const [counter, setCounter] = useState(1);
+
+  const [reviews, setReviews] = useState([]);
+  const [comment, setComment] = useState("");
+
+
   const singleProduct = products.find(
     (item) => slugify(item.titleEn, { lower: true }) === title
   );
-  const [user, setUser] = useState(JSON.parse(localStorage.getItem('user')) || null);
 
-  // const cartProduct = items.find(item => item.id === singleProduct.id);
-  console.log(items);
+  useEffect(() => {
+    const storedReviews = localStorage.getItem(`review-${singleProduct.id}`);
 
-  console.log(singleProduct.categoryEn);
+    if (storedReviews) {
+      setReviews(JSON.parse(storedReviews));
+    }
+  }, [singleProduct.id])
+
+  const handleReview = (e) => {
+    e.preventDefault();
+
+    if (user) {
+      const newReview = {
+        user: user.username || "Guest",
+        date: new Date().toLocaleString(),
+        comment
+      }
+
+      const updatedReviews = [...reviews, newReview];
+      setReviews(updatedReviews);
+
+      localStorage.setItem(`review-${singleProduct.id}`, JSON.stringify(updatedReviews));
+
+      setComment("");
+    }
+    else {
+      Swal.fire({
+        icon: "warning",
+        title: "Please sign in to leave review for products!"
+      })
+    }
+
+  }
+
+
+
   return (
     <>
       <StaticLanguage
@@ -108,6 +144,29 @@ const MoreDetails = () => {
               </div>
             </section>
 
+            <section className="review-section container-fluid">
+              <h1>Reviews</h1>
+              <ul className="review-list">
+                {reviews.length === 0 ? <p>No reviews yet!</p> :
+                  reviews.map((item, index) => (
+                    <li key={index}>
+                      <h4>{item.user}</h4>
+                      <p className="review-date">{item.date}</p>
+                      <p className="review-comment">{item.comment}</p>
+                      <hr />
+                    </li>
+                  ))
+                }
+              </ul>
+              <div className="review-form-con">
+                <h4>Add a Review for Product</h4>
+                <form action="" className="review-form" onSubmit={handleReview}>
+                  <textarea name="" id="" placeholder="Comment..." value={comment} onChange={e => { setComment(e.target.value) }}></textarea>
+                  <button type="submit">Submit Review <HiOutlineArrowLongRight size={20} /></button>
+                </form>
+              </div>
+            </section>
+
             <section className="related-products-section container-fluid" data-aos="fade-up" data-aos-duration="2000">
               <h1>Related products</h1>
               <div className="related-products">
@@ -183,8 +242,6 @@ const MoreDetails = () => {
                         title: "Zəhmət olmasa hesabınıza daxil olun!"
                       })
                     }
-
-
                   }} >
                     Səbətə Əlavə Et <HiOutlineArrowLongRight size={20} />
                   </button>
@@ -215,6 +272,29 @@ const MoreDetails = () => {
               </div>
             </section>
 
+            <section className="review-section container-fluid">
+              <h1>Rəylər</h1>
+              <ul className="review-list">
+                {reviews.length === 0 ? <li>Hələ rəy yoxdur!</li> :
+                  reviews.map((item, index) => (
+                    <li key={index}>
+                      <h4>{item.user}</h4>
+                      <p className="review-date">{item.date}</p>
+                      <p className="review-comment">{item.comment}</p>
+                      <hr />
+                    </li>
+
+                  ))
+                }
+              </ul>
+              <div className="review-form-con">
+                <h4>Məhsul üçün rəy əlavə edin</h4>
+                <form action="" className="review-form" onSubmit={handleReview}>
+                  <textarea name="" id="" placeholder="Rəyiniz..." value={comment} onChange={e => { setComment(e.target.value) }}></textarea>
+                  <button type="submit">Rəyi göndər <HiOutlineArrowLongRight size={20} /></button>
+                </form>
+              </div>
+            </section>
 
             <section className="related-products-section container-fluid" data-aos="fade-up" data-aos-duration="2000">
               <h1>Əlaqəlİ Məhsullar</h1>

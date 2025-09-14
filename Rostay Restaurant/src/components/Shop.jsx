@@ -13,7 +13,6 @@ const Shop = () => {
   const [active, setActive] = useState("");
   const [min, setMin] = useState("");
   const [max, setMax] = useState("");
-  // console.log(min,max);
 
   const categories = useSelector(p => p.category);
   const [products, setProducts] = useState(useSelector(p => p.product));
@@ -37,6 +36,8 @@ const Shop = () => {
     setIsFilterActive(true);
     setIsPriceFilter(true);
 
+    setMin("");
+    setMax("");
 
   }
 
@@ -99,17 +100,24 @@ const Shop = () => {
 
   const indexOfLastProduct = currentPage * productsPerPage;
   const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
-  const currentProducts = products.slice(indexOfFirstProduct, indexOfLastProduct);
+  const currentProducts = isFilterActive ? filteredData.slice(indexOfFirstProduct, indexOfLastProduct) : products.slice(indexOfFirstProduct, indexOfLastProduct);
 
   const pageNumbers = [];
 
-  for (let i = 1; i <= Math.ceil(products.length / productsPerPage); i++) {
-    pageNumbers.push(i);
+  if (isFilterActive) {
+    for (let i = 1; i <= Math.ceil(filteredData.length / productsPerPage); i++) {
+      pageNumbers.push(i);
+    }
   }
+  else {
+    for (let i = 1; i <= Math.ceil(products.length / productsPerPage); i++) {
+      pageNumbers.push(i);
+    }
+  }
+
 
   return (
     <>
-      {/* <main> */}
       <div className="shop-top-part">
         <h1 data-aos="zoom-in" data-aos-duration="2000"><StaticLanguage en="Shop" az="Mağaza" /></h1>
         <h6 data-aos="zoom-in" data-aos-duration="2000"><Link to='/'><StaticLanguage en="Home" az="Ana səhİfə" /></Link> &gt; <span><StaticLanguage en="Shop" az="Mağaza" /></span> </h6>
@@ -154,16 +162,18 @@ const Shop = () => {
               <div className="price-filter-form">
                 <div className="min-price">
                   <label htmlFor="">Min: </label>
-                  <input type="number" name="" id="" onChange={e => { setMin(e.target.value) }} />
+                  <input value={min} type="number" name="" id="" onChange={e => { setMin(e.target.value) }} />
                 </div>
                 <div className="max-price">
                   <label htmlFor="">Max: </label>
-                  <input type="number" name="" id="" onChange={e => { setMax(e.target.value) }} />
+                  <input value={max} type="number" name="" id="" onChange={e => { setMax(e.target.value) }} />
                 </div>
               </div>
 
 
-              <button type='submit' className='my-3'>Filter</button>
+              <button type='submit' className='my-3'>
+                <StaticLanguage en='Filter' az='Filtrlə' />
+              </button>
             </form>
 
           </div>
@@ -208,16 +218,7 @@ const Shop = () => {
                 </div>
               ))
             )}
-            {/* {filteredData.length > 0 ? filteredData.map((item, index) => (
-              <div className='col-12 col-sm-6 col-md-6 col-lg-4' key={item.id} data-aos="fade-up" data-aos-duration="2000">
-                <SingleProduct key={index} item={item} />
-              </div>
-            )) : currentProducts.map((item, index) => (
-              <div className='col-12 col-sm-6 col-md-6 col-lg-4' key={item.id} data-aos="fade-up" data-aos-duration="2000">
-                <SingleProduct key={index} item={item} />
-              </div>
-            ))
-            } */}
+
 
           </div>
           {isFilterActive ? (
@@ -235,14 +236,9 @@ const Shop = () => {
               ))}
             </div>
           }
-          {/* <div className="pagination-btn-con" data-aos="fade-up" data-aos-duration="2000">
-            {pageNumbers.map((item, index) => (
-              <button className={`pagination-button m-2 ${item === currentPage ? "active" : ""}`} key={index} onClick={() => { setCurrentPage(item) }}>{item}</button>
-            ))}
-          </div> */}
+
         </div>
       </section>
-      {/* </main> */}
     </>
   )
 }
