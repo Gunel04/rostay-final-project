@@ -1,6 +1,6 @@
 // const initialCategoryState = [];
 
-export const categoryReducer = (state = null, action) => {
+export const categoryReducer = (state = [], action) => {
     switch (action.type) {
         case 'Get_category':
             return action.categories;
@@ -9,7 +9,7 @@ export const categoryReducer = (state = null, action) => {
     }
 }
 
-export const productReducer = (state = null, action) => {
+export const productReducer = (state = [], action) => {
     switch (action.type) {
         case 'Get_product':
             return action.products;
@@ -19,7 +19,7 @@ export const productReducer = (state = null, action) => {
     }
 }
 
-export const blogReducer = (state = null, action) => {
+export const blogReducer = (state = [], action) => {
     switch (action.type) {
         case 'Get_blog':
             return action.blogs;

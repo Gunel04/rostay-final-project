@@ -1,4 +1,4 @@
-import { StrictMode } from 'react'
+import { StrictMode, useEffect, useState } from 'react'
 import { createRoot } from 'react-dom/client'
 import App from './App.jsx'
 // bootstrap
@@ -43,7 +43,7 @@ import "slick-carousel/slick/slick-theme.css";
 // slick-slider
 import configureStore from './tools/store/configureStore';
 import { addCategory, getBlog, getCategory, getProduct } from './tools/actions/action';
-import { Provider } from 'react-redux';
+import { Provider, useDispatch } from 'react-redux';
 import supabase from './utils/supabase.js';
 import { CartProvider } from 'react-use-cart';
 import { WishlistProvider } from 'react-use-wishlist';
@@ -52,33 +52,20 @@ import { CartTotalProvider } from './context/CartTotalContext.jsx';
 
 const myStore = configureStore();
 
-// const loadData = async () => {
+const loadData = async () => {
+  const { data } = await supabase.from('rostay-category').select();
+  const { data: products } = await supabase.from('rostay-products').select();
+  const { data: blogs } = await supabase.from('rostay-blog').select();
+  myStore.dispatch(getCategory(data))
+  myStore.dispatch(getProduct(products));
+  myStore.dispatch(getBlog(blogs));
+}
+loadData();
 
-// }
 
-// loadData();
-const { data } = await supabase.from('rostay-category').select();
-const { data: products } = await supabase.from('rostay-products').select();
-const { data: blogs } = await supabase.from('rostay-blog').select();
-myStore.dispatch(getCategory(data))
-myStore.dispatch(getProduct(products));
-myStore.dispatch(getBlog(blogs));
-// const getCategory = async () => {
-//   data.map(item => (
-//     myStore.dispatch(addCategory({ categoryName: item.categoryName }))
-//   ))
 
-// }
 
-// getCategory();
 
-// myStore.subscribe(() => {
-//   console.log(myStore.getState());
-
-// })
-
-// myStore.dispatch(addCategory({ categoryName: "Main Dishes" }));
-// // console.log(myStore.getState());
 
 
 createRoot(document.getElementById('root')).render(
