@@ -6,6 +6,8 @@ import StaticLanguage from '../utils/StaticLanguage';
 
 const Blog = () => {
     const blogs = useSelector(p => p.blog);
+    // console.log(blogs);
+    
 
     const [currentPage, setCurrentPage] = useState(1);
     const blogsPerPage = 3;

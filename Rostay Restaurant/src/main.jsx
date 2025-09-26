@@ -52,17 +52,17 @@ import { CartTotalProvider } from './context/CartTotalContext.jsx';
 
 const myStore = configureStore();
 
-const loadData = async() => {
-  const { data } = await supabase.from('rostay-category').select();
-  const { data: products } = await supabase.from('rostay-products').select();
-  const { data: blogs } = await supabase.from('rostay-blog').select();
-  myStore.dispatch(getCategory(data))
-  myStore.dispatch(getProduct(products));
-  myStore.dispatch(getBlog(blogs));
-}
+// const loadData = async () => {
 
-loadData();
+// }
 
+// loadData();
+const { data } = await supabase.from('rostay-category').select();
+const { data: products } = await supabase.from('rostay-products').select();
+const { data: blogs } = await supabase.from('rostay-blog').select();
+myStore.dispatch(getCategory(data))
+myStore.dispatch(getProduct(products));
+myStore.dispatch(getBlog(blogs));
 // const getCategory = async () => {
 //   data.map(item => (
 //     myStore.dispatch(addCategory({ categoryName: item.categoryName }))
