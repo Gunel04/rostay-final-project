@@ -381,6 +381,20 @@
 
 
     }
+    .review-section {
+        
+        h1 {
+            font-size: 35px;
+        }
+        .review-list {
+            margin-top: 20px;
+        }
+        .review-form-con {
+            h4 {
+                font-size: 18px;
+            }
+        }
+    }
 
     .related-products-section {
         h1 {
@@ -425,6 +439,11 @@
 
 
     }
+    .review-section {
+        width: 90%;
+        margin: auto;
+
+    }
 
     // }
 }
@@ -439,6 +458,10 @@
             font-size: 35px;
         }
     }
+    // .review-section{
+
+
+    // }
 
     // }
 }

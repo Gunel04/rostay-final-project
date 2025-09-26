@@ -69,7 +69,8 @@
     .make-reservation-btn,
     .book-table-btn,
     .login-btn,
-    .back-to-shop-btn {
+    .back-to-shop-btn,
+    .submit-review-btn {
         color: #072b31;
         border: 1px solid #072b31;
 
@@ -275,6 +276,9 @@
         li {
             color: #072b31;
         }
+    }
+    textarea {
+        border-bottom: 1.5px solid rgb(201, 201, 201);
     }
 }
 

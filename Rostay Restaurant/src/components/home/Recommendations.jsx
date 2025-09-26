@@ -5,7 +5,8 @@ import SingleProduct from '../SingleProduct';
 
 const Recommendations = () => {
   const products = useSelector(p => p.product);
-  
+
+
   var settings = {
     dots: false,
     infinite: true,
@@ -55,20 +56,20 @@ const Recommendations = () => {
     <section className="recommendations-section container-fluid">
       <div className="recommendations-heading" data-aos='fade-up' data-aos-duration='2000'>
         <h5>
-          <StaticLanguage en="Recommendations" az="Tövsİyələr"/>
+          <StaticLanguage en="Recommendations" az="Tövsİyələr" />
         </h5>
         <h1>
-          <StaticLanguage en="Best Speacialties" az="Seçİlmİş təamlar"/>
+          <StaticLanguage en="Best Speacialties" az="Seçİlmİş təamlar" />
         </h1>
       </div>
       <div className="recommend-products">
-            <Slider {...settings}>
-              {products.slice(0, 6).map((item, index) => (
-                <div className='col-12 col-sm-6 col-md-6 col-lg-4' key={index} data-aos="fade-up" data-aos-duration="2000">
-                  <SingleProduct item={item}/>
-                </div>
-              ))}
-            </Slider>
+        <Slider {...settings}>
+          {products.slice(0, 6).map((item, index) => (
+            <div className='col-12 col-sm-6 col-md-6 col-lg-4' key={index} data-aos="fade-up" data-aos-duration="2000">
+              <SingleProduct item={item} />
+            </div>
+          ))}
+        </Slider>
       </div>
     </section>
   )

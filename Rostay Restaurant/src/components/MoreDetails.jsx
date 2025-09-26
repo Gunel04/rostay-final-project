@@ -162,7 +162,7 @@ const MoreDetails = () => {
                 <h4>Add a Review for Product</h4>
                 <form action="" className="review-form" onSubmit={handleReview}>
                   <textarea name="" id="" placeholder="Comment..." value={comment} onChange={e => { setComment(e.target.value) }}></textarea>
-                  <button type="submit">Submit Review <HiOutlineArrowLongRight size={20} /></button>
+                  <button className="submit-review-btn" type="submit">Submit Review <HiOutlineArrowLongRight size={20} /></button>
                 </form>
               </div>
             </section>

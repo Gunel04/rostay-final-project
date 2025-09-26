@@ -17,7 +17,7 @@ const Register = () => {
     const [phone, setPhone] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
-   
+
     const visibility = () => {
         setIsVisible(p => !p);
     }
@@ -57,7 +57,7 @@ const Register = () => {
             const createUser = async () => {
                 const { error } = await supabase
                     .from('rostay-users')
-                    .insert([{ name, surname, username, email, phone, password, token: crypto.randomUUID() }])
+                    .insert([{ name, surname, username, email, phone, password, token: crypto.randomUUID(), role: "user" }])
 
                 if (error) {
                     console.log("Error:", error);
@@ -122,7 +122,7 @@ const Register = () => {
             const createUser = async () => {
                 const { error } = await supabase
                     .from('rostay-users')
-                    .insert([{ name, surname, username, email, phone, password, token: crypto.randomUUID(), role:"user" }])
+                    .insert([{ name, surname, username, email, phone, password, token: crypto.randomUUID(), role: "user" }])
 
                 if (error) {
                     console.log("Error:", error);
@@ -265,7 +265,7 @@ const Register = () => {
             }
 
         />
-       
+
     )
 }
 
