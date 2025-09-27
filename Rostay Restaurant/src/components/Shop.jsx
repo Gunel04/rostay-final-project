@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom';
 import SingleProduct from './SingleProduct';
@@ -6,35 +6,52 @@ import StaticLanguage from '../utils/StaticLanguage';
 
 const Shop = () => {
 
-  const [filteredData, setFilteredData] = useState([]);
-  const [isFilterActive, setIsFilterActive] = useState(false);
-  const [isPriceFilter, setIsPriceFilter] = useState(false);
-
   const [active, setActive] = useState("");
   const [min, setMin] = useState("");
   const [max, setMax] = useState("");
 
   const categories = useSelector(p => p.category);
-  const [products, setProducts] = useState(useSelector(p => p.product));
+  const storeProducts = useSelector(p => p.product);
+  const [products, setProducts] = useState([]);
+  const [displayedProducts, setDisplayedProducts] = useState([]);
 
   const [currentPage, setCurrentPage] = useState(1);
   const productsPerPage = 6;
 
+  useEffect(() => {
+    setProducts(storeProducts)
+    setDisplayedProducts(storeProducts);
+  }, [storeProducts])
+
+
   const filterProductsEn = (category) => {
-    const filteringProcess = isPriceFilter ? filteredData.filter(p => p.categoryEn === category) : products.filter(p => p.categoryEn === category);
-    setFilteredData(filteringProcess);
-    setActive(category);
-    setIsFilterActive(true);
+    if (!category) {
+      setDisplayedProducts(products);
+      setActive("");
+    }
+    else {
+      const filtered = products.filter(p => p.categoryEn === category);
+      setDisplayedProducts(filtered);
+      setActive(category);
+    }
+
+    setCurrentPage(1);
   }
 
   const filterPrice = (e) => {
     e.preventDefault();
     const minValue = min ? parseFloat(min) : 0;
     const maxValue = max ? parseFloat(max) : Infinity;
-    const filteringPrice = filteredData.length === 0 ? products.filter(p => p.price >= minValue && p.price <= maxValue) : filteredData.filter(p => p.price >= minValue && p.price <= maxValue);
-    setFilteredData(filteringPrice);
-    setIsFilterActive(true);
-    setIsPriceFilter(true);
+    let categoryBaseData = products;
+    if (active) {
+      categoryBaseData = products.filter(
+        (p) => p.categoryEn === active || p.categoryAz === active
+      );
+    }
+    const filtered = categoryBaseData.filter(p => p.price >= minValue && p.price <= maxValue);
+
+    setDisplayedProducts(filtered);
+    setCurrentPage(1);
 
     setMin("");
     setMax("");
@@ -42,14 +59,22 @@ const Shop = () => {
   }
 
   const filterProductsAz = (category) => {
-    const filteringProcess = isPriceFilter ? filteredData.filter(p => p.categoryAz === category) : products.filter(p => p.categoryAz === category);
-    setFilteredData(filteringProcess);
-    setActive(category);
-    setIsFilterActive(true);
+   
+    if (!category) {
+      setDisplayedProducts(products);
+      setActive("");
+    }
+    else {
+      const filtered = products.filter(p => p.categoryAz === category);
+      setDisplayedProducts(filtered);
+      setActive(category);
+    }
+
+    setCurrentPage(1);
   }
 
   const sortProductsEn = (sortingType) => {
-    const sortedProducts = filteredData.length === 0 ? [...products] : [...filteredData];
+    const sortedProducts = [...displayedProducts];
 
     if (sortingType === 'price-asc') {
       sortedProducts.sort((a, b) => a.price - b.price);
@@ -63,17 +88,13 @@ const Shop = () => {
     else if (sortingType === 'name-desc') {
       sortedProducts.sort((a, b) => b.titleEn.localeCompare(a.titleEn));
     }
-    if (filteredData.length === 0) {
-
-      setProducts(sortedProducts);
-    }
-    else {
-      setFilteredData(sortedProducts);
-    }
+   
+    setDisplayedProducts(sortedProducts)
   }
 
   const sortProductsAz = (sortingType) => {
-    const sortedProducts = filteredData.length === 0 ? [...products] : [...filteredData];
+    const sortedProducts = [...displayedProducts];
+
     if (sortingType === 'price-asc') {
       sortedProducts.sort((a, b) => a.price - b.price);
     }
@@ -86,35 +107,24 @@ const Shop = () => {
     else if (sortingType === 'name-desc') {
       sortedProducts.sort((a, b) => b.titleAz.localeCompare(a.titleAz));
     }
-    if (filteredData.length === 0) {
-
-      setProducts(sortedProducts);
-    }
-    else {
-      setFilteredData(sortedProducts);
-    }
+    
+    setDisplayedProducts(sortedProducts);
     console.log("Sorted:", sortedProducts);
   }
-  console.log(filteredData);
+  console.log(1, products);
 
 
   const indexOfLastProduct = currentPage * productsPerPage;
   const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
-  const currentProducts = isFilterActive ? filteredData.slice(indexOfFirstProduct, indexOfLastProduct) : products.slice(indexOfFirstProduct, indexOfLastProduct);
+  
+
+  const currentProducts = displayedProducts.slice(indexOfFirstProduct, indexOfLastProduct);
 
   const pageNumbers = [];
 
-  if (isFilterActive) {
-    for (let i = 1; i <= Math.ceil(filteredData.length / productsPerPage); i++) {
-      pageNumbers.push(i);
-    }
+  for (let i = 1; i <= Math.ceil(displayedProducts.length / productsPerPage); i++) {
+    pageNumbers.push(i);
   }
-  else {
-    for (let i = 1; i <= Math.ceil(products.length / productsPerPage); i++) {
-      pageNumbers.push(i);
-    }
-  }
-
 
   return (
     <>
@@ -202,40 +212,29 @@ const Shop = () => {
           />
           <div className="row g-4">
 
-            {isFilterActive ? (
-              filteredData.length > 0 ? filteredData.map((item, index) => (
-                <div className='col-12 col-sm-6 col-md-6 col-lg-4' key={item.id} data-aos="fade-up" data-aos-duration="2000">
-                  <SingleProduct key={index} item={item} />
-                </div>
-              )) : <h1 className='text-center my-5' style={{ fontFamily: "Shippori Mincho, sans-serif", textTransform: "uppercase" }}>
-                <StaticLanguage en="No Products Found!" az="Məhsul tapılmadı!" />
-              </h1>
-
-            ) : (
-              currentProducts.map((item, index) => (
-                <div className='col-12 col-sm-6 col-md-6 col-lg-4' key={item.id} data-aos="fade-up" data-aos-duration="2000">
-                  <SingleProduct key={index} item={item} />
-                </div>
-              ))
-            )}
+            {displayedProducts.length > 0 ? currentProducts.map((item, index) => (
+              <div className='col-12 col-sm-6 col-md-6 col-lg-4' key={item.id} data-aos="fade-up" data-aos-duration="2000">
+                <SingleProduct key={index} item={item} />
+              </div>
+            )) : <h1 className='text-center my-5' style={{ fontFamily: "Shippori Mincho, sans-serif", textTransform: "uppercase" }}>
+              <StaticLanguage en="No Products Found!" az="Məhsul tapılmadı!" />
+            </h1>}
 
 
           </div>
-          {isFilterActive ? (
-            filteredData.length === 0 || currentProducts.length === 0 ?
-              <div></div>
-              : <div className="pagination-btn-con" data-aos="fade-up" data-aos-duration="2000">
-                {pageNumbers.map((item, index) => (
-                  <button className={`pagination-button m-2 ${item === currentPage ? "active" : ""}`} key={index} onClick={() => { setCurrentPage(item) }}>{item}</button>
-                ))}
-              </div>
-          ) :
-            <div className="pagination-btn-con" data-aos="fade-up" data-aos-duration="2000">
-              {pageNumbers.map((item, index) => (
-                <button className={`pagination-button m-2 ${item === currentPage ? "active" : ""}`} key={index} onClick={() => { setCurrentPage(item) }}>{item}</button>
-              ))}
-            </div>
-          }
+
+          <div className="pagination-btn-con" data-aos="fade-up" data-aos-duration="2000">
+            {pageNumbers.map((item, index) => (
+              <button
+                className={`pagination-button m-2 ${item === currentPage ? "active" : ""}`}
+                key={index}
+                onClick={() => setCurrentPage(item)}
+              >
+                {item}
+              </button>
+            ))}
+          </div>
+
 
         </div>
       </section>

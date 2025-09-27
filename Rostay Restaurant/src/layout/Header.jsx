@@ -22,7 +22,7 @@ const Header = (props) => {
     // const [theme, setTheme] = useState(localStorage.getItem('mode'));
 
     const products = useSelector(p => p.product);
-    console.log(products);
+    console.log(2, products);
     const [searchKey, setSearchKey] = useState("");
 
     const [menuOpen, setMenuOpen] = useState(false);
@@ -98,7 +98,7 @@ const Header = (props) => {
             <div className="header-div ">
                 <div className="rostay-icon">
                     <Link to='/'>
-                    {props.mode === "light" ? <img src="src/assets/lightmodelogo.png" alt="" /> : <img src="https://demo2.themelexus.com/rostay/wp-content/uploads/2025/02/logo.svg" alt="" />}
+                    {props.mode === "light" ? <img src="https://i.postimg.cc/c1M2HLYQ/lightmodelogo.png" alt="" /> : <img src="https://demo2.themelexus.com/rostay/wp-content/uploads/2025/02/logo.svg" alt="" />}
                         
                     </Link>
                 </div>

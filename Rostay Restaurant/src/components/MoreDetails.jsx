@@ -9,6 +9,7 @@ import slugify from "slugify";
 import Swal from "sweetalert2";
 import StaticLanguage from "../utils/StaticLanguage";
 import SingleProduct from "./SingleProduct";
+import Slider from "react-slick";
 
 const MoreDetails = () => {
   const [user, setUser] = useState(JSON.parse(localStorage.getItem('user')) || null);
@@ -61,7 +62,42 @@ const MoreDetails = () => {
 
   }
 
-
+  var settings = {
+    dots: false,
+    infinite: true,
+    speed: 1500,
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    initialSlide: 0,
+    arrows: false,
+    autoplay: true,
+    responsive: [
+      {
+        breakpoint: 880,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          infinite: true,
+          dots: false
+        }
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          initialSlide: 2
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1
+        }
+      }
+    ]
+  };
 
   return (
     <>
@@ -171,23 +207,27 @@ const MoreDetails = () => {
               <h1>Related products</h1>
               <div className="related-products">
                 <div className="row">
-                  {products.filter(
-                    (item) =>
-                      item.categoryEn === singleProduct.categoryEn &&
-                      item.titleEn !== singleProduct.titleEn
-                  ).length > 0 ? (
-                    products
-                      .filter(
-                        (item) =>
-                          item.categoryEn === singleProduct.categoryEn &&
-                          item.titleEn !== singleProduct.titleEn
-                      )
-                      .map((item, index) => (
-                        <div className="col-12 col-sm-6 col-md-4 col-lg-3" key={index}>
-                          <SingleProduct item={item} />
-                        </div>
-                      ))
-                  ) : (<h4 className="text-center">No related products</h4>)}
+                  <Slider {...settings}>
+
+
+                    {products.filter(
+                      (item) =>
+                        item.categoryEn === singleProduct.categoryEn &&
+                        item.titleEn !== singleProduct.titleEn
+                    ).length > 0 ? (
+                      products
+                        .filter(
+                          (item) =>
+                            item.categoryEn === singleProduct.categoryEn &&
+                            item.titleEn !== singleProduct.titleEn
+                        )
+                        .map((item, index) => (
+                          <div className="col-12 col-sm-6 col-md-4 col-lg-3" key={index}>
+                            <SingleProduct item={item} />
+                          </div>
+                        ))
+                    ) : (<h4 className="text-center">No related products</h4>)}
+                  </Slider>
                 </div>
               </div>
             </section>

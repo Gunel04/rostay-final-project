@@ -13,7 +13,7 @@ const Footer = (props) => {
       <div className="first-footer" data-aos="fade-up" data-aos-duration="1500">
         <img className='plate' src="https://demo2.themelexus.com/rostay/wp-content/uploads/2025/02/footer-burger.png" alt="" />
         <div className="first-footer-right">
-          {props.mode === "light" ? <img src="src/assets/lightmodelogo.png" alt="" /> : <img src="https://demo2.themelexus.com/rostay/wp-content/uploads/2025/02/logo.svg" alt="" />}
+          {props.mode === "light" ? <img src="https://i.postimg.cc/c1M2HLYQ/lightmodelogo.png" alt="" /> : <img src="https://demo2.themelexus.com/rostay/wp-content/uploads/2025/02/logo.svg" alt="" />}
           <p><StaticLanguage en="Delicios Restaurant & Fine dining, 71 Madison Ave, New York, USA" az="Delicios Restoranı – Zərif Yeməklər, 71 Madison Ave, New York, ABŞ" /></p>
           <p> <StaticLanguage en="Need help? Call us:" az="Köməyə ehtiyacınız var? Zəng edin:" /><span>+4800 567 8900</span></p>
           <p>support@example.com</p>

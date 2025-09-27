@@ -13,39 +13,95 @@ const Reservation = () => {
   const formRef = useRef();
   const currentDate = new Date();
 
-  const reservationSubmit = () => {
-    if (!personRef.current.value || !dateRef.current.value || !timeRef.current.value) {
-      Swal.fire({
-        icon: "warning",
-        title: "Please, enter all information!"
-      })
-    }
-    else if (new Date(dateRef.current.value) < currentDate) {
-      Swal.fire({
-        icon: "error",
-        title: "Invalid date!"
-      })
+  const [user, setUser] = useState(JSON.parse(localStorage.getItem('user')) || null);
+
+
+  const reservationSubmitEn = () => {
+    if (user) {
+      if (!personRef.current.value || !dateRef.current.value || !timeRef.current.value) {
+        Swal.fire({
+          icon: "warning",
+          title: "Please, enter all information!"
+        })
+      }
+      else if (new Date(dateRef.current.value) < currentDate) {
+        Swal.fire({
+          icon: "error",
+          title: "Invalid date!"
+        })
+      }
+      else {
+        emailjs
+          .sendForm('service_fyjctti', 'template_vgcknvf', formRef.current, {
+            publicKey: 'A8Bcb8fUiHIXp_CJo',
+          })
+          .then(
+            () => {
+              Swal.fire({
+                icon: "success",
+                title: "Reservation process is completed successfully!"
+              })
+            },
+            (error) => {
+              Swal.fire({
+                icon: "error",
+                title: "Reservation process is failed!"
+              })
+            },
+          );
+      }
     }
     else {
-      emailjs
-        .sendForm('service_fyjctti', 'template_vgcknvf', formRef.current, {
-          publicKey: 'A8Bcb8fUiHIXp_CJo',
-        })
-        .then(
-          () => {
-            Swal.fire({
-              icon: "success",
-              title: "Reservation process is completed successfully!"
-            })
-          },
-          (error) => {
-            Swal.fire({
-              icon: "error",
-              title: "Reservation process is failed!"
-            })
-          },
-        );
+      Swal.fire({
+        icon: "warning",
+        title: "Please sign in to your account!"
+      })
     }
+
+  }
+
+  const reservationSubmitAz = () => {
+    if (user) {
+      if (!personRef.current.value || !dateRef.current.value || !timeRef.current.value) {
+        Swal.fire({
+          icon: "warning",
+          title: "Zəhmət olmasa, bütün məlumatları daxil edin!"
+        })
+      }
+      else if (new Date(dateRef.current.value) < currentDate) {
+        Swal.fire({
+          icon: "error",
+          title: "Yanlış tarix!"
+        })
+      }
+      else {
+        emailjs
+          .sendForm('service_fyjctti', 'template_vgcknvf', formRef.current, {
+            publicKey: 'A8Bcb8fUiHIXp_CJo',
+          })
+          .then(
+            () => {
+              Swal.fire({
+                icon: "success",
+                title: "Rezervasiya prosesi uğurla tamamlandı!"
+              })
+            },
+            (error) => {
+              Swal.fire({
+                icon: "error",
+                title: "Rezervasiya prosesi uğursuz oldu!"
+              })
+            },
+          );
+      }
+    }
+    else {
+      Swal.fire({
+        icon: "warning",
+        title: "Zəhmət olmasa, hesabınıza daxil olun!"
+      })
+    }
+
   }
 
   return (
@@ -115,7 +171,16 @@ const Reservation = () => {
                 <option value="20:00">20:00</option>
               </select>
             </form>
-            <button className='book-table-btn' type='button' onClick={() => { reservationSubmit() }}><StaticLanguage en="Book a Table" az="Masa Sİfarİş Et" /> <HiOutlineArrowLongRight size={20} /></button>
+            <StaticLanguage
+              en={
+                <button className='book-table-btn' type='button' onClick={() => { reservationSubmitEn() }}>Book a Table <HiOutlineArrowLongRight size={20} /></button>
+              }
+
+              az={
+                <button className='book-table-btn' type='button' onClick={() => { reservationSubmitAz() }}>Masa Sİfarİş Et <HiOutlineArrowLongRight size={20} /></button>
+              }
+
+            />
           </Col>
         </section>
       </main>
